@@ -1,0 +1,1228 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8">
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+	
+	<!-- title -->
+	
+	<title>
+	
+		14Linux之系统管理 | 
+	 
+	竹竿小站
+	</title>
+	
+	<!-- keywords,description -->
+	 
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.jpg">
+	
+
+
+	<!-- search -->
+	<script>
+		var searchEngine = "https://www.baidu.com/s?wd=";
+		if(typeof searchEngine == "undefined" || searchEngine == null || searchEngine == ""){
+			searchEngine = "https://www.google.com/search?q=";
+		}
+		var homeHost = "bamboo.github.io";
+		if(typeof homeHost == "undefined" || homeHost == null || homeHost == ""){
+			homeHost = window.location.host;
+		}
+	</script>
+
+
+	
+<link rel="stylesheet" href="/css/main.css">
+
+	
+<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.min.css">
+
+	
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.17.1/build/styles/darcula.min.css">
+
+	
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+
+
+	
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+
+	
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
+	
+<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.17.1/build/highlight.min.js"></script>
+
+	
+<script src="https://cdn.jsdelivr.net/npm/jquery-pjax@2.0.1/jquery.pjax.min.js"></script>
+
+	
+<script src="/js/main.js"></script>
+
+	
+		
+<script src="https://cdn.jsdelivr.net/npm/leancloud-storage/dist/av-min.js"></script>
+
+		
+<script src="https://cdn.jsdelivr.net/npm/valine@1.3.10/dist/Valine.min.js"></script>
+
+	
+	
+		<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+	
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+	<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?3efe99c287df5a1d6f0d02d187e403c1";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+<header id="header">
+    <a id="title" href="/" class="logo">竹竿小站</a>
+
+	<ul id="menu">
+		<li class="menu-item">
+			<a href="/about" class="menu-item-link">ABOUT</a>
+		</li>
+	
+		<li class="menu-item">
+			<a href="/tags" class="menu-item-link">标签</a>
+		</li>
+	
+
+	
+		<li class="menu-item">
+			<a href="/categories" class="menu-item-link">分类</a>
+		</li>
+	
+
+		<li class="menu-item">
+			<a href="https://github.com/wujun234/uid-generator-spring-boot-starter" class="menu-item-link" target="_blank">
+				UidGenerator
+			</a>
+		</li>
+		<li class="menu-item">
+			<a href="https://github.com/wujun234" class="menu-item-link" target="_blank">
+				<i class="fa fa-github fa-2x"></i>
+			</a>
+		</li>
+	</ul>
+</header>
+
+	
+<div id="sidebar">
+	<button id="sidebar-toggle" class="toggle" ><i class="fa fa-arrow-right " aria-hidden="true"></i></button>
+	
+	<div id="site-toc">
+		<input id="search-input" class="search-input" type="search" placeholder="按回车全站搜索">
+		<div id="tree">
+			
+
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Linux
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/2017/08/08/Linux/01linux-%E5%AE%89%E8%A3%85/">
+										01linux-安装
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/11/08/Linux/02Linux%E5%AD%A6%E5%89%8D%E9%A1%BB%E7%9F%A5/">
+										02Linux学前须知
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/11/08/Linux/03Linuxz%E4%B9%8B%E5%B8%B8%E7%94%A8%E7%9A%84%E5%91%BD%E4%BB%A4/">
+										03Linuxz之常用的命令
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2021/04/12/Linux/04Linux%E4%B9%8BVim/">
+										04Linux之Vim
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/11/14/Linux/05Linux%E4%B9%8B%E8%BD%AF%E4%BB%B6%E5%8C%85/">
+										05Linux之软件包
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/11/18/Linux/06Linux%E4%B9%8B%E7%94%A8%E6%88%B7%E7%AE%A1%E7%90%86/">
+										06Linux之用户管理
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/11/19/Linux/07Linux%E4%B9%8B%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/">
+										07Linux之权限管理
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/11/20/Linux/08Linux%E4%B9%8B%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F%E7%AE%A1%E7%90%86/">
+										08Linux之文件系统管理
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/11/23/Linux/09Linux%E4%B9%8B%E9%AB%98%E7%BA%A7%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F/">
+										09Linux之高级文件管理系统
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/11/24/Linux/10Linux%E4%B9%8Bshell/">
+										10Linux之shell
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/11/26/Linux/11Linux%E4%B9%8Bshell%E9%AB%98%E7%BA%A7/">
+										11Linux之shell高级
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/12/02/Linux/12Linux%E4%B9%8B%E5%90%AF%E5%8A%A8%E5%BC%95%E5%AF%BC%E4%B8%8E%E4%BF%AE%E5%A4%8D/">
+										12Linux之启动引导与修复
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/12/06/Linux/13Linux%E4%B9%8B%E6%9C%8D%E5%8A%A1%E7%AE%A1%E7%90%86/">
+										13Linux之服务管理
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file active">
+									<a href="/2019/12/10/Linux/14Linux%E4%B9%8B%E7%B3%BB%E7%BB%9F%E7%AE%A1%E7%90%86/">
+										14Linux之系统管理
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/12/06/Linux/15Linux%E4%B9%8B%E7%B3%BB%E7%BB%9F%E6%97%A5%E5%BF%97/">
+										15Linux之系统日志
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/12/17/Linux/16Centos6%E5%92%8CCentos7%E5%9F%BA%E6%9C%AC%E5%AF%B9%E6%AF%94/">
+										16Centos6和Centos7基本对比
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/12/17/Linux/17Linux%E4%B9%8B%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/">
+										17Linux之网络基础
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/10/15/Linux/18Linux%E4%B9%8B%E6%9C%8D%E5%8A%A1%E5%9F%BA%E7%A1%80SSH/">
+										18Linux之服务基础SSH
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/12/18/Linux/19Linux%E4%B9%8B%E6%9C%8D%E5%8A%A1%E5%9F%BA%E7%A1%80TCP%20Wrappers/">
+										19Linux之服务基础TCP Wrappers
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/12/18/Linux/20%E7%BD%91%E7%BB%9C%E6%9C%8D%E5%8A%A1%E4%B9%8BDHCP/">
+										20网络服务之DHCP
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/12/20/Linux/21%E7%BD%91%E7%BB%9C%E6%9C%8D%E5%8A%A1%E4%B9%8BDNS/">
+										21网络服务之DNS
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/12/26/Linux/22%E7%BD%91%E7%BB%9C%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B9%8BVSFTP/">
+										22网络服务器之VSFTP
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/10/11/Linux/Bash%E5%BF%AB%E6%8D%B7%E9%94%AE/">
+										Bash快捷键
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/10/10/Linux/LInux-CDN%E7%AE%80%E4%BB%8B/">
+										LInux-CDN简介
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/10/08/Linux/Llinux-DNS-%E8%AF%A6%E8%A7%A3/">
+										Llinux-DNS-详解
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/10/13/Linux/linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">
+										linux常用命令
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2021/04/12/Linux/%E5%8D%8A%E8%99%9A%E6%8B%9F%E5%8C%96%E5%92%8C%E7%A1%AC%E4%BB%B6%E8%99%9A%E6%8B%9F%E5%8C%96%E7%9A%84%E4%B8%BB%E8%A6%81%E5%8C%BA%E5%88%AB/">
+										半虚拟化和硬件虚拟化的主要区别
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										web渗透
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/2020/09/17/web%E6%B8%97%E9%80%8F/01SQL%E6%B3%A8%E5%85%A5/">
+										01SQL注入
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										搭建
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/2018/11/18/%E6%90%AD%E5%BB%BA/NextCloud/">
+										NextCloud
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2018/11/18/%E6%90%AD%E5%BB%BA/Nmap-Sublist3r-Hydra%E5%AE%89%E8%A3%85%EF%BC%88Ubuntu%E7%8E%AF%E5%A2%83%EF%BC%89/">
+										Nmap-Sublist3r-Hydra安装（Ubuntu环境）
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/04/11/%E6%90%AD%E5%BB%BA/hadoop%E5%8D%95%E6%9C%BA%E9%9B%86%E7%BE%A4%E6%90%AD%E5%BB%BA/">
+										hadoop单机集群搭建
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										汇编
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/2018/12/20/%E6%B1%87%E7%BC%96/%E6%B1%87%E7%BC%961/">
+										汇编1
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2018/12/26/%E6%B1%87%E7%BC%96/%E6%B1%87%E7%BC%962/">
+										汇编2
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/01/01/%E6%B1%87%E7%BC%96/%E6%B1%87%E7%BC%963/">
+										汇编3
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/01/05/%E6%B1%87%E7%BC%96/%E6%B1%87%E7%BC%964/">
+										汇编4
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/01/06/%E6%B1%87%E7%BC%96/%E6%B1%87%E7%BC%965/">
+										汇编5
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/01/07/%E6%B1%87%E7%BC%96/%E6%B1%87%E7%BC%966/">
+										汇编6
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2021/04/12/%E6%B1%87%E7%BC%96/%E9%80%9A%E7%94%A8%E5%AF%84%E5%AD%98%E5%99%A8/">
+										通用寄存器
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+		</div>
+	</div>
+</div>
+
+	<!-- 引入正文 -->
+	<div id="content">
+		<h1 id="article-title">
+
+	14Linux之系统管理
+</h1>
+<div class="article-meta">
+	
+	<span>BamB00</span>
+	<span>2019-12-10 00:00:00</span>
+		<div id="article-categories">
+    
+		<span>Categories：</span>
+            
+    
+
+    
+		<span>Tags：</span>
+            
+                
+                    <span>
+                        <i class="fa fa-tag" aria-hidden="true">
+                        <a href="/tags/Linux/">Linux</a>
+                        </i>
+                    </span>
+                
+            
+    
+		</div>
+
+</div>
+
+<div id="article-content">
+	<h1 id="0x01-进程管理"><a href="#0x01-进程管理" class="headerlink" title="0x01 进程管理"></a>0x01 进程管理</h1><h2 id="0x011-简介"><a href="#0x011-简介" class="headerlink" title="0x011 简介"></a>0x011 简介</h2><ol>
+<li><p><strong>进程</strong></p>
+<p>进程（英语：process），是指计算机中已运行的程序。进程曾经是分时系统的基本运作单位。在面向进程设计的系统（如早期的UNIX，Linux 2.4及更早的版本）中，进程是程序的基本执行实体；在面向线程设计的系统（如当代多数操作系统、Linux 2.6及更新的版本）中，进程本身不是基本运行单位，而是线程的容器。程序本身只是指令、数据及其组织形式的描述，进程才是程序（那些指令和数据）的真正运行实例。若干进程有可能与同一个程序相关系，且每个进程皆可以同步（循序）或异步（平行）的方式独立运行。现代计算机系统可在同一段时间内以进程的形式将多个程序加载到存储器中，并借由时间共享（或称时分复用），以在一个处理器上表现出同时（平行性）运行的感觉。同样的，使用多线程技术（多线程即每一个线程都代表一个进程内的一个独立执行上下文）的操作系统或计算机体系结构，同样程序的平行线程，可在多CPU主机或网络上真正同时运行（在不同的CPU上）。</p>
+</li>
+<li><p><strong>进程管理</strong></p>
+</li>
+</ol>
+<ul>
+<li>判断服务健康状态: 运维工程最主要的工作就是保证服务器安全稳定的运行。理想状态是，在服务器出现问题，但是还没有造成服务器宕机或停止服务时，就人为干预解决了问题。进程管理最主要的工作就是判断服务器当前运行是否健康，是否需要人为干预。如果服务器的CPU占用率(90%)，内存占用率过高(70%)，就需要人为介入解决问题</li>
+<li>查看系统中所有的进程:我们需要查看系统中所有正在运行的进程，通过这些进程可以判断系统中运行了哪些服务，是否有非法服务运行。</li>
+<li>杀死进程: 这是运维管理中最不常用的手段，当我们停止服务时，会通过正常命令来停止服务如<code>service httpd stop</code>。只有正确终止进程的手段失效的情况下，才会考虑使用kill命令杀死进程(如果什么进程都是使用kill就很容易导致服务器崩溃)</li>
+</ul>
+<h2 id="0x012-查看进程"><a href="#0x012-查看进程" class="headerlink" title="0x012 查看进程"></a>0x012 查看进程</h2><h3 id="0x0121-ps"><a href="#0x0121-ps" class="headerlink" title="0x0121  ps"></a>0x0121  ps</h3><p>ps命令时用来静态显示系统中进程的命令。不过这个命令有些特殊，它的部分命令的选项不能加入<code>-</code> 比如 <code>ps aux</code>这是因为ps命令的部分选项需要遵守BSD操作系统格式。所以PS命令常用选项的组合是固定的。命令如下:</p>
+<pre><code class="shell"># ps aux
+#查看系统中所有进程，使用BSD操作系统格式
+# ps -ls
+#查看系统中所有进程，使用Linux标准命令格式
+选项:
+    a: 显示一个终端的所有进程，除了会话引线
+    u: 显示进程的归属用户及内存的使用情况
+    x: 显示没有控制终端的进程
+</code></pre>
+<p>reahat7以下的版本<code>ps aux</code>加了<code>ps -aux</code>会报错7版本一下不会报错</p>
+<pre><code class="shell">-&gt; # ps -aux
+USER        PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+root          1  4.7  0.6 128048  6640 ?        Ss   04:15   0:03 /usr/lib/systemd/systemd --switched-root --system --deserialize 
+root          2  0.0  0.0      0     0 ?        S    04:15   0:00 [kthreadd]
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>原称</th>
+<th>意义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>USER</td>
+<td>该进程属于那个使用者账号的？</td>
+</tr>
+<tr>
+<td>PID</td>
+<td>该进程的进程ID号。</td>
+</tr>
+<tr>
+<td>%CPU</td>
+<td>该进程使用掉的 CPU 资源百分比</td>
+</tr>
+<tr>
+<td>%MEM</td>
+<td>该进程所占用的物理内存百分比</td>
+</tr>
+<tr>
+<td>VSZ</td>
+<td>该进程使用掉的虚拟内存量 (Kbytes)</td>
+</tr>
+<tr>
+<td>RSS</td>
+<td>该进程占用的固定的内存量 (Kbytes)</td>
+</tr>
+<tr>
+<td>TTY</td>
+<td>该进程是在那个终端机上面运作，若与终端机无关，则显示 ?，另外， tty1-tty6 是本机上面的登入者程序，若为 pts/0 等等的，则表示为由网络连接进主机的程序。</td>
+</tr>
+<tr>
+<td>STAT</td>
+<td>该程序目前的状态，主要的状态有 R ：该程序目前正在运作，或者是可被运作；S ：该程序目前正在睡眠当中 (可说是 idle 状态啦！)，但可被某些讯号(signal) 唤醒。T ：该程序目前正在侦测或者是停止了 Z ：该程序应该已经终止，但是其父程序却无法正常的终止他，造成 zombie (疆尸) 程序的状态</td>
+</tr>
+<tr>
+<td>START</td>
+<td>该进程被触发启动的时间；</td>
+</tr>
+<tr>
+<td>TIME</td>
+<td>该进程实际使用 CPU 运作的时间。</td>
+</tr>
+<tr>
+<td>COMMAND</td>
+<td>该程序的实际指令为什么？</td>
+</tr>
+</tbody></table>
+<h3 id="0x0122-top"><a href="#0x0122-top" class="headerlink" title="0x0122 top"></a>0x0122 top</h3><p><code>top</code> 指令是动态刷新的跟Windows的任务管理器相同</p>
+<pre><code class="shell">top - 11:00:54 up 54 days, 23:35,  6 users,  load average: 16.32, 18.75, 21.04
+Tasks: 209 total,   3 running, 205 sleeping,   0 stopped,   1 zombie
+%Cpu(s): 29.7 us, 18.9 sy,  0.0 ni, 49.3 id,  1.7 wa,  0.0 hi,  0.4 si,  0.0 st
+KiB Mem : 32781216 total,  1506220 free,  6525496 used, 24749500 buff/cache
+KiB Swap:        0 total,        0 free,        0 used. 25607592 avail Mem 
+
+  PID USER      PR  NI    VIRT    RES    SHR S  %CPU %MEM     TIME+ COMMAND                                                                                                                                                                  
+root      20   0   15.6g 461676   4704 R 198.0  1.4  11:15.26 python                                                                                                                                                                   
+root      20   0 9725596 240028   4672 R 113.0  0.7   7:48.49 python                                                                                                                                                                   
+root      20   0 6878028 143196   4720 S  82.4  0.4   1:35.03 python
+</code></pre>
+<p>第一行数据相当于uptime命令输出。11:00:54是当前时间，up 54 days,23:55 是系统已经运行的时间，6  users表示当前有6个用户在登录，load  average：16.32，18.75，21.04分别表示系统一分钟平均负载，5分钟平均负载，15分钟平均负载。</p>
+<p><strong>平均负载</strong></p>
+<p>平均负载表示的平均活跃进程数，包括正在running的进程数，准备running（就绪态）的进程数，和处于不可中断睡眠状态的进程数。如果平均负载数刚好等于CPU核数，那证明每个核都能得到很好的利用，如果平均负载数大于核数证明系统处于过载的状态，通常认为是超过核数的70%认为是严重过载，需要关注。还需结合1分钟平均负载，5分钟平均负载，15分钟平均负载看负载的趋势，如果1分钟负载比较高，5分钟和15分钟的平均负载都比较低，则说明是瞬间升高，需要观察。如果三个值都很高则需要关注下是否某个进程在疯狂消耗CPU或者有频繁的IO操作，也有可能是系统运行的进程太多，频繁的进程切换导致。比如说上面的演示环境是一台8核的centos机器，证明系统是长期处于过载状态在运行。</p>
+<pre><code>Tasks: 214 total,   4 running, 209 sleeping,   0 stopped,   1 zombie
+</code></pre>
+<p>第二行的Tasks信息展示的系统运行的整体进程数量和状态信息。214 total 表示系统现在一共有214个用户进程，4 running  表示4个进程正在处于running状态，209 sleeping表示209个进程正处于sleeping状态，0 stopped 表示 0  个进程正处于stopped状态，1 zombie表示 有1个僵尸进程。</p>
+<p><strong>僵尸进程</strong></p>
+<p>子进程结束时父进程没有调用wait()/waitpid()等待子进程结束，那么就会产生僵尸进程。原因是子进程结束时并没有真正退出，而是留下一个僵尸进程的数据结构在系统进程表中，等待父进程清理，如果父进程已经退出则会由init进程接替父进程进行处理（收尸）。由此可见，如果父进程不作为并且又不退出，就会有大量的僵尸进程，每个僵尸进程会占用进程表的一个位置（slot），如果僵尸进程太多会导致系统无法创建新的进程，因为进程表的容量是有限的。所以当zombie这个指标太大时需要引起我们的注意。下面的进程详细信息中的S列就代表进程的运行状态，Z表示该进程是僵尸进程。</p>
+<p>消灭僵尸进程的方法：</p>
+<p>1.找到僵尸进程的父进程pid（pstress可以显示进程父子关系），kill -9 pid，父进程退出后init自动会清理僵尸进程。（需要注意的是kill -9并不能杀死僵尸进程）</p>
+<p>2.重启系统。</p>
+<pre><code>%Cpu(s): 31.9 us, 30.3 sy,  0.0 ni, 37.0 id,  0.0 wa,  0.0 hi,  0.8 si,  0.0 st
+</code></pre>
+<p>第三行的%Cpu(s)表示的是总体CPU使用情况。</p>
+<ul>
+<li>us user 表示用户态的CPU时间比例</li>
+<li>sy system 表示内核态的CPU时间比例</li>
+<li>ni nice 表示运行低优先级进程的CPU时间比例</li>
+<li>id idle 表示空闲CPU时间比例</li>
+<li>wa iowait 表示处于IO等待的CPU时间比例</li>
+<li>hi hard interrupt 表示处理硬中断的CPU时间比例</li>
+<li>si soft interrupt 表示处理软中断的CPU时间比例</li>
+<li>st steal 表示当前系统运行在虚拟机中的时候，被其他虚拟机占用的CPU时间比例。</li>
+</ul>
+<p>所以整体的CPU使用率=1-id。当us很高时，证明CPU时间主要消耗在用户代码，需要优化用户代码。sy很高时，说明CPU时间都消耗在内核，要么是频繁的系统调用，要么是频繁的CPU切换（进程切换/线程切换）。wa很高时，说明有进程在进程频繁的IO操作，有可能是磁盘IO，也有可能是网络IO。si很高时，说明CPU时间消耗在处理软中断，网络收发包会触发系统软中断，所以大量的网络小包会导致软中断的频繁触发，典型的SYN Floor会导致si很高。</p>
+<pre><code class="shell">KiB Mem : 32781216 total,   663440 free,  7354900 used, 24762876 buff/cache
+KiB Swap:        0 total,        0 free,        0 used. 24771700 avail Mem
+</code></pre>
+<p>第4，5行显示的是系统内存使用情况。单位是KiB。totol 表示总内存，free 表示没使用过的内容，used是已经使用的内存。buff表示用于读写磁盘缓存的内存，cache表示用于读写文件缓存的内存。avail表示可用的应用内存。</p>
+<p>Swap原理是把一块磁盘空间或者一个本地文件当成内存来使用。Swap total表示能用的swap总量，swap free表示剩余，used表示已经使用的。这三个值都为0表示系统关闭了swap功能，由于演示环境是一台虚拟机，虚拟机一般都关闭swap功能。</p>
+<p>第6行开始往后表示的是具体的每个进程状态：</p>
+<pre><code>PID USER      PR  NI    VIRT    RES    SHR S  %CPU %MEM     TIME+ COMMAND 
+</code></pre>
+<ul>
+<li>PID 进程ID</li>
+<li>USER 进程所有者的用户名，例如root</li>
+<li>PR 进程调度优先级</li>
+<li>NI 进程nice值（优先级），越小的值代表越高的优先级</li>
+<li>VIRT 进程使用的虚拟内存</li>
+<li>RES 进程使用的物理内存（不包括共享内存）</li>
+<li>SHR 进程使用的共享内存</li>
+<li>CPU 进程使用的CPU占比</li>
+<li>MEM 进程使用的内存占比</li>
+<li>TIME 进程启动后到现在所用的全部CPU时间</li>
+<li>COMMAND 进程的启动命令（默认只显示二进制，top -c能够显示命令行和启动参数）</li>
+</ul>
+<p><code>top</code>并不能看到系统中所有的经常，默认看到的是CPU占比考前的进程。如果我们想要看到所有进程可以把top命令的结果重定向到文件当中即可。不过Top命令是持续运行的，需要”-b”和“-n”选项</p>
+<pre><code class="shell">#top -b -n 1 &gt; ./Top_log.log
+命令只执行一次，然后让结果保存到Top_log.log中，这样就可以看到所有进程了。
+</code></pre>
+<h3 id="0x0123-pstree"><a href="#0x0123-pstree" class="headerlink" title="0x0123 pstree"></a>0x0123 pstree</h3><pre><code>#pstree [选项]
+选项:
+    -p : 显示进程的PI
+    -u : 显示进程的所属用户
+</code></pre>
+<h2 id="0x013-进程管理"><a href="#0x013-进程管理" class="headerlink" title="0x013 进程管理"></a>0x013 进程管理</h2><p>系统中可以识别的信号比较多，我们可以使用命令<code>kill -l</code></p>
+<pre><code class="shell">1) SIGHUP       2) SIGINT       3) SIGQUIT      4) SIGILL       5) SIGTRAP
+ 6) SIGABRT      7) SIGBUS       8) SIGFPE       9) SIGKILL     10) SIGUSR1
+11) SIGSEGV     12) SIGUSR2     13) SIGPIPE     14) SIGALRM     15) SIGTERM
+16) SIGSTKFLT   17) SIGCHLD     18) SIGCONT     19) SIGSTOP     20) SIGTSTP
+21) SIGTTIN     22) SIGTTOU     23) SIGURG      24) SIGXCPU     25) SIGXFSZ
+26) SIGVTALRM   27) SIGPROF     28) SIGWINCH    29) SIGIO       30) SIGPWR
+31) SIGSYS      34) SIGRTMIN    35) SIGRTMIN+1  36) SIGRTMIN+2  37) SIGRTMIN+3
+38) SIGRTMIN+4  39) SIGRTMIN+5  40) SIGRTMIN+6  41) SIGRTMIN+7  42) SIGRTMIN+8
+43) SIGRTMIN+9  44) SIGRTMIN+10 45) SIGRTMIN+11 46) SIGRTMIN+12 47) SIGRTMIN+13
+48) SIGRTMIN+14 49) SIGRTMIN+15 50) SIGRTMAX-14 51) SIGRTMAX-13 52) SIGRTMAX-12
+53) SIGRTMAX-11 54) SIGRTMAX-10 55) SIGRTMAX-9  56) SIGRTMAX-8  57) SIGRTMAX-7
+58) SIGRTMAX-6  59) SIGRTMAX-5  60) SIGRTMAX-4  61) SIGRTMAX-3  62) SIGRTMAX-2
+63) SIGRTMAX-1  64) SIGRTMAX    
+</code></pre>
+<p>常用的信号：</p>
+<table>
+<thead>
+<tr>
+<th>信号代号</th>
+<th>信号名</th>
+<th>含义</th>
+<th>默认操作</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>SIGHUP</td>
+<td>该信号在用户终端关闭时产生，通常是发给和该终端关联的会话内的所有进程</td>
+<td>终止</td>
+</tr>
+<tr>
+<td>2</td>
+<td>SIGINT</td>
+<td>该信号在用户键入INTR字符(Ctrl-C)时产生，内核发送此信号送到当前终端的所有前台进程</td>
+<td>终止</td>
+</tr>
+<tr>
+<td>3</td>
+<td>SIGQUIT</td>
+<td>该信号和SIGINT类似，但由QUIT字符(通常是Ctrl-)来产生</td>
+<td>终止</td>
+</tr>
+<tr>
+<td>4</td>
+<td>SIGILL</td>
+<td>该信号在一个进程企图执行一条非法指令时产生</td>
+<td>终止</td>
+</tr>
+<tr>
+<td>8</td>
+<td>SIGPIPE</td>
+<td>当进程往一个没有读端的管道中写入时产生，代表“管道断裂”</td>
+<td>终止</td>
+</tr>
+<tr>
+<td>9</td>
+<td>SIGKILL</td>
+<td>该信号用来结束进程，并且不能被捕捉和忽略</td>
+<td>终止</td>
+</tr>
+<tr>
+<td>14</td>
+<td>SIGALRM</td>
+<td>该信号用于通知进程定时器时间已到</td>
+<td>终止</td>
+</tr>
+<tr>
+<td>18</td>
+<td>SIGCONT</td>
+<td>该信号让进程进入运行态</td>
+<td>暂停进程</td>
+</tr>
+<tr>
+<td>19</td>
+<td>SIGSTOP</td>
+<td>该信号用于暂停进程，并且不能被捕捉和忽略</td>
+<td>暂停进程</td>
+</tr>
+<tr>
+<td>20</td>
+<td>SIGTSTP</td>
+<td>该信号用于暂停进程，用户可键入SUSP字符(通常是Ctrl-Z)发出这个信号（当前终端的前台进程在后台挂起）</td>
+<td>暂停进程</td>
+</tr>
+</tbody></table>
+<h3 id="0x0131-kill"><a href="#0x0131-kill" class="headerlink" title="0x0131 kill"></a>0x0131 kill</h3><pre><code class="shell">#kill -[信号] PID
+</code></pre>
+<p>注意: kill 后面只能加PID</p>
+<p>例如</p>
+<pre><code class="shell">kill -9 534343
+</code></pre>
+<h3 id="0x0132-killall-9"><a href="#0x0132-killall-9" class="headerlink" title="0x0132 killall -9"></a>0x0132 killall -9</h3><pre><code class="shell">killall [选项] 名称
+选项:
+    -e : --exact 进程需要和名字完全相符
+    -I : --ignore-case 忽略大小写
+    -g : --process-group 结束进程组
+    -i : --interactive 结束之前询问
+    -l : --list 列出所有的信号名称
+    -q : --quite 进程没有结束时，不输出任何信息
+    -r : --regexp 将进程名模式解释为扩展的正则表达式。
+    -s : --signal 发送指定信号
+    -u : --user 结束指定用户的进程
+    -v : --verbose 显示详细执行过程
+    -w : --wait 等待所有的进程都结束
+    -V : --version 显示版本信息
+    --help 显示帮助信息
+</code></pre>
+<h3 id="0x0133-pkill"><a href="#0x0133-pkill" class="headerlink" title="0x0133 pkill"></a>0x0133 pkill</h3><p>pkill命令和kiallall命令非常相似。但他支持按照终端号杀死进程</p>
+<pre><code># pill [选项] [信号] 进程命
+</code></pre>
+<h1 id="0x02-工作管理"><a href="#0x02-工作管理" class="headerlink" title="0x02 工作管理"></a>0x02 工作管理</h1><h2 id="0x021-简介"><a href="#0x021-简介" class="headerlink" title="0x021 简介"></a>0x021 简介</h2><p>后台管理有几个注意事项:</p>
+<ul>
+<li>前台是当前可以操控和执行命令的这个操作环境，后台是指工作可以自行运行，但是不能直接用ctrl+c来终止它，只能使用fg/bg来调用</li>
+<li>当前的登录终端，只能管理当前端的工作，而不能管理其他登录终端的工作。简单来说就是tty1不能管理tty2的工作</li>
+<li>放入后台的命令必须可以持续运行一段时间，这样我们才能捕捉和操控这个工作。如果把ls这种命令放到后台操作它很快就完成没有意义</li>
+<li>放入后台执行的命令不能和前台用户有交互或需要前台输入，否则放入后台只能暂停，而不能执行。比如vi命令放入后台只能暂停，而不能执行，因为vi需要前台输入信息。Top毛宁了也不能放入后台，只能放入暂停的top,因为top命令需要交互。</li>
+</ul>
+<h2 id="0x022-把命令放入到后台执行"><a href="#0x022-把命令放入到后台执行" class="headerlink" title="0x022 把命令放入到后台执行"></a>0x022 把命令放入到后台执行</h2><p><strong>方法 一  &amp;</strong></p>
+<pre><code class="shell">#命令 &amp;
+</code></pre>
+<p>这种命令放在后台是以执行状态放入后台(交互指令除外如:vi top)</p>
+<p><strong>方法 二 在执行过程中按 ctrl + z 快捷键，命令在后台是暂停状态</strong></p>
+<p>使用这种方法放入后台的命令，就算是不和前台有交互，能在后台执行的命令，也是暂停状态,ctrl + z 快捷键就是暂停的快捷键。</p>
+<h2 id="0x023-后台管理命令"><a href="#0x023-后台管理命令" class="headerlink" title="0x023 后台管理命令"></a>0x023 后台管理命令</h2><h3 id="0x0231-查看后台的工作"><a href="#0x0231-查看后台的工作" class="headerlink" title="0x0231 查看后台的工作"></a>0x0231 查看后台的工作</h3><pre><code class="shell">#jobs [-l]
+选项:
+    -l : 显示工作的PID
+</code></pre>
+<h3 id="0x0232-将后台暂停的工作恢复到前台执行"><a href="#0x0232-将后台暂停的工作恢复到前台执行" class="headerlink" title="0x0232 将后台暂停的工作恢复到前台执行"></a>0x0232 将后台暂停的工作恢复到前台执行</h3><pre><code>#fg %工作号
+参数:
+    %工作好: %可以省略，但注意工作号和PID的区别
+</code></pre>
+<h3 id="0x0233-将后台暂停的工作恢复到后台继续执行"><a href="#0x0233-将后台暂停的工作恢复到后台继续执行" class="headerlink" title="0x0233 将后台暂停的工作恢复到后台继续执行"></a>0x0233 将后台暂停的工作恢复到后台继续执行</h3><pre><code class="shell">#bg %工作号
+</code></pre>
+<h3 id="0x0234-后台命令脱离登录终端运行"><a href="#0x0234-后台命令脱离登录终端运行" class="headerlink" title="0x0234 后台命令脱离登录终端运行"></a>0x0234 后台命令脱离登录终端运行</h3><p>​       我们已经知道把命令放入后台，只能在当前登陆终端执行。那如果我是远程管理的服务器，在远程终端中执行了后台命令，这时，我退出登录，这个后台命令还能继续执行吗？当然是不行的。</p>
+<p>​         如果想要继续执行只能执行下面的方法</p>
+<p>**方法 一 **</p>
+<p>​         把后台命令直接写入<code>/etc/rc.local</code>文件，让系统在启动时执行这个后台程序。这种方法的问题时，服务器不能随便重启，万一有临时后台任务，就不能执行。</p>
+<p><strong>方法 二</strong></p>
+<p>​         第二种方法是使用系统定时任务，让系统再指定的时间执行某个后台命令，这样放入后台的命令与终端无关，是不依赖登录终端的。</p>
+<p><strong>方法 三</strong></p>
+<p>​         最后一个方法是使用nohup命令 </p>
+<pre><code>#nohup [命令] &amp;
+
+例如:
+# nohup find / -print &gt; ./file.log
+</code></pre>
+<h1 id="0x03-系统资源查看"><a href="#0x03-系统资源查看" class="headerlink" title="0x03 系统资源查看"></a>0x03 系统资源查看</h1><h2 id="0x031-查看内存"><a href="#0x031-查看内存" class="headerlink" title="0x031 查看内存"></a>0x031 查看内存</h2><h3 id="0x0311-vmstat"><a href="#0x0311-vmstat" class="headerlink" title="0x0311 vmstat"></a>0x0311 vmstat</h3><p><strong>vmstat命令</strong>的含义为显示虚拟内存状态（“Virtual Memory Statistics”），但是它可以报告关于进程、内存、I/O等系统整体运行状态。</p>
+<pre><code>#vmstat [选项] [刷新时间] [刷新次数]
+选项:
+    -a：显示活动内页；
+    -f：显示启动后创建的进程总数；
+    -m：显示slab信息；
+    -n：头信息仅显示一次；
+    -s：以表格方式显示事件计数器和内存状态；
+    -d：报告磁盘状态；
+    -p：显示指定的硬盘分区状态；
+    -S：输出信息的单位。
+</code></pre>
+<p>Procs（进程）</p>
+<ul>
+<li>r: 运行队列中进程数量，这个值也可以判断是否需要增加CPU。（长期大于1）</li>
+<li>b: 等待IO的进程数量。</li>
+</ul>
+<p>Memory（内存）</p>
+<ul>
+<li>swpd: 使用虚拟内存大小，如果swpd的值不为0，但是SI，SO的值长期为0，这种情况不会影响系统性能。</li>
+<li>free: 空闲物理内存大小。</li>
+<li>buff: 用作缓冲的内存大小。</li>
+<li>cache: 用作缓存的内存大小，如果cache的值大的时候，说明cache处的文件数多，如果频繁访问到的文件都能被cache处，那么磁盘的读IO bi会非常小。</li>
+</ul>
+<p>Swap</p>
+<ul>
+<li>si: 每秒从交换区写到内存的大小，由磁盘调入内存。</li>
+<li>so: 每秒写入交换区的内存大小，由内存调入磁盘。</li>
+</ul>
+<p>注意：内存够用的时候，这2个值都是0，如果这2个值长期大于0时，系统性能会受到影响，磁盘IO和CPU资源都会被消耗。有些朋友看到空闲内存（free）很少的或接近于0时，就认为内存不够用了，不能光看这一点，还要结合si和so，如果free很少，但是si和so也很少（大多时候是0），那么不用担心，系统性能这时不会受到影响的。</p>
+<p>IO（现在的Linux版本块的大小为1kb）</p>
+<ul>
+<li>bi: 每秒读取的块数</li>
+<li>bo: 每秒写入的块数</li>
+</ul>
+<p>注意：随机磁盘读写的时候，这2个值越大（如超出1024k)，能看到CPU在IO等待的值也会越大。</p>
+<p>system（系统）</p>
+<ul>
+<li>in: 每秒中断数，包括时钟中断。</li>
+<li>cs: 每秒上下文切换数。</li>
+</ul>
+<p>注意：上面2个值越大，会看到由内核消耗的CPU时间会越大。</p>
+<p>CPU（以百分比表示）</p>
+<ul>
+<li>us: 用户进程执行时间百分比(user <a target="_blank" rel="noopener" href="http://man.linuxde.net/time">time</a>)</li>
+</ul>
+<p>us的值比较高时，说明用户进程消耗的CPU时间多，但是如果长期超50%的使用，那么我们就该考虑优化程序算法或者进行加速。</p>
+<ul>
+<li>sy: 内核系统进程执行时间百分比(system time)</li>
+</ul>
+<p>sy的值高时，说明系统内核消耗的CPU资源多，这并不是良性表现，我们应该检查原因。</p>
+<ul>
+<li>wa: IO等待时间百分比</li>
+</ul>
+<p>wa的值高时，说明IO等待比较严重，这可能由于磁盘大量作随机访问造成，也有可能磁盘出现瓶颈（块操作）。</p>
+<ul>
+<li>id: 空闲时间百分比</li>
+</ul>
+<h3 id="0x0312-free"><a href="#0x0312-free" class="headerlink" title="0x0312 free"></a>0x0312 free</h3><p>Linux free命令用于显示内存状态。</p>
+<p>free指令会显示内存的使用情况，包括实体内存，虚拟的交换文件内存，共享内存区段，以及系统核心使用的缓冲区等。</p>
+<pre><code>free [-bkmotV][-s &lt;间隔秒数&gt;]
+</code></pre>
+<p><strong>参数说明</strong>：</p>
+<ul>
+<li><p>-b 　以Byte为单位显示内存使用情况。</p>
+</li>
+<li><p>-k 　以KB为单位显示内存使用情况。</p>
+</li>
+<li><p>-m 　以MB为单位显示内存使用情况。</p>
+</li>
+<li><p>-h 　以合适的单位显示内存使用情况，最大为三位数，自动计算对应的单位值。单位有：</p>
+<pre><code>B = bytes
+K = kilos
+M = megas
+G = gigas
+T = teras
+</code></pre>
+</li>
+<li><p>-o 　不显示缓冲区调节列。</p>
+</li>
+<li><p>-s&lt;间隔秒数&gt; 　持续观察内存使用状况。</p>
+</li>
+<li><p>-t 　显示内存总和列。</p>
+</li>
+<li><p>-V 　显示版本信息。</p>
+</li>
+</ul>
+<pre><code class="shell">              total        used        free      shared  buff/cache   available
+Mem:           972M        175M        679M        7.6M        117M        664M
+Swap:          2.0G          0B        2.0G
+</code></pre>
+<p><strong>Mem</strong> 行(第二行)是内存的使用情况。<br><strong>Swap</strong> 行(第三行)是交换空间的使用情况。<br><strong>total</strong> 列显示系统总的可用物理内存和交换空间大小。<br><strong>used</strong> 列显示已经被使用的物理内存和交换空间。<br><strong>free</strong> 列显示还有多少物理内存和交换空间可用使用。<br><strong>shared</strong> 列显示被共享使用的物理内存大小。<br><strong>buff/cache</strong> 列显示被 buffer 和 cache 使用的物理内存大小。<br><strong>available</strong> 列显示还可以被应用程序使用的物理内存大小。</p>
+<h2 id="0x032-查看硬件配置详细信息"><a href="#0x032-查看硬件配置详细信息" class="headerlink" title="0x032 查看硬件配置详细信息"></a>0x032 查看硬件配置详细信息</h2><p>所有硬件信息都放在<code>/proc/</code>下里面大部分都是硬件相关信息</p>
+<pre><code class="shell">root@localhost [09:19:41 AM] [/proc] 
+-&gt; # ls
+1     1414  20   299  43   476   595  689  798   963        dma          keys        mpt           swaps
+10    1419  21   30   44   477   6    691  8     acpi       driver       key-users   mtrr          sys
+11    142   22   301  448  478   60   694  802   asound     execdomains  kmsg        net           sysrq-trigger
+1153  1420  23   302  449  479   642  697  806   buddyinfo  fb           kpagecount  pagetypeinfo  sysvipc
+1156  1429  24   31   45   480   643  7    807   bus        filesystems  kpageflags  partitions    timer_list
+1158  15    274  318  459  481   644  700  809   cgroups    fs           loadavg     sched_debug   timer_stats
+1163  1520  275  32   460  482   646  747  8279  cmdline    interrupts   locks       schedstat     tty
+13    16    276  321  47   483   679  773  9     consoles   iomem        mdstat      scsi          uptime
+1315  17    277  33   472  5     681  774  9191  cpuinfo    ioports      meminfo     self          version
+1320  18    289  4    473  5098  682  777  9196  crypto     irq          misc        slabinfo      vmallocinfo
+1321  19    292  41   474  561   683  788  9201  devices    kallsyms     modules     softirqs      vmstat
+14    2     298  42   475  582   687  796  95    diskstats  kcore        mounts      stat          zoneinfo
+</code></pre>
+<p><strong>/proc/cpuinfo文件</strong></p>
+<p> 这个文件提供了有关系统CPU的多种信息</p>
+<p><strong>/proc/devices文件</strong></p>
+<p> 这个文件列出字符和块设备的主设备号，以及分配到这些设备号的设备名称。</p>
+<p><strong>/proc/meminfo文件</strong></p>
+<p> 这个文件给出了内存状态的信息。它显示出系统中空闲内存，已用物理内存和交换内存的总量。它还显示出内核使用的共享内存和缓冲区总量。这些信息的格式和free命令显示的结果类似。</p>
+<p><strong>/proc/version文件</strong></p>
+<p> 这个文件只有一行内容，说明正在运行的内核版本。可以用标准的编程方法进行分析获得所需的系统信息。</p>
+<h2 id="0x033-查看用户登录信息"><a href="#0x033-查看用户登录信息" class="headerlink" title="0x033 查看用户登录信息"></a>0x033 查看用户登录信息</h2><h3 id="0x0331-w和who"><a href="#0x0331-w和who" class="headerlink" title="0x0331 w和who"></a>0x0331 w和who</h3><pre><code>w [-fhlsuV][用户名称]
+</code></pre>
+<p><strong>参数说明</strong>：</p>
+<ul>
+<li>-f 　开启或关闭显示用户从何处登入系统。</li>
+<li>-h 　不显示各栏位的标题信息列。</li>
+<li>-l 　使用详细格式列表，此为预设值。</li>
+<li>-s 　使用简洁格式列表，不显示用户登入时间，终端机阶段作业和程序所耗费的CPU时间。</li>
+<li>-u 　忽略执行程序的名称，以及该程序耗费CPU时间的信息。</li>
+<li>-V 　显示版本信息。</li>
+</ul>
+<pre><code>w  //显示当前用户，不显示登录位置
+19:50:14 up 9:27, 4 users, load average: 0.31, 0.26, 0.18
+USER   TTY   FROM       LOGIN@  IDLE  JCPU  PCPU WHAT
+root   tty7   :0        Thu12  31:39m 10:10  0.60s gnome-session
+root   pts/0  :0.0       17:09  2:18m 15.26s 0.15s bash
+root   pts/1  192.168.1.17   18:51  1.00s 1.24s 0.14s -bash
+root   pts/2  192.168.1.17   19:48  60.00s 0.05s 0.05s -bash
+</code></pre>
+<p>第一行显示系统的汇总信息，字段分别表示系统当前时间、系统运行时间、登陆哟内用户总数及系统平均负载信息。对于上述势力中的几个显示数据意义为：</p>
+<p>2：13PM 表示执行W的时间是在下午2点31分。</p>
+<p>11DAYS，81：18 表示系统运行11天零21小时18分。</p>
+<p>4 USERS 表示当前系统登陆用户总数为4。</p>
+<p>LOAD AVERAGE 与后面的数字一起表示系统在过去1，5，10分钟内的负载程度，数值越小，系统负载越轻。</p>
+<p>从第二行开始构成一个表格，共有8个栏目，分别显示各个用户正在做的事情及该用户所占用的系统资料。</p>
+<ul>
+<li><p>USER：显示登陆用户帐号名。用户重复登陆，该帐号也会重复出现。</p>
+</li>
+<li><p>TTY：用户登陆所用的终端。</p>
+</li>
+<li><p>FROM：显示用户在何处登陆系统。</p>
+</li>
+<li><p>LOGIN@：是LOGIN AT的意思，表示登陆进入系统的时间。</p>
+</li>
+<li><p>IDLE：用户空闲时间，从用户上一次任务结束后，开会记时。</p>
+</li>
+<li><p>JCPU：一终端代号来区分，表示在摸段时间内，所有与该终端相关的进程任务所耗费的CPU时间。</p>
+</li>
+<li><p>PCPU：指WHAT域的任务执行后耗费的CPU时间。</p>
+</li>
+<li><p>WHAT：表示当前执行的任务。</p>
+</li>
+</ul>
+<p><code>who</code>信息更简单</p>
+<pre><code>root     pts/0        2019-12-12 09:07 (192.168.205.1)
+root     pts/1        2019-12-12 09:07 (192.168.205.1)
+</code></pre>
+<h3 id="0x0332-uptime"><a href="#0x0332-uptime" class="headerlink" title="0x0332 uptime"></a>0x0332 uptime</h3><p>uptime是当前时间，系统已经运行了多久，多少用户连接目前正在使用系统，系统在过去1,5,15分钟内的平均负载。</p>
+<pre><code>#uptime
+08:21:34 up 36 min,  2 users,  load average: 0.00, 0.00, 0.00
+</code></pre>
+<p>w部分和它是一样的看使用习惯</p>
+<h2 id="0x034-查看系统与内核信息"><a href="#0x034-查看系统与内核信息" class="headerlink" title="0x034 查看系统与内核信息"></a>0x034 查看系统与内核信息</h2><h2 id="0x0341-uname"><a href="#0x0341-uname" class="headerlink" title="0x0341 uname"></a>0x0341 uname</h2><pre><code>uname [选项]
+[选项]:
+    -a或--all 　显示全部的信息。
+    -n或-nodename 　显示在网络上的主机名称。
+    -r或--release 　显示操作系统的发行编号。
+    -s或--sysname 　显示操作系统名称。
+    -v 　显示操作系统的版本。
+    --help 　显示帮助。
+    --version 　显示版本信息。
+</code></pre>
+<p>例子</p>
+<pre><code class="shell"># uname -a
+Linux snail-hnlinux 2.6.32-21-generic #32-Ubuntu SMP Fri Apr 16 08:10:02 UTC 2010 i686 GNU/Linux
+</code></pre>
+<h2 id="0x0342-lsb-release"><a href="#0x0342-lsb-release" class="headerlink" title="0x0342 lsb_release"></a>0x0342 lsb_release</h2><p><code>lsb_release</code>查看版本常用的只有一个就是</p>
+<p><code>lsb_release -a</code> 如果没有安装<code>yum install -y lsb</code>即可</p>
+<pre><code class="shell">#lsb_release -a
+LSB Version:    :core-4.1-amd64:core-4.1-noarch:cxx-4.1-amd64:cxx-4.1-noarch:desktop-4.1-amd64:desktop-4.1-noarch:languages-4.1-amd64:languages-4.1-noarch:printing-4.1-amd64:printing-4.1-noarch
+Distributor ID: CentOS
+Description:    CentOS Linux release 7.7.1908 (Core)
+Release:        7.7.1908
+Codename:       Core
+</code></pre>
+<h1 id="0x04-定时任务"><a href="#0x04-定时任务" class="headerlink" title="0x04 定时任务"></a>0x04 定时任务</h1><h2 id="0x041-一次性执行定时任务"><a href="#0x041-一次性执行定时任务" class="headerlink" title="0x041 一次性执行定时任务"></a>0x041 一次性执行定时任务</h2><h3 id="0x0411-at服务管理"><a href="#0x0411-at服务管理" class="headerlink" title="0x0411 at服务管理"></a>0x0411 at服务管理</h3><p>at命令想要正确执行，需要atd服务的支持。atd服务是独立的服务，所以启动命令是:</p>
+<pre><code class="shell">#service atd start
+</code></pre>
+<p>如果要让atd服务开机时自动启动，可以使用如下命令:</p>
+<pre><code class="shell">#chkconfig atd on
+</code></pre>
+<p>atd服务启动之后，at命令才可以正常使用，不过我们还要学习下at命令的访问控制。这里的访问控制指的是允许哪些用户使用at命令设定定时任务，或者不允许哪些用户使用at命令。</p>
+<h3 id="0x0412-at访问控制"><a href="#0x0412-at访问控制" class="headerlink" title="0x0412 at访问控制"></a>0x0412 at访问控制</h3><p>at访问控制是设置成类黑白名单的设定。白名单是<code>/etc/at.allow</code>黑名单<code>/etc/at.dent</code>如果白名单和黑名单同时有同一个用户则允许使用，因为白名单的优先级更高</p>
+<p>如果系统中没有<code>at.allow</code>那么，黑名单中的用户不能使用at命令，其他用户可以使用at命令。不过两个文件都对<code>root</code>无效</p>
+<p>如果两个文件都没有只有root才可以使用at命令</p>
+<p>Linux默认只有黑名单</p>
+<h3 id="0x0413-格式"><a href="#0x0413-格式" class="headerlink" title="0x0413 格式"></a>0x0413 格式</h3><pre><code>#at [选项] 时间
+选项:
+    -m : 当at工作完成后，无论是否命令有输出，都用email通知执行at命令的用户
+    -c 工作号 :显示at工作的实际内容
+    + : + 时间就是以当前时间下几分钟后执行
+时间:
+    HH:MM  在指定的&quot;小时：分钟&quot;执行 如02:23
+    HH:MM YYY-MM-DD 在指定的年月日时分执行
+    HH:MM[am|pm] [month] [date] 在指定的&quot;小时:分钟[上午|下午][月][日]&quot;执行例如 02:30 july 25
+</code></pre>
+<h2 id="0x042-循环执行定时任务"><a href="#0x042-循环执行定时任务" class="headerlink" title="0x042 循环执行定时任务"></a>0x042 循环执行定时任务</h2><h3 id="0x0421-Crond服务管理"><a href="#0x0421-Crond服务管理" class="headerlink" title="0x0421 Crond服务管理"></a>0x0421 Crond服务管理</h3><p>crontab命令是需要crond服务支持的，crond服务同样是独立的服务，所以穷和自启动的方法一样。</p>
+<pre><code class="shell">#service crond restart
+</code></pre>
+<p>它和at类似，也有黑白名单，<code>/etc/cron.allow</code>和<code>/etc/cron.deny</code> </p>
+<p>约束条件同at</p>
+<h3 id="0x0422-用户的crontab设置"><a href="#0x0422-用户的crontab设置" class="headerlink" title="0x0422 用户的crontab设置"></a>0x0422 用户的crontab设置</h3><p>每个用户都可以实现自己的crontab定时任务，只要是使用这个用户身份执行 <code>crontab -e</code>命令即可，担任这个用户不能加入<code>/etc/cron.deny</code>文件中。</p>
+<pre><code class="shell">#crontab [选项]
+选项:
+    -e : 编辑crontab定时任务
+    -l : 查询crontab任务
+    -r : 删除当前任务的所有crontab任务，如果有多个任务，只想删除一个，这时候就需要&quot;crontab -e&quot;
+    -u 用户名 : 修改或删除其他用户的crontab任务，只有root可用
+修改配置文件比较多。
+</code></pre>
+<p>编写<code>crontab</code>任务</p>
+<pre><code>#crontab -e
+* * * * * 执行命令
+
+# Example of job definition:
+# .---------------- minute (0 - 59)
+# |  .------------- hour (0 - 23)
+# |  |  .---------- day of month (1 - 31)
+# |  |  |  .------- month (1 - 12) OR jan,feb,mar,apr ...
+# |  |  |  |  .---- day of week (0 - 6) (Sunday=0 or 7) OR sun,mon,tue,wed,thu,fri,sat
+# |  |  |  |  |
+# *  *  *  *  * user-name  command to be executed
+
+星号（*）：代表所有可能的值，如month字段为星号，则表示在满足其它字段的制约条件后每月都执行该命令操作。
+逗号（,）：可以用逗号隔开的值指定一个列表范围，例如，“1,2,5,7,8,9”
+中杠（-）：可以用整数之间的中杠表示一个整数范围，例如“2-6”表示“2,3,4,5,6”
+正斜线（/）：可以用正斜线指定时间的间隔频率，例如“0-23/2”表示每两小时执行一次。
+小 结：
+    数字的表示最好用2为阿拉伯数字显示
+    周和日最好不要同时用
+    定时任务要加注解
+    可以定向到日志文件或者空文件
+    定时任务一定是绝对路径，且目录必须存在才能出结果
+    crontab 服务一定要开启运行
+</code></pre>
+<h3 id="0x0423-crontab注意事项"><a href="#0x0423-crontab注意事项" class="headerlink" title="0x0423 crontab注意事项"></a>0x0423 crontab注意事项</h3><ul>
+<li>六个选项都不能为空，如果不确定使用 *</li>
+<li>crontab定时任务，最小时间是分钟，最大时间是月份</li>
+<li>在定义时间时，日期和星期最好不要在一条定时任务中出现，因为他们都是以天作为单位很容易混乱</li>
+<li>定义任务中，不管是直接写命令，还是脚本中写命令，最好都是绝对路径。有时相对路径会出错</li>
+</ul>
+<h3 id="0x0424-系统的crontab设置"><a href="#0x0424-系统的crontab设置" class="headerlink" title="0x0424 系统的crontab设置"></a>0x0424 系统的crontab设置</h3><p><strong>修改系统的crontab设置的方法 一</strong></p>
+<p><code>crontab -e</code>是每个用户执行的命令，也就是说不同的用户身份可以执行自己的定时任务。可是有些定时任务需要系统执行，这时候我们需要配编辑<code>/etc/crontab</code>这个配置文件了。当然，并不是说写入<code>/erc/crontab</code>配置文件中的定时任务执行时,不需要用户身份，而是<code>/etc/crontab</code>配置文件时，默认用户身份是当前用户。而修改<code>/etc/crontab</code>时，定时任务的执行着身份是可以手工指定的。这样定时任务的执行会更加灵活，修改起来也更加方便。</p>
+<pre><code># vi/etc/crontab
+SHELL=/bin/bash
+//指定shell
+PATH=/sbin:/bin:/usr/sbin:/usr/bin
+//环境变量Path crontab是使用自己的path，而不是系统默认的Path
+MAILTO=root
+//crond的任务执行信息将通过电子邮件发送给root用户
+# For details see man 4 crontabs
+
+# Example of job definition:
+# .---------------- minute (0 - 59)
+# |  .------------- hour (0 - 23)
+# |  |  .---------- day of month (1 - 31)
+# |  |  |  .------- month (1 - 12) OR jan,feb,mar,apr ...
+# |  |  |  |  .---- day of week (0 - 6) (Sunday=0 or 7) OR sun,mon,tue,wed,thu,fri,sat
+# |  |  |  |  |
+# *  *  *  *  * user-name  command to be executed
+</code></pre>
+<p><strong>修改系统的crontab设置的方法 二</strong></p>
+<p><code>/usr/bin/run-parts</code> 它会去读<code>/etx/cron.*</code>每个目录下的可执行文件全部执行一遍</p>
+<pre><code class="shell">#cat /etc/cron
+cron.daily/      cron.hourly/   cron.monthly/     cron.weekly/ 
+</code></pre>
+<p><code>run-parts</code>是以及写好的脚本</p>
+<p>Centos6以下的版本，都是把批量定时任务写入到对应的每周每小时每天每月的文件夹下</p>
+<p>Centos6及以上的版本都不需要那样配置</p>
+<h2 id="0x043-anacron检测定时任务"><a href="#0x043-anacron检测定时任务" class="headerlink" title="0x043 anacron检测定时任务"></a>0x043 anacron检测定时任务</h2><p>anacron 主要是用于防止系统宕机或者重启后没有执行定时任务设置的</p>
+<p>他会在<code>/var/spool/anacron/</code>下存三个时间他会把上一次执行定时任务的时间放在里面。会同定时任务里的文件和系统时间作比较，看在宕机或者重启的时候有没有漏掉什么定时任务。</p>
+<p>在Centos6以前的版本中<code>/etc/cron.&#123;daliy,weekly,monthly&#125;</code> cron和anacron都会调用三个文件但很容易出错，6版本及以后的版本只能anacron调用</p>
+<p>因为很少去手动执行指令，所以只写配置文件<code>/etc/anacrontab</code></p>
+<pre><code class="shell"># /etc/anacrontab: configuration file for anacron
+
+# See anacron(8) and anacrontab(5) for details.
+
+SHELL=/bin/sh
+PATH=/sbin:/bin:/usr/sbin:/usr/bin
+MAILTO=root
+
+RANDOM_DELAY=45
+#随机最大延迟就是怕开机一起全部执行脚本会导致系统宕机，就会前一个执行脚本然后每个之间脚本之间的时间间隔。
+
+START_HOURS_RANGE=3-22
+#anacron 执行时间03：00-22：00
+
+
+1       5       cron.daily              nice run-parts /etc/cron.daily
+7       25      cron.weekly             nice run-parts /etc/cron.weekly
+@monthly 45     cron.monthly            nice run-parts /etc/cron.monthly
+</code></pre>
+<p>以第一个语法解释</p>
+<pre><code class="shell">1       5       cron.daily              nice run-parts /etc/cron.daily
+</code></pre>
+<ol>
+<li>读取/var/spool/cron.daily中的时间</li>
+<li>和当前时间做比较如果超过 1天则执行指令</li>
+<li>这个工作只能在03:00-22:00执行</li>
+<li>执行的工作时间强制时间为5分钟，然后再随机延迟0-45分钟</li>
+<li>使用nice命令指定默认优先级，使用run-parts脚本执行/etc/cron.dayly目录中的所有可执行文件。</li>
+<li></li>
+</ol>
+
+</div>
+
+
+    <div class="post-guide">
+        <div class="item left">
+            
+              <a href="/2019/12/17/Linux/17Linux%E4%B9%8B%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/">
+                  <i class="fa fa-angle-left" aria-hidden="true"></i>
+                  17Linux之网络基础
+              </a>
+            
+        </div>
+        <div class="item right">
+            
+              <a href="/2019/12/06/Linux/13Linux%E4%B9%8B%E6%9C%8D%E5%8A%A1%E7%AE%A1%E7%90%86/">
+                13Linux之服务管理
+                <i class="fa fa-angle-right" aria-hidden="true"></i>
+              </a>
+            
+        </div>
+    </div>
+
+
+
+
+<script>
+	
+	
+</script>
+	</div>
+	<div id="footer">
+	<p>
+	©2020-<span id="footerYear"></span> 
+	<a href="/">BamB00</a> 
+	
+	
+		|
+		<span id="busuanzi_container_site_pv">
+			pv
+			<span id="busuanzi_value_site_pv"></span>
+		</span>
+		|
+		<span id="busuanzi_container_site_uv"> 
+			uv
+			<span id="busuanzi_value_site_uv"></span>
+		</span>
+	
+	<br>
+	Theme <a href="//github.com/wujun234/hexo-theme-tree" target="_blank">Tree</a>
+	by <a href="//github.com/wujun234" target="_blank">WuJun</a>
+	Powered by <a href="//hexo.io" target="_blank">Hexo</a>
+	</p>
+</div>
+<script type="text/javascript"> 
+	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
+</script>
+	<button id="totop-toggle" class="toggle"><i class="fa fa-angle-double-up" aria-hidden="true"></i></button>
+</body>
+</html>

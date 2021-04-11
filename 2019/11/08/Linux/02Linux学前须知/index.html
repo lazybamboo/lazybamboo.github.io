@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8">
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+	
+	<!-- title -->
+	
+	<title>
+	
+		Linux学前须知 | 
+	 
+	竹竿小站
+	</title>
+	
+	<!-- keywords,description -->
+	 
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.jpg">
+	
+
+
+	<!-- search -->
+	<script>
+		var searchEngine = "https://www.baidu.com/s?wd=";
+		if(typeof searchEngine == "undefined" || searchEngine == null || searchEngine == ""){
+			searchEngine = "https://www.google.com/search?q=";
+		}
+		var homeHost = "bamboo.github.io";
+		if(typeof homeHost == "undefined" || homeHost == null || homeHost == ""){
+			homeHost = window.location.host;
+		}
+	</script>
+
+
+	
+<link rel="stylesheet" href="/css/main.css">
+
+	
+<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.min.css">
+
+	
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.17.1/build/styles/darcula.min.css">
+
+	
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+
+
+	
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+
+	
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
+	
+<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.17.1/build/highlight.min.js"></script>
+
+	
+<script src="https://cdn.jsdelivr.net/npm/jquery-pjax@2.0.1/jquery.pjax.min.js"></script>
+
+	
+<script src="/js/main.js"></script>
+
+	
+		
+<script src="https://cdn.jsdelivr.net/npm/leancloud-storage/dist/av-min.js"></script>
+
+		
+<script src="https://cdn.jsdelivr.net/npm/valine@1.3.10/dist/Valine.min.js"></script>
+
+	
+	
+		<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+	
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+	<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?3efe99c287df5a1d6f0d02d187e403c1";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+<header id="header">
+    <a id="title" href="/" class="logo">竹竿小站</a>
+
+	<ul id="menu">
+		<li class="menu-item">
+			<a href="/about" class="menu-item-link">ABOUT</a>
+		</li>
+	
+		<li class="menu-item">
+			<a href="/tags" class="menu-item-link">标签</a>
+		</li>
+	
+
+	
+		<li class="menu-item">
+			<a href="/categories" class="menu-item-link">分类</a>
+		</li>
+	
+
+		<li class="menu-item">
+			<a href="https://github.com/wujun234/uid-generator-spring-boot-starter" class="menu-item-link" target="_blank">
+				UidGenerator
+			</a>
+		</li>
+		<li class="menu-item">
+			<a href="https://github.com/wujun234" class="menu-item-link" target="_blank">
+				<i class="fa fa-github fa-2x"></i>
+			</a>
+		</li>
+	</ul>
+</header>
+
+	
+<div id="sidebar">
+	<button id="sidebar-toggle" class="toggle" ><i class="fa fa-arrow-right " aria-hidden="true"></i></button>
+	
+	<div id="site-toc">
+		<input id="search-input" class="search-input" type="search" placeholder="按回车全站搜索">
+		<div id="tree">
+			
+
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Linux
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/2017/08/08/Linux/01linux-%E5%AE%89%E8%A3%85/">
+										01linux-安装
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file active">
+									<a href="/2019/11/08/Linux/02Linux%E5%AD%A6%E5%89%8D%E9%A1%BB%E7%9F%A5/">
+										02Linux学前须知
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/11/08/Linux/03Linuxz%E4%B9%8B%E5%B8%B8%E7%94%A8%E7%9A%84%E5%91%BD%E4%BB%A4/">
+										03Linuxz之常用的命令
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2021/04/12/Linux/04Linux%E4%B9%8BVim/">
+										04Linux之Vim
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/11/14/Linux/05Linux%E4%B9%8B%E8%BD%AF%E4%BB%B6%E5%8C%85/">
+										05Linux之软件包
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/11/18/Linux/06Linux%E4%B9%8B%E7%94%A8%E6%88%B7%E7%AE%A1%E7%90%86/">
+										06Linux之用户管理
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/11/19/Linux/07Linux%E4%B9%8B%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/">
+										07Linux之权限管理
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/11/20/Linux/08Linux%E4%B9%8B%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F%E7%AE%A1%E7%90%86/">
+										08Linux之文件系统管理
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/11/23/Linux/09Linux%E4%B9%8B%E9%AB%98%E7%BA%A7%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F/">
+										09Linux之高级文件管理系统
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/11/24/Linux/10Linux%E4%B9%8Bshell/">
+										10Linux之shell
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/11/26/Linux/11Linux%E4%B9%8Bshell%E9%AB%98%E7%BA%A7/">
+										11Linux之shell高级
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/12/02/Linux/12Linux%E4%B9%8B%E5%90%AF%E5%8A%A8%E5%BC%95%E5%AF%BC%E4%B8%8E%E4%BF%AE%E5%A4%8D/">
+										12Linux之启动引导与修复
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/12/06/Linux/13Linux%E4%B9%8B%E6%9C%8D%E5%8A%A1%E7%AE%A1%E7%90%86/">
+										13Linux之服务管理
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/12/10/Linux/14Linux%E4%B9%8B%E7%B3%BB%E7%BB%9F%E7%AE%A1%E7%90%86/">
+										14Linux之系统管理
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/12/06/Linux/15Linux%E4%B9%8B%E7%B3%BB%E7%BB%9F%E6%97%A5%E5%BF%97/">
+										15Linux之系统日志
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/12/17/Linux/16Centos6%E5%92%8CCentos7%E5%9F%BA%E6%9C%AC%E5%AF%B9%E6%AF%94/">
+										16Centos6和Centos7基本对比
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/12/17/Linux/17Linux%E4%B9%8B%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/">
+										17Linux之网络基础
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/10/15/Linux/18Linux%E4%B9%8B%E6%9C%8D%E5%8A%A1%E5%9F%BA%E7%A1%80SSH/">
+										18Linux之服务基础SSH
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/12/18/Linux/19Linux%E4%B9%8B%E6%9C%8D%E5%8A%A1%E5%9F%BA%E7%A1%80TCP%20Wrappers/">
+										19Linux之服务基础TCP Wrappers
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/12/18/Linux/20%E7%BD%91%E7%BB%9C%E6%9C%8D%E5%8A%A1%E4%B9%8BDHCP/">
+										20网络服务之DHCP
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/12/20/Linux/21%E7%BD%91%E7%BB%9C%E6%9C%8D%E5%8A%A1%E4%B9%8BDNS/">
+										21网络服务之DNS
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/12/26/Linux/22%E7%BD%91%E7%BB%9C%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B9%8BVSFTP/">
+										22网络服务器之VSFTP
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/10/11/Linux/Bash%E5%BF%AB%E6%8D%B7%E9%94%AE/">
+										Bash快捷键
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/10/10/Linux/LInux-CDN%E7%AE%80%E4%BB%8B/">
+										LInux-CDN简介
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/10/08/Linux/Llinux-DNS-%E8%AF%A6%E8%A7%A3/">
+										Llinux-DNS-详解
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/10/13/Linux/linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">
+										linux常用命令
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2021/04/12/Linux/%E5%8D%8A%E8%99%9A%E6%8B%9F%E5%8C%96%E5%92%8C%E7%A1%AC%E4%BB%B6%E8%99%9A%E6%8B%9F%E5%8C%96%E7%9A%84%E4%B8%BB%E8%A6%81%E5%8C%BA%E5%88%AB/">
+										半虚拟化和硬件虚拟化的主要区别
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										web渗透
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/2020/09/17/web%E6%B8%97%E9%80%8F/01SQL%E6%B3%A8%E5%85%A5/">
+										01SQL注入
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										搭建
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/2018/11/18/%E6%90%AD%E5%BB%BA/NextCloud/">
+										NextCloud
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2018/11/18/%E6%90%AD%E5%BB%BA/Nmap-Sublist3r-Hydra%E5%AE%89%E8%A3%85%EF%BC%88Ubuntu%E7%8E%AF%E5%A2%83%EF%BC%89/">
+										Nmap-Sublist3r-Hydra安装（Ubuntu环境）
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/04/11/%E6%90%AD%E5%BB%BA/hadoop%E5%8D%95%E6%9C%BA%E9%9B%86%E7%BE%A4%E6%90%AD%E5%BB%BA/">
+										hadoop单机集群搭建
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										汇编
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/2018/12/20/%E6%B1%87%E7%BC%96/%E6%B1%87%E7%BC%961/">
+										汇编1
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2018/12/26/%E6%B1%87%E7%BC%96/%E6%B1%87%E7%BC%962/">
+										汇编2
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/01/01/%E6%B1%87%E7%BC%96/%E6%B1%87%E7%BC%963/">
+										汇编3
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/01/05/%E6%B1%87%E7%BC%96/%E6%B1%87%E7%BC%964/">
+										汇编4
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/01/06/%E6%B1%87%E7%BC%96/%E6%B1%87%E7%BC%965/">
+										汇编5
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/01/07/%E6%B1%87%E7%BC%96/%E6%B1%87%E7%BC%966/">
+										汇编6
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2021/04/12/%E6%B1%87%E7%BC%96/%E9%80%9A%E7%94%A8%E5%AF%84%E5%AD%98%E5%99%A8/">
+										通用寄存器
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+		</div>
+	</div>
+</div>
+
+	<!-- 引入正文 -->
+	<div id="content">
+		<h1 id="article-title">
+
+	02Linux学前须知
+</h1>
+<div class="article-meta">
+	
+	<span>BamB00</span>
+	<span>2019-11-08 00:00:00</span>
+		<div id="article-categories">
+    
+		<span>Categories：</span>
+            
+    
+
+    
+		<span>Tags：</span>
+            
+                
+                    <span>
+                        <i class="fa fa-tag" aria-hidden="true">
+                        <a href="/tags/centos6/">centos6</a>
+                        </i>
+                    </span>
+                
+            
+                
+                    <span>
+                        <i class="fa fa-tag" aria-hidden="true">
+                        <a href="/tags/install/">install</a>
+                        </i>
+                    </span>
+                
+            
+    
+		</div>
+
+</div>
+
+<div id="article-content">
+	<h1 id="0x01-学前须知"><a href="#0x01-学前须知" class="headerlink" title="0x01 学前须知"></a>0x01 学前须知</h1><h2 id="0x011-Linux严格区分大小写"><a href="#0x011-Linux严格区分大小写" class="headerlink" title="0x011 Linux严格区分大小写"></a>0x011 Linux严格区分大小写</h2><p>Linux是严格区分大小写的。</p>
+<h2 id="0x012-Linux一切皆文件"><a href="#0x012-Linux一切皆文件" class="headerlink" title="0x012 Linux一切皆文件"></a>0x012 Linux一切皆文件</h2><p>Linux中所有内容都是以文件的形式保存和管理，硬件设备也是文件。</p>
+<h2 id="0x013-Linux不靠扩展名区分文件类型"><a href="#0x013-Linux不靠扩展名区分文件类型" class="headerlink" title="0x013 Linux不靠扩展名区分文件类型"></a>0x013 Linux不靠扩展名区分文件类型</h2><p>比如<code>*.txt *.mp4</code> 这些事扩展名，Windows都是靠扩展名去区分文件类型，但Linux不是，而是权限标识来确定文件类型。</p>
+<p>但Linux中一些特殊文件还是要求写“扩展名”，并不是一定考扩展名来识别文件类型，写这些扩展名是为了帮助管理员来区分不同的文件类型。常见的扩展名有</p>
+<ul>
+<li><p><strong>压缩包：</strong>Linux常见的压缩文件有:*.gz,*.bz2*.zip……..等 压缩包的扩展名主要是为了方便管理，主要是不同的压缩指令会有不同的算法压缩解压的方式所以为了方便区分指令。</p>
+</li>
+<li><p><strong>软件包：</strong>Cnetos中所使用的二进制安装包是RPM包，所有的RPM包用<code>*.RPM</code>扩展名结尾。</p>
+</li>
+<li><p><strong>程序文件：</strong>Shell脚本一般使用<code>*.sh</code>，C语言文件<code>*.c</code></p>
+</li>
+<li><p><strong>网页文件：</strong>网站一般使用<code>*.html,*.php,*.jsp</code>网页一般是应网页服务器要求，而不是Linux要求。</p>
+</li>
+</ul>
+<h2 id="0x014-Linux中所有的存储设备都必须挂载之后才能使用"><a href="#0x014-Linux中所有的存储设备都必须挂载之后才能使用" class="headerlink" title="0x014 Linux中所有的存储设备都必须挂载之后才能使用"></a>0x014 Linux中所有的存储设备都必须挂载之后才能使用</h2><p>Linux中所有的存储设备都有自己的设备文件名,这些设备文件必须在挂在之后才能使用(包括，硬盘，U盘，光盘)，Windows是自动挂在。挂载其实就是给这些存储设备分配盘符，只不过Windows用英文字母显示，而Linux盘符则是一个已经建立的空目录。我们把这些空目录叫做挂载点(可以理解为Windows的盘符),把设备文件(如/dev/sdb)和挂载点(已经建立的空目录)连接过程叫做挂载</p>
+<h1 id="0x02-服务器学前须知"><a href="#0x02-服务器学前须知" class="headerlink" title="0x02 服务器学前须知"></a>0x02 服务器学前须知</h1><h2 id="0x021-了解Linux目录结构"><a href="#0x021-了解Linux目录结构" class="headerlink" title="0x021 了解Linux目录结构"></a>0x021 了解Linux目录结构</h2><h3 id="0x0211-根目录下的目录"><a href="#0x0211-根目录下的目录" class="headerlink" title="0x0211 根目录下的目录"></a>0x0211 根目录下的目录</h3><table>
+<thead>
+<tr>
+<th>目录</th>
+<th>应放置的内容</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>/bin</td>
+<td>存放二进制可执行文件(ls,cat,mkdir等)，常用命令一般都在这里。</td>
+</tr>
+<tr>
+<td>/etc</td>
+<td>存放系统管理和配置文件 采用默认安装的服务配置文件全部都在此目录中，如用户信息，服务的启动脚本常用的服务器配置等。</td>
+</tr>
+<tr>
+<td>/home</td>
+<td>存放所有用户文件的根目录，是用户主目录的基点，比如用户user的主目录就是/home/user，可以用~user表示</td>
+</tr>
+<tr>
+<td>/usr</td>
+<td>用于存放系统应用程序，比较重要的目录/usr/local 本地系统管理员软件安装目录（安装系统级的应用）。这是最庞大的目录，要用到的应用程序和文件几乎都在这个目录。/usr/x11r6 存放x window的目录/usr/bin 众多的应用程序 /usr/sbin 超级用户的一些管理程序 /usr/doc <a target="_blank" rel="noopener" href="http://lib.csdn.net/base/linux">Linux</a>文档 /usr/include linux下开发和编译应用程序所需要的头文件 /usr/lib 常用的动态链接库和软件包的配置文件 /usr/man 帮助文档 /usr/src 源代码，linux内核的源代码就放在/usr/src/linux里 /usr/local/bin 本地增加的命令 /usr/local/lib 本地增加的库</td>
+</tr>
+<tr>
+<td>/opt</td>
+<td>额外安装的可选应用程序包所放置的位置。一般情况下，我们可以把tomcat等都安装到这里。 <strong>redhat 6 才出现，一些老工程师会习惯放在/usr/local目录下安装软件</strong></td>
+</tr>
+<tr>
+<td>/proc</td>
+<td>虚拟文件系统目录，是系统内存的映射。可直接访问这个目录来获取系统信息。</td>
+</tr>
+<tr>
+<td>/root</td>
+<td>超级用户（系统管理员）的主目录（特权阶级^o^）</td>
+</tr>
+<tr>
+<td>/sbin</td>
+<td>存放二进制可执行文件，只有root才能访问。这里存放的是系统管理员使用的系统级别的管理命令和程序。如ifconfig等。</td>
+</tr>
+<tr>
+<td>/dev</td>
+<td>用于存放设备文件。</td>
+</tr>
+<tr>
+<td>/mnt</td>
+<td>系统管理员安装临时文件系统的安装点，系统提供这个目录是让用户临时挂载其他的文件系统。</td>
+</tr>
+<tr>
+<td>/boot</td>
+<td>存放用于系统引导时使用的各种文件</td>
+</tr>
+<tr>
+<td>/lib</td>
+<td>存放跟文件系统中的程序运行所需要的<strong>共享库及内核模块。共享库又叫动态链接共享库</strong>，作用类似windows里的.dll文件，存放了根文件系统程序运行所需的共享文件。</td>
+</tr>
+<tr>
+<td>/tmp</td>
+<td>用于存放各种临时文件，是公用的临时文件存储点。</td>
+</tr>
+<tr>
+<td>/var</td>
+<td>用于存放运行时需要改变数据的文件，也是某些大文件的溢出区，比方说各种服务的日志文件（系统启动日志等。）等。</td>
+</tr>
+<tr>
+<td>/lost+found</td>
+<td>这个目录平时是空的，系统非正常关机而留下“无家可归”的文件（windows下叫什么.chk）就在这里，当系统意外崩溃和机器意外关机，而产生的一些碎片存放在这里。当系统启动过程中Fsck工具会检查这里，并修复已经损坏的系统文件，这个目录只在每个分区中出现，例如/lost+found就是根目录的备份回复目录，/boot/lost+found /boot分区的备份恢复目录。</td>
+</tr>
+<tr>
+<td>/selinux</td>
+<td>限制root权限。</td>
+</tr>
+<tr>
+<td>/srv</td>
+<td>该目录存放一些服务启动之后需要提取的数据。</td>
+</tr>
+<tr>
+<td>/sys</td>
+<td>这是linux2.6内核的一个很大的变化。该目录下安装了2.6内核中新出现的一个文件系统 sysfs 。</td>
+</tr>
+</tbody></table>
+<h3 id="0x0212-usr下的目录"><a href="#0x0212-usr下的目录" class="headerlink" title="0x0212 /usr下的目录"></a>0x0212 /usr下的目录</h3><table>
+<thead>
+<tr>
+<th>目录</th>
+<th>应放置的内容</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>/usr/bin/</td>
+<td>绝大部分的用户可使用的命令都放在这里。它与/bin的不同之处在于：是否与开机过程有关。</td>
+</tr>
+<tr>
+<td>/usr/include/</td>
+<td>C/C++等程序语言的头文件与包含文件放置处。</td>
+</tr>
+<tr>
+<td>/usr/lib/</td>
+<td>包含各种应用软件的函数库、目标文件，以及不被一般用户惯用的执行文件或脚本。</td>
+</tr>
+<tr>
+<td>/usr/local/</td>
+<td>系统管理员在本机自行安装自己下载的软件，建议安装到此目录，这样比较便于管理。</td>
+</tr>
+<tr>
+<td>/usr/sbin/</td>
+<td>非系统正常运行所需要的系统命令。</td>
+</tr>
+<tr>
+<td>/usr/share/</td>
+<td>放置共享文件的地方。</td>
+</tr>
+<tr>
+<td>/usr/src/</td>
+<td>一般源码建议放置到这里，src可以视为source的缩写。而至于内核源码则建议放置到/usr/src/linux/目录   实际操作中更多手工下载的源码包放在/usr/local/src 目录中源码放在 /usr/src/kernels 中</td>
+</tr>
+</tbody></table>
+<h3 id="0x0213-var下的目录"><a href="#0x0213-var下的目录" class="headerlink" title="0x0213 /var下的目录"></a>0x0213 /var下的目录</h3><table>
+<thead>
+<tr>
+<th>目录</th>
+<th>应放置的内容</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>/var/cache/</td>
+<td>放置应用程序本身运行过程中会产生的一些暂存文件。</td>
+</tr>
+<tr>
+<td>/var/lib/</td>
+<td>程序本身执行过程中，需要使用到的数据文件放置目录。例如Mysql数据库保存在/var/lib/mysql</td>
+</tr>
+<tr>
+<td>/var/lock/</td>
+<td>某些设备或文件资源一次只能被一个应用程序所使用，如果同时有程序使用该设备或文件资源时，就可能产生一些错误的情况，因此就要将该设备或文件资源上锁（lock），以确保该设备或文件资源只会给单一软件所使用。</td>
+</tr>
+<tr>
+<td>/var/log/</td>
+<td>放置登录文件的目录。面比较重要的文件如/var/log/messages，/var/log/wtmp(记录登录者信息)等。</td>
+</tr>
+<tr>
+<td>/var/mail/</td>
+<td>放置个人电子邮件信箱的目录。不过这个目录也被放置到/var/spool/mail/目录中，通常这两个目录是互为连接文件</td>
+</tr>
+<tr>
+<td>/var/run/</td>
+<td>某些程序或服务启动后，会将他们的PID放置在这个目录下。</td>
+</tr>
+<tr>
+<td>/var/spool/</td>
+<td>这个目录通常放置一些队列数据，所谓的“队列”就是排队等待其他程序使用的数据。这些数据被使用后通常会被删除。例如/var/spool/mail/ 新收到的邮件队列保存位置，系统新收到的邮件会保存在这里。/var/spool/cron/ 系统定时任务队列位置，系统的计划任务会报错在这里</td>
+</tr>
+<tr>
+<td>/var/www/html</td>
+<td>RPM包安装的Apache的网页目录在这里</td>
+</tr>
+</tbody></table>
+<h2 id="0x022-远程服务器关机以及重启时的注意事项"><a href="#0x022-远程服务器关机以及重启时的注意事项" class="headerlink" title="0x022 远程服务器关机以及重启时的注意事项"></a>0x022 远程服务器关机以及重启时的注意事项</h2><p>远程服务器一般是不放在本地所以，千万千万不要关机，很麻烦滴，如果服务器被关机了，有时候只能打电话给当地的服务器管理人员帮你开机，<strong>所以只能重启不能关机</strong></p>
+<h3 id="0x0221-远程服务器在重启前，要终止正在执行的服务"><a href="#0x0221-远程服务器在重启前，要终止正在执行的服务" class="headerlink" title="0x0221 远程服务器在重启前，要终止正在执行的服务"></a>0x0221 远程服务器在重启前，要终止正在执行的服务</h3><p>计算机的硬盘最怕在高速存储的时候断电和重启，会非常容易造成硬盘损坏。在重启前先你的服务，甚至可以考虑暂时断开对外提供的网络。</p>
+<h3 id="0x0222-重启命令的选用"><a href="#0x0222-重启命令的选用" class="headerlink" title="0x0222 重启命令的选用"></a>0x0222 重启命令的选用</h3><p>建议使用<code>shutdown -r now</code>这个命令在重启时会正常保存和种植服务器正在运行的程序，是安全的重启命令，而且在重启前可以 执行几次<code>sync</code>命令，这条命令是数据同步命令，可以让暂时保存在内存中的数据同步到硬盘上</p>
+<h2 id="0x023-不要再服务器访问高峰运行高负载命令"><a href="#0x023-不要再服务器访问高峰运行高负载命令" class="headerlink" title="0x023 不要再服务器访问高峰运行高负载命令"></a>0x023 不要再服务器访问高峰运行高负载命令</h2><p>这样会造成服务器响应缓慢甚至死机。</p>
+<p>什么样的是高负载命令：比如大数据拷贝，大范围的硬盘扫描这类，就是PISK(硬盘)跑满，的时候就是高负载命令</p>
+<p>什么时候是访问高峰区根据 公司服务器 但通常都是在4:00-5:00执行这些高负载命令，一般都是定时任务。</p>
+<h2 id="0x024-配置防火墙时不要把自己踢出服务器"><a href="#0x024-配置防火墙时不要把自己踢出服务器" class="headerlink" title="0x024 配置防火墙时不要把自己踢出服务器"></a>0x024 配置防火墙时不要把自己踢出服务器</h2><p>防火墙的基本功能是: 数据包过滤(IP,MAC地址,端口号，协议类型，数据包中的数据)前四个一般防火墙软件都支持，数据包中的数据可能需要更高级的硬件层</p>
+<p>Linux防火墙配置是完全靠手工命令完成的，配置规则和配置命令相对也比较复杂。</p>
+<p><strong>避免这种尴尬的配置:</strong> 在执行新的防火墙规则和配置时，先备份防火墙规则，写一个系统定时任务，让他每5分钟恢复防火墙规则，就算写错我们也可以有机会更改，等测试没有了问题再删除这个系统定时任务。</p>
+<h2 id="0x025-指定合理的密码规则并定期更新"><a href="#0x025-指定合理的密码规则并定期更新" class="headerlink" title="0x025 指定合理的密码规则并定期更新"></a>0x025 指定合理的密码规则并定期更新</h2><p>为了应对暴力破解</p>
+<p>密码设置需遵循  </p>
+<ul>
+<li>复杂性(10位以上，包含大小写字母，特殊字符，数字)</li>
+<li>易记忆(可以时古诗，名人，书籍名称) 自己容易记别忘了</li>
+<li>时效性(企业级密码每隔一定时间需要定期更换)</li>
+</ul>
+<h2 id="0x026-合理分配权限"><a href="#0x026-合理分配权限" class="headerlink" title="0x026 合理分配权限"></a>0x026 合理分配权限</h2><p>服务器管理由一个简单的原则:给予用户最小的权限</p>
+<h2 id="0x027-定期备份重要数据和日志"><a href="#0x027-定期备份重要数据和日志" class="headerlink" title="0x027 定期备份重要数据和日志"></a>0x027 定期备份重要数据和日志</h2><p>备份的基本原则：不要把鸡蛋放在同一个篮子中</p>
+
+</div>
+
+
+    <div class="post-guide">
+        <div class="item left">
+            
+              <a href="/2019/11/14/Linux/05Linux%E4%B9%8B%E8%BD%AF%E4%BB%B6%E5%8C%85/">
+                  <i class="fa fa-angle-left" aria-hidden="true"></i>
+                  05Linux之软件包
+              </a>
+            
+        </div>
+        <div class="item right">
+            
+              <a href="/2019/11/08/Linux/03Linuxz%E4%B9%8B%E5%B8%B8%E7%94%A8%E7%9A%84%E5%91%BD%E4%BB%A4/">
+                03Linuxz之常用的命令
+                <i class="fa fa-angle-right" aria-hidden="true"></i>
+              </a>
+            
+        </div>
+    </div>
+
+
+
+
+<script>
+	
+	
+</script>
+	</div>
+	<div id="footer">
+	<p>
+	©2020-<span id="footerYear"></span> 
+	<a href="/">BamB00</a> 
+	
+	
+		|
+		<span id="busuanzi_container_site_pv">
+			pv
+			<span id="busuanzi_value_site_pv"></span>
+		</span>
+		|
+		<span id="busuanzi_container_site_uv"> 
+			uv
+			<span id="busuanzi_value_site_uv"></span>
+		</span>
+	
+	<br>
+	Theme <a href="//github.com/wujun234/hexo-theme-tree" target="_blank">Tree</a>
+	by <a href="//github.com/wujun234" target="_blank">WuJun</a>
+	Powered by <a href="//hexo.io" target="_blank">Hexo</a>
+	</p>
+</div>
+<script type="text/javascript"> 
+	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
+</script>
+	<button id="totop-toggle" class="toggle"><i class="fa fa-angle-double-up" aria-hidden="true"></i></button>
+</body>
+</html>

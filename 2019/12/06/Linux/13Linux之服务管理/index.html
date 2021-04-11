@@ -1,0 +1,1060 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8">
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+	
+	<!-- title -->
+	
+	<title>
+	
+		13linux之服务管理 | 
+	 
+	竹竿小站
+	</title>
+	
+	<!-- keywords,description -->
+	 
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.jpg">
+	
+
+
+	<!-- search -->
+	<script>
+		var searchEngine = "https://www.baidu.com/s?wd=";
+		if(typeof searchEngine == "undefined" || searchEngine == null || searchEngine == ""){
+			searchEngine = "https://www.google.com/search?q=";
+		}
+		var homeHost = "bamboo.github.io";
+		if(typeof homeHost == "undefined" || homeHost == null || homeHost == ""){
+			homeHost = window.location.host;
+		}
+	</script>
+
+
+	
+<link rel="stylesheet" href="/css/main.css">
+
+	
+<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.min.css">
+
+	
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.17.1/build/styles/darcula.min.css">
+
+	
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+
+
+	
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+
+	
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
+	
+<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.17.1/build/highlight.min.js"></script>
+
+	
+<script src="https://cdn.jsdelivr.net/npm/jquery-pjax@2.0.1/jquery.pjax.min.js"></script>
+
+	
+<script src="/js/main.js"></script>
+
+	
+		
+<script src="https://cdn.jsdelivr.net/npm/leancloud-storage/dist/av-min.js"></script>
+
+		
+<script src="https://cdn.jsdelivr.net/npm/valine@1.3.10/dist/Valine.min.js"></script>
+
+	
+	
+		<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+	
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+	<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?3efe99c287df5a1d6f0d02d187e403c1";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+<header id="header">
+    <a id="title" href="/" class="logo">竹竿小站</a>
+
+	<ul id="menu">
+		<li class="menu-item">
+			<a href="/about" class="menu-item-link">ABOUT</a>
+		</li>
+	
+		<li class="menu-item">
+			<a href="/tags" class="menu-item-link">标签</a>
+		</li>
+	
+
+	
+		<li class="menu-item">
+			<a href="/categories" class="menu-item-link">分类</a>
+		</li>
+	
+
+		<li class="menu-item">
+			<a href="https://github.com/wujun234/uid-generator-spring-boot-starter" class="menu-item-link" target="_blank">
+				UidGenerator
+			</a>
+		</li>
+		<li class="menu-item">
+			<a href="https://github.com/wujun234" class="menu-item-link" target="_blank">
+				<i class="fa fa-github fa-2x"></i>
+			</a>
+		</li>
+	</ul>
+</header>
+
+	
+<div id="sidebar">
+	<button id="sidebar-toggle" class="toggle" ><i class="fa fa-arrow-right " aria-hidden="true"></i></button>
+	
+	<div id="site-toc">
+		<input id="search-input" class="search-input" type="search" placeholder="按回车全站搜索">
+		<div id="tree">
+			
+
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Linux
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/2017/08/08/Linux/01linux-%E5%AE%89%E8%A3%85/">
+										01linux-安装
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/11/08/Linux/02Linux%E5%AD%A6%E5%89%8D%E9%A1%BB%E7%9F%A5/">
+										02Linux学前须知
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/11/08/Linux/03Linuxz%E4%B9%8B%E5%B8%B8%E7%94%A8%E7%9A%84%E5%91%BD%E4%BB%A4/">
+										03Linuxz之常用的命令
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2021/04/12/Linux/04Linux%E4%B9%8BVim/">
+										04Linux之Vim
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/11/14/Linux/05Linux%E4%B9%8B%E8%BD%AF%E4%BB%B6%E5%8C%85/">
+										05Linux之软件包
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/11/18/Linux/06Linux%E4%B9%8B%E7%94%A8%E6%88%B7%E7%AE%A1%E7%90%86/">
+										06Linux之用户管理
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/11/19/Linux/07Linux%E4%B9%8B%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/">
+										07Linux之权限管理
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/11/20/Linux/08Linux%E4%B9%8B%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F%E7%AE%A1%E7%90%86/">
+										08Linux之文件系统管理
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/11/23/Linux/09Linux%E4%B9%8B%E9%AB%98%E7%BA%A7%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F/">
+										09Linux之高级文件管理系统
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/11/24/Linux/10Linux%E4%B9%8Bshell/">
+										10Linux之shell
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/11/26/Linux/11Linux%E4%B9%8Bshell%E9%AB%98%E7%BA%A7/">
+										11Linux之shell高级
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/12/02/Linux/12Linux%E4%B9%8B%E5%90%AF%E5%8A%A8%E5%BC%95%E5%AF%BC%E4%B8%8E%E4%BF%AE%E5%A4%8D/">
+										12Linux之启动引导与修复
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file active">
+									<a href="/2019/12/06/Linux/13Linux%E4%B9%8B%E6%9C%8D%E5%8A%A1%E7%AE%A1%E7%90%86/">
+										13Linux之服务管理
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/12/10/Linux/14Linux%E4%B9%8B%E7%B3%BB%E7%BB%9F%E7%AE%A1%E7%90%86/">
+										14Linux之系统管理
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/12/06/Linux/15Linux%E4%B9%8B%E7%B3%BB%E7%BB%9F%E6%97%A5%E5%BF%97/">
+										15Linux之系统日志
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/12/17/Linux/16Centos6%E5%92%8CCentos7%E5%9F%BA%E6%9C%AC%E5%AF%B9%E6%AF%94/">
+										16Centos6和Centos7基本对比
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/12/17/Linux/17Linux%E4%B9%8B%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/">
+										17Linux之网络基础
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/10/15/Linux/18Linux%E4%B9%8B%E6%9C%8D%E5%8A%A1%E5%9F%BA%E7%A1%80SSH/">
+										18Linux之服务基础SSH
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/12/18/Linux/19Linux%E4%B9%8B%E6%9C%8D%E5%8A%A1%E5%9F%BA%E7%A1%80TCP%20Wrappers/">
+										19Linux之服务基础TCP Wrappers
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/12/18/Linux/20%E7%BD%91%E7%BB%9C%E6%9C%8D%E5%8A%A1%E4%B9%8BDHCP/">
+										20网络服务之DHCP
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/12/20/Linux/21%E7%BD%91%E7%BB%9C%E6%9C%8D%E5%8A%A1%E4%B9%8BDNS/">
+										21网络服务之DNS
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/12/26/Linux/22%E7%BD%91%E7%BB%9C%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B9%8BVSFTP/">
+										22网络服务器之VSFTP
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/10/11/Linux/Bash%E5%BF%AB%E6%8D%B7%E9%94%AE/">
+										Bash快捷键
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/10/10/Linux/LInux-CDN%E7%AE%80%E4%BB%8B/">
+										LInux-CDN简介
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/10/08/Linux/Llinux-DNS-%E8%AF%A6%E8%A7%A3/">
+										Llinux-DNS-详解
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/10/13/Linux/linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">
+										linux常用命令
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2021/04/12/Linux/%E5%8D%8A%E8%99%9A%E6%8B%9F%E5%8C%96%E5%92%8C%E7%A1%AC%E4%BB%B6%E8%99%9A%E6%8B%9F%E5%8C%96%E7%9A%84%E4%B8%BB%E8%A6%81%E5%8C%BA%E5%88%AB/">
+										半虚拟化和硬件虚拟化的主要区别
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										web渗透
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/2020/09/17/web%E6%B8%97%E9%80%8F/01SQL%E6%B3%A8%E5%85%A5/">
+										01SQL注入
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										搭建
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/2018/11/18/%E6%90%AD%E5%BB%BA/NextCloud/">
+										NextCloud
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2018/11/18/%E6%90%AD%E5%BB%BA/Nmap-Sublist3r-Hydra%E5%AE%89%E8%A3%85%EF%BC%88Ubuntu%E7%8E%AF%E5%A2%83%EF%BC%89/">
+										Nmap-Sublist3r-Hydra安装（Ubuntu环境）
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/04/11/%E6%90%AD%E5%BB%BA/hadoop%E5%8D%95%E6%9C%BA%E9%9B%86%E7%BE%A4%E6%90%AD%E5%BB%BA/">
+										hadoop单机集群搭建
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										汇编
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/2018/12/20/%E6%B1%87%E7%BC%96/%E6%B1%87%E7%BC%961/">
+										汇编1
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2018/12/26/%E6%B1%87%E7%BC%96/%E6%B1%87%E7%BC%962/">
+										汇编2
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/01/01/%E6%B1%87%E7%BC%96/%E6%B1%87%E7%BC%963/">
+										汇编3
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/01/05/%E6%B1%87%E7%BC%96/%E6%B1%87%E7%BC%964/">
+										汇编4
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/01/06/%E6%B1%87%E7%BC%96/%E6%B1%87%E7%BC%965/">
+										汇编5
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/01/07/%E6%B1%87%E7%BC%96/%E6%B1%87%E7%BC%966/">
+										汇编6
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2021/04/12/%E6%B1%87%E7%BC%96/%E9%80%9A%E7%94%A8%E5%AF%84%E5%AD%98%E5%99%A8/">
+										通用寄存器
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+		</div>
+	</div>
+</div>
+
+	<!-- 引入正文 -->
+	<div id="content">
+		<h1 id="article-title">
+
+	13Linux之服务管理
+</h1>
+<div class="article-meta">
+	
+	<span>BamB00</span>
+	<span>2019-12-06 00:00:00</span>
+		<div id="article-categories">
+    
+		<span>Categories：</span>
+            
+    
+
+    
+		<span>Tags：</span>
+            
+                
+                    <span>
+                        <i class="fa fa-tag" aria-hidden="true">
+                        <a href="/tags/Linux/">Linux</a>
+                        </i>
+                    </span>
+                
+            
+    
+		</div>
+
+</div>
+
+<div id="article-content">
+	<h1 id="0x01-服务的分类"><a href="#0x01-服务的分类" class="headerlink" title="0x01 服务的分类"></a>0x01 服务的分类</h1><pre><code class="mermaid">graph LR
+Linux服务 --&gt; RPM包默认安装的服务
+Linux服务 --&gt; 源码包安装的服务
+RPM包默认安装的服务 --&gt; 独立的服务
+RPM包默认安装的服务 --&gt; 基于xinetd服务
+</code></pre>
+<h1 id="0x02-RPM默认安装的服务"><a href="#0x02-RPM默认安装的服务" class="headerlink" title="0x02 RPM默认安装的服务"></a>0x02 RPM默认安装的服务</h1><p><strong>独立的服务</strong></p>
+<p>​    就是直接使用RPM安装，可以独立启动，自行启动，不依赖其他管理软件</p>
+<p><strong>xinetd服务</strong></p>
+<p>​    服务中使用的的软件基本上就是老服务。而且他的优点是只有xinetd本身占用内存但现在的硬件性能完全够用，所以很少有服务会基于xinetd的了</p>
+<p><strong>区分方法</strong></p>
+<p>​    6版本以上的Linux不会自带Xinetd服务直接使用<code>chkconfig</code>可以看</p>
+<pre><code class="shell">Note: This output shows SysV services only and does not include native
+      systemd services. SysV configuration data might be overridden by native
+      systemd configuration.
+
+      If you want to list systemd services use &#39;systemctl list-unit-files&#39;.
+      To see services enabled on particular target use
+      &#39;systemctl list-dependencies [target]&#39;.
+#带有自启动等级的就是独立服务
+netconsole      0:off   1:off   2:off   3:off   4:off   5:off   6:off
+network         0:off   1:off   2:on    3:on    4:on    5:on    6:off
+#xinetd服务有单独的区域
+xinetd based services:
+        chargen-dgram:  off
+        chargen-stream: off
+        daytime-dgram:  off
+        daytime-stream: off
+        discard-dgram:  off
+        discard-stream: off
+        echo-dgram:     off
+        echo-stream:    off
+        tcpmux-server:  off
+        time-dgram:     off
+        time-stream:    off
+</code></pre>
+<h2 id="0x021-手动与自启动"><a href="#0x021-手动与自启动" class="headerlink" title="0x021 手动与自启动"></a>0x021 手动与自启动</h2><p><strong>手动启动</strong></p>
+<ul>
+<li>独立服务<ol>
+<li><code>/etc/rc.d/init.d/httpd start</code> 推荐</li>
+<li><code>service httpd start</code>  </li>
+</ol>
+</li>
+<li>xinetd服务<ol>
+<li><code>etc/xinetd.d/telnet</code>里把相对于的服务把disable =yes 改为 disable=no</li>
+<li><code>service xinetd restart</code></li>
+</ol>
+</li>
+</ul>
+<p><strong>自启动</strong></p>
+<ul>
+<li><p>独立服务</p>
+<ol>
+<li><p><code>chkconfig --level 2345 httpd on</code> </p>
+</li>
+<li><p>在文件写<code>/etc/rc.local</code>👉内容<code>/etc/rc.d/init.d/httpd start</code></p>
+</li>
+<li><p>ntsysv  //这个指令会改变chkconfig的内容</p>
+<p><strong>补充：chkconfig与ntsysv相关联如果用ntsysv会改变chkconfig相反也一样。</strong></p>
+</li>
+</ol>
+</li>
+<li><p>xinetd服务</p>
+<ol>
+<li><code>chkconfig telnet on</code></li>
+<li><code>ntsysv</code></li>
+</ol>
+</li>
+</ul>
+<h1 id="0x03-源码包安装的服务"><a href="#0x03-源码包安装的服务" class="headerlink" title="0x03 源码包安装的服务"></a>0x03 源码包安装的服务</h1><p>源码包不能直接由<code>service chkconfig ntsysv</code>管理。</p>
+<p><strong>手动启动</strong></p>
+<p>一般官方都会有文档告诉你他的启动和管理的主要文件信息。</p>
+<p>默认情况所有指令都会放在源码包安装后的<code>Bin</code>目录下有启动命令例如</p>
+<pre><code class="shell"># /usr/apache2/bin/apachectl start|stop|restart
+</code></pre>
+<p><strong>自启动</strong></p>
+<p>源码包的自启动就是在文件中加入对应的服务最好</p>
+<p>在文件写<code>/etc/rc.local</code>👉内容<code>/etc/rc.d/init.d/httpd start</code></p>
+<h2 id="0x031-让源码包服务被服务管理命令识别-不推荐"><a href="#0x031-让源码包服务被服务管理命令识别-不推荐" class="headerlink" title="0x031 让源码包服务被服务管理命令识别 不推荐"></a>0x031 让源码包服务被服务管理命令识别 不推荐</h2><p>就是让源码包被命令所识别就例如上面三个命令.但不推荐使用，区分管理服务也是为了备注他的方式。</p>
+<p><strong>Service</strong></p>
+<p>把启动文件以软连接的方式链接到<code>/etc/init.d/</code>目录下即可</p>
+<p><strong>chkconfig</strong></p>
+<p>chkconfig只要在启动脚本前加入</p>
+<pre><code class="shell">例如
+#!/bin/bash
+# chkconfig: 35 86 76
+# description: source package server //注释
+#格式是: chkconfig: 运行级别 启动顺序 关闭顺序
+#这里的例子是 某服务在3和5级别能被chkconfig管理，启动顺序是s86关闭顺序是k76 //不要跟系统重叠即可
+</code></pre>
+<p>把文件加入后</p>
+<p>需要输入</p>
+<pre><code class="shell">#chkconfig --add server
+</code></pre>
+<p>把服务加入到chkconfig中</p>
+<p><strong>注入已经加入了chkconfig,ntsysv就会同步了</strong></p>
+<pre><code class="shell">#chkconfig [选项] [服务吗]
+选项:
+    --add: 把服务加入chkconfig命令的管理
+    --del: 把服务从chkconfig命令的管理中删除
+</code></pre>
+<h1 id="0x04-Linux常见的服务"><a href="#0x04-Linux常见的服务" class="headerlink" title="0x04 Linux常见的服务"></a>0x04 Linux常见的服务</h1><table>
+<thead>
+<tr>
+<th>服务名称</th>
+<th>功能简介</th>
+<th>建议</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>acpid</td>
+<td>电源管理接口。如果是笔记本电脑用户，则建议开启，可以监听内核层的相关电源事件</td>
+<td>开启</td>
+</tr>
+<tr>
+<td>anacron</td>
+<td>系统的定时任务程序。是 cron 的一个子系统，如果定时任务错过了执行时间，则可以通过 anacron 继续唤醒执行</td>
+<td>关闭</td>
+</tr>
+<tr>
+<td>alsasound</td>
+<td>alsa 声卡驱动。如果使用 alsa 声卡，则开启</td>
+<td>关闭</td>
+</tr>
+<tr>
+<td>apmd</td>
+<td>电源管理模块。如果支持 acpid，就不需要 apmd，可以关闭</td>
+<td>关闭</td>
+</tr>
+<tr>
+<td>atd</td>
+<td>指定系统在特定时间执行某个任务，只能执行一次。如果需要则开启，但我们一般使用 crond 来执行循环定时任务</td>
+<td>关闭</td>
+</tr>
+<tr>
+<td>auditd</td>
+<td>审核子系统。如果开启了此服务，那么 SELinux 的审核信息会写入 /var/log/audit/ audit.log 文件；如果不开启，那么审核信息会记录在 syslog 中</td>
+<td>开启</td>
+</tr>
+<tr>
+<td>autofs</td>
+<td>让服务器可以自动挂载网络中其他服务器的共享数据,一般用来自动挂载 NFS 服务。如果没有 NFS 服务，则建议关闭</td>
+<td>关闭</td>
+</tr>
+<tr>
+<td>avahi-daemon</td>
+<td>avahi 是 zeroconf 协议的实现，它可以在没有 DNS 服务的局域网里发现基于 zeroconf 协议的设备和服务。除非有兼容设备或使用 zeroconf 协议，否则关闭</td>
+<td>关闭</td>
+</tr>
+<tr>
+<td>bluetooth</td>
+<td>蓝牙设备支持。一般不会在服务器上启用蓝牙设备，关闭它</td>
+<td>关闭</td>
+</tr>
+<tr>
+<td>capi</td>
+<td>仅对使用 ISND 设备的用户有用</td>
+<td>关闭</td>
+</tr>
+<tr>
+<td>chargen-dgram</td>
+<td>使用 UDP 协议的 chargen server。其主要提供类似远程打字的功能</td>
+<td>关闭</td>
+</tr>
+<tr>
+<td>chargen-stream</td>
+<td>同上</td>
+<td>关闭</td>
+</tr>
+<tr>
+<td>cpuspeed</td>
+<td>可以用来调整 CPU 的频率。当闲置时，可以自动降低 CPU 频率来节省电量</td>
+<td>开启</td>
+</tr>
+<tr>
+<td>crond</td>
+<td>系统的定时任务，一般的 Linux 服务器都需要定时任务来协助系统维护。建议开启</td>
+<td>开启</td>
+</tr>
+<tr>
+<td>cvs</td>
+<td>一个版本控制系统</td>
+<td>关闭</td>
+</tr>
+<tr>
+<td>daytime-dgram</td>
+<td>使用 TCP 协议的 daytime 守护进程，该协议为客户机实现从远程服务器获取日期和时间的功能</td>
+<td>关闭</td>
+</tr>
+<tr>
+<td>daytime-slream</td>
+<td>同上</td>
+<td>关闭</td>
+</tr>
+<tr>
+<td>dovecot</td>
+<td>邮件服务中 POP3/IMAP 服务的守护进程，主要用来接收信件。如果启动了邮件服务则开启：否则关闭</td>
+<td>关闭</td>
+</tr>
+<tr>
+<td>echo-dgram</td>
+<td>服务器回显客户服务的进程</td>
+<td>关闭</td>
+</tr>
+<tr>
+<td>echo-stream</td>
+<td>同上</td>
+<td>关闭</td>
+</tr>
+<tr>
+<td>firstboot</td>
+<td>系统安装完成后，有一个欢迎界面，需要对系统进行初始设定，这就是这个服务的作用。既然不是第一次启动了，则建议关闭</td>
+<td>关闭</td>
+</tr>
+<tr>
+<td>gpm</td>
+<td>在字符终端 (ttyl~tty6) 中可以使用鼠标复制和粘贴，这就是这个服务的功能</td>
+<td>开启</td>
+</tr>
+<tr>
+<td>haldaemon</td>
+<td>检测和支持 USB 设备。如果是服务器则可以关闭，个人机则建议开启</td>
+<td>关闭</td>
+</tr>
+<tr>
+<td>hidd</td>
+<td>蓝牙鼠标、键盘等蓝牙设备检测。必须启动 bluetooth 服务</td>
+<td>关闭</td>
+</tr>
+<tr>
+<td>hplip</td>
+<td>HP 打印机支持，如果没有 HP 打印机则关闭</td>
+<td>关闭</td>
+</tr>
+<tr>
+<td>httpd</td>
+<td>apache 服务的守护进程。如果需要启动 apache，就开启</td>
+<td>开启</td>
+</tr>
+<tr>
+<td>ip6tables</td>
+<td>IPv6 的防火墙。目前 IPv6 协议并没有使用，可以关闭</td>
+<td>关闭</td>
+</tr>
+<tr>
+<td>iptables</td>
+<td>防火墙功能。Linux 中的防火墙是内核支持功能。这是服务器的主要防护手段，必须开启</td>
+<td>开启</td>
+</tr>
+<tr>
+<td>irda</td>
+<td>IrDA 提供红外线设备（笔记本电脑、PDA’s、手机、计算器等）间的通信支持。建议关闭</td>
+<td>关闭</td>
+</tr>
+<tr>
+<td>irqbalance</td>
+<td>支持多核处理器，让 CPU 可以自动分配系统中断（IRQ)，提高系统性能。目前服务器多是多核 CPU，请开启</td>
+<td>开启</td>
+</tr>
+<tr>
+<td>isdn</td>
+<td>使用 ISDN 设备连接网络。目前主流的联网方式是光纤接入和 ADSL，ISDN 己经非常少见，请关闭</td>
+<td>关闭</td>
+</tr>
+<tr>
+<td>kudzu</td>
+<td>该服务可以在开机时进行硬件检测，并会调用相关的设置软件。建议关闭，仅在需要时开启</td>
+<td>关闭</td>
+</tr>
+<tr>
+<td>lvm2-monitor</td>
+<td>该服务可以让系统支持LVM逻辑卷组，如果分区采用的是LVM方式，那么应该开启。建议开启</td>
+<td>开启</td>
+</tr>
+<tr>
+<td>mcstrans</td>
+<td>SELinux 的支持服务。建议开启</td>
+<td>开启</td>
+</tr>
+<tr>
+<td>mdmonitor</td>
+<td>该服务用来监测 Software RAID 或 LVM 的信息。不是必需服务，建议关闭</td>
+<td>关闭</td>
+</tr>
+<tr>
+<td>mdmpd</td>
+<td>该服务用来监测 Multi-Path 设备。不是必需服务，建议关闭</td>
+<td>关闭</td>
+</tr>
+<tr>
+<td>messagebus</td>
+<td>这是 Linux 的 IPC (Interprocess Communication，进程间通信）服务，用来在各个软件中交换信息。建议关闭</td>
+<td>关闭</td>
+</tr>
+<tr>
+<td>microcode _ctl</td>
+<td>Intel 系列的 CPU 可以通过这个服务支持额外的微指令集。建议关闭</td>
+<td>关闭</td>
+</tr>
+<tr>
+<td>mysqld</td>
+<td><a target="_blank" rel="noopener" href="http://c.biancheng.net/mysql/">MySQL</a> 数据库服务器。如果需要就开启；否则关闭</td>
+<td>开启</td>
+</tr>
+<tr>
+<td>named</td>
+<td>DNS 服务的守护进程，用来进行域名解析。如果是 DNS 服务器则开启；否则关闭</td>
+<td>关闭</td>
+</tr>
+<tr>
+<td>netfs</td>
+<td>该服务用于在系统启动时自动挂载网络中的共享文件空间，比如 NFS、Samba 等。 需要就开启，否则关闭</td>
+<td>关闭</td>
+</tr>
+<tr>
+<td>network</td>
+<td>提供网络设罝功能。通过这个服务来管理网络，建议开启</td>
+<td>开启</td>
+</tr>
+<tr>
+<td>nfs</td>
+<td>NFS (Network File System) 服务，Linux 与 Linux 之间的文件共享服务。需要就开启，否则关闭</td>
+<td>关闭</td>
+</tr>
+<tr>
+<td>nfslock</td>
+<td>在 Linux 中如果使用了 NFS 服务，那么，为了避免同一个文件被不同的用户同时编辑，所以有这个锁服务。有 NFS 时开启，否则关闭</td>
+<td>关闭</td>
+</tr>
+<tr>
+<td>ntpd</td>
+<td>该服务可以通过互联网自动更新系统时间.使系统时间永远准确。需要则开启，但不是必需服务</td>
+<td>关闭</td>
+</tr>
+<tr>
+<td>pcscd</td>
+<td>智能卡检测服务，可以关闭</td>
+<td>关闭</td>
+</tr>
+<tr>
+<td>portmap</td>
+<td>用在远程过程调用 (RPC) 的服务，如果没有任何 RPC 服务，则可以关闭。主要是 NFS 和 NIS 服务需要</td>
+<td>关闭</td>
+</tr>
+<tr>
+<td>psacct</td>
+<td>该守护进程支持几个监控进程活动的工具</td>
+<td>关闭</td>
+</tr>
+<tr>
+<td>rdisc</td>
+<td>客户端 ICMP 路由协议</td>
+<td>关闭</td>
+</tr>
+<tr>
+<td>readahead_early</td>
+<td>在系统开启的时候，先将某些进程加载入内存整理，可以加快启动速度</td>
+<td>关闭</td>
+</tr>
+<tr>
+<td>readahead_later</td>
+<td>同上</td>
+<td>关闭</td>
+</tr>
+<tr>
+<td>restorecond</td>
+<td>用于给 SELinux 监测和重新加载正确的文件上下文。如果开启 SELinux，则需要开启</td>
+<td>关闭</td>
+</tr>
+<tr>
+<td>rpcgssd</td>
+<td>与 NFS 有关的客户端功能。如果没有 NFS 就关闭</td>
+<td>关闭</td>
+</tr>
+<tr>
+<td>rpcidmapd</td>
+<td>同上</td>
+<td>关闭</td>
+</tr>
+<tr>
+<td>rsync</td>
+<td>远程数据备份守护进程</td>
+<td>关闭</td>
+</tr>
+<tr>
+<td>sendmail</td>
+<td>sendmail 邮件服务的守护进程。如果有邮件服务就开启；否则关闭</td>
+<td>关闭</td>
+</tr>
+<tr>
+<td>setroubleshoot</td>
+<td>该服务用于将 SELinux 相关信息记录在日志 /var/log/messages 中。建议开启</td>
+<td>开启</td>
+</tr>
+<tr>
+<td>smartd</td>
+<td>该服务用于自动检测硬盘状态。建议开启</td>
+<td>开启</td>
+</tr>
+<tr>
+<td>smb</td>
+<td>网络服务 samba 的守护进程。可以让 Linux 和 Windows 之间共享数据。如果需要则开启</td>
+<td>关闭</td>
+</tr>
+<tr>
+<td>squid</td>
+<td>代理服务的守护进程。如果需要则开启：否则关闭</td>
+<td>关闭</td>
+</tr>
+<tr>
+<td>sshd</td>
+<td>ssh 加密远程登录管理的服务。服务器的远程管理必须使用此服务，不要关闭</td>
+<td>开启</td>
+</tr>
+<tr>
+<td>syslog</td>
+<td>日志的守护进程</td>
+<td>开启</td>
+</tr>
+<tr>
+<td>vsftpd</td>
+<td>vsftp 服务的守护进程。如果需要 FTP 服务则开启；否则关闭</td>
+<td>关闭</td>
+</tr>
+<tr>
+<td>xfs</td>
+<td>这是 X Window 的字体守护进程，为图形界面提供字体服务。如果不启动图形界面，就不用开启</td>
+<td>关闭</td>
+</tr>
+<tr>
+<td>xinetd</td>
+<td>超级守护进程。如果有依赖 xinetd 的服务，就必须开启</td>
+<td>开启</td>
+</tr>
+<tr>
+<td>ypbind</td>
+<td>为 NIS (网络信息系统）客户机激活 ypbind 服务进程</td>
+<td>关闭</td>
+</tr>
+<tr>
+<td>yum-updatesd</td>
+<td>yum 的在线升级服务</td>
+<td>关闭</td>
+</tr>
+</tbody></table>
+
+</div>
+
+
+    <div class="post-guide">
+        <div class="item left">
+            
+              <a href="/2019/12/10/Linux/14Linux%E4%B9%8B%E7%B3%BB%E7%BB%9F%E7%AE%A1%E7%90%86/">
+                  <i class="fa fa-angle-left" aria-hidden="true"></i>
+                  14Linux之系统管理
+              </a>
+            
+        </div>
+        <div class="item right">
+            
+              <a href="/2019/12/06/Linux/15Linux%E4%B9%8B%E7%B3%BB%E7%BB%9F%E6%97%A5%E5%BF%97/">
+                15Linux之系统日志
+                <i class="fa fa-angle-right" aria-hidden="true"></i>
+              </a>
+            
+        </div>
+    </div>
+
+
+
+
+<script>
+	
+	
+</script>
+	</div>
+	<div id="footer">
+	<p>
+	©2020-<span id="footerYear"></span> 
+	<a href="/">BamB00</a> 
+	
+	
+		|
+		<span id="busuanzi_container_site_pv">
+			pv
+			<span id="busuanzi_value_site_pv"></span>
+		</span>
+		|
+		<span id="busuanzi_container_site_uv"> 
+			uv
+			<span id="busuanzi_value_site_uv"></span>
+		</span>
+	
+	<br>
+	Theme <a href="//github.com/wujun234/hexo-theme-tree" target="_blank">Tree</a>
+	by <a href="//github.com/wujun234" target="_blank">WuJun</a>
+	Powered by <a href="//hexo.io" target="_blank">Hexo</a>
+	</p>
+</div>
+<script type="text/javascript"> 
+	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
+</script>
+	<button id="totop-toggle" class="toggle"><i class="fa fa-angle-double-up" aria-hidden="true"></i></button>
+</body>
+</html>

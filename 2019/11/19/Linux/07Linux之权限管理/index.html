@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8">
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+	
+	<!-- title -->
+	
+	<title>
+	
+		07Linux权限管理 | 
+	 
+	竹竿小站
+	</title>
+	
+	<!-- keywords,description -->
+	 
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.jpg">
+	
+
+
+	<!-- search -->
+	<script>
+		var searchEngine = "https://www.baidu.com/s?wd=";
+		if(typeof searchEngine == "undefined" || searchEngine == null || searchEngine == ""){
+			searchEngine = "https://www.google.com/search?q=";
+		}
+		var homeHost = "bamboo.github.io";
+		if(typeof homeHost == "undefined" || homeHost == null || homeHost == ""){
+			homeHost = window.location.host;
+		}
+	</script>
+
+
+	
+<link rel="stylesheet" href="/css/main.css">
+
+	
+<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.min.css">
+
+	
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.17.1/build/styles/darcula.min.css">
+
+	
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+
+
+	
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+
+	
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
+	
+<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.17.1/build/highlight.min.js"></script>
+
+	
+<script src="https://cdn.jsdelivr.net/npm/jquery-pjax@2.0.1/jquery.pjax.min.js"></script>
+
+	
+<script src="/js/main.js"></script>
+
+	
+		
+<script src="https://cdn.jsdelivr.net/npm/leancloud-storage/dist/av-min.js"></script>
+
+		
+<script src="https://cdn.jsdelivr.net/npm/valine@1.3.10/dist/Valine.min.js"></script>
+
+	
+	
+		<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+	
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+	<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?3efe99c287df5a1d6f0d02d187e403c1";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+<header id="header">
+    <a id="title" href="/" class="logo">竹竿小站</a>
+
+	<ul id="menu">
+		<li class="menu-item">
+			<a href="/about" class="menu-item-link">ABOUT</a>
+		</li>
+	
+		<li class="menu-item">
+			<a href="/tags" class="menu-item-link">标签</a>
+		</li>
+	
+
+	
+		<li class="menu-item">
+			<a href="/categories" class="menu-item-link">分类</a>
+		</li>
+	
+
+		<li class="menu-item">
+			<a href="https://github.com/wujun234/uid-generator-spring-boot-starter" class="menu-item-link" target="_blank">
+				UidGenerator
+			</a>
+		</li>
+		<li class="menu-item">
+			<a href="https://github.com/wujun234" class="menu-item-link" target="_blank">
+				<i class="fa fa-github fa-2x"></i>
+			</a>
+		</li>
+	</ul>
+</header>
+
+	
+<div id="sidebar">
+	<button id="sidebar-toggle" class="toggle" ><i class="fa fa-arrow-right " aria-hidden="true"></i></button>
+	
+	<div id="site-toc">
+		<input id="search-input" class="search-input" type="search" placeholder="按回车全站搜索">
+		<div id="tree">
+			
+
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Linux
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/2017/08/08/Linux/01linux-%E5%AE%89%E8%A3%85/">
+										01linux-安装
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/11/08/Linux/02Linux%E5%AD%A6%E5%89%8D%E9%A1%BB%E7%9F%A5/">
+										02Linux学前须知
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/11/08/Linux/03Linuxz%E4%B9%8B%E5%B8%B8%E7%94%A8%E7%9A%84%E5%91%BD%E4%BB%A4/">
+										03Linuxz之常用的命令
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2021/04/12/Linux/04Linux%E4%B9%8BVim/">
+										04Linux之Vim
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/11/14/Linux/05Linux%E4%B9%8B%E8%BD%AF%E4%BB%B6%E5%8C%85/">
+										05Linux之软件包
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/11/18/Linux/06Linux%E4%B9%8B%E7%94%A8%E6%88%B7%E7%AE%A1%E7%90%86/">
+										06Linux之用户管理
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file active">
+									<a href="/2019/11/19/Linux/07Linux%E4%B9%8B%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/">
+										07Linux之权限管理
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/11/20/Linux/08Linux%E4%B9%8B%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F%E7%AE%A1%E7%90%86/">
+										08Linux之文件系统管理
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/11/23/Linux/09Linux%E4%B9%8B%E9%AB%98%E7%BA%A7%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F/">
+										09Linux之高级文件管理系统
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/11/24/Linux/10Linux%E4%B9%8Bshell/">
+										10Linux之shell
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/11/26/Linux/11Linux%E4%B9%8Bshell%E9%AB%98%E7%BA%A7/">
+										11Linux之shell高级
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/12/02/Linux/12Linux%E4%B9%8B%E5%90%AF%E5%8A%A8%E5%BC%95%E5%AF%BC%E4%B8%8E%E4%BF%AE%E5%A4%8D/">
+										12Linux之启动引导与修复
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/12/06/Linux/13Linux%E4%B9%8B%E6%9C%8D%E5%8A%A1%E7%AE%A1%E7%90%86/">
+										13Linux之服务管理
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/12/10/Linux/14Linux%E4%B9%8B%E7%B3%BB%E7%BB%9F%E7%AE%A1%E7%90%86/">
+										14Linux之系统管理
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/12/06/Linux/15Linux%E4%B9%8B%E7%B3%BB%E7%BB%9F%E6%97%A5%E5%BF%97/">
+										15Linux之系统日志
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/12/17/Linux/16Centos6%E5%92%8CCentos7%E5%9F%BA%E6%9C%AC%E5%AF%B9%E6%AF%94/">
+										16Centos6和Centos7基本对比
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/12/17/Linux/17Linux%E4%B9%8B%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/">
+										17Linux之网络基础
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/10/15/Linux/18Linux%E4%B9%8B%E6%9C%8D%E5%8A%A1%E5%9F%BA%E7%A1%80SSH/">
+										18Linux之服务基础SSH
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/12/18/Linux/19Linux%E4%B9%8B%E6%9C%8D%E5%8A%A1%E5%9F%BA%E7%A1%80TCP%20Wrappers/">
+										19Linux之服务基础TCP Wrappers
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/12/18/Linux/20%E7%BD%91%E7%BB%9C%E6%9C%8D%E5%8A%A1%E4%B9%8BDHCP/">
+										20网络服务之DHCP
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/12/20/Linux/21%E7%BD%91%E7%BB%9C%E6%9C%8D%E5%8A%A1%E4%B9%8BDNS/">
+										21网络服务之DNS
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/12/26/Linux/22%E7%BD%91%E7%BB%9C%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B9%8BVSFTP/">
+										22网络服务器之VSFTP
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/10/11/Linux/Bash%E5%BF%AB%E6%8D%B7%E9%94%AE/">
+										Bash快捷键
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/10/10/Linux/LInux-CDN%E7%AE%80%E4%BB%8B/">
+										LInux-CDN简介
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/10/08/Linux/Llinux-DNS-%E8%AF%A6%E8%A7%A3/">
+										Llinux-DNS-详解
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/10/13/Linux/linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">
+										linux常用命令
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2021/04/12/Linux/%E5%8D%8A%E8%99%9A%E6%8B%9F%E5%8C%96%E5%92%8C%E7%A1%AC%E4%BB%B6%E8%99%9A%E6%8B%9F%E5%8C%96%E7%9A%84%E4%B8%BB%E8%A6%81%E5%8C%BA%E5%88%AB/">
+										半虚拟化和硬件虚拟化的主要区别
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										web渗透
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/2020/09/17/web%E6%B8%97%E9%80%8F/01SQL%E6%B3%A8%E5%85%A5/">
+										01SQL注入
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										搭建
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/2018/11/18/%E6%90%AD%E5%BB%BA/NextCloud/">
+										NextCloud
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2018/11/18/%E6%90%AD%E5%BB%BA/Nmap-Sublist3r-Hydra%E5%AE%89%E8%A3%85%EF%BC%88Ubuntu%E7%8E%AF%E5%A2%83%EF%BC%89/">
+										Nmap-Sublist3r-Hydra安装（Ubuntu环境）
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/04/11/%E6%90%AD%E5%BB%BA/hadoop%E5%8D%95%E6%9C%BA%E9%9B%86%E7%BE%A4%E6%90%AD%E5%BB%BA/">
+										hadoop单机集群搭建
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										汇编
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/2018/12/20/%E6%B1%87%E7%BC%96/%E6%B1%87%E7%BC%961/">
+										汇编1
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2018/12/26/%E6%B1%87%E7%BC%96/%E6%B1%87%E7%BC%962/">
+										汇编2
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/01/01/%E6%B1%87%E7%BC%96/%E6%B1%87%E7%BC%963/">
+										汇编3
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/01/05/%E6%B1%87%E7%BC%96/%E6%B1%87%E7%BC%964/">
+										汇编4
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/01/06/%E6%B1%87%E7%BC%96/%E6%B1%87%E7%BC%965/">
+										汇编5
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/01/07/%E6%B1%87%E7%BC%96/%E6%B1%87%E7%BC%966/">
+										汇编6
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2021/04/12/%E6%B1%87%E7%BC%96/%E9%80%9A%E7%94%A8%E5%AF%84%E5%AD%98%E5%99%A8/">
+										通用寄存器
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+		</div>
+	</div>
+</div>
+
+	<!-- 引入正文 -->
+	<div id="content">
+		<h1 id="article-title">
+
+	07Linux之权限管理
+</h1>
+<div class="article-meta">
+	
+	<span>BamB00</span>
+	<span>2019-11-19 00:00:00</span>
+		<div id="article-categories">
+    
+		<span>Categories：</span>
+            
+    
+
+    
+		<span>Tags：</span>
+            
+                
+                    <span>
+                        <i class="fa fa-tag" aria-hidden="true">
+                        <a href="/tags/Linux/">Linux</a>
+                        </i>
+                    </span>
+                
+            
+    
+		</div>
+
+</div>
+
+<div id="article-content">
+	<h1 id="0x01-ACL权限"><a href="#0x01-ACL权限" class="headerlink" title="0x01 ACL权限"></a>0x01 ACL权限</h1><p>概述: ACL是用于解决用户对文件身份不足的问题。</p>
+<p><img src="C:\Users\Qusi\Desktop\123.jpg"></p>
+<h2 id="0x012-ACL权限是否开启"><a href="#0x012-ACL权限是否开启" class="headerlink" title="0x012 ACL权限是否开启"></a>0x012 ACL权限是否开启</h2><pre><code># dumpe2fs -h /dev/sda3 #dumpe2fs 是查询指定分区详细文件系统信息的命令
+选项:
+     -h 仅显示超级块中的信息，而不显示磁盘块组的详细信息
+</code></pre>
+<p>没有开启ACL要手动开启有两种方法</p>
+<ol>
+<li> 重新挂载根目录分区<code>mount -o remount,acl /</code>这种是临时的办法</li>
+<li>通过修改<code>/etc/fastab</code>文件永久开启ACL权限</li>
+</ol>
+<h2 id="0x013-ACL基本命令"><a href="#0x013-ACL基本命令" class="headerlink" title="0x013 ACL基本命令"></a>0x013 ACL基本命令</h2><pre><code class="shell"># getfacl 文件名 #查询文件的ACL权限
+</code></pre>
+<pre><code class="shell">setfacl 选项 文件名  #设定ACL权限
+选项:
+    -m 设定ACL权限
+    -b 删除所有ACL权限
+    -x 删除指定用户ACL权限
+    
+模板:
+setfacl -m u:用户名:权限 文件名
+setfacl -m g:组名:权限   文件名
+例子
+setfacl -m u:user1:7 /test1
+setfacl -m g:group1:rx -R /tset #-R递归
+注意:
+setfacl -m d:u:user1:rwx -R /test d是设置默认的ACL权限 而且只能对目录有效
+</code></pre>
+<h2 id="0x014-ACL权限溢出"><a href="#0x014-ACL权限溢出" class="headerlink" title="0x014 ACL权限溢出"></a>0x014 ACL权限溢出</h2><p>这也是为什么不能使用ACL代替普通的rwx权限的原因</p>
+<p><strong>ACL权限一旦递归之后，不可避免的出现权限溢出。</strong></p>
+<p>权限溢出的原因:  对目录来说 最低权限就是X这样才能打开目录进去访问，但是对文件来说最高权限也是X，这样在ACL递归的时候就会把目录和文件统一递归成X这样文件也有了执行权限。</p>
+<h2 id="0x015-最大有效权限mask"><a href="#0x015-最大有效权限mask" class="headerlink" title="0x015 最大有效权限mask"></a>0x015 最大有效权限mask</h2><p>mask代表了acl能够赋予的最大权限，如果mask没有读权限 acl就不能赋予读权限</p>
+<pre><code># setfacl -m m:rx /test1  #修改最大权限  m=mask
+</code></pre>
+<h1 id="0x02-sudo授权"><a href="#0x02-sudo授权" class="headerlink" title="0x02 sudo授权"></a>0x02 sudo授权</h1><p><strong>sudo 是给普通用户赋予部分管理员权限</strong></p>
+<p><strong>赋予的权限越详细，普通用户得到的权限越少。赋予的权限越简单，普通用户得到的权限越大</strong></p>
+<p><code>visudo</code>指令打开文件(<code>/etc/sudoers</code>)一般只有下面要修改的命令。</p>
+<pre><code> ## Allow root to run any commands anywhere
+ root    ALL=(ALL)       ALL
+</code></pre>
+<table>
+<thead>
+<tr>
+<th align="center">模块</th>
+<th align="center">含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">用户名或群组名</td>
+<td align="center">表示系统中的那个用户或群组，可以使用 sudo 这个命令。</td>
+</tr>
+<tr>
+<td align="center">被管理主机的地址</td>
+<td align="center">用户可以管理指定 IP 地址的服务器。这里如果写 ALL，则代表用户可以管理任何主机；如果写固定  IP，则代表用户可以管理指定的服务器。如果我们在这里写本机的 IP 地址，不代表只允许本机的用户使用指定命令，而是代表指定的用户可以从任何 IP 地址来管理当前服务器。</td>
+</tr>
+<tr>
+<td align="center">可使用的身份</td>
+<td align="center">就是把来源用户切换成什么身份使用，（ALL）代表可以切换成任意身份。这个字段可以省略。省略就是root权限</td>
+</tr>
+<tr>
+<td align="center">授权命令</td>
+<td align="center">表示 root 把什么命令命令授权给用户，换句话说，可以用切换的身份执行什么命令。需要注意的是，此命令必须使用绝对路径写。默认值是 ALL，表示可以执行任何命令。</td>
+</tr>
+</tbody></table>
+<pre><code class="shell"># sudo -l 可以执行哪些命令权限
+</code></pre>
+<h2 id="0x021-授权某用户可以添加其他用户"><a href="#0x021-授权某用户可以添加其他用户" class="headerlink" title="0x021 授权某用户可以添加其他用户"></a>0x021 授权某用户可以添加其他用户</h2><p>先上面添加 <code>/usr/sbin/useradd</code> <code>/usr/bin/passwd</code></p>
+<p>这样会授权用户可以任意修改所有的密码包括<code>root</code>所以要使他禁止修改某一些用户</p>
+<pre><code class="shell">![234](C:\Users\Qusi\Desktop\234.jpg)user1 ALL=/usr/sbin/useradd, /usr/bin/passwd [A-Za-z0-9], !/usr/bin/passwd root, !/usr/bin/passwd &quot;&quot;,  #这个是给user1添加用户和更改密码的权限，但不允许更改自己和root的密码。
+</code></pre>
+<h1 id="0x03-文件特殊权限"><a href="#0x03-文件特殊权限" class="headerlink" title="0x03 文件特殊权限"></a>0x03 文件特殊权限</h1><pre><code class="shell">-rwsr-xr-x.   1 root root     32K Aug  8 23:10 su
+---s--x--x.   1 root root    144K Oct 24 11:27 sudo
+</code></pre>
+<p>在·/usr/bin中</p>
+<h2 id="0x031-SetUID"><a href="#0x031-SetUID" class="headerlink" title="0x031 SetUID"></a>0x031 SetUID</h2><ul>
+<li>只有可以执行的二进制程序才能设定SUID权限</li>
+<li>命令执行者要对该程序拥有x(执行)权限</li>
+<li>命令执行者在执行该程序时获得文件所属主的身份(在执行程序的过程中灵魂附体为文件的属主)</li>
+<li>SetUID权限只在该程序执行过程中有效，也就是说身份改变只在程序执行过程中有效。</li>
+</ul>
+<p><img src="C:\Users\Qusi\Desktop\234.jpg"></p>
+<h3 id="0X0311-危险的SetUID"><a href="#0X0311-危险的SetUID" class="headerlink" title="0X0311 危险的SetUID"></a>0X0311 危险的SetUID</h3><p>SUID更改身份是不需要密码的，例如给Vim赋予SetUID比赋予Sudo更加危险，它并不需要输入密码且没有任何限制，相当于一个root用户执行vim。</p>
+<p>管理的时候SetUID建议:</p>
+<ol>
+<li>尽量别手工赋予SetUID权限</li>
+<li>关键目录及工具应严格控制写权限，例如“/”，“/sur”等</li>
+<li>用户的密码要遵守密码三原则</li>
+<li>对系统中默认应该具有SetUID权限的文件做一列表，定时检查有没有这之外的文件被设置了SetUID权限</li>
+</ol>
+<h2 id="0x032-SetGID"><a href="#0x032-SetGID" class="headerlink" title="0x032 SetGID"></a>0x032 SetGID</h2><p>SGID即可对文件生效，也可以对目录生效，这和SUID有明显把不同，如果针对文件，SGID的含义如下。</p>
+<ul>
+<li>只有可执行的二进制程序才能设置SGID权限</li>
+<li>命令执行者要对该程序拥有x（执行）权限</li>
+<li>命令执行在执行程序的时候，<strong>组身份升级为该程序文件的属组</strong></li>
+<li>SetGID权限同样只在执行过程中有效。</li>
+</ul>
+<p>针对目录的含义如下</p>
+<ul>
+<li>普通用户必须对此目录拥有r和x权限，才能进入此目录</li>
+<li>普通用户在此目录中的有效组会变成此目录的属组</li>
+<li>若普通用户对此目录拥有w权限时，新建的文件的默认属组是这个目录的属组。</li>
+</ul>
+<p>SGID本身没什么大的风险，它的风险是必须给其他人7权限才可以使用。</p>
+<h2 id="0x033-SBIT"><a href="#0x033-SBIT" class="headerlink" title="0x033 SBIT"></a>0x033 SBIT</h2><p>SBIT=sticky bit 粘着位，也称SBIT ，仅对目录有效</p>
+<ul>
+<li>仅对目录有效</li>
+<li>普通用户对该用户拥有w和x权限，即普通用户可以在此目录拥有写权限。</li>
+<li>如果没有SBIT，因为普通用户拥有w权限，可以在目录删除和增加任意文件包括其他成员的。一旦赋予了SBIT，除了root可以删除所有文件，普通用户就算拥有w权限，也只能删除自己建立的文件，但是不能删除其他用户建立的文件。</li>
+</ul>
+<p>这个风险和SGID相同。</p>
+<h2 id="0x034-设定文件的特殊权限"><a href="#0x034-设定文件的特殊权限" class="headerlink" title="0x034 设定文件的特殊权限"></a>0x034 设定文件的特殊权限</h2><ol>
+<li>SUID 4</li>
+<li>SGID 2</li>
+<li>SBIT 1</li>
+</ol>
+<pre><code>#chmod 4755 test 其他类似
+</code></pre>
+<h1 id="0x04-文件系统属性chattr权限"><a href="#0x04-文件系统属性chattr权限" class="headerlink" title="0x04 文件系统属性chattr权限"></a>0x04 文件系统属性chattr权限</h1><p>chattr 能够限制root用户（可以保护文件）</p>
+<pre><code>charre [+-=] [选项] 文件或目录名
+选项:
+    + : 增加权限
+    - : 删除权限
+    = : 等于某权限
+    i : 如果对文件设置i属性，那不允许对文件进行删除，改名，也不能增加或修改数据。如果对目录操作，那么只能修改目录下的数据，但不允许建立和删除文件。
+    a : 如果对文件设置a属性，那么只能在文件中增加数据，但是不能删除和修改数据。如果对目录设置a权限，那么只允许在目录中建立和修改文件，不能删除。
+    e : Linux中绝大多数文件都是默认e属性。表示该文件是使用ext文件系统进行存储的，而且不能使用&quot;chattr -e &quot;删除e属性
+</code></pre>
+<p>查看chattr权限</p>
+<pre><code>#lsattr 选项 文件名
+选项
+    -a 显示所有文件和目录
+    -d 若目标是目录，仅列出目录本身的属性，而不是子文件的。
+</code></pre>
+<h1 id="0x05-总结"><a href="#0x05-总结" class="headerlink" title="0x05 总结"></a>0x05 总结</h1><p>六种常规权限</p>
+<ol>
+<li>rwx</li>
+<li>umask</li>
+<li>acl</li>
+<li>sudo</li>
+<li>suid/sgid/sbit</li>
+<li>chattr</li>
+</ol>
+
+</div>
+
+
+    <div class="post-guide">
+        <div class="item left">
+            
+              <a href="/2019/11/20/Linux/08Linux%E4%B9%8B%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F%E7%AE%A1%E7%90%86/">
+                  <i class="fa fa-angle-left" aria-hidden="true"></i>
+                  08Linux之文件系统管理
+              </a>
+            
+        </div>
+        <div class="item right">
+            
+              <a href="/2019/11/18/Linux/06Linux%E4%B9%8B%E7%94%A8%E6%88%B7%E7%AE%A1%E7%90%86/">
+                06Linux之用户管理
+                <i class="fa fa-angle-right" aria-hidden="true"></i>
+              </a>
+            
+        </div>
+    </div>
+
+
+
+
+<script>
+	
+	
+</script>
+	</div>
+	<div id="footer">
+	<p>
+	©2020-<span id="footerYear"></span> 
+	<a href="/">BamB00</a> 
+	
+	
+		|
+		<span id="busuanzi_container_site_pv">
+			pv
+			<span id="busuanzi_value_site_pv"></span>
+		</span>
+		|
+		<span id="busuanzi_container_site_uv"> 
+			uv
+			<span id="busuanzi_value_site_uv"></span>
+		</span>
+	
+	<br>
+	Theme <a href="//github.com/wujun234/hexo-theme-tree" target="_blank">Tree</a>
+	by <a href="//github.com/wujun234" target="_blank">WuJun</a>
+	Powered by <a href="//hexo.io" target="_blank">Hexo</a>
+	</p>
+</div>
+<script type="text/javascript"> 
+	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
+</script>
+	<button id="totop-toggle" class="toggle"><i class="fa fa-angle-double-up" aria-hidden="true"></i></button>
+</body>
+</html>

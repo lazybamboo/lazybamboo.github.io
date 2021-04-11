@@ -1,0 +1,939 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8">
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+	
+	<!-- title -->
+	
+	<title>
+	
+		汇编6 | 
+	 
+	竹竿小站
+	</title>
+	
+	<!-- keywords,description -->
+	 
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.jpg">
+	
+
+
+	<!-- search -->
+	<script>
+		var searchEngine = "https://www.baidu.com/s?wd=";
+		if(typeof searchEngine == "undefined" || searchEngine == null || searchEngine == ""){
+			searchEngine = "https://www.google.com/search?q=";
+		}
+		var homeHost = "bamboo.github.io";
+		if(typeof homeHost == "undefined" || homeHost == null || homeHost == ""){
+			homeHost = window.location.host;
+		}
+	</script>
+
+
+	
+<link rel="stylesheet" href="/css/main.css">
+
+	
+<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.min.css">
+
+	
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.17.1/build/styles/darcula.min.css">
+
+	
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+
+
+	
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+
+	
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
+	
+<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.17.1/build/highlight.min.js"></script>
+
+	
+<script src="https://cdn.jsdelivr.net/npm/jquery-pjax@2.0.1/jquery.pjax.min.js"></script>
+
+	
+<script src="/js/main.js"></script>
+
+	
+		
+<script src="https://cdn.jsdelivr.net/npm/leancloud-storage/dist/av-min.js"></script>
+
+		
+<script src="https://cdn.jsdelivr.net/npm/valine@1.3.10/dist/Valine.min.js"></script>
+
+	
+	
+		<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+	
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+	<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?3efe99c287df5a1d6f0d02d187e403c1";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+<header id="header">
+    <a id="title" href="/" class="logo">竹竿小站</a>
+
+	<ul id="menu">
+		<li class="menu-item">
+			<a href="/about" class="menu-item-link">ABOUT</a>
+		</li>
+	
+		<li class="menu-item">
+			<a href="/tags" class="menu-item-link">标签</a>
+		</li>
+	
+
+	
+		<li class="menu-item">
+			<a href="/categories" class="menu-item-link">分类</a>
+		</li>
+	
+
+		<li class="menu-item">
+			<a href="https://github.com/wujun234/uid-generator-spring-boot-starter" class="menu-item-link" target="_blank">
+				UidGenerator
+			</a>
+		</li>
+		<li class="menu-item">
+			<a href="https://github.com/wujun234" class="menu-item-link" target="_blank">
+				<i class="fa fa-github fa-2x"></i>
+			</a>
+		</li>
+	</ul>
+</header>
+
+	
+<div id="sidebar">
+	<button id="sidebar-toggle" class="toggle" ><i class="fa fa-arrow-right " aria-hidden="true"></i></button>
+	
+	<div id="site-toc">
+		<input id="search-input" class="search-input" type="search" placeholder="按回车全站搜索">
+		<div id="tree">
+			
+
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Linux
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/2017/08/08/Linux/01linux-%E5%AE%89%E8%A3%85/">
+										01linux-安装
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/11/08/Linux/02Linux%E5%AD%A6%E5%89%8D%E9%A1%BB%E7%9F%A5/">
+										02Linux学前须知
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/11/08/Linux/03Linuxz%E4%B9%8B%E5%B8%B8%E7%94%A8%E7%9A%84%E5%91%BD%E4%BB%A4/">
+										03Linuxz之常用的命令
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2021/04/12/Linux/04Linux%E4%B9%8BVim/">
+										04Linux之Vim
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/11/14/Linux/05Linux%E4%B9%8B%E8%BD%AF%E4%BB%B6%E5%8C%85/">
+										05Linux之软件包
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/11/18/Linux/06Linux%E4%B9%8B%E7%94%A8%E6%88%B7%E7%AE%A1%E7%90%86/">
+										06Linux之用户管理
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/11/19/Linux/07Linux%E4%B9%8B%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/">
+										07Linux之权限管理
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/11/20/Linux/08Linux%E4%B9%8B%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F%E7%AE%A1%E7%90%86/">
+										08Linux之文件系统管理
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/11/23/Linux/09Linux%E4%B9%8B%E9%AB%98%E7%BA%A7%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F/">
+										09Linux之高级文件管理系统
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/11/24/Linux/10Linux%E4%B9%8Bshell/">
+										10Linux之shell
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/11/26/Linux/11Linux%E4%B9%8Bshell%E9%AB%98%E7%BA%A7/">
+										11Linux之shell高级
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/12/02/Linux/12Linux%E4%B9%8B%E5%90%AF%E5%8A%A8%E5%BC%95%E5%AF%BC%E4%B8%8E%E4%BF%AE%E5%A4%8D/">
+										12Linux之启动引导与修复
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/12/06/Linux/13Linux%E4%B9%8B%E6%9C%8D%E5%8A%A1%E7%AE%A1%E7%90%86/">
+										13Linux之服务管理
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/12/10/Linux/14Linux%E4%B9%8B%E7%B3%BB%E7%BB%9F%E7%AE%A1%E7%90%86/">
+										14Linux之系统管理
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/12/06/Linux/15Linux%E4%B9%8B%E7%B3%BB%E7%BB%9F%E6%97%A5%E5%BF%97/">
+										15Linux之系统日志
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/12/17/Linux/16Centos6%E5%92%8CCentos7%E5%9F%BA%E6%9C%AC%E5%AF%B9%E6%AF%94/">
+										16Centos6和Centos7基本对比
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/12/17/Linux/17Linux%E4%B9%8B%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/">
+										17Linux之网络基础
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/10/15/Linux/18Linux%E4%B9%8B%E6%9C%8D%E5%8A%A1%E5%9F%BA%E7%A1%80SSH/">
+										18Linux之服务基础SSH
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/12/18/Linux/19Linux%E4%B9%8B%E6%9C%8D%E5%8A%A1%E5%9F%BA%E7%A1%80TCP%20Wrappers/">
+										19Linux之服务基础TCP Wrappers
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/12/18/Linux/20%E7%BD%91%E7%BB%9C%E6%9C%8D%E5%8A%A1%E4%B9%8BDHCP/">
+										20网络服务之DHCP
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/12/20/Linux/21%E7%BD%91%E7%BB%9C%E6%9C%8D%E5%8A%A1%E4%B9%8BDNS/">
+										21网络服务之DNS
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/12/26/Linux/22%E7%BD%91%E7%BB%9C%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B9%8BVSFTP/">
+										22网络服务器之VSFTP
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/10/11/Linux/Bash%E5%BF%AB%E6%8D%B7%E9%94%AE/">
+										Bash快捷键
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/10/10/Linux/LInux-CDN%E7%AE%80%E4%BB%8B/">
+										LInux-CDN简介
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/10/08/Linux/Llinux-DNS-%E8%AF%A6%E8%A7%A3/">
+										Llinux-DNS-详解
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/10/13/Linux/linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">
+										linux常用命令
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2021/04/12/Linux/%E5%8D%8A%E8%99%9A%E6%8B%9F%E5%8C%96%E5%92%8C%E7%A1%AC%E4%BB%B6%E8%99%9A%E6%8B%9F%E5%8C%96%E7%9A%84%E4%B8%BB%E8%A6%81%E5%8C%BA%E5%88%AB/">
+										半虚拟化和硬件虚拟化的主要区别
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										web渗透
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/2020/09/17/web%E6%B8%97%E9%80%8F/01SQL%E6%B3%A8%E5%85%A5/">
+										01SQL注入
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										搭建
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/2018/11/18/%E6%90%AD%E5%BB%BA/NextCloud/">
+										NextCloud
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2018/11/18/%E6%90%AD%E5%BB%BA/Nmap-Sublist3r-Hydra%E5%AE%89%E8%A3%85%EF%BC%88Ubuntu%E7%8E%AF%E5%A2%83%EF%BC%89/">
+										Nmap-Sublist3r-Hydra安装（Ubuntu环境）
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/04/11/%E6%90%AD%E5%BB%BA/hadoop%E5%8D%95%E6%9C%BA%E9%9B%86%E7%BE%A4%E6%90%AD%E5%BB%BA/">
+										hadoop单机集群搭建
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										汇编
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/2018/12/20/%E6%B1%87%E7%BC%96/%E6%B1%87%E7%BC%961/">
+										汇编1
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2018/12/26/%E6%B1%87%E7%BC%96/%E6%B1%87%E7%BC%962/">
+										汇编2
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/01/01/%E6%B1%87%E7%BC%96/%E6%B1%87%E7%BC%963/">
+										汇编3
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/01/05/%E6%B1%87%E7%BC%96/%E6%B1%87%E7%BC%964/">
+										汇编4
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/01/06/%E6%B1%87%E7%BC%96/%E6%B1%87%E7%BC%965/">
+										汇编5
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file active">
+									<a href="/2019/01/07/%E6%B1%87%E7%BC%96/%E6%B1%87%E7%BC%966/">
+										汇编6
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2021/04/12/%E6%B1%87%E7%BC%96/%E9%80%9A%E7%94%A8%E5%AF%84%E5%AD%98%E5%99%A8/">
+										通用寄存器
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+		</div>
+	</div>
+</div>
+
+	<!-- 引入正文 -->
+	<div id="content">
+		<h1 id="article-title">
+
+	汇编6
+</h1>
+<div class="article-meta">
+	
+	<span>BamB00</span>
+	<span>2019-01-07 00:00:00</span>
+		<div id="article-categories">
+    
+		<span>Categories：</span>
+            
+    
+
+    
+		<span>Tags：</span>
+            
+                
+                    <span>
+                        <i class="fa fa-tag" aria-hidden="true">
+                        <a href="/tags/汇编/">汇编</a>
+                        </i>
+                    </span>
+                
+            
+                
+                    <span>
+                        <i class="fa fa-tag" aria-hidden="true">
+                        <a href="/tags/笔记/">笔记</a>
+                        </i>
+                    </span>
+                
+            
+    
+		</div>
+
+</div>
+
+<div id="article-content">
+	<h1 id="0x01-简介"><a href="#0x01-简介" class="headerlink" title="0x01 简介"></a>0x01 简介</h1><p>这里开始熟悉汇编的指令格式</p>
+<p><img src="https://s2.ax1x.com/2019/09/14/n6pm1f.png" alt="X64dbg界面一"></p>
+<p>下图为X86版本的指令格式，X64的指令格式和X86差不多后面有需要的话再详细写</p>
+<p><img src="https://s2.ax1x.com/2019/09/14/n6pVht.png"></p>
+<p><img src="https://s2.ax1x.com/2019/09/14/n6pe9P.png" alt="中文版"></p>
+<h1 id="0x02-Istruction-Prefixes-前缀指令"><a href="#0x02-Istruction-Prefixes-前缀指令" class="headerlink" title="0x02  Istruction Prefixes 前缀指令"></a>0x02  Istruction Prefixes 前缀指令</h1><p><strong>Istruction Prefixes</strong>: 可选项</p>
+<p>默认二进制文件是前缀和内容混杂在一起只有机器才能识别区别</p>
+<p>人工区分方法：</p>
+<ul>
+<li>逆向：debug工具打开程序 前面有冒号的就是带前缀的操作指令</li>
+</ul>
+<p><img src="https://s2.ax1x.com/2019/09/14/n6pEtI.png" alt="示例"></p>
+<h3 id="前缀指令分组"><a href="#前缀指令分组" class="headerlink" title="前缀指令分组"></a>前缀指令分组</h3><p>X86格式图已经给我们提示，有四个组，一次最多使用一个组</p>
+<h4 id="1-LOCK-和-REPEAT"><a href="#1-LOCK-和-REPEAT" class="headerlink" title="1.LOCK 和 REPEAT"></a>1.LOCK 和 REPEAT</h4><table>
+<thead>
+<tr>
+<th>指令</th>
+<th>硬编码</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>LOCK</td>
+<td>F0</td>
+</tr>
+<tr>
+<td>REPNE/PEPNZ</td>
+<td>F2</td>
+</tr>
+<tr>
+<td>REP/REPZ</td>
+<td>F3</td>
+</tr>
+</tbody></table>
+<h4 id="2-段前缀指令："><a href="#2-段前缀指令：" class="headerlink" title="2.段前缀指令："></a>2.段前缀指令：</h4><table>
+<thead>
+<tr>
+<th>段寄存器</th>
+<th>硬编码</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>ES</td>
+<td>26</td>
+</tr>
+<tr>
+<td>CS</td>
+<td>2E</td>
+</tr>
+<tr>
+<td>SS</td>
+<td>36</td>
+</tr>
+<tr>
+<td>DS</td>
+<td>3E</td>
+</tr>
+<tr>
+<td>FS</td>
+<td>64</td>
+</tr>
+<tr>
+<td>GS</td>
+<td>65</td>
+</tr>
+</tbody></table>
+<p>**段前缀指令的作用:**修改使用段寄存器</p>
+<p>不加提示默认使用DS</p>
+<p>如果有栈寄存器的话会使用SS</p>
+<p><img src="https://s2.ax1x.com/2019/09/14/n6pAAA.png" alt="默认寻址使用的段寄存器"></p>
+<h4 id="3-操作数宽度前缀指令"><a href="#3-操作数宽度前缀指令" class="headerlink" title="3.操作数宽度前缀指令"></a>3.操作数宽度前缀指令</h4><table>
+<thead>
+<tr>
+<th>硬编码</th>
+<th>效果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>66</td>
+<td>改变默认寄存器宽度</td>
+</tr>
+</tbody></table>
+<p><img src="https://s2.ax1x.com/2019/09/14/n6pF7d.png" alt="程序运行头"></p>
+<p>push ebp是设置程序为X86位下的16位模式情况下运行</p>
+<p><strong>CPU是如何判断程序有关系：</strong></p>
+<p>CS中有一个DB位如果CS中DB位为0则16位1位32</p>
+<p><strong>现在默认的CPU模式是32位，所以汇编指令就算是使用epb(16位寄存器)最少也是32位</strong></p>
+<p>如何使用16位的</p>
+<p>只需要在硬编码前面加上前缀 66：即可</p>
+<h4 id="4-地址宽度前缀指令"><a href="#4-地址宽度前缀指令" class="headerlink" title="4.地址宽度前缀指令"></a>4.地址宽度前缀指令</h4><p>效果如上面</p>
+<table>
+<thead>
+<tr>
+<th>硬编码</th>
+<th>效果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>67</td>
+<td>改变地址宽度</td>
+</tr>
+</tbody></table>
+<p>当CPU使用32位模式选址方式就会使用32位进行</p>
+<p><strong>当DB位为0的时候16位，使用16位寻址方式，当DB为1的时候使用32位寻址方式</strong></p>
+<h1 id="0x03-Opcode-修改通用寄存器"><a href="#0x03-Opcode-修改通用寄存器" class="headerlink" title="0x03 Opcode 修改通用寄存器"></a>0x03 Opcode 修改通用寄存器</h1><p>决定 硬编码长度是由（ <strong>Opcode ModR/M SIB</strong>）决定。前缀指令只会影响到他自己。</p>
+<p>然后，ModR/M 由Opcode决定 SIB由ModR/M决定 </p>
+<h4 id="定长指令-amp-变长指令"><a href="#定长指令-amp-变长指令" class="headerlink" title="定长指令&amp;变长指令"></a>定长指令&amp;变长指令</h4><p><img src="https://s2.ax1x.com/2019/09/14/n6pujS.png" alt="Intel 白皮书 one-by Opcode Map 00H-F7H"></p>
+<p><img src="https://s2.ax1x.com/2019/09/14/n6pnc8.png" alt="Intel 白皮书 one-by Opcode Map 08H-FFH"></p>
+<p>虽然这个是叫做One-byte但是都是从这个表里面展开的</p>
+<p><img src="https://s2.ax1x.com/2019/09/14/n6pF7d.png"></p>
+<p>由这个图例查找，55,push rbp/13</p>
+<p>然后 0F-3F都有两个操作符，前面的是Opcode，后面跟着是ModR/M</p>
+<p>如果Opcode跟着 ModR/M的话就是变长，没有则定长</p>
+<h4 id="Zz查表"><a href="#Zz查表" class="headerlink" title="Zz查表"></a>Zz查表</h4><p>所有两个操作符的就判定前面的是Opcode，ModR/M</p>
+<p>这是要理解这个我们可以查询他相关的问题操作符解释</p>
+<p>在Intell白皮书里面有Codes for addressing method</p>
+<p><img src="https://s2.ax1x.com/2019/09/14/n6pQBQ.png"></p>
+<p>可以查到操作符大写解释</p>
+<p>下面的Codes for Operand Type</p>
+<p>有操作符小写解释</p>
+<p>例如大写E前面很明显的写了A ModR/M byte follows the opcode</p>
+<h4 id="注"><a href="#注" class="headerlink" title="注"></a>注</h4><p>表中寄存器带个r表示可以随着系统变化而变化，可以是64位的RAX，也可以是32位的EAX，也可以是AX 表中会显示最大的修改位数，带E开头的表示只能修改32位和16位</p>
+<h1 id="0x04-Opcode-定长指令之修改ERX"><a href="#0x04-Opcode-定长指令之修改ERX" class="headerlink" title="0x04 Opcode 定长指令之修改ERX"></a>0x04 Opcode 定长指令之修改ERX</h1><p>ERX=EAX or ECX or EDX 等通用寄存器</p>
+<h4 id="PUSH-POP-INC-DEC"><a href="#PUSH-POP-INC-DEC" class="headerlink" title="PUSH/POP INC/DEC"></a>PUSH/POP INC/DEC</h4><p>硬编码 4开头是 INC/DEC  5开头的是push/pop</p>
+<p>0-7是 INC  PUSH</p>
+<p>8-F是DEC  POP</p>
+<p>40开头的都两行格式，上面的一行表示32位，下面的是64位的。</p>
+<h4 id="mov-rb-lb-mov-ERX-Iv"><a href="#mov-rb-lb-mov-ERX-Iv" class="headerlink" title="mov rb,lb mov ERX ,Iv"></a>mov rb,lb mov ERX ,Iv</h4><p>在b开头的是mov指令</p>
+<p>他的写法又不一样，mov AL\R8L,Ib</p>
+<p>这样能够很好的解释定长指令不是只有一个字节的</p>
+<p>I是Immedlate立即数</p>
+<p>b是bate 字节</p>
+<p>v是 word doubleword quadword三种情况之一，他取决于你采用数据宽度</p>
+<p>所以：</p>
+<p>0-7 是 mov rb,lb</p>
+<p>8-F 是 mov ERX,Iv</p>
+<h4 id="XCHG-EAX-ERX"><a href="#XCHG-EAX-ERX" class="headerlink" title="XCHG EAX,ERX"></a>XCHG EAX,ERX</h4><p>9开头 就是XCHG指令是两个寄存器之间交换而且都是放到EAX中</p>
+<p>例：</p>
+<pre><code>91 XCHG EAX,ECX
+92 XCHG EAX,EDX
+</code></pre>
+<p>但0是表示EAX 用EAX放到EAX中所以汇编中把</p>
+<p>90作为nop 不做任何操作。</p>
+<p>我们通常使用Nop的时候是遇到花指令这个下次有时间再写。</p>
+<p>90-97是有规则的，但8-F单独说</p>
+<p>表格中如果带有 </p>
+<p>I64 指令表示这个指令在64位下单独表示，例如INC和DEC</p>
+<p>o64 只能在64位系统下使用。</p>
+<p>d64 这个指令默认是64位，且不支持32位</p>
+<p>f64 在64位操作系统下强制使用64位宽度</p>
+<h1 id="0x05-Opcode-定长指令之修改EIP"><a href="#0x05-Opcode-定长指令之修改EIP" class="headerlink" title="0x05 Opcode 定长指令之修改EIP"></a>0x05 Opcode 定长指令之修改EIP</h1><p>能够修改EIP的指令有JCC,call,ret三类</p>
+<h4 id="jcc"><a href="#jcc" class="headerlink" title="jcc"></a>jcc</h4><p>从上表中可以查到JCC的指令可以从 0x70~0x7F,八个指令。</p>
+<p><img src="https://s2.ax1x.com/2019/09/14/n6pMng.png"></p>
+<p>上图是JCC指令示例</p>
+<p>不论是70-7F中哪一个都会带有一个字节的数据，那个数据被称为偏移地址。</p>
+<p>所以JCC普通跳转地址最大位一个字节(FF/2),80以下往下跳转，80以上往上跳转</p>
+<p><strong>条件跳转，后面跟一个字节立即数的偏移(有符号),共两个字节</strong></p>
+<p><strong>如果条件成立调到当前指令地址+当前指令长度+LB</strong></p>
+<p><strong>最大值：向前跳转7F，向后跳转80</strong></p>
+<p><strong>而且当你要跳转的字节超过一个字节就会跳转到两个字节，</strong></p>
+<p><strong>0F80 者就是两个字节，0F上会让你去看两字节的表同样书中会有这个表格</strong></p>
+<h4 id="E"><a href="#E" class="headerlink" title="E"></a>E</h4><p>因为E指令有多个指令包含JMP，CALL，LOOP</p>
+<table>
+<thead>
+<tr>
+<th>硬编码</th>
+<th>汇编解释</th>
+<th>字节数</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>E0</td>
+<td>LOOPNE/LOOPNZ lb(Jb)</td>
+<td>2</td>
+</tr>
+<tr>
+<td>E1</td>
+<td>LOOPE/LOOPZ lb(Jb)</td>
+<td>2</td>
+</tr>
+<tr>
+<td>E2</td>
+<td>LOOP Ib(Jb)</td>
+<td>2</td>
+</tr>
+<tr>
+<td>E3</td>
+<td>JrCXZ Ib(Jb)</td>
+<td>2</td>
+</tr>
+<tr>
+<td>E8</td>
+<td>CALL Id (Jd)</td>
+<td>5</td>
+</tr>
+<tr>
+<td>E9</td>
+<td>JMP Id(Jd)</td>
+<td>5</td>
+</tr>
+</tbody></table>
+<p>J是 带偏移地址 </p>
+<p>上面的是常用的不常用的先不写了</p>
+<h1 id="0x06-变长指令-ModR-M"><a href="#0x06-变长指令-ModR-M" class="headerlink" title="0x06 变长指令 ModR/M"></a>0x06 变长指令 ModR/M</h1><p>MODR/M 只占一个字节八个位拆开就是下面：</p>
+<p><img src="https://s2.ax1x.com/2019/09/14/n6pl7j.png"></p>
+<p>经典的边长指令：</p>
+<table>
+<thead>
+<tr>
+<th>地址</th>
+<th>汇编指令</th>
+<th>特殊字符含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>0x88</td>
+<td>MOV Eb,Gb</td>
+<td>G:通用寄存器</td>
+</tr>
+<tr>
+<td>0x89</td>
+<td>MOV Ev,Gv</td>
+<td>E:寄存器/内存</td>
+</tr>
+<tr>
+<td>0x8A</td>
+<td>MOV Gb,Eb</td>
+<td>b:字节</td>
+</tr>
+<tr>
+<td>0x8B</td>
+<td>MOV Gv,Ev</td>
+<td>v:Word doubleWord quadword</td>
+</tr>
+</tbody></table>
+<p>G(寄存器)是由ModR/M 中3，4，5位Reg/Opcode 决定的表格如下</p>
+<table>
+<thead>
+<tr>
+<th>寄存器宽度</th>
+<th>000</th>
+<th>001</th>
+<th>010</th>
+<th>011</th>
+<th>100</th>
+<th>101</th>
+<th>110</th>
+<th>111</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>32</td>
+<td>EAX</td>
+<td>ECX</td>
+<td>EDX</td>
+<td>EBX</td>
+<td>ESP</td>
+<td>EBP</td>
+<td>ESI</td>
+<td>EDI</td>
+</tr>
+<tr>
+<td>8</td>
+<td>AL</td>
+<td>CL</td>
+<td>DL</td>
+<td>BL</td>
+<td>AH</td>
+<td>CH</td>
+<td>DH</td>
+<td>BH</td>
+</tr>
+</tbody></table>
+<p>E(寄存器)是由ModR/M中的0，1，2，6，7位Mod和R/M共同决定的：</p>
+<p><img src="https://s2.ax1x.com/2019/09/14/n6p3As.png"></p>
+<p><strong>注：</strong></p>
+<ul>
+<li>Disp是（Displacement）地址偏移的意思</li>
+<li>当查表查到–时，就表示ModR/M不能完全确定寄存器需要再跟一个字节来确定，这个字节就是SIB</li>
+</ul>
+<p>现在我们查一下一些不常用的指令的指令</p>
+<p>0x80~0x83 首先是Imediate Grp 1^1A</p>
+<p><img src="https://s2.ax1x.com/2019/09/14/n6pGhq.png"></p>
+<p>1A的意思是下面的表格</p>
+<p><img src="https://s2.ax1x.com/2019/09/14/n6p8Nn.png"></p>
+<p>1A就是 3，4，5不再代表通用寄存器，而是通用寄存器</p>
+<p>所有的带有这些角标的都可以看扩展</p>
+<p>Grp 1是下面的表格</p>
+<p><img src="https://s2.ax1x.com/2019/09/14/n6pY90.png"></p>
+<h3 id="变长指令实例"><a href="#变长指令实例" class="headerlink" title="变长指令实例"></a>变长指令实例</h3><p>具体的所有变长指令的表基本介绍完了，我们试试查找一下</p>
+<p>81 22 08 FF</p>
+<p>81 Ev,Iz    </p>
+<p>72 拆成字节是</p>
+<p>0111 0010</p>
+<p>根据ModR/M</p>
+<p>01 110 010</p>
+<p>结合  81 MOD 和 R/M 三个可以查出</p>
+<p>XXX WORD ptr  ds:[EDP+disp8],[immediate]</p>
+<p>再用 reg查完整的就是</p>
+<p>XOR WORD PTR DS:[EDP+disp8],Iz</p>
+<p>这里还有两个未知数不知道  就是后面的数据 </p>
+<p>disp8是08  Iz就是FF</p>
+<h1 id="0x07-变长指令-SIB"><a href="#0x07-变长指令-SIB" class="headerlink" title="0x07 变长指令 SIB"></a>0x07 变长指令 SIB</h1><p>上面有提过：</p>
+<p><strong>当查ModR/M表查到–时，就表示ModR/M不能完全确定寄存器需要再跟一个字节来确定，这个字节就是SIB</strong></p>
+<p>例如：</p>
+<p>88 84 48</p>
+<p>Mov [–][–]+disp32,AL</p>
+<p><img src="https://s2.ax1x.com/2019/09/14/n6pt3V.png"></p>
+<p>SIB计算是这下面计算的<br>$$<br>Base +Index<em>2^{Scale}(Scale描述2^{Scale}所以只能</em>1，<em>2，</em>4，*8)<br>$$<br><img src="https://s2.ax1x.com/2019/09/14/n6pNcT.png"></p>
+<p>然后根据上面的数据可以查出</p>
+<p>48</p>
+<p>0100 1000</p>
+<p>01 001 000</p>
+<p>base 000 index 001 Scale 01<br>$$<br>base=000=EAX,index=001=ECX, Scale=01=<em>2<br>\带入公式<br>\ SIB=[EAX+ECX</em>2]<br>\ 整个结果就是<br>$$</p>
+<pre><code>MOV BYTE PTR DS:[EAX+ECX*2+disp32],AL
+</code></pre>
+<h1 id="0x08-总结"><a href="#0x08-总结" class="headerlink" title="0x08 总结"></a>0x08 总结</h1><p>硬编码整个过程来说，就是简略的通过查表了解CPU将数据转化成汇编指令的过程。</p>
+
+</div>
+
+
+    <div class="post-guide">
+        <div class="item left">
+            
+              <a href="/2019/04/11/%E6%90%AD%E5%BB%BA/hadoop%E5%8D%95%E6%9C%BA%E9%9B%86%E7%BE%A4%E6%90%AD%E5%BB%BA/">
+                  <i class="fa fa-angle-left" aria-hidden="true"></i>
+                  hadoop单机集群搭建
+              </a>
+            
+        </div>
+        <div class="item right">
+            
+              <a href="/2019/01/06/%E6%B1%87%E7%BC%96/%E6%B1%87%E7%BC%965/">
+                汇编5
+                <i class="fa fa-angle-right" aria-hidden="true"></i>
+              </a>
+            
+        </div>
+    </div>
+
+
+
+
+<script>
+	
+	
+</script>
+	</div>
+	<div id="footer">
+	<p>
+	©2020-<span id="footerYear"></span> 
+	<a href="/">BamB00</a> 
+	
+	
+		|
+		<span id="busuanzi_container_site_pv">
+			pv
+			<span id="busuanzi_value_site_pv"></span>
+		</span>
+		|
+		<span id="busuanzi_container_site_uv"> 
+			uv
+			<span id="busuanzi_value_site_uv"></span>
+		</span>
+	
+	<br>
+	Theme <a href="//github.com/wujun234/hexo-theme-tree" target="_blank">Tree</a>
+	by <a href="//github.com/wujun234" target="_blank">WuJun</a>
+	Powered by <a href="//hexo.io" target="_blank">Hexo</a>
+	</p>
+</div>
+<script type="text/javascript"> 
+	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
+</script>
+	<button id="totop-toggle" class="toggle"><i class="fa fa-angle-double-up" aria-hidden="true"></i></button>
+</body>
+</html>

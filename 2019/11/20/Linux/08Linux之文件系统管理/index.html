@@ -1,0 +1,1105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8">
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+	
+	<!-- title -->
+	
+	<title>
+	
+		08文件系统管理 | 
+	 
+	竹竿小站
+	</title>
+	
+	<!-- keywords,description -->
+	 
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.jpg">
+	
+
+
+	<!-- search -->
+	<script>
+		var searchEngine = "https://www.baidu.com/s?wd=";
+		if(typeof searchEngine == "undefined" || searchEngine == null || searchEngine == ""){
+			searchEngine = "https://www.google.com/search?q=";
+		}
+		var homeHost = "bamboo.github.io";
+		if(typeof homeHost == "undefined" || homeHost == null || homeHost == ""){
+			homeHost = window.location.host;
+		}
+	</script>
+
+
+	
+<link rel="stylesheet" href="/css/main.css">
+
+	
+<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.min.css">
+
+	
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.17.1/build/styles/darcula.min.css">
+
+	
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+
+
+	
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+
+	
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
+	
+<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.17.1/build/highlight.min.js"></script>
+
+	
+<script src="https://cdn.jsdelivr.net/npm/jquery-pjax@2.0.1/jquery.pjax.min.js"></script>
+
+	
+<script src="/js/main.js"></script>
+
+	
+		
+<script src="https://cdn.jsdelivr.net/npm/leancloud-storage/dist/av-min.js"></script>
+
+		
+<script src="https://cdn.jsdelivr.net/npm/valine@1.3.10/dist/Valine.min.js"></script>
+
+	
+	
+		<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+	
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+	<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?3efe99c287df5a1d6f0d02d187e403c1";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+<header id="header">
+    <a id="title" href="/" class="logo">竹竿小站</a>
+
+	<ul id="menu">
+		<li class="menu-item">
+			<a href="/about" class="menu-item-link">ABOUT</a>
+		</li>
+	
+		<li class="menu-item">
+			<a href="/tags" class="menu-item-link">标签</a>
+		</li>
+	
+
+	
+		<li class="menu-item">
+			<a href="/categories" class="menu-item-link">分类</a>
+		</li>
+	
+
+		<li class="menu-item">
+			<a href="https://github.com/wujun234/uid-generator-spring-boot-starter" class="menu-item-link" target="_blank">
+				UidGenerator
+			</a>
+		</li>
+		<li class="menu-item">
+			<a href="https://github.com/wujun234" class="menu-item-link" target="_blank">
+				<i class="fa fa-github fa-2x"></i>
+			</a>
+		</li>
+	</ul>
+</header>
+
+	
+<div id="sidebar">
+	<button id="sidebar-toggle" class="toggle" ><i class="fa fa-arrow-right " aria-hidden="true"></i></button>
+	
+	<div id="site-toc">
+		<input id="search-input" class="search-input" type="search" placeholder="按回车全站搜索">
+		<div id="tree">
+			
+
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Linux
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/2017/08/08/Linux/01linux-%E5%AE%89%E8%A3%85/">
+										01linux-安装
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/11/08/Linux/02Linux%E5%AD%A6%E5%89%8D%E9%A1%BB%E7%9F%A5/">
+										02Linux学前须知
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/11/08/Linux/03Linuxz%E4%B9%8B%E5%B8%B8%E7%94%A8%E7%9A%84%E5%91%BD%E4%BB%A4/">
+										03Linuxz之常用的命令
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2021/04/12/Linux/04Linux%E4%B9%8BVim/">
+										04Linux之Vim
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/11/14/Linux/05Linux%E4%B9%8B%E8%BD%AF%E4%BB%B6%E5%8C%85/">
+										05Linux之软件包
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/11/18/Linux/06Linux%E4%B9%8B%E7%94%A8%E6%88%B7%E7%AE%A1%E7%90%86/">
+										06Linux之用户管理
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/11/19/Linux/07Linux%E4%B9%8B%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/">
+										07Linux之权限管理
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file active">
+									<a href="/2019/11/20/Linux/08Linux%E4%B9%8B%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F%E7%AE%A1%E7%90%86/">
+										08Linux之文件系统管理
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/11/23/Linux/09Linux%E4%B9%8B%E9%AB%98%E7%BA%A7%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F/">
+										09Linux之高级文件管理系统
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/11/24/Linux/10Linux%E4%B9%8Bshell/">
+										10Linux之shell
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/11/26/Linux/11Linux%E4%B9%8Bshell%E9%AB%98%E7%BA%A7/">
+										11Linux之shell高级
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/12/02/Linux/12Linux%E4%B9%8B%E5%90%AF%E5%8A%A8%E5%BC%95%E5%AF%BC%E4%B8%8E%E4%BF%AE%E5%A4%8D/">
+										12Linux之启动引导与修复
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/12/06/Linux/13Linux%E4%B9%8B%E6%9C%8D%E5%8A%A1%E7%AE%A1%E7%90%86/">
+										13Linux之服务管理
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/12/10/Linux/14Linux%E4%B9%8B%E7%B3%BB%E7%BB%9F%E7%AE%A1%E7%90%86/">
+										14Linux之系统管理
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/12/06/Linux/15Linux%E4%B9%8B%E7%B3%BB%E7%BB%9F%E6%97%A5%E5%BF%97/">
+										15Linux之系统日志
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/12/17/Linux/16Centos6%E5%92%8CCentos7%E5%9F%BA%E6%9C%AC%E5%AF%B9%E6%AF%94/">
+										16Centos6和Centos7基本对比
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/12/17/Linux/17Linux%E4%B9%8B%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/">
+										17Linux之网络基础
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/10/15/Linux/18Linux%E4%B9%8B%E6%9C%8D%E5%8A%A1%E5%9F%BA%E7%A1%80SSH/">
+										18Linux之服务基础SSH
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/12/18/Linux/19Linux%E4%B9%8B%E6%9C%8D%E5%8A%A1%E5%9F%BA%E7%A1%80TCP%20Wrappers/">
+										19Linux之服务基础TCP Wrappers
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/12/18/Linux/20%E7%BD%91%E7%BB%9C%E6%9C%8D%E5%8A%A1%E4%B9%8BDHCP/">
+										20网络服务之DHCP
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/12/20/Linux/21%E7%BD%91%E7%BB%9C%E6%9C%8D%E5%8A%A1%E4%B9%8BDNS/">
+										21网络服务之DNS
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/12/26/Linux/22%E7%BD%91%E7%BB%9C%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B9%8BVSFTP/">
+										22网络服务器之VSFTP
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/10/11/Linux/Bash%E5%BF%AB%E6%8D%B7%E9%94%AE/">
+										Bash快捷键
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/10/10/Linux/LInux-CDN%E7%AE%80%E4%BB%8B/">
+										LInux-CDN简介
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/10/08/Linux/Llinux-DNS-%E8%AF%A6%E8%A7%A3/">
+										Llinux-DNS-详解
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/10/13/Linux/linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">
+										linux常用命令
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2021/04/12/Linux/%E5%8D%8A%E8%99%9A%E6%8B%9F%E5%8C%96%E5%92%8C%E7%A1%AC%E4%BB%B6%E8%99%9A%E6%8B%9F%E5%8C%96%E7%9A%84%E4%B8%BB%E8%A6%81%E5%8C%BA%E5%88%AB/">
+										半虚拟化和硬件虚拟化的主要区别
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										web渗透
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/2020/09/17/web%E6%B8%97%E9%80%8F/01SQL%E6%B3%A8%E5%85%A5/">
+										01SQL注入
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										搭建
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/2018/11/18/%E6%90%AD%E5%BB%BA/NextCloud/">
+										NextCloud
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2018/11/18/%E6%90%AD%E5%BB%BA/Nmap-Sublist3r-Hydra%E5%AE%89%E8%A3%85%EF%BC%88Ubuntu%E7%8E%AF%E5%A2%83%EF%BC%89/">
+										Nmap-Sublist3r-Hydra安装（Ubuntu环境）
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/04/11/%E6%90%AD%E5%BB%BA/hadoop%E5%8D%95%E6%9C%BA%E9%9B%86%E7%BE%A4%E6%90%AD%E5%BB%BA/">
+										hadoop单机集群搭建
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										汇编
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/2018/12/20/%E6%B1%87%E7%BC%96/%E6%B1%87%E7%BC%961/">
+										汇编1
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2018/12/26/%E6%B1%87%E7%BC%96/%E6%B1%87%E7%BC%962/">
+										汇编2
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/01/01/%E6%B1%87%E7%BC%96/%E6%B1%87%E7%BC%963/">
+										汇编3
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/01/05/%E6%B1%87%E7%BC%96/%E6%B1%87%E7%BC%964/">
+										汇编4
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/01/06/%E6%B1%87%E7%BC%96/%E6%B1%87%E7%BC%965/">
+										汇编5
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/01/07/%E6%B1%87%E7%BC%96/%E6%B1%87%E7%BC%966/">
+										汇编6
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2021/04/12/%E6%B1%87%E7%BC%96/%E9%80%9A%E7%94%A8%E5%AF%84%E5%AD%98%E5%99%A8/">
+										通用寄存器
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+		</div>
+	</div>
+</div>
+
+	<!-- 引入正文 -->
+	<div id="content">
+		<h1 id="article-title">
+
+	08Linux之文件系统管理
+</h1>
+<div class="article-meta">
+	
+	<span>BamB00</span>
+	<span>2019-11-20 00:00:00</span>
+		<div id="article-categories">
+    
+		<span>Categories：</span>
+            
+    
+
+    
+		<span>Tags：</span>
+            
+                
+                    <span>
+                        <i class="fa fa-tag" aria-hidden="true">
+                        <a href="/tags/Linux/">Linux</a>
+                        </i>
+                    </span>
+                
+            
+    
+		</div>
+
+</div>
+
+<div id="article-content">
+	<h1 id="0x01-硬盘结构"><a href="#0x01-硬盘结构" class="headerlink" title="0x01 硬盘结构"></a>0x01 硬盘结构</h1><p><a target="_blank" rel="noopener" href="http://c.biancheng.net/view/879.html">http://c.biancheng.net/view/879.html</a></p>
+<p>觉得这个网页写着很详细</p>
+<h1 id="0x02-Linux文件系统的特性"><a href="#0x02-Linux文件系统的特性" class="headerlink" title="0x02 Linux文件系统的特性"></a>0x02 Linux文件系统的特性</h1><p>传统的磁盘与档案系统之应用中，一个分割槽就是只能够被格式化成为一个档案系统，所以我们可以说一个filesystem就是一个partition。但是由于新技术的利用，例如我们常听到的LVM与软体磁盘阵列(software raid)，这些技术可以将一个分割槽格式化为多个档案系统(例如LVM)，也能够将多个分割槽合成一个档案系统(LVM,  RAID)！所以说，目前我们在格式化时已经不再说成针对partition来格式化了，通常我们可以称呼<strong>一个可被挂载的资料为一个档案系统而不是一个分割槽喔！</strong></p>
+<p>那么档案系统是如何运作的呢？这与作业系统的档案资料有关。较新的作业系统的档案资料除了档案实际内容外，通常含有非常多的属性，例如Linux作业系统的档案权限(rwx)与档案属性(拥有者、群组、时间参数等)。 <strong>档案系统通常会将这两部份的资料分别存放在不同的区块，权限与属性放置到inode中，至于实际资料则放置到data block区块中。</strong>另外，还有一个超级区块(superblock)会记录整个档案系统的整体信息，包括inode与block的总量、使用量、剩余量等。</p>
+<p>每个inode 与block 都有编号，至于这三个资料的意义可以简略说明如下：</p>
+<ul>
+<li>superblock：记录此filesystem 的整体信息，包括inode/block的总量、使用量、剩余量， 以及档案系统的格式与相关信息等；</li>
+<li>inode：记录档案的属性，一个档案占用一个inode，同时记录此档案的资料所在的block 号码；</li>
+<li>block：实际记录档案的内容，若档案太大时，会占用多个block 。</li>
+</ul>
+<p>由于每个inode 与block 都有编号，而每个档案都会占用一个inode ，inode 内则有档案资料放置的block  号码。因此，我们可以知道的是，如果能够找到档案的inode 的话，那么自然就会知道这个档案所放置资料的block 号码，  当然也就能够读出该档案的实际资料了。这是个比较有效率的作法，因为如此一来我们的磁盘就能够在短时间内读取出全部的资料， 读写的效能比较好啰。</p>
+<p>我们将inode 与block 区块用图解来说明一下，如下图所示，档案系统先格式化出inode 与block  的区块，假设某一个档案的属性与权限资料是放置到inode 4 号(下图较小方格内)，而这个inode 记录了档案资料的实际放置点为2, 7,  13, 15 这四个block 号码，此时我们的作业系统就能够据此来排列磁盘的读取顺序，可以一口气将四个block  内容读出来！那么资料的读取就如同下图中的箭头所指定的模样了。 </p>
+<p> <img src="C:\Users\zhugan\Desktop\笔记整理\笔记图片\Linux\基础\05.jpg" alt="inode/block 资料存取示意图"> </p>
+<p>这种资料存取的方法我们称为**索引式档案系统(indexed allocation)**。那有没有其他的惯用档案系统可以比较一下啊？有的，那就是我们惯用的U盘(快闪记忆体)，U盘使用的档案系统一般为FAT格式。FAT这种格式的档案系统并没有inode存在，所以FAT没有办法将这个档案的所有block在一开始就读取出来。每个block号码都记录在前一个block当中，他的读取方式有点像底下这样：</p>
+<p><img src="C:\Users\zhugan\Desktop\笔记整理\笔记图片\Linux\基础\06.jpg" alt="FAT档案系统资料存取示意图"></p>
+<p>上图中我们假设档案的资料依序写入<strong>1-&gt;7-&gt;4-&gt;15</strong>号这四个block 号码中，  但这个档案系统没有办法一口气就知道四个block 的号码，他得要一个一个的将block 读出后，才会知道下一个block  在何处。如果同一个档案资料写入的block 分散的太过厉害时，则我们的磁盘读取头将无法在磁盘转一圈就读到所有的资料，  因此磁盘就会多转好几圈才能完整的读取到这个档案的内容！</p>
+<p>常常会听到所谓的『碎片整理』吧<strong>？ 需要碎片整理的原因就是档案写入的block太过于离散了，此时档案读取的效能将会变的很差所致。 这个时候可以透过碎片整理将同一个档案所属的blocks汇整在一起，这样资料的读取会比较容易啊！</strong> 想当然尔，FAT的档案系统需要三不五时的碎片整理一下。</p>
+<h1 id="0x03-常用的磁盘管理命令"><a href="#0x03-常用的磁盘管理命令" class="headerlink" title="0x03 常用的磁盘管理命令"></a>0x03 常用的磁盘管理命令</h1><h2 id="0x031-df和du命令"><a href="#0x031-df和du命令" class="headerlink" title="0x031 df和du命令"></a>0x031 df和du命令</h2><pre><code class="shell">#df -ahT
+ -a : 显示特殊文件系统，这些文件系统几乎都是报错在内存中的。如/proc,因为是保存在内存当中所以占用都是0
+ -h : 单位不再使用KB，而是换算成其他习惯的单位。
+ -T : 多出了文件系统类型一列
+</code></pre>
+<pre><code class="shell">#du [选项] [目录或者文件]
+选项：
+    -a 显示每个子文件的磁盘占用量。默认只统计子目录的占用量
+    -h 使用习惯单位显示磁盘占用量，如Kb,mb,Gb等
+    -s 统计总占用量而不列出子目录和子文件文件的占用量
+</code></pre>
+<p>du与df的区别:</p>
+<ul>
+<li><p>du是应用于统计文件大小的，统计文件大小结果精确。</p>
+</li>
+<li><p>df是应用于统计空间大小的，统计剩余空间是精确的。</p>
+</li>
+<li><p>当du和df统计加起来不不够硬盘大小就是垃圾文件和缓存。</p>
+</li>
+</ul>
+<p>注意平时的<code>ll</code>是没有看文件目录大小不得超过4k,ll只能统计文件大小。</p>
+<p><code>lsof | grep deleted</code>查看被删除的文件，然后一个进程的手工kell是可以的</p>
+<h2 id="0x032-fsck文件系统修复命令"><a href="#0x032-fsck文件系统修复命令" class="headerlink" title="0x032 fsck文件系统修复命令"></a>0x032 fsck文件系统修复命令</h2><pre><code class="shell"># fsck -y /dev/sdb1 #自动修复 开机的时候会启动
+</code></pre>
+<h2 id="0x033-显示磁盘状态"><a href="#0x033-显示磁盘状态" class="headerlink" title="0x033 显示磁盘状态"></a>0x033 显示磁盘状态</h2><pre><code class="shell"># dumpe2fs -h 挂载绝对路径 #显示super block信息
+</code></pre>
+<h2 id="0x034-查看文件详细和文件类型"><a href="#0x034-查看文件详细和文件类型" class="headerlink" title="0x034 查看文件详细和文件类型"></a>0x034 查看文件详细和文件类型</h2><pre><code class="shell">#stat 文件名 #查看文件的详细信息时间 
+</code></pre>
+<p><img src="C:\Users\Qusi\Desktop\123.png"></p>
+<pre><code class="shell">#file 文件/目录 #判断文件信息
+</code></pre>
+<h2 id="0x035-fdisk命令手工分区"><a href="#0x035-fdisk命令手工分区" class="headerlink" title="0x035 fdisk命令手工分区"></a>0x035 fdisk命令手工分区</h2><pre><code>#fdick [选项] 
+选项:
+    p : 打印分区表
+    n : 新建一个分区
+    d : 删除一个分区
+    q : 退出不保存
+    w : 把改动写进分区表保存退出
+</code></pre>
+<p>新增硬盘分区步骤</p>
+<pre><code>n-&gt;p主-&gt;1分区号--&gt;1起始柱面----&gt;分区大小+2G---&gt;w
+n-&gt;e扩展-&gt;2分区好--&gt;2048起始柱面----&gt;所有剩余空间全部分给扩展分区
+n-&gt;l逻辑-&gt;不用指定分区号--&gt;2048起始柱面---&gt;+2G（指定大小）---&gt;w
+</code></pre>
+<p>分好后挂载</p>
+<pre><code class="shell">#mount /dev/sdb1 /disk1
+</code></pre>
+<h2 id="0x036-自动挂载"><a href="#0x036-自动挂载" class="headerlink" title="0x036 自动挂载"></a>0x036 自动挂载</h2><p>注意不能把移动设备 U盘光盘啥的自动挂载否则没有放移动设备启动设备会报错甚至崩溃的。</p>
+<p>在<code>/etc/fstab</code>写入相对应的数据即可以自动挂载</p>
+<pre><code> #
+ # /etc/fstab
+ # Created by anaconda on Mon Nov  4 04:26:40 2019
+ #
+ # Accessible filesystems, by reference, are maintained under &#39;/dev/disk&#39;
+ # See man pages fstab(5), findfs(8), mount(8) and/or blkid(8) for more info
+ #
+ /dev/mapper/centos-root /                       xfs     defaults        0 0
+     10 UUID=42d2274e-89e8-4bd8-8988-fc26d7305638 /boot                   xfs     defaults        0 0
+     11 /dev/mapper/centos-swap swap                    swap    defaults        0 0
+</code></pre>
+<p>第一列： UUID(硬盘的唯一识别码)\设备文件名</p>
+<p>第二列： 挂载点</p>
+<p>第三列： 文件系统</p>
+<p>第四列：挂载选项</p>
+<p>第五列：1 是否可以被备份 0 不备份 1每天备份 2 不定期备份</p>
+<p>查看UUID号</p>
+<ol>
+<li>查看超级块，dumpe2fs 只对ext分区有效</li>
+<li><code>ll /dev/disk/by-uuid</code> </li>
+</ol>
+<p>写完之后可以输入<code>mount -a </code>检测一下</p>
+<p>然后重启机器</p>
+<h2 id="0x037-etc-fstab-文件修复"><a href="#0x037-etc-fstab-文件修复" class="headerlink" title="0x037 /etc/fstab 文件修复"></a>0x037 /etc/fstab 文件修复</h2><p>修复的前提是拿到本机。</p>
+<p>这个问题只需要拿到本机登入进去把/etc/fstab修复即可。</p>
+<p>注意这里的所有分区就是挂载只读模式，如果想要修改/etc/fstab需要重新挂载根目录。</p>
+<pre><code>mount -o remount,rw /
+</code></pre>
+<h2 id="0x038-parted-命令分区"><a href="#0x038-parted-命令分区" class="headerlink" title="0x038 parted 命令分区"></a>0x038 parted 命令分区</h2><p>前面讲过：Linux常见的两种分区表MBR分区表(主引导记录分区表)和GTP分区表（GUID分区表）</p>
+<p><strong>注意：如果要修改分区最好先将自动挂载中相对应的信息删除掉</strong></p>
+<ul>
+<li>MBR分区表：最大支持分区是2TB，最多支持4个主分区，或者3个主分区一个扩展分区</li>
+<li>GPT分区表：支持最大18EB的分区表(1EB=1024PB=1024*1024TB);最多支持128个分区，其中一个系统保留分区，127个用户自定义分区。</li>
+</ul>
+<p>不过parted命令也有问题，就是命令自身分区的时候拍只能格式化成ext2文件分区，不支持3及以上。不过这没有太多的影响，因为我们可以先分区再用mkfs进行格式化。</p>
+<pre><code>[root@localhost ~]# parted /dev/sdb
+#打算继续划分/dev/sdb硬盘
+GNU Parted 2.1
+使用/dev/sdb
+Welcome to GNU Parted! Type &#39;help&#39; to view a list of commands.
+(parted)   &lt;--parted 的等待输入交互命令的位置，输入 help，可以看到在交互模式下支持的所有命令
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>parted交互命令</th>
+<th>说 明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>mkpart PART-TYPE [FS-TYPE] START END</td>
+<td>创建一个分区</td>
+</tr>
+<tr>
+<td>mkpartfs PART-TYPE FS-TYPE START END</td>
+<td>创建分区，并建立文件系统</td>
+</tr>
+<tr>
+<td>move NUMBER START END</td>
+<td>移动分区</td>
+</tr>
+<tr>
+<td>name NUMBER NAME</td>
+<td>给分区命名</td>
+</tr>
+<tr>
+<td>print [devices|free|list,all|NUMBER]</td>
+<td>显示分区表、活动设备、空闲空间、所有分区</td>
+</tr>
+<tr>
+<td>quit</td>
+<td>退出</td>
+</tr>
+<tr>
+<td>rescue START END</td>
+<td>修复丢失的分区</td>
+</tr>
+<tr>
+<td>resize NUMBER START END</td>
+<td>修改分区大小</td>
+</tr>
+<tr>
+<td>rm NUMBER</td>
+<td>删除分区</td>
+</tr>
+<tr>
+<td>select DEVICE</td>
+<td>选择需要编辑的设备</td>
+</tr>
+<tr>
+<td>set NUMBER FLAG STATE</td>
+<td>改变分区标记</td>
+</tr>
+<tr>
+<td>toggle [NUMBER [FLAG]]</td>
+<td>切换分区表的状态</td>
+</tr>
+<tr>
+<td>unit UNIT</td>
+<td>设置默认的单位</td>
+</tr>
+<tr>
+<td>Version</td>
+<td>显示版本</td>
+</tr>
+</tbody></table>
+<pre><code>(parted) print
+#进入print指令
+Model: VMware, VMware Virtual S (scsi)
+#硬盘参数，是虚拟机
+Disk/dev/sdb: 21.5GB
+#硬盘大小
+Sector size (logical/physical): 512B/512B
+#扇区大小
+Partition Table: msdos
+#分区表类型，是MBR分区表
+Number Start End Size Type File system 标志
+1 32.3kB 5379MB 5379MB primary
+2 5379MB 21.5GB 16.1GB extended
+5 5379MB 7534MB 2155MB logical ext4
+6 7534MB 9689MB 2155MB logical ext4
+#看到了我们使用fdisk命令创建的分区，其中1分区没被格式化；2分区是扩展分区，不能被格式化
+</code></pre>
+<ol>
+<li> Number：分区号，比如，1号就代表 /dec/sdb1；</li>
+<li> Start：分区起始位置。这里不再像 fdisk 那样用柱面表示，使用字节表示更加直观；</li>
+<li> End：分区结束位置；</li>
+<li> Size：分区大小；</li>
+<li> Type：分区类型，有 primary、extended、logical 等类型；</li>
+<li> Filesystem：文件系统类型；</li>
+<li> 标志：分区的标记。</li>
+</ol>
+<pre><code>(partcd) mklabel gpt
+#修改分区表命令
+警告：正在使用/dev/sdb上的分区。由于/dev/sdb分区已经挂载，所以有警告。注意，如果强制修改，那么原有分区及数据会消失
+忽略/Ignore/放弃/Cancel? ignore
+#输入ignore忽略报错
+警告：The existing disk label on /dev/sdb will be destroyed and all data on this disk will be lost. Do you want to continue?
+是/Yes/否/No? yes
+#输入 yes
+警告：WARNING: the kernel failed to re-read the partition table on /dev/sdb (设 备或资源忙）.As a result, it may not reflect all of your changes until after reboot.
+#下次重启后才能生效
+(parted) print
+#查看一下分区表
+Model: VMware, VMware Virtual S (scsi)
+Disk /dev/sdb: 21.5GB
+Sector size (logical/physical): 512B/512B
+Partition Table: gpt
+#分区表已经变成 GPT
+Number Start End Size File system Name 标志
+#所有的分区都消失了
+</code></pre>
+<p> 修改了分区表，如果这块硬盘上已经有分区了，那么原有分区和分区中的数据都会消失，而且需要重启系统才能生效。</p>
+<p> 因为修改过了分区表，所以/dev/sdb硬盘中的所有数据都消失了，我们就可以重新对这块硬盘分区了。不过，在建立分区时，默认文件系统就只能是 ext2 了。命令如下： </p>
+<pre><code>(parted)mkpart
+#输入创建分区命令，后面不要参数，全部靠交互
+指定
+分区名称？ []?disk1
+#分区名称，这里命名为disk 1
+文件系统系统？ [ext2]?
+#文件系统类型，直接回车，使用默认文件系统ext2
+起始点？ 1MB
+#分区从1MB开始
+结束点？5GB分区到5GB结束
+#分区完成
+(parted) print
+#查看一下
+Model: VMware, VMware Virtual S (scsi)
+Disk/dev/sdb: 21.5GB
+Sector size (logical/physical): 512B/512B Partition Table: gpt
+Number Start End Size Rle system Name 标志
+1 1049kB 5000MB 4999MB disk1
+#分区1已经出现
+</code></pre>
+<p> 不知道大家有没有注意到，我们现在用 print 查看的分区和第一次查看 MBR 分区表的分区时有些不一样了，少了 Type  这个字段，也就是分区类型字段，多了 Name（分区名）字段。分区类型是用于标识主分区、扩展分区和逻辑分区的，不过这种标识只在 MBR  分区表中使用，现在已经变成了 GPT 分区表，所以就不再有 Type 类型了。</p>
+<pre><code>(parted) mkfs
+#格式化命令（很奇怪，也是mkfs，但是这只是parted的交互命令）
+WARNING: you are attempting to use parted to operate on (mkfs) a file system.
+parted&#39;s file system manipulation code is not as robust as what you&#39;ll find in
+dedicated, file-system-specific packages like e2fsprogs. We recommend
+you use parted only to manipulate partition tables, whenever possible.
+Support for performing most operations on most types of file systems
+will be removed in an upcoming release.
+警告：The existing file system will be destroyed and all data on the partition will be lost. Do you want to continue?
+是/Yes/否/No? yes
+#警告你格式化丟失，没关系，已经丢失过了
+分区编号？ 1
+文件系统类型 [ext2]?
+#指定文件系统类型，写别的也没用，直接回车
+(parted) print #格式化完成，查看一下
+Model: VMware, VMware Virtual S (scsi)
+Disk/dev/sdb: 21,5GB
+Sector size (logical/physical): 512B/512B
+Partition Table: gpt
+Number Start End Size File system Name标志
+1 1049kB 5000MB 4999MB ext2 diski
+#拥有了文件系统
+</code></pre>
+<p> 如果要格式化成 ext4 文件系统，那么请 mkfs 命令帮忙吧（注意：不是 parted 交互命令中的 mkfs，而是系统命令 mkfs)。</p>
+<p> parted 命令还有一大优势，就是可以调整分区的大小（在 Windows 中也可以实现，不过要么需要转换成动态磁盘，要么需要依赖第三方工具，如硬盘分区魔术师）。起始 <a target="_blank" rel="noopener" href="http://c.biancheng.net/linux_tutorial/">Linux</a> 中 LVM 和 RAID 是可以支持分区调整的，不过这两种方法也可以看成动态磁盘方法，使用 parted 命令调整分区更加简单。</p>
+<p> 注意，parted 调整已经挂载使用的分区时，是不会影响分区中的数据的，也就是说，数据不会丢失。<strong>但是一定要先卸载分区，再调整分区大小，否则数据是会出现问题的。</strong>另外，要调整大小的分区必须已经建立了文件系统（格式化），否则会报错。 </p>
+<pre><code>(parted) resize
+分区编号？ 1
+#指定要修改的分区编号
+起始点？ [1049kB]? 1MB
+#分区起始位置
+结束点？ [5000MB]? 6GB
+分区结束位置
+(parted) print
+#查看一下
+Model: VMware, VMware Virtual S (scsi)
+Disk/dev/sdb: 21,5GB
+Sector size (logical/physical): 512B/512B
+Partition Table: gpt
+Number Start End Size File system Name标志
+1 1049kB 6000MB 5999MB ext2 diski
+#分区大小改变
+</code></pre>
+<p>删除分区</p>
+<pre><code>命令如下：
+(parted) rm
+#删除分区命令
+分区编号？ 1
+#指定分区编号
+(parted) print
+#查看一下
+Model: VMware, VMware Virtual S (scsi)
+Disk/dev/sdb: 21.5GB
+Sector size (logical/physical): 512B/512B
+Partition Table: gpt
+Number Start End Size File system Name 标志 #分区消失
+</code></pre>
+<p> 要注意的是，parted 中所有的操作都是立即生效的，没有保存生效的概念。这一点和 fdisk 交互命令明显不同，所以做的所有操作大家要加倍小心。</p>
+<p> 那么，到底是使用 fdisk 命令，还是使用 parted 命令进行分区呢？这完全看个人习惯，我们更加习惯使用 fdisk 命令。 </p>
+<p>分区完成后，如果不格式化写入文件系统，则是不能正常使用的。这时就需要使用 mkfs 命令对硬盘分区进行格式化。</p>
+<pre><code class="shell">[root@localhost ~]# mkfs [-t 文件系统格式] 分区设备文件名
+</code></pre>
+<p> -t 文件系统格式：用于指定格式化的文件系统，如 ext3、ext4；</p>
+<pre><code class="shell"> [root@localhost ~]# mkfs -t ext4 /dev/sdb6
+ mke2fs 1.41.12 (17-May-2010)
+ Filesystem label= &lt;--这里指的是卷标名，我们没有设置卷标
+ OS type：[Linux](http://c.biancheng.net/linux_tutorial/)
+ Block size=4096 (log=2) &lt;--block 的大小配置为 4K
+ Fragment size=4096 (log=2)
+ Stride=0 blocks, Stripe width=0 blocks
+ 131648 inodes, 526120 blocks &lt;--由此配置决定的inode/block数量
+ 26306 blocks (5.00%) reserved for the super user
+ First data block=0
+ Maximum filesystem blocks=541065216 17 block groups
+ 32768 blocks per group, 32768 fragments per group
+ 7744 inodes per group
+ Superblock backups stored on blocks:
+ 32768, 98304, 163840, 229376, 294912
+ Writing inode tables: done
+ Creating journal (16384 blocks):done
+ Writing superblocks and filesystem accounting information:done
+ This filesystem will be automatically checked every 39 mounts or 180  days, whichever comes first. Use tune2fs -c or -i to override.
+ \# 这样就创建起来所需要的 Ext4 文件系统了！简单明了！
+</code></pre>
+<p> 虽然 mkfs 命令非常简单易用，但其不能调整分区的默认参数（比如块大小是 4096 Bytes），这些默认参数除非特殊清况，否则不需要调整。如果想要调整，就需要使用 mke2fs 命令重新格式化，此命令会在下一节做详细介绍。 </p>
+<p>mkfs 命令为硬盘分区写入文件系统时，无法手动调整分区的默认参数（比如块大小是 4096 Bytes），如果想要调整，就需要使用 mke2fs 命令。 </p>
+<pre><code class="shell">[root@localhost ~]# mke2fs [选项] 分区设备文件名
+</code></pre>
+<p>表 1 罗列出了 mke2fs 命令常用的几个选项及各自的功能。</p>
+<table>
+<thead>
+<tr>
+<th>选项</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>-t 文件系统</td>
+<td>指定格式化成哪个文件系统， 如 ext2、ext3、ext4；</td>
+</tr>
+<tr>
+<td>-b 字节</td>
+<td>指定 block 的大小；</td>
+</tr>
+<tr>
+<td>-i 字节</td>
+<td>指定”字节 inode “的比例，也就是多少字节分配一个 inode；</td>
+</tr>
+<tr>
+<td>-j</td>
+<td>建立带有 ext3 日志功能的文件系统；</td>
+</tr>
+<tr>
+<td>-L 卷标名</td>
+<td>给文件系统设置卷标名，就不使用 e2label 命令设定了；</td>
+</tr>
+</tbody></table>
+<p>为了更好的对比 mkfs 命令，这里我们依旧以格式化 /dev/sdb6 为例，不过，这次使用的是 mke2fs 命令，执行命令如下： </p>
+<pre><code class="shell">[root@localhost ~]# mke2fs -t ext4 -b 2048 /dev/sdb6
+#格式化分区，并指定block的大小为2048 Bytes
+mke2fe 1.41.12 (17-May-2010)
+Filesystem label=
+OS type：Linux
+Block size=2048 (log=1)  &lt;--block 的大小配置为 2K
+Fragment size=2048 (log=1)
+Stride=0 blocks, Stripe width=0 blocks 131560
+inodes,1052240 blocks 52612 blocks (5.00%) reserved for the super user
+First data block=0
+Maximum filesystem blocks=538968064 65 block groups
+16384 blocks per group, 16384 fragments per group
+2024 inodes per group
+Superblock backups stored on blocks:
+16384, 49152, 81920, 114688, 147456, 409600, 442368, 802816
+Writing inode tables: done
+Creating journal (32768 blocks):done
+Writing superblocks and filesystem accounting information:done
+This filesystem will be automatically checked every 38 mounts or 180 days, whichever comes first. Use tune2fs -c or-i to override.
+</code></pre>
+<p> 如果没有特殊需要，建议使用 mkfs 命令对硬盘分区进行格式化。 </p>
+<h2 id="0x039-swap-创建"><a href="#0x039-swap-创建" class="headerlink" title="0x039 swap 创建"></a>0x039 swap 创建</h2><p>free 是查看内存空间的。</p>
+<pre><code class="shell">free -h
+</code></pre>
+<p>建立新的 swap 分区，只需要执行以下几个步骤。 </p>
+<ol>
+<li> 分区：不管是 fdisk 命令还是 parted 命令，都需要先区。</li>
+<li> 格式化：格式化命令稍有不同，使用 mkswap 命令把分区格式化成 swap 分区。</li>
+<li> 使用 swap 分区。</li>
+</ol>
+<h3 id="0x0391-建立swap分区第一步：分区"><a href="#0x0391-建立swap分区第一步：分区" class="headerlink" title="0x0391 建立swap分区第一步：分区"></a>0x0391 建立swap分区第一步：分区</h3><pre><code class="shell">root@localhost ~]# fdisk /dev/sdb
+#以/dev/sdb分区为例
+WARNING: DOS-compatible mode is deprecated.It&#39;s strongly recommended to switch off the mode (command &#39;c&#39;) and change display units to sectors (command &#39;u&#39;).
+Command (m for help): n
+#新建
+Command action e extended p primary partition (1-4)
+P
+#主分区
+Partition number (1-4): 1
+#分区编号
+First cylinder (1-2610, default 1):
+#起始柱面
+Using default value 1
+Last cylinder, +cylinders or +size&#123;K, M, G&#125; (1-2610, default 2610): +500M
+#大小
+Command (m for help): p
+#查看一下
+Disk /dev/sdb: 21.5GB, 21474836480 bytes
+255 heads, 63 sectors/track, 2610 cylinders
+Units = cylinders of 16065 *512 = 8225280 bytes
+Sector size (logical/physical): 512 bytes / 512 bytes
+I/O size (minimum/optimal): 512 bytes 1512 bytes
+Disk identifier: OxOOOOOebd
+Device Boot Start End Blocks Id System
+/dev/sdb1 1 65 522081 83 Linux
+#刚分配的分区ID是83，是Linux分区，我们在这里要分配swap分区
+Command (m for help): t
+#修改分区的系统ID
+Selected partition 1
+#只有一个分区，所以不用选择分区了
+Hex code (type L to list codes): 82
+#改为swap分区的ID
+Changed system type of partition 1 to 82 (Linux swap / Solaris)
+Command (m for help): p
+#再查看一下
+Disk /dev/sdb: 21.5 GB, 21474836480 bytes
+255 heads, 63 sectors/track, 2610 cylinders
+Units = cylinders of 16065 *512 = 8225280 bytes Sector size (logical/physical): 512 bytes / 512 bytes I/O size (minimum/optimal): 512 bytes 1512 bytes Disk identifier: OxOOOOOebd
+Device Boot Start End Blocks Id System
+/dev/sdb1 1 65 522081 82 Linux swap / Solaris
+#修改过来了
+Command (m for help): w
+#记得保存退出
+The partition table has been altered!
+Calling ioctl() to re-read partition table.
+Syncing disks.
+</code></pre>
+<p> 仍以 /dev/sdb 分区作为实验对象。不过，如果分区刚刚使用 parted 命令转变为 GPT 分区表，则记得转换回 MBR 分区表，fdisk 命令才能识别，否则干脆新添加一块硬盘做实验。 </p>
+<h3 id="0x0392-建立-swap-分区第二步：格式化"><a href="#0x0392-建立-swap-分区第二步：格式化" class="headerlink" title="0x0392 建立 swap 分区第二步：格式化"></a>0x0392 建立 swap 分区第二步：格式化</h3><p>因为要格式化成 swap 分区，所以格式化命令是 mkswap。命令如下：</p>
+<pre><code class="shell"> [root@localhost ~]# mkswap /dev/sdb1
+ Setting up swapspace version 1, size = 522076 KiB
+ no label, UUID=c3351 dc3-f403-419a-9666-c24615e170fb
+</code></pre>
+<h3 id="0x0393-使用swap分区"><a href="#0x0393-使用swap分区" class="headerlink" title="0x0393 使用swap分区"></a>0x0393 使用swap分区</h3><p> 在使用 swap 分区之前，我们先来说说 free 命令。命令如下： </p>
+<pre><code>[root@localhost ~]#free
+total used free shared buffers cached
+Mem: 1030796 130792 900004 0 15292 55420
+-/+ buffers/cache: 60080 970716
+Swap: 2047992 0 2047992
+</code></pre>
+<p>free 命令主要是用来查看内存和 swap 分区的使用情况的，其中： </p>
+<ul>
+<li> total：是指总数；</li>
+<li> used：是指已经使用的；</li>
+<li> free：是指空闲的；</li>
+<li> shared：是指共享的；</li>
+<li> buffers：是指缓冲内存数；</li>
+<li> cached：是指缓存内存数，单位是KB；</li>
+</ul>
+<p>我们需要解释一下 buffers（缓冲）和 cached（缓存）的区别。简单来讲，cached 是给读取数据时加速的，buffers  是给写入数据加速的。cached  是指把读取出来的数据保存在内存中，当再次读取时，不用读取硬盘而直接从内存中读取，加速了数据的读取过程；buffers  是指在写入数据时，先把分散的写入操作保存到内存中，当达到一定程度后再集中写入硬盘，减少了磁盘碎片和硬盘的反复寻道，加速了数据的写入过程。</p>
+<pre><code class="shell"> [root@localhost ~]# swapon 分区设备文件名
+ 例如：
+ [root@localhost ~]# swapon /dev/sdb1
+ swap分区已加入，我们查看一下。
+ [root@localhost ~]#free
+ total used free shared buffers cached
+ Mem: 1030796 131264 899532 0 15520 55500
+ -/+ buffers/cache: 60244 970552
+ Swap: 2570064 0 2570064
+</code></pre>
+<p> swap 分区的大小变成了 2500MB，加载成功了。如果要取消新加入的 swap 分区，则也很简单，命令如下：</p>
+<pre><code class="shell"> [root@localhost ~]# swapoff /dev/sdb1
+
+ 如果想让 swap 分区开机之后自动挂载，就需要修改 /etc/fstab 文件，命令如下：
+
+ [root@localhost ~]#vi /etc/fstab
+ UUID=c2ca6f57-b15c-43ea-bca0-f239083d8bd2 / ext4 defaults 1 1
+ UUID=0b23d315-33a7-48a4-bd37-9248e5c443451 boot ext4 defaults 1 2
+ UUID=4021be19-2751-4dd2-98cc-383368c39edb swap swap defaults 0 0
+ tmpfs /dev/shm
+ tmpfs defaults 0 0
+ devpts /dev/pts
+ devpts gid=5, mode=620 0 0
+ sysfs /sys
+ sysfs defaults 0 0
+ proc /proc
+ proc defaults 0 0
+ /dev/sdb1 swap swap
+ defaults 0 0
+ \#加入新swap分区的相关内容，这里直接使用分区的设备文件名，也可以使用UUID。
+</code></pre>
+
+</div>
+
+
+    <div class="post-guide">
+        <div class="item left">
+            
+              <a href="/2019/11/23/Linux/09Linux%E4%B9%8B%E9%AB%98%E7%BA%A7%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F/">
+                  <i class="fa fa-angle-left" aria-hidden="true"></i>
+                  09Linux之高级文件管理系统
+              </a>
+            
+        </div>
+        <div class="item right">
+            
+              <a href="/2019/11/19/Linux/07Linux%E4%B9%8B%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/">
+                07Linux之权限管理
+                <i class="fa fa-angle-right" aria-hidden="true"></i>
+              </a>
+            
+        </div>
+    </div>
+
+
+
+
+<script>
+	
+	
+</script>
+	</div>
+	<div id="footer">
+	<p>
+	©2020-<span id="footerYear"></span> 
+	<a href="/">BamB00</a> 
+	
+	
+		|
+		<span id="busuanzi_container_site_pv">
+			pv
+			<span id="busuanzi_value_site_pv"></span>
+		</span>
+		|
+		<span id="busuanzi_container_site_uv"> 
+			uv
+			<span id="busuanzi_value_site_uv"></span>
+		</span>
+	
+	<br>
+	Theme <a href="//github.com/wujun234/hexo-theme-tree" target="_blank">Tree</a>
+	by <a href="//github.com/wujun234" target="_blank">WuJun</a>
+	Powered by <a href="//hexo.io" target="_blank">Hexo</a>
+	</p>
+</div>
+<script type="text/javascript"> 
+	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
+</script>
+	<button id="totop-toggle" class="toggle"><i class="fa fa-angle-double-up" aria-hidden="true"></i></button>
+</body>
+</html>

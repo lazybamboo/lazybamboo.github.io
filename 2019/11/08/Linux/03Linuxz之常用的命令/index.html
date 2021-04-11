@@ -1,0 +1,1867 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8">
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+	
+	<!-- title -->
+	
+	<title>
+	
+		常用Linux命令 | 
+	 
+	竹竿小站
+	</title>
+	
+	<!-- keywords,description -->
+	 
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.jpg">
+	
+
+
+	<!-- search -->
+	<script>
+		var searchEngine = "https://www.baidu.com/s?wd=";
+		if(typeof searchEngine == "undefined" || searchEngine == null || searchEngine == ""){
+			searchEngine = "https://www.google.com/search?q=";
+		}
+		var homeHost = "bamboo.github.io";
+		if(typeof homeHost == "undefined" || homeHost == null || homeHost == ""){
+			homeHost = window.location.host;
+		}
+	</script>
+
+
+	
+<link rel="stylesheet" href="/css/main.css">
+
+	
+<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.min.css">
+
+	
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.17.1/build/styles/darcula.min.css">
+
+	
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+
+
+	
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+
+	
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
+	
+<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.17.1/build/highlight.min.js"></script>
+
+	
+<script src="https://cdn.jsdelivr.net/npm/jquery-pjax@2.0.1/jquery.pjax.min.js"></script>
+
+	
+<script src="/js/main.js"></script>
+
+	
+		
+<script src="https://cdn.jsdelivr.net/npm/leancloud-storage/dist/av-min.js"></script>
+
+		
+<script src="https://cdn.jsdelivr.net/npm/valine@1.3.10/dist/Valine.min.js"></script>
+
+	
+	
+		<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+	
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+	<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?3efe99c287df5a1d6f0d02d187e403c1";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+<header id="header">
+    <a id="title" href="/" class="logo">竹竿小站</a>
+
+	<ul id="menu">
+		<li class="menu-item">
+			<a href="/about" class="menu-item-link">ABOUT</a>
+		</li>
+	
+		<li class="menu-item">
+			<a href="/tags" class="menu-item-link">标签</a>
+		</li>
+	
+
+	
+		<li class="menu-item">
+			<a href="/categories" class="menu-item-link">分类</a>
+		</li>
+	
+
+		<li class="menu-item">
+			<a href="https://github.com/wujun234/uid-generator-spring-boot-starter" class="menu-item-link" target="_blank">
+				UidGenerator
+			</a>
+		</li>
+		<li class="menu-item">
+			<a href="https://github.com/wujun234" class="menu-item-link" target="_blank">
+				<i class="fa fa-github fa-2x"></i>
+			</a>
+		</li>
+	</ul>
+</header>
+
+	
+<div id="sidebar">
+	<button id="sidebar-toggle" class="toggle" ><i class="fa fa-arrow-right " aria-hidden="true"></i></button>
+	
+	<div id="site-toc">
+		<input id="search-input" class="search-input" type="search" placeholder="按回车全站搜索">
+		<div id="tree">
+			
+
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Linux
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/2017/08/08/Linux/01linux-%E5%AE%89%E8%A3%85/">
+										01linux-安装
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/11/08/Linux/02Linux%E5%AD%A6%E5%89%8D%E9%A1%BB%E7%9F%A5/">
+										02Linux学前须知
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file active">
+									<a href="/2019/11/08/Linux/03Linuxz%E4%B9%8B%E5%B8%B8%E7%94%A8%E7%9A%84%E5%91%BD%E4%BB%A4/">
+										03Linuxz之常用的命令
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2021/04/12/Linux/04Linux%E4%B9%8BVim/">
+										04Linux之Vim
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/11/14/Linux/05Linux%E4%B9%8B%E8%BD%AF%E4%BB%B6%E5%8C%85/">
+										05Linux之软件包
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/11/18/Linux/06Linux%E4%B9%8B%E7%94%A8%E6%88%B7%E7%AE%A1%E7%90%86/">
+										06Linux之用户管理
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/11/19/Linux/07Linux%E4%B9%8B%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/">
+										07Linux之权限管理
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/11/20/Linux/08Linux%E4%B9%8B%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F%E7%AE%A1%E7%90%86/">
+										08Linux之文件系统管理
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/11/23/Linux/09Linux%E4%B9%8B%E9%AB%98%E7%BA%A7%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F/">
+										09Linux之高级文件管理系统
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/11/24/Linux/10Linux%E4%B9%8Bshell/">
+										10Linux之shell
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/11/26/Linux/11Linux%E4%B9%8Bshell%E9%AB%98%E7%BA%A7/">
+										11Linux之shell高级
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/12/02/Linux/12Linux%E4%B9%8B%E5%90%AF%E5%8A%A8%E5%BC%95%E5%AF%BC%E4%B8%8E%E4%BF%AE%E5%A4%8D/">
+										12Linux之启动引导与修复
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/12/06/Linux/13Linux%E4%B9%8B%E6%9C%8D%E5%8A%A1%E7%AE%A1%E7%90%86/">
+										13Linux之服务管理
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/12/10/Linux/14Linux%E4%B9%8B%E7%B3%BB%E7%BB%9F%E7%AE%A1%E7%90%86/">
+										14Linux之系统管理
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/12/06/Linux/15Linux%E4%B9%8B%E7%B3%BB%E7%BB%9F%E6%97%A5%E5%BF%97/">
+										15Linux之系统日志
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/12/17/Linux/16Centos6%E5%92%8CCentos7%E5%9F%BA%E6%9C%AC%E5%AF%B9%E6%AF%94/">
+										16Centos6和Centos7基本对比
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/12/17/Linux/17Linux%E4%B9%8B%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/">
+										17Linux之网络基础
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/10/15/Linux/18Linux%E4%B9%8B%E6%9C%8D%E5%8A%A1%E5%9F%BA%E7%A1%80SSH/">
+										18Linux之服务基础SSH
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/12/18/Linux/19Linux%E4%B9%8B%E6%9C%8D%E5%8A%A1%E5%9F%BA%E7%A1%80TCP%20Wrappers/">
+										19Linux之服务基础TCP Wrappers
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/12/18/Linux/20%E7%BD%91%E7%BB%9C%E6%9C%8D%E5%8A%A1%E4%B9%8BDHCP/">
+										20网络服务之DHCP
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/12/20/Linux/21%E7%BD%91%E7%BB%9C%E6%9C%8D%E5%8A%A1%E4%B9%8BDNS/">
+										21网络服务之DNS
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/12/26/Linux/22%E7%BD%91%E7%BB%9C%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B9%8BVSFTP/">
+										22网络服务器之VSFTP
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/10/11/Linux/Bash%E5%BF%AB%E6%8D%B7%E9%94%AE/">
+										Bash快捷键
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/10/10/Linux/LInux-CDN%E7%AE%80%E4%BB%8B/">
+										LInux-CDN简介
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/10/08/Linux/Llinux-DNS-%E8%AF%A6%E8%A7%A3/">
+										Llinux-DNS-详解
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/10/13/Linux/linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">
+										linux常用命令
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2021/04/12/Linux/%E5%8D%8A%E8%99%9A%E6%8B%9F%E5%8C%96%E5%92%8C%E7%A1%AC%E4%BB%B6%E8%99%9A%E6%8B%9F%E5%8C%96%E7%9A%84%E4%B8%BB%E8%A6%81%E5%8C%BA%E5%88%AB/">
+										半虚拟化和硬件虚拟化的主要区别
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										web渗透
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/2020/09/17/web%E6%B8%97%E9%80%8F/01SQL%E6%B3%A8%E5%85%A5/">
+										01SQL注入
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										搭建
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/2018/11/18/%E6%90%AD%E5%BB%BA/NextCloud/">
+										NextCloud
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2018/11/18/%E6%90%AD%E5%BB%BA/Nmap-Sublist3r-Hydra%E5%AE%89%E8%A3%85%EF%BC%88Ubuntu%E7%8E%AF%E5%A2%83%EF%BC%89/">
+										Nmap-Sublist3r-Hydra安装（Ubuntu环境）
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/04/11/%E6%90%AD%E5%BB%BA/hadoop%E5%8D%95%E6%9C%BA%E9%9B%86%E7%BE%A4%E6%90%AD%E5%BB%BA/">
+										hadoop单机集群搭建
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										汇编
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/2018/12/20/%E6%B1%87%E7%BC%96/%E6%B1%87%E7%BC%961/">
+										汇编1
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2018/12/26/%E6%B1%87%E7%BC%96/%E6%B1%87%E7%BC%962/">
+										汇编2
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/01/01/%E6%B1%87%E7%BC%96/%E6%B1%87%E7%BC%963/">
+										汇编3
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/01/05/%E6%B1%87%E7%BC%96/%E6%B1%87%E7%BC%964/">
+										汇编4
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/01/06/%E6%B1%87%E7%BC%96/%E6%B1%87%E7%BC%965/">
+										汇编5
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/01/07/%E6%B1%87%E7%BC%96/%E6%B1%87%E7%BC%966/">
+										汇编6
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2021/04/12/%E6%B1%87%E7%BC%96/%E9%80%9A%E7%94%A8%E5%AF%84%E5%AD%98%E5%99%A8/">
+										通用寄存器
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+		</div>
+	</div>
+</div>
+
+	<!-- 引入正文 -->
+	<div id="content">
+		<h1 id="article-title">
+
+	03Linuxz之常用的命令
+</h1>
+<div class="article-meta">
+	
+	<span>BamB00</span>
+	<span>2019-11-08 00:00:00</span>
+		<div id="article-categories">
+    
+		<span>Categories：</span>
+            
+    
+
+    
+		<span>Tags：</span>
+            
+                
+                    <span>
+                        <i class="fa fa-tag" aria-hidden="true">
+                        <a href="/tags/linux/">linux</a>
+                        </i>
+                    </span>
+                
+            
+    
+		</div>
+
+</div>
+
+<div id="article-content">
+	<h1 id="0x01-命令的基本格式"><a href="#0x01-命令的基本格式" class="headerlink" title="0x01 命令的基本格式"></a>0x01 命令的基本格式</h1><pre><code class="shell">[root@localhost ~]# 命令 [选项] [参数]
+</code></pre>
+<h2 id="ls"><a href="#ls" class="headerlink" title="ls"></a>ls</h2><p>是最常见的目录操作指令，主要功能是显示目录下的内容</p>
+<ul>
+<li>命令名称: ls</li>
+<li>原意: list</li>
+<li>所在路径: /bin/ls</li>
+<li>执行权限: 所有用户</li>
+<li>功能描述: 显示目录下的内容</li>
+</ul>
+<pre><code>-a, --all               不隐藏任何以. 开始的项目
+-A, --almost-all        列出除. 及.. 以外的任何项目
+    --author            与-l 同时使用时列出每个文件的作者
+-d, --directory         显示目录信息而不是，目录下的文件
+-h, --human-readable    与-l 一起，以易于阅读的格式输出文件大小(例如 1K 234M 2G)
+-i, --inode             显示文件的i节点号
+-l                      使用较长格式列出信息
+</code></pre>
+<h3 id="ls显示长格式列出信息"><a href="#ls显示长格式列出信息" class="headerlink" title="ls显示长格式列出信息"></a>ls显示长格式列出信息</h3><pre><code class="shell">drwxr-xr-x 10  root root   4096 09-17 18:17 jdk1.6.0_16
+drwxr-xr-x 16  1016 1016   4096 10-11 03:25 subversion-1.6.1
+drwxr-xr-x 9   root root   4096 2011-11-01 tomcat6.0.32
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>文件类型</th>
+<th>所有者权限</th>
+<th>组用户权限</th>
+<th>其他用户权限</th>
+<th>文件链接数or子目录数</th>
+<th>用户名</th>
+<th>组名</th>
+<th>文件大小（字节）</th>
+<th>最后修改时间</th>
+<th>文件名</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>l</td>
+<td>rwx</td>
+<td>rwx</td>
+<td>rwx</td>
+<td>1</td>
+<td>root</td>
+<td>root</td>
+<td>7</td>
+<td>Jul 14 18:05</td>
+<td>bin -&gt; usr/bin</td>
+</tr>
+<tr>
+<td>l</td>
+<td>rwx</td>
+<td>rwx</td>
+<td>rwx</td>
+<td>1</td>
+<td>root</td>
+<td>root</td>
+<td>7</td>
+<td>Jul 14 18:05</td>
+<td>bin -&gt; usr/bin</td>
+</tr>
+<tr>
+<td>d</td>
+<td>r-x</td>
+<td>r-x</td>
+<td>r-x.</td>
+<td>5</td>
+<td>root</td>
+<td>root</td>
+<td>4096</td>
+<td>Jul 14 19:18</td>
+<td>boot</td>
+</tr>
+<tr>
+<td>d</td>
+<td>rwx</td>
+<td>r-x</td>
+<td>r-x</td>
+<td>2</td>
+<td>root</td>
+<td>root</td>
+<td>4096</td>
+<td>Apr 15 20:52</td>
+<td>data</td>
+</tr>
+<tr>
+<td>d</td>
+<td>rwx</td>
+<td>r-x</td>
+<td>r-x</td>
+<td>19</td>
+<td>root</td>
+<td>root</td>
+<td>3000</td>
+<td>Jul 16 15:42</td>
+<td>dev</td>
+</tr>
+</tbody></table>
+<p><img src="C:\Users\zhugan\Desktop\笔记整理\笔记图片\Linux\基础\01.png"></p>
+<h1 id="0x02-目录操作命令"><a href="#0x02-目录操作命令" class="headerlink" title="0x02 目录操作命令"></a>0x02 目录操作命令</h1><h2 id="0x021-绝对路径和相对路径"><a href="#0x021-绝对路径和相对路径" class="headerlink" title="0x021 绝对路径和相对路径"></a>0x021 绝对路径和相对路径</h2><p><strong>绝对路径</strong>：从根目录开始的直达目标的路径称为绝对路径</p>
+<p><strong>相对路径</strong>：从当前目录作为参照，进行目录查找的称为相对路径</p>
+<h2 id="0x022-cd"><a href="#0x022-cd" class="headerlink" title="0x022 cd"></a>0x022 cd</h2><p>cd是切换所在目录的命令，这个命令基本信息如下</p>
+<ul>
+<li>命令名称: cd</li>
+<li>原意: change directory</li>
+<li>所在路径: shell内置命令</li>
+<li>执行权限: 所有用户</li>
+</ul>
+<p>常用的简化用户</p>
+<table>
+<thead>
+<tr>
+<th>特殊用法</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>~</td>
+<td>返回用户目录</td>
+</tr>
+<tr>
+<td>-</td>
+<td>代表上次所在目录</td>
+</tr>
+<tr>
+<td>.</td>
+<td>当前目录</td>
+</tr>
+<tr>
+<td>..</td>
+<td>上级目录</td>
+</tr>
+</tbody></table>
+<h2 id="0x023-mkdir"><a href="#0x023-mkdir" class="headerlink" title="0x023 mkdir"></a>0x023 mkdir</h2><p>mkdir是创建目录的命令 </p>
+<ul>
+<li>命令名称:mkdir</li>
+<li>原意: make directories</li>
+<li>所在路径: /bin/mkdir</li>
+<li>执行权限: 所有用户</li>
+<li>功能描述: 创建空目录</li>
+</ul>
+<pre><code>-p: 递归创建目录
+</code></pre>
+<h2 id="0x024-rm"><a href="#0x024-rm" class="headerlink" title="0x024  rm"></a>0x024  rm</h2><p>强烈建议在服务器中安装extundelete 实现Linux下文件/文件夹数据恢复</p>
+<h1 id="0x03-文件操作命令"><a href="#0x03-文件操作命令" class="headerlink" title="0x03 文件操作命令"></a>0x03 文件操作命令</h1><h2 id="0x031-touch"><a href="#0x031-touch" class="headerlink" title="0x031 touch"></a>0x031 touch</h2><p><strong>创建空文件或修改文件时间</strong>，这个命令的基本信息如下</p>
+<ul>
+<li>命令名称: touch</li>
+<li>原意： change file timestamps.</li>
+<li>所在路径: /bin/touch</li>
+<li>执行权限：所有用户</li>
+<li>功能描述：修改文件的时间戳</li>
+</ul>
+<h2 id="0x032-stat"><a href="#0x032-stat" class="headerlink" title="0x032 stat"></a>0x032 stat</h2><p>查看文件详细信息的命令，而且可以看到文件的三个时间(最近访问，最近更改(数据修改)，最近改动(状态修改))</p>
+<ul>
+<li>命令名称: stat</li>
+<li>原意: display file or file system status.</li>
+<li>所在路径: /usr/bin/stat</li>
+<li>执行权限:所有用户</li>
+<li>功能描述: 显示文件或文件系统的信息</li>
+</ul>
+<pre><code class="shell">File: ‘anaconda-ks.cfg’
+Size: 1260            Blocks: 8          IO Block: 4096   regular file
+Device: fd00h/64768d    Inode: 33574979    Links: 1
+Access: (0600/-rw-------)  Uid: (    0/    root)   Gid: (    0/    root)
+Context: system_u:object_r:admin_home_t:s0
+Access: 2019-11-04 04:34:24.509973513 -0500
+Modify: 2019-11-04 04:34:24.514973512 -0500
+Change: 2019-11-04 04:34:24.514973512 -0500
+Birth: -
+</code></pre>
+<h2 id="0x033-cat"><a href="#0x033-cat" class="headerlink" title="0x033 cat"></a>0x033 cat</h2><ul>
+<li>命令名称: stat</li>
+<li>原意:  concatenate files and print on the standard output</li>
+<li>所在路径: /bin/cat</li>
+<li>执行权限: 所有用户</li>
+<li>功能描述: 合并文件并答应输出到标准输出</li>
+</ul>
+<pre><code>-A 相当于-vET选项的整合，用于列出所有隐藏符号
+-E 列出每行结尾的回车符$
+-n 显示出行号
+-T 把Tab键用^T显示出来
+-v 列出特殊字符
+</code></pre>
+<h2 id="0x034-more"><a href="#0x034-more" class="headerlink" title="0x034 more"></a>0x034 more</h2><p>分屏显示文件的命令</p>
+<ul>
+<li>命令名称:more</li>
+<li>原意: file penusal filter for crt viewin</li>
+<li>所在路径: /bin/more</li>
+<li>功能描述：分屏显示内容</li>
+</ul>
+<p>more命令比较简单，一般不用什么选项，命令会打开一个交互界面，可以识别一些交互命令。常用的交互命令如下:</p>
+<ul>
+<li>空格:向下翻页</li>
+<li>b：向上翻页</li>
+<li>回车:向下滚一行</li>
+<li>/字符串:搜索指定的字符串</li>
+<li>q: 退出</li>
+</ul>
+<h2 id="0x035-less"><a href="#0x035-less" class="headerlink" title="0x035 less"></a>0x035 less</h2><p>less和more相似，只是More是分屏显示命令而less是分行显示命令，</p>
+<ul>
+<li>命令名称:less</li>
+<li>原意: opposite of more</li>
+<li>所在路径: /usr/bin/less</li>
+<li>执行权限: 所有用户</li>
+<li>功能描述: 分行显示文件内容</li>
+</ul>
+<h2 id="0x036-head-和-tail"><a href="#0x036-head-和-tail" class="headerlink" title="0x036 head 和 tail"></a>0x036 head 和 tail</h2><p>这两个是单独显示文件的头几行和尾几行</p>
+<ul>
+<li>命令名称 head/tail</li>
+<li>原意: output the first part of files /  output the last part of files</li>
+<li>所在路径: /usr/bin/head  /usr/bin/tail</li>
+<li>执行权限: 所有用户</li>
+<li>功能描述: 显示文件头/结尾的内容</li>
+</ul>
+<pre><code>-n 行数 从文件头/尾开始，显示指定行数 默认 10
+-f 监听更改
+</code></pre>
+<h2 id="0x037-ln"><a href="#0x037-ln" class="headerlink" title="0x037 ln"></a>0x037 ln</h2><ul>
+<li>命令名称: ln</li>
+<li>原意: make links between file</li>
+<li>所在路径: /bin/ln</li>
+<li>执行权限: 所有用户</li>
+<li>功能描述: 在文件之间建立链接</li>
+</ul>
+<pre><code>-s 建立软连接文件，如果不加 -s选项 则建立硬链接文件
+-f 强制，如果目标文件已经存在，则删除目标文件之后再建立链接文件
+</code></pre>
+<h3 id="0x0371-硬链接与软连接特征"><a href="#0x0371-硬链接与软连接特征" class="headerlink" title="0x0371 硬链接与软连接特征"></a>0x0371 硬链接与软连接特征</h3><p><strong>硬链接特征</strong></p>
+<ul>
+<li>源文件和硬文件拥有相同的Inode和Block</li>
+<li>修改任意一个文件，另一个文件都改变</li>
+<li>删除任意一个文件，另一个文件都能使用</li>
+<li>硬链接标签不清，很难确认硬链接文件位置，不建议使用</li>
+<li>硬链接不能链接目录</li>
+<li>硬链接不能跨分区</li>
+</ul>
+<p><strong>软链接特征(可以理解外快捷方式)</strong></p>
+<ul>
+<li><p>软连接和源文件拥有不同的Inode和Block(软链接文件的block中保存的是源文件的inode)</p>
+</li>
+<li><p>两个文件修改任意一个，另一个文件都会改变</p>
+</li>
+<li><p>删除软连接，源文件不受影响，删除源文件，软连接不能使用</p>
+</li>
+<li><p>软链接最大权限位 <code>1rwxrwxrwx</code>但是由于没有实际数据，最终访问时需要参考源文件权限</p>
+</li>
+<li><p> 软链接可以链接目录</p>
+</li>
+<li><p>软链接可以跨分区</p>
+</li>
+<li><p>软链接的特征明显</p>
+</li>
+</ul>
+<h1 id="0x04-目录和文件都能操作的命令"><a href="#0x04-目录和文件都能操作的命令" class="headerlink" title="0x04 目录和文件都能操作的命令"></a>0x04 目录和文件都能操作的命令</h1><h2 id="0x041-rm"><a href="#0x041-rm" class="headerlink" title="0x041 rm"></a>0x041 rm</h2><p>rm是强大的删除命令，不仅可以删除文件，也可以删除目录。</p>
+<ul>
+<li>命令名称: rm</li>
+<li>原意: remove files or directories</li>
+<li>所在路径: /bin/rm</li>
+<li>执行权限: 所有用户</li>
+<li>功能描述: 删除文件或目录</li>
+</ul>
+<pre><code>-f ： 强制删除(force)
+-i :  交互删除,在删除文件之前会询问用户
+-r ： 递归删除，可以删除目录(recursive)
+</code></pre>
+<h2 id="0x042-cp"><a href="#0x042-cp" class="headerlink" title="0x042 cp"></a>0x042 cp</h2><p>cp是用于复制命令</p>
+<ul>
+<li>命令名称: cp</li>
+<li>原意:  copy files and directories</li>
+<li>所在路径: /bin/cp</li>
+<li>执行权限; 所有用户</li>
+<li>功能描述: 复制文件和目录</li>
+</ul>
+<pre><code>-a : 相当于-dpr选项的集合
+-d : 如果源文件为软连接(对硬链接无效),则复制出来的文件也为软连接
+-i : 询问，如果目标已存在，则会询问是否覆盖。
+-p ： 复制后目标文件保留源文件的属性(包括所有者，所属组，权限，时间)
+-r ： 递归复制，用于复制目录
+</code></pre>
+<h2 id="0x043-mv"><a href="#0x043-mv" class="headerlink" title="0x043 mv"></a>0x043 mv</h2><p>mv 用来剪切的命令</p>
+<ul>
+<li>命令名称: mv</li>
+<li>原意: move(rename) files</li>
+<li>所在路径: /bin/mv</li>
+<li>执行权限: 所有用户</li>
+<li>功能描述: 移动文件或改名</li>
+</ul>
+<pre><code>-f : 强制覆盖
+-i : 交互移动
+-v : 显示详细信息
+</code></pre>
+<h1 id="0x05-基本权限管理"><a href="#0x05-基本权限管理" class="headerlink" title="0x05 基本权限管理"></a>0x05 基本权限管理</h1><h2 id="0x051-权限基本概念"><a href="#0x051-权限基本概念" class="headerlink" title="0x051 权限基本概念"></a>0x051 权限基本概念</h2><ul>
+<li><p>Linux系统上对文件的权限有着严格的控制，用于如果相对某个文件执行某种操作，必须具有对应的权限方可执行成功。这也是Linux有别于Windows的机制，也是基于这个权限机智，Linux可以有效防止病毒自我运行，因为运行的条件是必须要有运行的权限，而这个权限在Linux是用户所赋予的。</p>
+<p>Linux的文件权限有以下设定：</p>
+<ul>
+<li>Linux下文件的权限类型一般包括读，写，执行。对应字母为 r、w、x。</li>
+<li>Linux下权限的属组有 拥有者 、群组 、其它组 三种。每个文件都可以针对这三个属组（粒度），设置不同的rwx(读写执行)权限。</li>
+<li>通常情况下，一个文件只能归属于一个用户和组， 如果其它的用户想有这个文件的权限，则可以将该用户加入具备权限的群组，一个用户可以同时归属于多个组。</li>
+</ul>
+</li>
+</ul>
+<p> <img src="C:\Users\zhugan\Desktop\笔记整理\笔记图片\Linux\基础\02.png" alt="lsl"> </p>
+<p>如上图所示，以其为例，我们依次来分析各内容代表的含义，</p>
+<ul>
+<li>第 1 行：<code>total 16</code>，表示所列出内容的磁盘占用空间总和值，单位为<code>KB</code>；</li>
+<li>第 1 列：<code>dr-xr-x-r-x</code>，表示文件或目录的类型及权限；</li>
+<li>第 2 列： <code>4</code>，表示文件或目录的链接个数；</li>
+<li>第 3 列：<code>bin.guo</code>，表示文件或目录的所有者；</li>
+<li>第 4 列：<code>staff</code>，表示文件或目录的所在群组；</li>
+<li>第 5 列：<code>136</code>，表示文件或目录本身的大小；</li>
+<li>第 6 列：<code>Nov 24 11:26</code>，表示文件或目录的最后更新时间；</li>
+<li>第 7 列：<code>a</code>，表示文件或目录的名称。</li>
+</ul>
+<p>其中 <strong>第 1 列</strong> 的内容（除<code>total</code>外）特别丰富，以<code>dr-xr-x-r-x</code>为例（共 10 个字符），我们对其进一步分析：</p>
+<ul>
+<li><p>第 1 个字符</p>
+<pre><code>d
+</code></pre>
+<p>，表示文件或目录的类型，其类型包括 </p>
+<ul>
+<li><code>p</code>，表示命名管道文件；</li>
+<li><code>d</code>，表示目录文件；</li>
+<li><code>l</code>，表示符号连接文件；</li>
+<li><code>-</code>，表示普通文件；</li>
+<li><code>s</code>，表示 Socket 文件；</li>
+<li><code>c</code>，表示字符设备文件；</li>
+<li><code>b</code>，表示块设备文件。</li>
+</ul>
+</li>
+<li><p>第 2 ~ 4 个字符<code>r-x</code>，表示文件或目录的所有者权限；</p>
+</li>
+<li><p>第 5 ~ 7 个字符<code>r-x</code>，表示文件或目录的所有者同组用户权限；</p>
+</li>
+<li><p>第 8 ~ 10 个字符<code>r-x</code>，表示文件或目录的其他用户权限。</p>
+</li>
+</ul>
+<p>此外，大家可能还注意到有些文件或目录在其显示的权限后面还跟着一个字符，或者为<code>.</code>或者为<code>@</code>，具体：</p>
+<ul>
+<li>在 Mac 终端中显示为<code>@</code></li>
+<li>在 Linux 系统中显示为<code>.</code></li>
+</ul>
+<p>这表示其所属的文件或目录开启了<code>SELinux</code>安全上下文标签，如果没有，则表示未开启。</p>
+<h2 id="0x052-关于文件和目录的权限解析"><a href="#0x052-关于文件和目录的权限解析" class="headerlink" title="0x052 关于文件和目录的权限解析"></a>0x052 关于文件和目录的权限解析</h2><h3 id="0x0521-权限对文件"><a href="#0x0521-权限对文件" class="headerlink" title="0x0521 权限对文件"></a>0x0521 权限对文件</h3><ul>
+<li><strong>读(r): 可以对文件执行，cat,more,less,head,tail,等查看命令</strong></li>
+<li><strong>写(w):可以对文件执行，vim,echo等修改文件数据的命令，注意，对文件的写权限，是不能删除文件本身的，只能删除文件中的数据。只有对上级目录含有写权限才能执行删除权限</strong></li>
+<li><strong>执行(x):对文件的执行权限，表示可以运行，但运行的成功与否还得看文件代码。对于文件来说执行(x)是最高权限</strong></li>
+</ul>
+<h3 id="0x0522-权限对目录"><a href="#0x0522-权限对目录" class="headerlink" title="0x0522 权限对目录"></a>0x0522 权限对目录</h3><ul>
+<li>读(r):代表可查看目录下的内容，<strong>可在目录下执行ls命令</strong></li>
+<li><strong>写(w):代表可以在目录下，增，删，改文件或子目录，可以对目录下执行touch,rm,cp,mv等命令，对目录来说写(W)是最高权限</strong></li>
+<li><strong>执行(x):目录是不能运行的，对目录添加可执行权限代表着，可以进入到文件目录中才能使用cd指令。</strong></li>
+</ul>
+<pre><code>补充:
+目录的可用权限其实只有以下几个
+0：什么权限都不赋予
+5：目录的游览和进入权限
+7：所有权限
+</code></pre>
+<h2 id="0x053-基本权限命令"><a href="#0x053-基本权限命令" class="headerlink" title="0x053 基本权限命令"></a>0x053 基本权限命令</h2><h3 id="0x0531-chmod"><a href="#0x0531-chmod" class="headerlink" title="0x0531 chmod"></a>0x0531 chmod</h3><ul>
+<li>命令名称: chmod</li>
+<li>原意: change file mode bits</li>
+<li>所在路径: /bin/chmod</li>
+<li>执行权限: 所有用户</li>
+<li>功能描述: 修改文件的权限模式</li>
+</ul>
+<pre><code>-R : 递归赋予权限
+</code></pre>
+<h3 id="0x0532-权限模式"><a href="#0x0532-权限模式" class="headerlink" title="0x0532 权限模式"></a>0x0532 权限模式</h3><p>Chmod 的权限格式为</p>
+<pre><code>chmod [ugoa][+-=][perms]    也就是 [用户权限][赋予方式][权限]
+</code></pre>
+<p>用户身份代码包括：</p>
+<ul>
+<li><code>u</code>：User，即文件或目录的拥有者；</li>
+<li><code>g</code>：Group，即文件或目录的所属群组；</li>
+<li><code>o</code>：Other，除了文件或目录拥有者或所属群组之外，其他用户皆属于这个范围；</li>
+<li><code>a</code>：All，即全部的用户，包含拥有者、所属群组以及其他用户。</li>
+</ul>
+<p>赋予方式代码包括:</p>
+<ul>
+<li><code>+</code>: 加入权限</li>
+<li><code>-</code>:减去权限</li>
+<li><code>=</code>:设置权限</li>
+</ul>
+<p>权限的代号包括：</p>
+<ul>
+<li><code>r</code>：读取权限，数字代号为<code>4</code>；</li>
+<li><code>w</code>：写入权限，数字代号为<code>2</code>；</li>
+<li><code>x</code>：执行或切换权限，数字代号为<code>1</code>；</li>
+<li><code>-</code>：不具任何权限，数字代号为<code>0</code>；</li>
+<li><code>s</code>：当文件被执行时，根据<code>who</code>参数指定的用户类型设置文件的<code>setuid</code>或者<code>setgid</code>权限。</li>
+</ul>
+<h3 id="0x0533-常用权限"><a href="#0x0533-常用权限" class="headerlink" title="0x0533 常用权限"></a>0x0533 常用权限</h3><ul>
+<li><p>664: 文件基本权限: 代表所有者拥有读写权限和其他组只有读权限</p>
+</li>
+<li><p>755: 这个是文件的执行权限和目录的基本权限 代表所有者用用读写执行权限，而所有组和其他人有读和执行权限 </p>
+</li>
+<li><p>777: 这个是最大权限，在实际的生成服务器中，只要避免给文件或目录赋予这样的权限。</p>
+</li>
+</ul>
+<h3 id="0x0534-chown"><a href="#0x0534-chown" class="headerlink" title="0x0534 chown"></a>0x0534 chown</h3><ul>
+<li>命令名称: chown</li>
+<li>原意：change file owner an group</li>
+<li>所在路径: /bin/chown</li>
+<li>执行权限: 所有用户</li>
+<li>功能描述: 修改文件和目录所有者和所属组</li>
+</ul>
+<pre><code>-R : 递归设置，给目录中的文件也统一配置
+</code></pre>
+<p><strong>普通用户不能修改文件的所有者，哪怕时自己的文件也不行。</strong></p>
+<p><strong>普通用户可以修改所有者的文件的权限</strong></p>
+<pre><code>如果只输入单一的参数会默认只修改 用户
+chown user1 file
+如果使用:连接的两个用户 前面时用户后面时用户组
+chown user1:group1 file  这样可以同时修改用户和用户组
+</code></pre>
+<h3 id="0x0535-chgrp"><a href="#0x0535-chgrp" class="headerlink" title="0x0535 chgrp"></a>0x0535 chgrp</h3><ul>
+<li>命令名称: chgrp</li>
+<li>原意: change group ownership</li>
+<li>所在路径: /bin/chgrp</li>
+<li>执行权限: 所有用户</li>
+<li>功能描述: 修改文件和目录的所属组</li>
+</ul>
+<h3 id="0x0536-umaks-默认权限-只需要了解，并不需要去修改"><a href="#0x0536-umaks-默认权限-只需要了解，并不需要去修改" class="headerlink" title="0x0536 umaks 默认权限 (只需要了解，并不需要去修改)"></a>0x0536 umaks 默认权限 (只需要了解，并不需要去修改)</h3><p>查看系统的umask权限</p>
+<pre><code class="shell">root@localhost [08:03:06 PM] [~/test] 
+-&gt; # umask
+022
+#用八进制数值显示umask权限
+root@localhost [08:04:49 PM] [~/test] 
+-&gt; # umask -S
+u=rwx,g=rx,o=rx
+#用字母表示文件和目录的初始权限
+</code></pre>
+<h4 id="0x05361-umask权限的计算方法"><a href="#0x05361-umask权限的计算方法" class="headerlink" title="0x05361 umask权限的计算方法"></a>0x05361 umask权限的计算方法</h4><p>先了解文件和目录的默认最大权限</p>
+<ul>
+<li>对文件来讲，新建文件的默认最大权限是666，没有执行权限（X）。因为执行权限比较危险对文件来说，不能再新建文件的时候就默认赋予，而必须通过用户手工赋予(就算把umask修改附带执行权限，再新建文件的时候也不会带有执行权限)</li>
+<li>对文件目录来说，新建目录的默认最大权限是777。这是因为X只是进入目录没什么危险</li>
+</ul>
+<h1 id="0x06-帮助命令"><a href="#0x06-帮助命令" class="headerlink" title="0x06 帮助命令"></a>0x06 帮助命令</h1><h2 id="0x061-man"><a href="#0x061-man" class="headerlink" title="0x061 man"></a>0x061 man</h2><p>man是Linux最主要的帮助命令</p>
+<ul>
+<li>命令名称: man</li>
+<li>原意: format and display the on-line manual pages</li>
+<li>所在路径: /usr/bin/man</li>
+<li>执行权限: 所有用户</li>
+<li>功能描述: 显示联机帮助手册</li>
+</ul>
+<pre><code>-f : 查看命令拥有哪个级别的帮助
+</code></pre>
+<p><strong>man快捷键</strong></p>
+<table>
+<thead>
+<tr>
+<th>按键</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>j</td>
+<td>向下滚动一行</td>
+</tr>
+<tr>
+<td>k</td>
+<td>向上滚动一行</td>
+</tr>
+<tr>
+<td>g</td>
+<td>跳到手册的第一行</td>
+</tr>
+<tr>
+<td>G</td>
+<td>跳到手册的最后一行</td>
+</tr>
+<tr>
+<td>/string  + 回车</td>
+<td>在手册页中查找第一个string</td>
+</tr>
+<tr>
+<td>n</td>
+<td>向下（同方向）查找下一次匹配，可多次使用</td>
+</tr>
+<tr>
+<td>N</td>
+<td>向上（反方向）查找下一次匹配，可多次使用</td>
+</tr>
+<tr>
+<td>h</td>
+<td>获得手册页的帮助</td>
+</tr>
+<tr>
+<td>Ctrl+f 、f</td>
+<td>向下翻一整屏</td>
+</tr>
+<tr>
+<td>Ctrl+b、b</td>
+<td>向上翻一整屏</td>
+</tr>
+<tr>
+<td>q</td>
+<td>退出手册页</td>
+</tr>
+<tr>
+<td>空格</td>
+<td>向下一屏</td>
+</tr>
+<tr>
+<td>Ctrl+n</td>
+<td>向下一行</td>
+</tr>
+<tr>
+<td>Ctrl+d</td>
+<td>向下一屏</td>
+</tr>
+<tr>
+<td>Ctrl+u</td>
+<td>向上一屏</td>
+</tr>
+</tbody></table>
+<h3 id="0x0611-man-帮助级别-（不用记，了解"><a href="#0x0611-man-帮助级别-（不用记，了解" class="headerlink" title="0x0611 man 帮助级别 （不用记，了解)"></a>0x0611 man 帮助级别 （不用记，了解)</h3><table>
+<thead>
+<tr>
+<th>1 – commands</th>
+<th>1-普通的命令 （用户命令，  可由任何人启动的）</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>2 – system calls</td>
+<td>2-系统调用，如open,write之类的(通过这个，至少可以很方便的查到调用这个函数，需要加什么头文件)、 （ 系统调用，  即由内核提供的函数。）</td>
+</tr>
+<tr>
+<td>3 – library calls</td>
+<td>3-库函数,如printf,fread （ 例程，  即库函数。）</td>
+</tr>
+<tr>
+<td>4 – special files</td>
+<td>4-特殊文件,也就是/dev下的各种设备文件 （设备，  即/dev目录下的特殊文件）</td>
+</tr>
+<tr>
+<td>5 – file formats and convertions</td>
+<td>5-指文件的格式,比如passwd, 就会说明这个文件中各个字段的含义 （ 文件格式描述，  例如/etc/passwd）</td>
+</tr>
+<tr>
+<td>6 – games for linux</td>
+<td>6-给游戏留的,由各个游戏自己定义</td>
+</tr>
+<tr>
+<td>7 – macro packages and conventions</td>
+<td>7-附件还有一些变量,比如向environ这种全局变量在这里就有说明 （杂项，例如宏命令包、惯例等）</td>
+</tr>
+<tr>
+<td>8 – system management command</td>
+<td>8-系统管理用的命令,这些命令只能由root使用,如ifconfig （系统管理员工具， 只能由root启动）</td>
+</tr>
+<tr>
+<td>9 – 其他</td>
+<td>9-其他跟kernel有关的文件 （其他（Linux特定的）用来存放内核例行程序的文档）</td>
+</tr>
+</tbody></table>
+<h2 id="0x062-info"><a href="#0x062-info" class="headerlink" title="0x062 info"></a>0x062 info</h2><p>info命令的帮助信息是一套<strong>完整的资料</strong>，每个当都命令的帮助只是这套完整资料中的某一章小结</p>
+<table>
+<thead>
+<tr>
+<th>快捷键</th>
+<th>作 用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>上箭头</td>
+<td>向上移动一行</td>
+</tr>
+<tr>
+<td>下箭头</td>
+<td>向下移动一行</td>
+</tr>
+<tr>
+<td>PgUp</td>
+<td>向上翻一页</td>
+</tr>
+<tr>
+<td>PgDn</td>
+<td>向下翻一页</td>
+</tr>
+<tr>
+<td>Tab</td>
+<td>在有”*”符号的节点间进行切换</td>
+</tr>
+<tr>
+<td>回车</td>
+<td>进入有”*”符号的子页面，査看详细帮助信息</td>
+</tr>
+<tr>
+<td>u</td>
+<td>进入上一层信息（回车是进入下一层信息）</td>
+</tr>
+<tr>
+<td>n</td>
+<td>进入下一小节信息</td>
+</tr>
+<tr>
+<td>P</td>
+<td>进入上一小节信息</td>
+</tr>
+<tr>
+<td>?</td>
+<td>査看帮助信息</td>
+</tr>
+<tr>
+<td>q</td>
+<td>退出info信息</td>
+</tr>
+</tbody></table>
+<h2 id="0x063-help-少用"><a href="#0x063-help-少用" class="headerlink" title="0x063 help (少用)"></a>0x063 help (少用)</h2><p>help只能获取Shell内置命令的帮助</p>
+<ul>
+<li>命令名称: help</li>
+<li>原意: help</li>
+<li>路径: Shell内置命令</li>
+<li>执行权限: 所有用户</li>
+<li>功能描述: 显示shell内置命令帮助，可以使用type命令去区分外部和内置命令</li>
+</ul>
+<p>shell是Linux命令解析器</p>
+<pre><code>root@localhost [08:34:16 PM] [~/test] 
+-&gt; # type mkdir
+mkdir is /usr/bin/mkdir
+root@localhost [08:38:01 PM] [~/test] 
+-&gt; # type cd
+cd is a shell builtin
+</code></pre>
+<h2 id="0x064-–help"><a href="#0x064-–help" class="headerlink" title="0x064 –help"></a>0x064 –help</h2><p>这个是一个选项</p>
+<p>基本上所有命令都会自带一个 –help上面有时候会是中文而且会标注很多常用指令</p>
+<h1 id="0x07-搜索命令"><a href="#0x07-搜索命令" class="headerlink" title="0x07 搜索命令"></a>0x07 搜索命令</h1><h2 id="0x071-whereis和which"><a href="#0x071-whereis和which" class="headerlink" title="0x071 whereis和which"></a>0x071 whereis和which</h2><p>这两个只可以搜索系统命令，也就是说不能搜索普通文件</p>
+<ul>
+<li>命令名称：whereis</li>
+<li>原意： locate the binary,source,and manual page files for a command</li>
+<li>所在路径: /usr/bin/whereis</li>
+<li>执行权限: 所有用户</li>
+<li>功能 描述: 查找二进制命令，源文件和帮助文档的命令</li>
+</ul>
+<ul>
+<li>命令名称: which</li>
+<li>原意: shows the full path of（shell）command</li>
+<li>所在路径: /usr/bin/which</li>
+<li>执行权限: 所用用户</li>
+<li>功能: 列出所有命令所在路径</li>
+</ul>
+<h3 id="0x0711-区别"><a href="#0x0711-区别" class="headerlink" title="0x0711 区别"></a>0x0711 区别</h3><ul>
+<li>whereis 命令可以查找到二进制命令的同时，<strong>查找帮助文档的位置</strong></li>
+<li>which 命令查找二进制命令的同时，<strong>如果这个命令有别名，可以找到别名</strong></li>
+</ul>
+<pre><code class="shell">root@localhost [08:40:11 PM] [~/test] 
+-&gt; # whereis ls
+ls: /usr/bin/ls /usr/share/man/man1/ls.1.gz
+root@localhost [08:45:57 PM] [~/test] 
+-&gt; # which ls
+ls=&#39;ls --color=tty&#39;
+        /usr/bin/ls
+</code></pre>
+<h2 id="0x072-locate"><a href="#0x072-locate" class="headerlink" title="0x072 locate"></a>0x072 locate</h2><p>只能搜索普通文件</p>
+<ul>
+<li><p><strong>优点: 按照数据库搜索，搜索速度快，消耗资源小，数据库位置 /var/lib/mlocate/mlocate.db</strong></p>
+</li>
+<li><p>缺点: 只能按照文件名来搜索文件，而不能执行复杂的搜索，比如按照选线，大小，修改时间等条件搜索。</p>
+</li>
+<li><p>命令名称: locate</p>
+</li>
+<li><p>原意: find files by name</p>
+</li>
+<li><p>所在路径: /usr/bin/locate</p>
+</li>
+<li><p>执行权限: 所有用户</p>
+</li>
+<li><p>功能描述: 按照文件名搜索文件</p>
+</li>
+</ul>
+<h2 id="0x073-find（超重点）"><a href="#0x073-find（超重点）" class="headerlink" title="0x073 find（超重点）"></a>0x073 find（超重点）</h2><ul>
+<li>命令名称: find</li>
+<li>原意: search for files in a directory hierarchy</li>
+<li>所在路径: /bin/find</li>
+<li>执行权限: 所有用户</li>
+<li>功能描述: 再目录中搜索</li>
+</ul>
+<p>功能过于强大：只写常见功能</p>
+<p>因为是按照目录来搜索，所以文件搜索范围越大消耗资源和搜索时间都越多。尽量避免搜索时间</p>
+<h3 id="0x0731-按照文件名搜索"><a href="#0x0731-按照文件名搜索" class="headerlink" title="0x0731 按照文件名搜索"></a>0x0731 按照文件名搜索</h3><pre><code class="shell"># find 搜索路径 [选项] 内容
+选项:
+    -name : 按照文件名搜索,区分大小写
+    -iname : 按照文件名搜索，不区分大小写
+    -inum ： 按照inode号搜索
+</code></pre>
+<h3 id="0x0732-按照文件大小搜索"><a href="#0x0732-按照文件大小搜索" class="headerlink" title="0x0732 按照文件大小搜索"></a>0x0732 按照文件大小搜索</h3><pre><code class="shell"># find 搜索路径 [选项] 内容
+选项:
+    -size [+|-]大小 ： 按照指定大小搜索文件
+</code></pre>
+<p>这里的的+是指定比指定大小还要大的文件，-是指定大小要小</p>
+<h3 id="0x0733-按照修改时间搜索"><a href="#0x0733-按照修改时间搜索" class="headerlink" title="0x0733 按照修改时间搜索"></a>0x0733 按照修改时间搜索</h3><p>在时间参数 有min和time</p>
+<pre><code class="shell"># find 搜索路径 [选项] 内容
+选项:
+    -atime [+|-] : 按照文件访问时间搜索
+    -mtime [+|-] : 按照文件数据修改时间搜索
+    -ctime [+|-] : 按照文件状态修改时间搜索
+</code></pre>
+<p>[+|-]关于time用法的详解:</p>
+<ul>
+<li>-5 : 代表5天内修改的文件</li>
+<li>5: 代表5-6天那一天修改的文件</li>
+<li>+5 : 代表6天前修改的文件</li>
+</ul>
+<h3 id="0x0734-按照权限搜索"><a href="#0x0734-按照权限搜索" class="headerlink" title="0x0734 按照权限搜索"></a>0x0734 按照权限搜索</h3><pre><code class="shell"># find 搜索路径 [选项] 内容
+选项:
+    -perm 权限模式 : 查找文件权限刚好等于&quot;权限模式&quot;的文件
+    -perm -权限模式 ：查找文件权限全部包含&quot;权限模式&quot;的文件
+    -perm +权限模式 ：查找文件权限包含&quot;权限模式&quot;的任意一个权限的文件
+</code></pre>
+<h3 id="0x0735-按照所有者和所属组搜索"><a href="#0x0735-按照所有者和所属组搜索" class="headerlink" title="0x0735 按照所有者和所属组搜索"></a>0x0735 按照所有者和所属组搜索</h3><pre><code class="shell"># find 搜索路径 [选项] 内容
+选项:
+    -uid 用户ID : 按照用户ID查找所有者时指定ID的文件
+    -gid 组ID : 按照组ID查早所属组是指定ID的文件
+    -user 用户名 : 按照用户名查早所有者是指定用户的文件
+    -group 组名 : 按照组名查找所属组是指定用户组的文件
+    -nouser : 查找没有所有者的文件
+</code></pre>
+<p>按所有者和所属组搜索时,”nouser”比较常用，主要用来查找垃圾。但有一种情况例外，就是外部接口例如光盘和U盘文件如果是Winodws复制的，在LIinux中是没有所有者的。</p>
+<h3 id="0x0736-按照文件类型搜索"><a href="#0x0736-按照文件类型搜索" class="headerlink" title="0x0736 按照文件类型搜索"></a>0x0736 按照文件类型搜索</h3><pre><code class="shell"># find 搜索路径 [选项] 内容
+选项:
+    -type d: 查找目录
+    -type f: 查找普通文件
+    -type l: 查找软连接
+</code></pre>
+<h3 id="0x0737-逻辑运算符"><a href="#0x0737-逻辑运算符" class="headerlink" title="0x0737 逻辑运算符"></a>0x0737 逻辑运算符</h3><pre><code class="shell"># find 搜索路径 [选项] 内容
+选项:
+    -a : and逻辑与
+    -o : or逻辑或
+    -not : not逻辑非(也可以用！)
+</code></pre>
+<h3 id="0x0738-其他选项"><a href="#0x0738-其他选项" class="headerlink" title="0x0738 其他选项"></a>0x0738 其他选项</h3><ol>
+<li> <strong>-exec</strong></li>
+</ol>
+<pre><code class="shell"># find 搜索路径 [选项] 内容 -exec 命令2 &#123;&#125; \;
+</code></pre>
+<p>   只要有 -exec就要有; 这三个是成对出现的</p>
+<p>   这个选项的功能是  把find的结果 放入到 “{}”中 然后执行命令2，就代表了把命令一的结果用命令2再执行一次</p>
+<ol start="2">
+<li><p><strong>-ok</strong></p>
+<pre><code class="shell">find 搜索路径 [选项] 内容 -ok 命令2 &#123;&#125; \;
+</code></pre>
+<p>ok和exec基本一样不同点就是  OK在对命令操作之前会询问一次，特别是命令2为rm时建议使用ok.</p>
+</li>
+</ol>
+<h2 id="0x074-grep-补充命令"><a href="#0x074-grep-补充命令" class="headerlink" title="0x074 grep : 补充命令"></a>0x074 grep : 补充命令</h2><p>grep 作用是在文件中提取和匹配符合条件的字符串行。</p>
+<pre><code class="shell">-i : 忽略大小写
+-n : 输出行号
+-v : 反向查找
+--color=auto : 搜索出的关键字用颜色显示
+</code></pre>
+<p><strong>find 和 grep 区别</strong></p>
+<ol>
+<li><p>find</p>
+<ul>
+<li>find是用于搜索文件名 </li>
+<li>find默认是完全匹配，如果需要模糊查询，需要配合通配符进行匹配</li>
+</ul>
+</li>
+<li><p>grep</p>
+<ul>
+<li>grep用于文件里的字符串</li>
+<li>grep默认是模糊查询，如果需要完全匹配，需要配合正则表达式</li>
+</ul>
+</li>
+</ol>
+<h3 id="0x071-通配符"><a href="#0x071-通配符" class="headerlink" title="0x071 通配符"></a>0x071 通配符</h3><table>
+<thead>
+<tr>
+<th><strong>字符</strong></th>
+<th><strong>含义</strong></th>
+<th><strong>实例</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>*</td>
+<td>匹配 0 或多个字符</td>
+<td>a*b a与b之间可以有任意长度的任意字符, 也可以一个也没有, 如aabcb, axyzb, a012b, ab。</td>
+</tr>
+<tr>
+<td>?</td>
+<td>匹配任意一个字符</td>
+<td>a?b a与b之间必须也只能有一个字符, 可以是任意字符, 如aab, abb, acb, a0b。</td>
+</tr>
+<tr>
+<td>[list]</td>
+<td>匹配 list 中的任意单一字符注：备注记录几个特殊单一符号表示。</td>
+<td>a[xyz]b  a与b之间必须也只能有一个字符, 但只能是 x 或 y 或 z, 如: axb, ayb, azb。a[[:upper:]]b a与b之间有且只能有一个大写字符，如aSb，aQb等。</td>
+</tr>
+<tr>
+<td>[!list] 或[^list]</td>
+<td>匹配 除list 中的任意单一字符</td>
+<td>a[^0-9]b a与b之间必须也只能有一个字符, 但不能是阿拉伯数字, 如axb, aab, a-b。</td>
+</tr>
+<tr>
+<td>[c1-c2]</td>
+<td>匹配 c1-c2 中的任意单一字符 如：[0-9] [a-z]</td>
+<td>a[0-9]b 0与9之间必须也只能有一个字符 如a0b, a1b… a9b。</td>
+</tr>
+</tbody></table>
+<h2 id="0x075-管道符-补充命令"><a href="#0x075-管道符-补充命令" class="headerlink" title="0x075 管道符 : 补充命令"></a>0x075 管道符 : 补充命令</h2><p>命令格式 <code> 命令1 | 命令2</code></p>
+<p>命令1输出作为命令2的操作对象</p>
+<p>类似与find 中的 <code>-exec</code>但find不能与|通用。</p>
+<h2 id="0x76-命令的别名-补充命令"><a href="#0x76-命令的别名-补充命令" class="headerlink" title="0x76 命令的别名 : 补充命令"></a>0x76 命令的别名 : 补充命令</h2><p>命令的别名:就是换一种叫法，主要用于管理员的使用习惯</p>
+<pre><code class="shell">命令格式
+# alias 别名=&#39;原命令&#39;
+例如
+# alias renet=&#39;service network restart&#39;
+这样在shell中输入renet就等于输入service network restart
+</code></pre>
+<p><strong>注意</strong></p>
+<p>不要与系统命令重叠，别名会覆盖系统命令，如果覆盖了就很难改回来了。</p>
+<p>其次在shell中<code>alias</code>如果只是是打出来的没有修改对应的配置文件，那么重启后别名会失效。</p>
+<p>如果想要永久生效，得在环境变量里配置<code>~/.bashrc</code>里配置 而且这个是用户环境变量，只有当前用户可用</p>
+<h2 id="0x077-快捷键-补充命令"><a href="#0x077-快捷键-补充命令" class="headerlink" title="0x077 快捷键 : 补充命令"></a>0x077 快捷键 : 补充命令</h2><table>
+<thead>
+<tr>
+<th>快捷键</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Tab</td>
+<td>命令补全</td>
+</tr>
+<tr>
+<td>Ctrl+A</td>
+<td>把光标移动到命令行开头</td>
+</tr>
+<tr>
+<td>Ctrl+E</td>
+<td>把光标移动到命令行结尾</td>
+</tr>
+<tr>
+<td>Ctrl+C</td>
+<td>强制终止当前命令</td>
+</tr>
+<tr>
+<td>Ctrl+L</td>
+<td>清屏相当于 clear名</td>
+</tr>
+<tr>
+<td>Ctrl+U</td>
+<td>删除或剪切光标之前的命令。</td>
+</tr>
+<tr>
+<td>Ctrl+Y</td>
+<td>粘贴Ctrl+U的内容</td>
+</tr>
+</tbody></table>
+<h2 id="0x08-压缩和解压命令"><a href="#0x08-压缩和解压命令" class="headerlink" title="0x08 压缩和解压命令"></a>0x08 压缩和解压命令</h2><p>Linux中压缩格式有十几种，所以要以扩展名为后缀给用户管理看。</p>
+<h3 id="0x081-zip"><a href="#0x081-zip" class="headerlink" title="0x081 zip"></a>0x081 zip</h3><p>ZIP是Windows中最常使用，Linux也可以正常识别。Linux不常用</p>
+<ul>
+<li>命令名称:zip</li>
+<li>原意: package and compress (archive) files</li>
+<li>所在路径: /usr/bin/zip</li>
+<li>执行权限: 所有用户</li>
+<li>功能描述: 压缩文件或目录</li>
+</ul>
+<pre><code class="shell">命令格式: zip [选项] 压缩包名 源文件或目录(可以多个)
+</code></pre>
+<p>解压缩unzip</p>
+<ul>
+<li>命令名称: unzip</li>
+<li>原意: list,test,and extract compressed files in a ZIP archive</li>
+<li>所在路径: /usr/bin/unzip</li>
+<li>执行权限: 所有用户</li>
+<li>功能描述: 列表，测试和提取压缩文件中的文件</li>
+</ul>
+<pre><code>-d : 指定压缩位置
+</code></pre>
+<h3 id="0x081-gz"><a href="#0x081-gz" class="headerlink" title="0x081 gz"></a>0x081 gz</h3><p>gz是Linux中最常用的压缩格式，使用gzip命令压缩</p>
+<p><strong>注意</strong>：</p>
+<ol>
+<li>gz压缩会把源文件删除</li>
+<li><strong>不会打包</strong>：如果你压缩目录，gzip会把目录里面的所有文件单独压缩一份</li>
+</ol>
+<ul>
+<li>命令名称:gzip</li>
+<li>原意:  compress or expand files</li>
+<li>所在路径: /bin/gzip</li>
+<li>执行权限: 所有用户</li>
+<li>功能描述: 压缩文件或目录</li>
+</ul>
+<pre><code>-c : 将压缩数据输出到标准输出中，可以用于保留源文件
+-d : 解压缩
+-r : 压缩目录
+</code></pre>
+<h3 id="0x082-bz2"><a href="#0x082-bz2" class="headerlink" title="0x082 bz2"></a>0x082 bz2</h3><p>bz2 也是linux常用的压缩格式，从理论上将bz2压缩更先进，压缩更好，而gz压缩时间更短</p>
+<p><strong>注意</strong></p>
+<ol>
+<li>不能压缩目录</li>
+</ol>
+<ul>
+<li>命令名称: bzip2</li>
+<li>原意: a block-sorting file compressor</li>
+<li>所在路径: /usr/bin/bzip2</li>
+<li>执行权限: 所有用户</li>
+<li>功能描述： bz2格式的压缩指令</li>
+</ul>
+<pre><code>-d : 解压缩
+-k : 压缩时，保留原文件
+-v : 显示压缩的详细信息
+</code></pre>
+<h3 id="0x083-tar"><a href="#0x083-tar" class="headerlink" title="0x083 tar"></a>0x083 tar</h3><p>Linux打包和解压都是tar只是选项不同</p>
+<p><strong>注意</strong>:</p>
+<ol>
+<li>只能打包</li>
+</ol>
+<pre><code>//压缩
+-c : 打包
+-f : 指定压缩包的文件名。压缩包的扩展名是用来给管理元识别格式的，所以一定要写对
+-v : 显示打包文件过程
+
+//解压缩
+-x : 解压缩
+-f : 指定压缩包的文件名
+-v : 显示解压缩过程
+-t : 测试，不解压，只看文件中有哪些文件
+-C : 指定解压目录和解压文件，这个一定要放在压缩包后面否则会报错 正确用法 xx.tar -C /tmp 文件 #如果文件不输入则全部解压到指定目录
+</code></pre>
+<h3 id="0x084-tar-gz和tar-bz2（重点）"><a href="#0x084-tar-gz和tar-bz2（重点）" class="headerlink" title="0x084 tar.gz和tar.bz2（重点）"></a>0x084 tar.gz和tar.bz2（重点）</h3><p>上面3个命令是为了理解Linux命令原理压缩和打包是分开的 </p>
+<pre><code># tar [选项] 压缩包名 源文件\目录
+选项:
+    -z : 压缩和解压缩&quot;tar.gz&quot;格式
+    -j : 压缩和解压缩&quot;tar.bz2&quot;格式
+</code></pre>
+<h1 id="0x09-关机和重启命令"><a href="#0x09-关机和重启命令" class="headerlink" title="0x09 关机和重启命令"></a>0x09 关机和重启命令</h1><h2 id="0x091-sync"><a href="#0x091-sync" class="headerlink" title="0x091 sync"></a>0x091 sync</h2><p>数据同步命令，用于将缓冲区的数据保存到系统中。</p>
+<ul>
+<li>命令名称：sync</li>
+<li>原意: flush file system buffers</li>
+<li>所在路径: /bin/sync</li>
+<li>执行权限: 所有用户</li>
+<li>功能描述: 刷新文件系统缓冲区</li>
+</ul>
+<p>把buffers(缓冲区)中的内容保存到硬盘中，也就是把内存</p>
+<h2 id="0x092-shutdown"><a href="#0x092-shutdown" class="headerlink" title="0x092 shutdown"></a>0x092 shutdown</h2><p>shutdown是最安全的关机重启命令</p>
+<p>在实际工作中重启和关机一定要有人在旁边最好</p>
+<ul>
+<li><p>命令名称：shutdown</p>
+</li>
+<li><p>原意: bring the system down</p>
+</li>
+<li><p>所在路径: /sbin/shutdown</p>
+</li>
+<li><p>执行权限: 所有用户</p>
+</li>
+<li><p>功能描述: 关机和重启</p>
+</li>
+</ul>
+<pre><code># shutdown [选项] 时间 [警告信息]
+-c : 取消已经执行的shutdown命令
+-h : 关机
+-r ： 重启
+</code></pre>
+<h2 id="0x093-reboot"><a href="#0x093-reboot" class="headerlink" title="0x093 reboot"></a>0x093 reboot</h2><p>在系统中reboot也是安全的，而且不需要加入过多的选项</p>
+<h2 id="0x094-halt和Poweroff"><a href="#0x094-halt和Poweroff" class="headerlink" title="0x094 halt和Poweroff"></a>0x094 halt和Poweroff</h2><p>者两个都是关机命令，直接执行就会关机，而且不会完整的关闭和保存系统的服务，不建议使用</p>
+<h2 id="0x095-init"><a href="#0x095-init" class="headerlink" title="0x095 init"></a>0x095 init</h2><p>init是修改Linuxt运行级别的命令，也可以用于关机和重启。这个命令并不安全，不建议使用</p>
+<pre><code># init 0 #0级别关机 6级别重启
+</code></pre>
+<h1 id="0x10-常用网络命令"><a href="#0x10-常用网络命令" class="headerlink" title="0x10 常用网络命令"></a>0x10 常用网络命令</h1><h2 id="0x101-配置IP地址"><a href="#0x101-配置IP地址" class="headerlink" title="0x101 配置IP地址"></a>0x101 配置IP地址</h2><p>两种方法</p>
+<ol>
+<li>setup 工具(只有部分linux发新版本才有)</li>
+<li>修改/etc/sysconfig/network-scripts/ifcfg-eth0 （ifcfg-eth0是对应的网卡或者网络信息)</li>
+</ol>
+<h3 id="0x1011-重启网路服务"><a href="#0x1011-重启网路服务" class="headerlink" title="0x1011 重启网路服务"></a>0x1011 重启网路服务</h3><p><code>service network restart</code></p>
+<h3 id="0x1012-网络重启错误的可能"><a href="#0x1012-网络重启错误的可能" class="headerlink" title="0x1012 网络重启错误的可能"></a>0x1012 网络重启错误的可能</h3><ul>
+<li><p>局域网IP重复错误</p>
+</li>
+<li><p>UUID(redhat6版本后独有的唯一识别号)</p>
+<p>UUID在readhat的网卡里面写着</p>
+<p>在虚拟机中拷贝，克隆虚拟机会这个UUID并不会改变</p>
+<pre><code>解决方法
+1）删除网卡信息里面的MAC地址行 UUID是根据MAC地址计算的
+2）删除Mac地址和UUID绑定文件一般在/etc/ude/rules.d/70-persistent-net.rules
+3）重启
+</code></pre>
+</li>
+</ul>
+<h2 id="0x102-ifconfig"><a href="#0x102-ifconfig" class="headerlink" title="0x102 ifconfig"></a>0x102 ifconfig</h2><ul>
+<li>命令名称: ifconfig</li>
+<li>原意: configure a network interface</li>
+<li>所在路径: /sbin/ifconfig</li>
+<li>执行权限: 超级用户</li>
+<li>功能描述: 配置网络接口</li>
+</ul>
+<p> <img src="C:\Users\Qusi\Desktop\892.png" alt="img"> </p>
+<p>最主要的是Mac地址，IP，子网掩码</p>
+<h2 id="0x103-ping"><a href="#0x103-ping" class="headerlink" title="0x103 ping"></a>0x103 ping</h2><p>ping主要通过ICMP协议进行网络探测，测试网络中主机的通信情况。</p>
+<p>注意</p>
+<ol>
+<li>Windows默认只ping 4次</li>
+<li>Linux默认只要不终止就会一直ping下去</li>
+</ol>
+<ul>
+<li>命令名称: ping</li>
+<li>原意: send ICMP ECHO_REQUEST to network hosts</li>
+<li>所在路径: /bin/ping</li>
+<li>执行权限: 所有用户</li>
+<li>功能描述: 像网络主机发送ICMP请求</li>
+</ul>
+<pre><code>-b : 加入广播地址，用于对整个网络段进行探测
+-c 次数 : 用于指定Ping的测试
+-s 字节 : 指定探测包的大小
+</code></pre>
+<h2 id="0x104-netstat"><a href="#0x104-netstat" class="headerlink" title="0x104 netstat"></a>0x104 netstat</h2><p>用于查看网络状态的命令，既可以查看到本机开启的端口，也可以查看有哪些客户端连接。在centos7中不会默认安装需要安装net-tools和net-snmp才可以可以使用</p>
+<ul>
+<li>命令名称: netstat</li>
+<li>原意: print network connections ,routing tables, interface statistics, masquerade connections, and multicast memberships.</li>
+<li>所在路径: /bin/netstat</li>
+<li>执行权限: 所有用户</li>
+<li>功能描述: 输出网络连接，路由表，接口统计，伪装链接和组播成员。</li>
+</ul>
+<pre><code>-a : 列出所有网络状态，包括Socket程序
+-c 秒数 : 指定每隔几秒刷新一次网络状态
+-n : 使用IP地址和端口号显示，不适用域名和服务名
+-p : 显示PID和程序名
+-t : 显示使用TCP协议端口的连接状况
+-u : 显示使用UDP协议端口的连接状况
+-l : 仅显示监听状态的连接
+-r : 显示路由表
+</code></pre>
+<p><strong>常用</strong></p>
+<pre><code>netstat -tuln #查看本机开启了哪些端口 有时候+p
+netstat -an #查看所有连接
+netstat -rn #查看网关
+</code></pre>
+<h2 id="0x105-write和wall"><a href="#0x105-write和wall" class="headerlink" title="0x105 write和wall"></a>0x105 write和wall</h2><ul>
+<li>命令名称: write</li>
+<li>原意: send a message to another user</li>
+<li>所在路径: /usr/bin/write</li>
+<li>执行权限: 所有用户</li>
+<li>功能描述: 向其他用户发送信息</li>
+</ul>
+<pre><code># write [用户] [终端号]   #写完&quot;Ctrl+D&quot;保存并发送
+</code></pre>
+<p>wall和write功能一样，但是wall是给所有用户发送命令，所以一般还是write比较多</p>
+<h4 id="终端"><a href="#终端" class="headerlink" title="终端"></a>终端</h4><table>
+<thead>
+<tr>
+<th>终端</th>
+<th>分配序号</th>
+<th>切换方式</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>本地字符终端</td>
+<td>tty1-6</td>
+<td>alt+F1-6</td>
+</tr>
+<tr>
+<td>本地图形终端</td>
+<td>tty7</td>
+<td>ctrl+alt+F7(按住3秒，需要安装启动图形界面)</td>
+</tr>
+<tr>
+<td>远程终端</td>
+<td>pts/0-255</td>
+<td></td>
+</tr>
+</tbody></table>
+<h2 id="0x106-mail"><a href="#0x106-mail" class="headerlink" title="0x106 mail"></a>0x106 mail</h2><p>Mail是Linux的邮件客户端命令，可以利用这个命令给其他用户发送邮件。</p>
+<ul>
+<li>命令名称: mail</li>
+<li>原意: send and receive internet mail</li>
+<li>所在路径: /bin/mail</li>
+<li>执行权限: 所有用户</li>
+<li>功能描述: 发送和接收电子邮件</li>
+</ul>
+<p>输入mail会直接进入mail终端</p>
+<pre><code>h : headers 列出邮件标题列表
+d : delete 删除指定邮件
+s : save 保存邮件，可以把指定邮件保存成文件,如&quot; s 2 /tmp/test.mail&quot;
+q : quit 退出，并把已经操作过的邮件进行保存。
+exit : 退出，但不进行任何保存。
+</code></pre>
+<h3 id="例子1-发送邮件"><a href="#例子1-发送邮件" class="headerlink" title="例子1: 发送邮件"></a>例子1: 发送邮件</h3><pre><code># mail user1
+Subject: hello    #邮件标题
+Nice to meet you! #邮件内容
+.                 #使用&quot;.&quot;来结束邮件输入
+#发送邮件给user1用户
+</code></pre>
+<h3 id="例子2-发送文件内容"><a href="#例子2-发送文件内容" class="headerlink" title="例子2: 发送文件内容"></a>例子2: 发送文件内容</h3><pre><code># mail -s &quot;测试&quot; root &lt; /root/test   #将/root下的test文件发给root用户，标题为测试
+</code></pre>
+<p>这个常用。</p>
+<h1 id="0x11-系统痕迹命令"><a href="#0x11-系统痕迹命令" class="headerlink" title="0x11 系统痕迹命令"></a>0x11 系统痕迹命令</h1><p>这些都是看的</p>
+<p>系统中有一些重要的痕迹日志文件如</p>
+<pre><code>/var/log/wtmp
+/var/run/utmp
+/var/log/btmp
+/var/log/laslog
+。。。。。。
+</code></pre>
+<p>这些日志中保存的是系统重要的痕迹，如用户何时登陆/退出系统，错误的登陆等重要信息。这些信息通过一般编辑器打开时显示的是二进制文件只能通过特殊的命令查看</p>
+<h2 id="0x111-w"><a href="#0x111-w" class="headerlink" title="0x111 w"></a>0x111 w</h2><p>w是显示系统中正在登陆的用户信息，这个痕迹日志是/var/run/utmp</p>
+<ul>
+<li>命令名称: w</li>
+<li>原意: show who is logged on and what they are doing.</li>
+<li>所在路径: /usr/bin/w </li>
+<li>执行权限: 所有用户</li>
+<li>功能描述: 显示登陆用户和他正在做什么</li>
+</ul>
+<p>下面</p>
+<pre><code> 07:45:19 up  3:44,  3 users,  load average: 0.14, 0.06, 0.06
+ #系统时间    #系统启动了多久  #登陆的用户述两  #系统在1,5,15分钟前的平均负载
+USER     TTY      FROM             LOGIN@   IDLE   JCPU   PCPU WHAT
+#登录用户  #登陆端   #来源            #登陆时间  #用户闲置时间 #所有进程站CPU时间 #当前进程占用CPU时间 #用户正在进行的操作
+root     tty1                      04:01    2:31   4.95s  4.95s -zsh
+root     pts/0    192.168.145.1    07:45    6.00s  0.12s  0.00s w
+root     pts/1    192.168.145.1    07:45    6.00s  0.14s  0.02s top
+</code></pre>
+<p><strong>注意</strong></p>
+<p>如果CPU是单核，则这个数值超过1就是高负载，CPU是4核，超过4就是高负载(平均负债完全是依据个人经验判断，一般认为不应超过CPU核数)</p>
+<h2 id="0x112-who"><a href="#0x112-who" class="headerlink" title="0x112 who"></a>0x112 who</h2><p>功能和w类似显示更加简单也是查看 /var/run/utmp日志</p>
+<pre><code>root     tty1         2019-11-12 04:01
+root     pts/0        2019-11-12 07:45 (192.168.145.1)
+root     pts/1        2019-11-12 07:45 (192.168.145.1)
+</code></pre>
+<h2 id="0x113-last"><a href="#0x113-last" class="headerlink" title="0x113 last"></a>0x113 last</h2><p> last命令用于显示用户最近登录信息。查看的是 /var/log/wtmp日志</p>
+<pre><code>root     pts/0        221.6.45.34      Tue Dec 17 09:40   still logged in
+root     pts/0        221.6.45.34      Mon Dec 16 09:00 - 11:57  (02:56)
+root     pts/0        222.94.97.122    Sun Dec 15 20:39 - 23:28  (02:48)
+root     pts/0        222.95.209.80    Sat Dec 14 14:39 - 14:58  (00:18)
+root     pts/0        221.6.45.34      Thu Dec 12 16:55 - 17:37  (00:41)
+root     pts/0        49.65.139.195    Wed Dec 11 20:40 - 21:16  (00:35)
+root     pts/0        49.65.139.195    Wed Dec 11 19:46 - 20:03  (00:17)
+root     pts/0        221.6.45.34      Tue Dec 10 14:41 - 15:52  (01:10)
+root     pts/0        221.6.45.34      Mon Dec  9 17:24 - 17:30  (00:06)
+root     pts/0        221.6.45.34      Mon Dec  9 09:38 - 11:41  (02:02)
+</code></pre>
+<pre><code>第一列信息：用户名，或者显示reboot（启动或者重启操作在这里会记录成reboot）
+第二列信息：终端位置，pts/0 (伪终端或虚拟终端) 意味着从诸如SSH或telnet的远程连接的用户。 tty (teletypewriter) 意味着直接连接到计算机或者本地连接的用户,如果是启动或者重启操作，这里会显示成system boot
+
+第三列信息：登录ip或者内核，如果你看见:0.0 或者什么都没有，这意味着用户通过本地终端连接。也有在状态中显示内核版本的信息，笔者猜测这些记录应该是属于系统的操作，如开机，关机，重启等操作
+
+第四列信息：开始时间,其中的日期格式为date +&quot;%a %b %d&quot;
+
+第五列信息：结束时间（still login in 还未退出 down 直到正常关机 crash 直到强制关机）
+
+第六列信息：持续时间
+</code></pre>
+<h2 id="0x1114-lastlog"><a href="#0x1114-lastlog" class="headerlink" title="0x1114 lastlog"></a>0x1114 lastlog</h2><p>lastlog命令 用于显示系统中所有用户最近一次登录信息。</p>
+<p>lastlog文件在每次有用户登录时被查询。可以使用lastlog命令检查某特定用户上次登录的时间，并格式化输出上次登录日志<code>/var/log/lastlog</code>的内容。它根据UID排序显示登录名、端口号（tty）和上次登录时间。如果一个用户从未登录过，lastlog显示<code>**Never logged**</code>。注意需要以root身份运行该命令。</p>
+<pre><code>-b&lt;天数&gt;：显示指定天数前的登录信息；
+-h：显示召集令的帮助信息；
+-t&lt;天数&gt;：显示指定天数以来的登录信息；
+-u&lt;用户名&gt;：显示指定用户的最近登录信息。
+</code></pre>
+<h2 id="0x1115-lastb"><a href="#0x1115-lastb" class="headerlink" title="0x1115 lastb"></a>0x1115 lastb</h2><p>lstb 命令是查看错误登陆信息,查看的是/var/log/btmp </p>
+<h1 id="0x12-挂载命令"><a href="#0x12-挂载命令" class="headerlink" title="0x12 挂载命令"></a>0x12 挂载命令</h1><p>把设备和Linux上空目录连接起来就是挂载</p>
+<p><strong>连接空目录的原因是新进来的设备是自带block的，如果已经挂载再非空目录，Linux文件夹链接的block是新设备的block这样旧的Block就再系统中当作顽固垃圾，删不掉也用不了的。</strong></p>
+<h2 id="0x121-mount"><a href="#0x121-mount" class="headerlink" title="0x121 mount"></a>0x121 mount</h2><p>命令名称: mount</p>
+<p>所在路径: /bin/mount</p>
+<p>执行权限: 所有用户</p>
+<pre><code># mount #默认是显示已经挂载设备 
+# mount    -a #a=auto 依据配置文件/etc/fatab的内容，自动挂载，不要盲目的信任mount -a。U盘建议别用。
+# mount [-t 文件系统] [-L 卷标名] [-o 特殊选项] 设备文件名 挂载点
+选项解释：
+    -t 文件系统 : 加入文件系统类型来指定挂载的类型，可以ext3,ext4,iso9660,等文件
+    -L 卷标名 : 挂载指定卷标的分区，而不是安装设备文件名挂载
+    -o 特殊选项 : 可以指定挂载额外的选你选哪个，比如读写，同步异步等如果不指定则使用默认值，默认值就比较好。
+</code></pre>
+<p><strong>-o选项表格</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>atime/noatime</td>
+<td>更新访问时间/不更新访问时间，访问分区文件时，是否更新时间，默认为更新</td>
+</tr>
+<tr>
+<td>async/sync</td>
+<td>异步/同步 默认异步</td>
+</tr>
+<tr>
+<td>auto/noauto</td>
+<td>自动/手动 mount -a 命令执行时，是否会自动安装/etc/fatab文件内容挂载，默认为自动</td>
+</tr>
+<tr>
+<td>defaults</td>
+<td>定义值，相当于rw,suid,dev,exec,auto,nouser,async这7个选项，</td>
+</tr>
+<tr>
+<td>exec/noexec</td>
+<td>执行/不执行，设定是否运行再文件系统中可执行文件，默认是exec 允许的</td>
+</tr>
+<tr>
+<td>remount</td>
+<td>重新挂载已经挂载的文件系统，一般用于指定修改特殊权限</td>
+</tr>
+<tr>
+<td>rw/ro</td>
+<td>读写/只读，文件挂在时是否具有读写功能，默认rw</td>
+</tr>
+<tr>
+<td>suid/nosuid</td>
+<td>具有/不具有SUID权限，设定文件系统是否具有SUID和SGID的权限，默认具有</td>
+</tr>
+<tr>
+<td>user/nouser</td>
+<td>允许/不允许普通用户挂载，设定文件系统是否运行普通用户挂载，默认是不允许，只有root可以挂载分区</td>
+</tr>
+<tr>
+<td>userquota</td>
+<td>写入代表文件系统支持用户磁盘配额，默认不支持</td>
+</tr>
+<tr>
+<td>grpquota</td>
+<td>写入代表文件系统支持组磁盘配额，默认不支持</td>
+</tr>
+</tbody></table>
+<pre><code># mount -o remount,noexec /mnt/usb0 #重新挂载，且修改特殊权限
+</code></pre>
+<h3 id="0x1211-挂载光盘"><a href="#0x1211-挂载光盘" class="headerlink" title="0x1211 挂载光盘"></a>0x1211 挂载光盘</h3><p>老版本都是挂载把所有外部挂件都挂载在 /mnt/cdrom</p>
+<p><strong>光盘挂载的前提依然是指定光盘的设备文件名，不同版本的Linux，设备文件名不同</strong></p>
+<ul>
+<li>Centos 5.x 以前的系统，光盘设备文件名是/dev/hdc</li>
+<li>Centos 6.x 以前的系统，光盘设备文件名是/dev/sr0</li>
+</ul>
+<p>不论哪个系统都有软连接/dev/cdrom，与可以作为光盘的设备文件名</p>
+<pre><code># mount -t ios9660 /dev/sr0 /mnt/cdrom
+</code></pre>
+<p>挂载的时候如果不指定 -t  ios9660的话 如果没有光盘，可能会报，必须指定文件系统的错误。</p>
+<h3 id="0x1213-挂载U盘"><a href="#0x1213-挂载U盘" class="headerlink" title="0x1213 挂载U盘"></a>0x1213 挂载U盘</h3><p>U盘是硬盘的一种，所以U盘的设备文件名不是固定的。需要手工查询</p>
+<pre><code># fdisk -l #查看已识别设备
+</code></pre>
+<p><code>fdisk</code>和<code>mount</code>区别是</p>
+<p>fdisk只要Linux识别就可以查看</p>
+<p>mount必须要挂载才能查看</p>
+<pre><code>mount -t vfat /dev/sdb4 /mnt/usb
+</code></pre>
+<p>如果U盘中有中文，会发现中文是乱码.Linux想要正常显示中文，需要两个条件</p>
+<ul>
+<li>安装了中文编码和中文字体</li>
+<li>操作终端需要支持中文显示(Linx本机属于纯字符终端，是不支持中文编码的)</li>
+</ul>
+<pre><code class="shell"># mount -t vfat -o iocharset=utf8 /dev/sdb1 /mnt/usb
+</code></pre>
+<h3 id="0x1214-卸载挂载点"><a href="#0x1214-卸载挂载点" class="headerlink" title="0x1214 卸载挂载点"></a>0x1214 卸载挂载点</h3><pre><code>umount /mnt/cdrom
+#因为设备文件名和挂载点连接到了一起所以卸载哪一个都可以
+</code></pre>
+<p><strong>注意:一定要卸载挂载点不然有时候会造成设备文件名读不出来下一个插入的设备</strong></p>
+<h2 id="0x122-Linux驱动加载顺序"><a href="#0x122-Linux驱动加载顺序" class="headerlink" title="0x122 Linux驱动加载顺序"></a>0x122 Linux驱动加载顺序</h2><ol>
+<li>驱动直接放入系统内核之中，这种驱动主要是系统启动加载必须的驱动</li>
+<li>驱动以模块的形式放入硬盘，大多数驱动都已经这种方式保存了，保存位置再<code>/lib/modules/3.10.0-862.e17.x86_64/kernel/</code>中</li>
+<li>驱动可以被Liunx识别，但是系统认为这种驱动一般不常用，默认不加载，如果需要加载这种驱动，需要重新编译内核。NTFS文件系统的驱动属于这种情况</li>
+<li>硬件不能被Linux内核识别，需要手工安装驱动，前提是厂商提供了针对Linux的驱动，否者自己写驱动把。</li>
+</ol>
+
+</div>
+
+
+    <div class="post-guide">
+        <div class="item left">
+            
+              <a href="/2019/11/08/Linux/02Linux%E5%AD%A6%E5%89%8D%E9%A1%BB%E7%9F%A5/">
+                  <i class="fa fa-angle-left" aria-hidden="true"></i>
+                  02Linux学前须知
+              </a>
+            
+        </div>
+        <div class="item right">
+            
+              <a href="/2019/10/15/Linux/18Linux%E4%B9%8B%E6%9C%8D%E5%8A%A1%E5%9F%BA%E7%A1%80SSH/">
+                18Linux之服务基础SSH
+                <i class="fa fa-angle-right" aria-hidden="true"></i>
+              </a>
+            
+        </div>
+    </div>
+
+
+
+
+<script>
+	
+	
+</script>
+	</div>
+	<div id="footer">
+	<p>
+	©2020-<span id="footerYear"></span> 
+	<a href="/">BamB00</a> 
+	
+	
+		|
+		<span id="busuanzi_container_site_pv">
+			pv
+			<span id="busuanzi_value_site_pv"></span>
+		</span>
+		|
+		<span id="busuanzi_container_site_uv"> 
+			uv
+			<span id="busuanzi_value_site_uv"></span>
+		</span>
+	
+	<br>
+	Theme <a href="//github.com/wujun234/hexo-theme-tree" target="_blank">Tree</a>
+	by <a href="//github.com/wujun234" target="_blank">WuJun</a>
+	Powered by <a href="//hexo.io" target="_blank">Hexo</a>
+	</p>
+</div>
+<script type="text/javascript"> 
+	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
+</script>
+	<button id="totop-toggle" class="toggle"><i class="fa fa-angle-double-up" aria-hidden="true"></i></button>
+</body>
+</html>

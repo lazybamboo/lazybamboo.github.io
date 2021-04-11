@@ -1,0 +1,1323 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8">
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+	
+	<!-- title -->
+	
+	<title>
+	
+		10Linux之shell基础 | 
+	 
+	竹竿小站
+	</title>
+	
+	<!-- keywords,description -->
+	 
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.jpg">
+	
+
+
+	<!-- search -->
+	<script>
+		var searchEngine = "https://www.baidu.com/s?wd=";
+		if(typeof searchEngine == "undefined" || searchEngine == null || searchEngine == ""){
+			searchEngine = "https://www.google.com/search?q=";
+		}
+		var homeHost = "bamboo.github.io";
+		if(typeof homeHost == "undefined" || homeHost == null || homeHost == ""){
+			homeHost = window.location.host;
+		}
+	</script>
+
+
+	
+<link rel="stylesheet" href="/css/main.css">
+
+	
+<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.min.css">
+
+	
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.17.1/build/styles/darcula.min.css">
+
+	
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+
+
+	
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+
+	
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
+	
+<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.17.1/build/highlight.min.js"></script>
+
+	
+<script src="https://cdn.jsdelivr.net/npm/jquery-pjax@2.0.1/jquery.pjax.min.js"></script>
+
+	
+<script src="/js/main.js"></script>
+
+	
+		
+<script src="https://cdn.jsdelivr.net/npm/leancloud-storage/dist/av-min.js"></script>
+
+		
+<script src="https://cdn.jsdelivr.net/npm/valine@1.3.10/dist/Valine.min.js"></script>
+
+	
+	
+		<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+	
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+	<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?3efe99c287df5a1d6f0d02d187e403c1";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+<header id="header">
+    <a id="title" href="/" class="logo">竹竿小站</a>
+
+	<ul id="menu">
+		<li class="menu-item">
+			<a href="/about" class="menu-item-link">ABOUT</a>
+		</li>
+	
+		<li class="menu-item">
+			<a href="/tags" class="menu-item-link">标签</a>
+		</li>
+	
+
+	
+		<li class="menu-item">
+			<a href="/categories" class="menu-item-link">分类</a>
+		</li>
+	
+
+		<li class="menu-item">
+			<a href="https://github.com/wujun234/uid-generator-spring-boot-starter" class="menu-item-link" target="_blank">
+				UidGenerator
+			</a>
+		</li>
+		<li class="menu-item">
+			<a href="https://github.com/wujun234" class="menu-item-link" target="_blank">
+				<i class="fa fa-github fa-2x"></i>
+			</a>
+		</li>
+	</ul>
+</header>
+
+	
+<div id="sidebar">
+	<button id="sidebar-toggle" class="toggle" ><i class="fa fa-arrow-right " aria-hidden="true"></i></button>
+	
+	<div id="site-toc">
+		<input id="search-input" class="search-input" type="search" placeholder="按回车全站搜索">
+		<div id="tree">
+			
+
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Linux
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/2017/08/08/Linux/01linux-%E5%AE%89%E8%A3%85/">
+										01linux-安装
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/11/08/Linux/02Linux%E5%AD%A6%E5%89%8D%E9%A1%BB%E7%9F%A5/">
+										02Linux学前须知
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/11/08/Linux/03Linuxz%E4%B9%8B%E5%B8%B8%E7%94%A8%E7%9A%84%E5%91%BD%E4%BB%A4/">
+										03Linuxz之常用的命令
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2021/04/12/Linux/04Linux%E4%B9%8BVim/">
+										04Linux之Vim
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/11/14/Linux/05Linux%E4%B9%8B%E8%BD%AF%E4%BB%B6%E5%8C%85/">
+										05Linux之软件包
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/11/18/Linux/06Linux%E4%B9%8B%E7%94%A8%E6%88%B7%E7%AE%A1%E7%90%86/">
+										06Linux之用户管理
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/11/19/Linux/07Linux%E4%B9%8B%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/">
+										07Linux之权限管理
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/11/20/Linux/08Linux%E4%B9%8B%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F%E7%AE%A1%E7%90%86/">
+										08Linux之文件系统管理
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/11/23/Linux/09Linux%E4%B9%8B%E9%AB%98%E7%BA%A7%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F/">
+										09Linux之高级文件管理系统
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file active">
+									<a href="/2019/11/24/Linux/10Linux%E4%B9%8Bshell/">
+										10Linux之shell
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/11/26/Linux/11Linux%E4%B9%8Bshell%E9%AB%98%E7%BA%A7/">
+										11Linux之shell高级
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/12/02/Linux/12Linux%E4%B9%8B%E5%90%AF%E5%8A%A8%E5%BC%95%E5%AF%BC%E4%B8%8E%E4%BF%AE%E5%A4%8D/">
+										12Linux之启动引导与修复
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/12/06/Linux/13Linux%E4%B9%8B%E6%9C%8D%E5%8A%A1%E7%AE%A1%E7%90%86/">
+										13Linux之服务管理
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/12/10/Linux/14Linux%E4%B9%8B%E7%B3%BB%E7%BB%9F%E7%AE%A1%E7%90%86/">
+										14Linux之系统管理
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/12/06/Linux/15Linux%E4%B9%8B%E7%B3%BB%E7%BB%9F%E6%97%A5%E5%BF%97/">
+										15Linux之系统日志
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/12/17/Linux/16Centos6%E5%92%8CCentos7%E5%9F%BA%E6%9C%AC%E5%AF%B9%E6%AF%94/">
+										16Centos6和Centos7基本对比
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/12/17/Linux/17Linux%E4%B9%8B%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/">
+										17Linux之网络基础
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/10/15/Linux/18Linux%E4%B9%8B%E6%9C%8D%E5%8A%A1%E5%9F%BA%E7%A1%80SSH/">
+										18Linux之服务基础SSH
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/12/18/Linux/19Linux%E4%B9%8B%E6%9C%8D%E5%8A%A1%E5%9F%BA%E7%A1%80TCP%20Wrappers/">
+										19Linux之服务基础TCP Wrappers
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/12/18/Linux/20%E7%BD%91%E7%BB%9C%E6%9C%8D%E5%8A%A1%E4%B9%8BDHCP/">
+										20网络服务之DHCP
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/12/20/Linux/21%E7%BD%91%E7%BB%9C%E6%9C%8D%E5%8A%A1%E4%B9%8BDNS/">
+										21网络服务之DNS
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/12/26/Linux/22%E7%BD%91%E7%BB%9C%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B9%8BVSFTP/">
+										22网络服务器之VSFTP
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/10/11/Linux/Bash%E5%BF%AB%E6%8D%B7%E9%94%AE/">
+										Bash快捷键
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/10/10/Linux/LInux-CDN%E7%AE%80%E4%BB%8B/">
+										LInux-CDN简介
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/10/08/Linux/Llinux-DNS-%E8%AF%A6%E8%A7%A3/">
+										Llinux-DNS-详解
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/10/13/Linux/linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">
+										linux常用命令
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2021/04/12/Linux/%E5%8D%8A%E8%99%9A%E6%8B%9F%E5%8C%96%E5%92%8C%E7%A1%AC%E4%BB%B6%E8%99%9A%E6%8B%9F%E5%8C%96%E7%9A%84%E4%B8%BB%E8%A6%81%E5%8C%BA%E5%88%AB/">
+										半虚拟化和硬件虚拟化的主要区别
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										web渗透
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/2020/09/17/web%E6%B8%97%E9%80%8F/01SQL%E6%B3%A8%E5%85%A5/">
+										01SQL注入
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										搭建
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/2018/11/18/%E6%90%AD%E5%BB%BA/NextCloud/">
+										NextCloud
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2018/11/18/%E6%90%AD%E5%BB%BA/Nmap-Sublist3r-Hydra%E5%AE%89%E8%A3%85%EF%BC%88Ubuntu%E7%8E%AF%E5%A2%83%EF%BC%89/">
+										Nmap-Sublist3r-Hydra安装（Ubuntu环境）
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/04/11/%E6%90%AD%E5%BB%BA/hadoop%E5%8D%95%E6%9C%BA%E9%9B%86%E7%BE%A4%E6%90%AD%E5%BB%BA/">
+										hadoop单机集群搭建
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										汇编
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/2018/12/20/%E6%B1%87%E7%BC%96/%E6%B1%87%E7%BC%961/">
+										汇编1
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2018/12/26/%E6%B1%87%E7%BC%96/%E6%B1%87%E7%BC%962/">
+										汇编2
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/01/01/%E6%B1%87%E7%BC%96/%E6%B1%87%E7%BC%963/">
+										汇编3
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/01/05/%E6%B1%87%E7%BC%96/%E6%B1%87%E7%BC%964/">
+										汇编4
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/01/06/%E6%B1%87%E7%BC%96/%E6%B1%87%E7%BC%965/">
+										汇编5
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/01/07/%E6%B1%87%E7%BC%96/%E6%B1%87%E7%BC%966/">
+										汇编6
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2021/04/12/%E6%B1%87%E7%BC%96/%E9%80%9A%E7%94%A8%E5%AF%84%E5%AD%98%E5%99%A8/">
+										通用寄存器
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+		</div>
+	</div>
+</div>
+
+	<!-- 引入正文 -->
+	<div id="content">
+		<h1 id="article-title">
+
+	10Linux之shell
+</h1>
+<div class="article-meta">
+	
+	<span>BamB00</span>
+	<span>2019-11-24 00:00:00</span>
+		<div id="article-categories">
+    
+		<span>Categories：</span>
+            
+    
+
+    
+		<span>Tags：</span>
+            
+                
+                    <span>
+                        <i class="fa fa-tag" aria-hidden="true">
+                        <a href="/tags/Linux/">Linux</a>
+                        </i>
+                    </span>
+                
+            
+                
+                    <span>
+                        <i class="fa fa-tag" aria-hidden="true">
+                        <a href="/tags/shell/">shell</a>
+                        </i>
+                    </span>
+                
+            
+    
+		</div>
+
+</div>
+
+<div id="article-content">
+	<h1 id="0x01-What’s-Shell"><a href="#0x01-What’s-Shell" class="headerlink" title="0x01 What’s Shell"></a>0x01 What’s Shell</h1><p>Shell 是一个应用程序，它连接了用户和 Linux 内核，让用户能够更加高效、安全、低成本地使用 Linux 内核，这就是 Shell 的本质。</p>
+<p>Shell 本身并不是内核的一部分，它只是站在内核的基础上编写的一个应用程序，它和 QQ、迅雷、Firefox 等其它软件没有什么区别。然而  Shell 也有着它的特殊性，就是开机立马启动，并呈现在用户面前；用户通过 Shell 来使用 Linux，不启动 Shell  的话，用户就没办法使用 Linux。  </p>
+<p><strong>Shell 有哪些系统中:</strong></p>
+<pre><code class="shell">#vi /etc/shells #shells里写了可以用的shell
+</code></pre>
+<p>默认是bash</p>
+<h1 id="0x02-Shell-脚本的执行方式"><a href="#0x02-Shell-脚本的执行方式" class="headerlink" title="0x02 Shell 脚本的执行方式"></a>0x02 Shell 脚本的执行方式</h1><h2 id="0x021-echo命令"><a href="#0x021-echo命令" class="headerlink" title="0x021 echo命令"></a>0x021 echo命令</h2><pre><code class="shell">#echo [选项] [输出内容]
+选项:
+    -e : 支持反斜线控制的字符转换(具体参见下表)
+    -n : 取消输出后末行换行符(就是内容输出后不换行)
+</code></pre>
+<p> 默认情况下，echo 不会解析以反斜杠<code>\</code>开头的转义字符。比如，<code>\n</code>表示换行，echo 默认会将它作为普通字符对待。</p>
+<table>
+<thead>
+<tr>
+<th>转义字符</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>\a</td>
+<td>发出警告声；</td>
+</tr>
+<tr>
+<td>\b</td>
+<td>删除前一个字符；</td>
+</tr>
+<tr>
+<td>\c</td>
+<td>最后不加上换行符号；</td>
+</tr>
+<tr>
+<td>\f</td>
+<td>换行但光标仍旧停留在原来的位置；</td>
+</tr>
+<tr>
+<td>\n</td>
+<td>换行且光标移至行首；</td>
+</tr>
+<tr>
+<td>\r</td>
+<td>光标移至行首，但不换行；</td>
+</tr>
+<tr>
+<td>\t</td>
+<td>插入tab；</td>
+</tr>
+<tr>
+<td>\v</td>
+<td>与\f相同；</td>
+</tr>
+<tr>
+<td>\</td>
+<td>插入\字符；</td>
+</tr>
+<tr>
+<td>\nnn</td>
+<td>插入nnn（八进制）所代表的ASCII字符；</td>
+</tr>
+</tbody></table>
+<h2 id="0x022-history"><a href="#0x022-history" class="headerlink" title="0x022 history"></a>0x022 history</h2><p>历史命令，他其实是查看了~/.bash_history文件</p>
+<pre><code class="shell">#history [选项]
+选项:
+    -w : 强制把当前的历史写入到配置文件里，如果没有手工指点，则放进默认的~/.bash_history里
+    -e : 清空历史命令。当前和配置文件里面都会清楚掉。
+</code></pre>
+<h1 id="0x03-Bash常用快捷键"><a href="#0x03-Bash常用快捷键" class="headerlink" title="0x03 Bash常用快捷键"></a>0x03 Bash常用快捷键</h1><table>
+<thead>
+<tr>
+<th>快捷键</th>
+<th>快捷键说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>CTRL-A</td>
+<td>将光标移到行首（在命令行下）</td>
+</tr>
+<tr>
+<td>CTRL-C</td>
+<td>中断，终结一个前台作业。</td>
+</tr>
+<tr>
+<td>CTRL-E</td>
+<td>将光标移动到行尾（在命令行下）</td>
+</tr>
+<tr>
+<td>CTRL-K</td>
+<td>CTRL-K会删除从光标所在处到行尾的所有字符。</td>
+</tr>
+<tr>
+<td>CTRL-L</td>
+<td>跳纸，换页(Formfeed)，清屏。 清空终端屏幕。在终端上，这个命令的作用和clear命令一样。但当这个命令发送到打印机时，Ctrl-L会直接跳到纸张(Paper sheet)的末尾。</td>
+</tr>
+<tr>
+<td>CTRL-R</td>
+<td>回溯搜索(Backwards search)history缓冲区内的文本（在命令行下）。注意：按下之后，提示符会变成(reverse-i-search)”:输入的搜索内容出现在单引号内，同时冒号后面出现最近最匹配的历史命令。</td>
+</tr>
+<tr>
+<td>CTRL-Y</td>
+<td>将之前已经清除的文本粘贴回来（主要针对CTRL-U或CTRL-K）。</td>
+</tr>
+<tr>
+<td>CTRL-U</td>
+<td>擦除从光标位置开始到行首的所有字符内容。在某些设置下，CTRL-U会不以光标位置为参考而删除整行的输入。</td>
+</tr>
+</tbody></table>
+<h1 id="0x04-输入输出重定向"><a href="#0x04-输入输出重定向" class="headerlink" title="0x04 输入输出重定向"></a>0x04 输入输出重定向</h1><h2 id="0x041-输出重定向"><a href="#0x041-输出重定向" class="headerlink" title="0x041 输出重定向"></a>0x041 输出重定向</h2><table>
+<thead>
+<tr>
+<th>文件描述符</th>
+<th>文件名</th>
+<th>类型</th>
+<th>硬件</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>0</td>
+<td>stdin</td>
+<td>标准输入文件</td>
+<td>键盘</td>
+</tr>
+<tr>
+<td>1</td>
+<td>stdout</td>
+<td>标准输出文件</td>
+<td>显示器</td>
+</tr>
+<tr>
+<td>2</td>
+<td>stderr</td>
+<td>标准错误输出文件</td>
+<td>显示器</td>
+</tr>
+</tbody></table>
+<p> Linux 程序在执行任何形式的 I/O 操作时，都是在读取或者写入一个文件描述符。一个文件描述符只是一个和打开的文件相关联的整数，它的背后可能是一个硬盘上的普通文件、FIFO、管道、终端、键盘、显示器，甚至是一个网络连接。</p>
+<p> stdin、stdout、stderr 默认都是打开的，在重定向的过程中，0、1、2 这三个文件描述符可以直接使用。  </p>
+<p><img src="C:\Users\Qusi\Desktop\234.png">                                                                                                                                                                                                                                                                                                                                                                        </p>
+<p> 在输出重定向中，<code>&gt;</code>代表的是覆盖，<code>&gt;&gt;</code>代表的是追加。  </p>
+<p><strong>注意</strong></p>
+<p>输出重定向的完整写法其实是<code>fd&gt;file</code>或者<code>fd&gt;&gt;file</code>，其中 fd 表示文件描述符，如果不写，默认为 1，也就是标准输出文件。</p>
+<p> 当文件描述符为 1 时，一般都省略不写，如上表所示；当然，如果你愿意，也可以将<code>command &gt;file</code>写作<code>command 1&gt;file</code>，但这样做是多此一举。</p>
+<p>当文件描述符为大于 1 的值时，比如 2，就必须写上。</p>
+<p>需要重点说明的是，<code>fd</code>和<code>&gt;</code>之间不能有空格，否则 Shell 会解析失败；<code>&gt;</code>和<code>file</code>之间的空格可有可无。为了保持一致，我习惯在<code>&gt;</code>两边都不加空格。 </p>
+<h2 id="0x042-输入重定向"><a href="#0x042-输入重定向" class="headerlink" title="0x042 输入重定向"></a>0x042 输入重定向</h2><table>
+<thead>
+<tr>
+<th>符号</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>command &lt;file</td>
+<td>将 file 文件中的内容作为 command 的输入。</td>
+</tr>
+<tr>
+<td>command &lt;&lt;END</td>
+<td>从标准输入（键盘）中读取数据，直到遇见分界符 END 才停止（分界符可以是任意的字符串，用户自己定义）。</td>
+</tr>
+<tr>
+<td>command &lt;file1 &gt;file2</td>
+<td>将 file1 作为 command 的输入，并将 command 的处理结果输出到 file2。</td>
+</tr>
+</tbody></table>
+<p> 和输出重定向类似，输入重定向的完整写法是`fd，其中 fd 表示文件描述符，如果不写，默认为 0，也就是标准输入文件。 </p>
+<h1 id="0x05-多命令顺序执行"><a href="#0x05-多命令顺序执行" class="headerlink" title="0x05 多命令顺序执行"></a>0x05 多命令顺序执行</h1><table>
+<thead>
+<tr>
+<th>多命令执行符</th>
+<th>格式</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>；</td>
+<td>命令1；命令2</td>
+<td>多命令顺序执行，命令之间没有任何逻辑联系</td>
+</tr>
+<tr>
+<td>&amp;&amp;</td>
+<td>命令1&amp;&amp;命令2</td>
+<td>当命令1正确执行($?=0),则命令2才会执行。当命令1执行不正确($?≠0)，则命令2不执行</td>
+</tr>
+<tr>
+<td>||</td>
+<td>命令1||命令2</td>
+<td>当命令1正确($?≠0),则命令2才会执行。当命令1正确命令2不执行</td>
+</tr>
+</tbody></table>
+<h1 id="0x06-bash中其他的符号"><a href="#0x06-bash中其他的符号" class="headerlink" title="0x06 bash中其他的符号"></a>0x06 bash中其他的符号</h1><table>
+<thead>
+<tr>
+<th>符号</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>‘’</td>
+<td>单引号。在单引号中所哟普的特殊符号都没有含义</td>
+</tr>
+<tr>
+<td>“”</td>
+<td>双引号。在双引号中他也输符号都没有特殊含义，但是”$”,”\“，“^”是例外，拥有”调用变量“，”转义“，”引用命令“的特殊含义</td>
+</tr>
+<tr>
+<td>``</td>
+<td>反引号。反引号括起来的内容是系统命令，在Bash中会先执行它。和$()作用一样，不过推荐$因为反引号很容易看错。</td>
+</tr>
+<tr>
+<td>$()</td>
+<td>和反引号作用一样，用来引用系统命令</td>
+</tr>
+<tr>
+<td>()</td>
+<td>用于一串命令执行时，()中的命令会在子shell中执行。</td>
+</tr>
+<tr>
+<td>{}</td>
+<td>用于一串命令执行时，{}中的命令会在当前Shell中执行。也可以用于变量变形与替换。少用</td>
+</tr>
+<tr>
+<td>[]</td>
+<td>用于变量的测试</td>
+</tr>
+<tr>
+<td>#</td>
+<td>在Shell脚本中。#开头的行代表注释。</td>
+</tr>
+<tr>
+<td>$</td>
+<td>用德语调用变量的值，如果需要调用变量name就用$name方式。</td>
+</tr>
+<tr>
+<td>\</td>
+<td>转义符。</td>
+</tr>
+<tr>
+<td>$(())</td>
+<td>双小括号表示运算</td>
+</tr>
+</tbody></table>
+<ul>
+<li>()执行一串命令时，需要重新开一个子shell进行执行</li>
+<li>{}执行一串命令时，是在当前shell执行</li>
+<li>()和{}都是把一串的命令放在括号里面执行，并且命令之间用；号隔开。</li>
+<li>()最后一个命令可以不用分号</li>
+<li>{}最后一个命令要用分号。</li>
+<li>{}的第一个命令和左括号之间必须要有一个空格。</li>
+<li>()里的各种命令不必和括号有空格</li>
+<li>()和{}里面的某个命令的重定向只影响该命令，但括号外的重定向影响到括号里面。</li>
+</ul>
+<h1 id="0x07-Bash的变量和运算符"><a href="#0x07-Bash的变量和运算符" class="headerlink" title="0x07 Bash的变量和运算符"></a>0x07 Bash的变量和运算符</h1><ul>
+<li><p>什么是变量</p>
+<ul>
+<li><p>变量名由子母炮，数字，和下划线组成，但是不能以数字开头</p>
+</li>
+<li><p>在Bash中，变量的默认类型都是字符串类型，如果要进行数值运算，则必修指定变量类型为数值型。</p>
+</li>
+<li><p>变量用等号赋值</p>
+</li>
+<li><p>变量的值如果由空格，需要使用单引号或双引号包括。如<code>test=&quot;hello world!&quot;</code>，其中双引号括起来的内容，”$”,”\“和反引号都有特殊含义，而单引号括起来的内容都是普通字符。</p>
+</li>
+<li><p>在变量的值中，可以使用”\“转义</p>
+</li>
+<li><p>如果需要增加变量的值，那么可以进行变量值的叠加。不过变量需要用双引号包含”$变量名”或用${变量名}包含变量名。如下</p>
+<pre><code class="shell">#test=123
+#tset=&quot;$test&quot;456
+#echo $test
+123456
+</code></pre>
+</li>
+<li><p>如果是把命令的结果作为变量的值赋予变量，则需要反引号或者$()包含命令。例如</p>
+<pre><code class="shell">#test=$(date)
+#echo $test
+</code></pre>
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="0x08-变量分类"><a href="#0x08-变量分类" class="headerlink" title="0x08 变量分类"></a>0x08 变量分类</h1><ul>
+<li>用户定义变量：这种变量是最常见的变量，由用户定义变量名和变量值</li>
+<li>环境变量:这种变量主要保存的是系统操作环境相关的数据。</li>
+<li>位置参数变量:这种变量主要是用来向脚本当中传递参数或数据的，变量名不能定义，变量作用是固定的。</li>
+<li>预定义变量：是Bash中已经定义好的变量，变量名不能自定义，变量也起固定的作用。</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>名称</th>
+<th>作用</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>用户自定义变量</td>
+<td>自定义</td>
+<td>自定义</td>
+<td>自定义</td>
+</tr>
+<tr>
+<td>用户自定义环境变量</td>
+<td>自定义</td>
+<td>自定义</td>
+<td>自定义</td>
+</tr>
+<tr>
+<td>系统自定环境变量</td>
+<td>确定</td>
+<td>确定</td>
+<td>自定义</td>
+</tr>
+<tr>
+<td>位置参数变量</td>
+<td>确定</td>
+<td>确定</td>
+<td>自定义</td>
+</tr>
+<tr>
+<td>预定义变量</td>
+<td>确定</td>
+<td>确定</td>
+<td>自定义</td>
+</tr>
+</tbody></table>
+<h3 id="查看变量"><a href="#查看变量" class="headerlink" title="查看变量"></a>查看变量</h3><pre><code class="shell">#set [选项]
+选项:
+    -u : 如果设定此选项，调用未声明变量时会报错(默人无任何提示)
+    -x : 如果设定这个选项，在命令执行前，会把命令先输出一次
+</code></pre>
+<p>同样是临时的要写进环境变量。</p>
+<h3 id="删除变量"><a href="#删除变量" class="headerlink" title="删除变量"></a>删除变量</h3><pre><code class="shell">#unset &quot;变量名&quot;
+</code></pre>
+<h2 id="0x081-环境变量"><a href="#0x081-环境变量" class="headerlink" title="0x081 环境变量"></a>0x081 环境变量</h2><p>用户环境变量：</p>
+<ul>
+<li><p>环境变量设置</p>
+<pre><code class="shell">#export age=&quot;18&quot;  #使用export声明的变量即是环境变量。
+</code></pre>
+</li>
+<li><p>环境变量查询和删除</p>
+<pre><code class="shell">#unset gender
+#env | grep gender
+</code></pre>
+</li>
+</ul>
+<p>用户自带的环境变量：</p>
+<ul>
+<li><p>PATH: 系统查找命令的路径</p>
+<pre><code class="shell">#echo $PATH #查看环境变量
+#PATH=&quot;PATH&quot;:/root/ #添加环境变量
+</code></pre>
+</li>
+</ul>
+<h2 id="0x82-PS1环境变量"><a href="#0x82-PS1环境变量" class="headerlink" title="0x82 PS1环境变量"></a>0x82 PS1环境变量</h2><p>Linux PS1 是修改提示的</p>
+<p><img src="C:\Users\Qusi\Desktop\456.png"></p>
+<pre><code>\d ：代表日期，格式为weekday month date，例如：&quot;Mon Aug 1&quot; 
+\H ：完整的主机名称。例如：我的机器名称为：fc4.linux，则这个名称就是fc4.linux 
+\h ：仅取主机的第一个名字，如上例，则为fc4，.linux则被省略 
+\t ：显示时间为24小时格式，如：HH：MM：SS 
+\T ：显示时间为12小时格式 
+\A ：显示时间为24小时格式：HH：MM 
+\u ：当前用户的账号名称 
+\v ：BASH的版本信息 
+\w ：完整的工作目录名称。家目录会以 ~代替 
+\W ：利用basename取得工作目录名称，所以只会列出最后一个目录 
+\# ：下达的第几个命令 
+\$ ：提示字符，如果是root时，提示符为：# ，普通用户则为：$
+</code></pre>
+<p> —注意$后面有一个空格！如果没有空格的话，将会报错！ </p>
+<p>修改的时候直接</p>
+<pre><code class="shell"># PS1=&#39;[\u@\h \w]\$ &#39; #临时生效
+# vi /etc/bashrc #永久生效
+</code></pre>
+<h2 id="0x83-语系变量"><a href="#0x83-语系变量" class="headerlink" title="0x83 语系变量"></a>0x83 语系变量</h2><p>LANG定义了Linux系统的主语系环境，这个变量的默认值是:</p>
+<pre><code class="shell">[root@localhost ~]# echo $LANG
+en_US.UTF-8
+</code></pre>
+<p>查看已经安装的语系</p>
+<pre><code class="shell">#locale
+LANG=en_US.UTF-8
+LC_CTYPE=&quot;en_US.UTF-8&quot;
+LC_NUMERIC=&quot;en_US.UTF-8&quot;
+LC_TIME=&quot;en_US.UTF-8&quot;
+LC_COLLATE=&quot;en_US.UTF-8&quot;
+LC_MONETARY=&quot;en_US.UTF-8&quot;
+LC_MESSAGES=&quot;en_US.UTF-8&quot;
+LC_PAPER=&quot;en_US.UTF-8&quot;
+LC_NAME=&quot;en_US.UTF-8&quot;
+LC_ADDRESS=&quot;en_US.UTF-8&quot;
+LC_TELEPHONE=&quot;en_US.UTF-8&quot;
+LC_MEASUREMENT=&quot;en_US.UTF-8&quot;
+LC_IDENTIFICATION=&quot;en_US.UTF-8&quot;
+LC_ALL=
+</code></pre>
+<p><code>/etc/sysconfig/il8n</code>定义系统的默认语系。</p>
+<h2 id="0x84-位置参数变量"><a href="#0x84-位置参数变量" class="headerlink" title="0x84 位置参数变量"></a>0x84 位置参数变量</h2><table>
+<thead>
+<tr>
+<th>位置参数变量</th>
+<th>作 用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>$n</td>
+<td>n 为数字，$0 代表命令本身，$1〜$9 代表第 1〜9 个参数，10 以上的参数需要用大括号包含， 如${10}</td>
+</tr>
+<tr>
+<td>$*</td>
+<td>这个变量代表命令行中所有的参数，把所有的参数看成一个整体</td>
+</tr>
+<tr>
+<td>$@</td>
+<td>这个变量也代表命令行中所有的参数，不过 $@ 把每个参数区别对待</td>
+</tr>
+<tr>
+<td>$#</td>
+<td>这个变量代表命令行中所有参数的个数,普通话统计参数的个数</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>在Shell 中$1,2,3,4表示用户输入的第一，二，三，四个参数。0表示命令本身 他是传参的一种，不适合给普通用户使用</p>
+</blockquote>
+<blockquote>
+<p>$*和$@区别就是，$*吧所有的参数一次性赋值给$*.$@把参数一次一次的赋值给$@.</p>
+</blockquote>
+<h2 id="0x85-预定义变量"><a href="#0x85-预定义变量" class="headerlink" title="0x85 预定义变量"></a>0x85 预定义变量</h2><table>
+<thead>
+<tr>
+<th align="center">预定义变量</th>
+<th align="center">作 用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">$?</td>
+<td align="center"><strong>最后一次执行的命令的返回状态</strong>。如果这个<strong>变量的值为 0，则证明上一条命令正确执行；如果这 个变量的值为非 0 (具体是哪个数由命令自己来决定)，则证明上一条命令执行错误</strong></td>
+</tr>
+<tr>
+<td align="center">$$</td>
+<td align="center">当前进程的进程号（PID)</td>
+</tr>
+<tr>
+<td align="center">$!</td>
+<td align="center">后台运行的最后一个进程的进程号（PID)</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>$?可以判断命令是否正确执行</p>
+</blockquote>
+<h2 id="0x86-声明变量类型"><a href="#0x86-声明变量类型" class="headerlink" title="0x86 声明变量类型"></a>0x86 声明变量类型</h2><p>既然所有变量的默认类型都是字符串型，那么我们只要把特定的变量声明成整数型就可以了。</p>
+<pre><code class="shell">#declare [+/-][选项] 变量名
+选项:
+    - : 给变量设定类型属性
+    + : 取消变量的类型属性
+    -a : 声明位数组型
+    -i : 声明位整数型
+    -r : 声明变量为只读。注意一旦只读，即声明就不能再更改变量的值也不能删除，也没有追加。
+    -x : 将变量声明为环境变量
+    -p : 显示指定变量的被声明类型
+</code></pre>
+<h1 id="0x09-接收键盘输入"><a href="#0x09-接收键盘输入" class="headerlink" title="0x09 接收键盘输入"></a>0x09 接收键盘输入</h1><pre><code class="shell">#read [选项] [变量名]
+选项:
+    -p &quot;提示信息&quot; ： 等待read输入时，输出提示信息
+    -t 秒数 : read命令会一直等待用户输入，使用此选项可以指定等待时间
+    -n 字符数 : 规定字符数
+    -s : 隐藏输入数据，适用于机密信息输入
+变量名:
+    变量名可以自定义，如果不指定变量名，会把输入报错入默认变量REPLY
+</code></pre>
+<pre><code class="shell">#!/bin/bash
+
+read -t 30 -p &quot;plase input number1&quot; number1
+</code></pre>
+<h1 id="0x10-变量类型"><a href="#0x10-变量类型" class="headerlink" title="0x10 变量类型"></a>0x10 变量类型</h1><p>数值型:</p>
+<pre><code class="shell">declare -i i
+</code></pre>
+<p>数组:</p>
+<pre><code class="shell"># name[0]=&quot;this is shuzu&quot;
+# name[1]=&quot;shuzu is this&quot;
+# echo $&#123;name&#125;
+this is shuzu
+# echo$&#123;name[*]&#125;
+this is shuzu shuzu is this
+</code></pre>
+<p>环境变量：</p>
+<pre><code>#declare -x test=123 #把test声明为环境变量
+#declare +x test=123 #取消test的环境变量
+## export 只是declare -x 的简写可以看成 alsas &quot;export&quot;=&quot;declare -x&quot;
+</code></pre>
+<h1 id="0x11-shell运算符"><a href="#0x11-shell运算符" class="headerlink" title="0x11 shell运算符"></a>0x11 shell运算符</h1><ol>
+<li><p>数值运算的方法</p>
+<pre><code class="shell">#!/bin/bash
+$a=11
+$b=22
+$d=$(expr $a + $b) 注意+号两端一定要有空格不然就是连接字符。少用
+let $e=$a+$b   少用
+
+$f=$$(($a+$b)) 推荐使用
+</code></pre>
+</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>优先级</th>
+<th>运算符</th>
+<th>说 明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>13</td>
+<td>-,+</td>
+<td>单目负、单目正</td>
+</tr>
+<tr>
+<td>12</td>
+<td>!,~</td>
+<td>逻辑非、按位取反或补码</td>
+</tr>
+<tr>
+<td>11</td>
+<td>*, /, %</td>
+<td>乘、除、取模</td>
+</tr>
+<tr>
+<td>10</td>
+<td>+, -</td>
+<td>加、减</td>
+</tr>
+<tr>
+<td>9</td>
+<td>&lt;&lt;, &gt;&gt;</td>
+<td>按位左移、按位右移</td>
+</tr>
+<tr>
+<td>8</td>
+<td>&lt;=, &gt;=, &lt;, &gt;</td>
+<td>小于或等于、大于或等于、小于、大于</td>
+</tr>
+<tr>
+<td>7</td>
+<td>== ,!=</td>
+<td>等于、不等于</td>
+</tr>
+<tr>
+<td>6</td>
+<td>&amp;</td>
+<td>按位与</td>
+</tr>
+<tr>
+<td>S</td>
+<td>^</td>
+<td>按位异或</td>
+</tr>
+<tr>
+<td>4</td>
+<td>|</td>
+<td>按位或</td>
+</tr>
+<tr>
+<td>3</td>
+<td>&amp;&amp;</td>
+<td>逻辑与</td>
+</tr>
+<tr>
+<td>2</td>
+<td>II</td>
+<td>逻辑或</td>
+</tr>
+<tr>
+<td>1</td>
+<td>=,+=,•=，*=,/=,%=,&amp;=, |=, &lt;&lt;=, &gt;&gt;=</td>
+<td>赋值、运算且赋值</td>
+</tr>
+</tbody></table>
+<h1 id="0x12-变量测试与内容置换"><a href="#0x12-变量测试与内容置换" class="headerlink" title="0x12 变量测试与内容置换"></a>0x12 变量测试与内容置换</h1><table>
+<thead>
+<tr>
+<th>变量置换方式</th>
+<th>变量y没有设置</th>
+<th>变量y为空值</th>
+<th>变量y设置值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>x=${y-新值}</td>
+<td>x= 新值</td>
+<td>x 为空</td>
+<td>x=$y</td>
+</tr>
+<tr>
+<td>x=${y:-新值}</td>
+<td>x= 新值</td>
+<td>x= 新值</td>
+<td>x=$y</td>
+</tr>
+<tr>
+<td>x=${y+新值}</td>
+<td>x 为空</td>
+<td>x= 新值</td>
+<td>x=新值</td>
+</tr>
+<tr>
+<td>x=${y:+新值}</td>
+<td>x 为空</td>
+<td>x 为空</td>
+<td>x=新值</td>
+</tr>
+<tr>
+<td>x=${y=新值}</td>
+<td>x= 新值;y=新值</td>
+<td>x 为空;y值不变</td>
+<td>x=$y;值不变</td>
+</tr>
+<tr>
+<td>x=${y:=新值}</td>
+<td>x= 新值;y= 新值</td>
+<td>X= 新值;y= 新值</td>
+<td>x=$y;y值不变</td>
+</tr>
+<tr>
+<td>x=${y?新值}</td>
+<td>新值输出到标准错误输出（屏幕）</td>
+<td>x 为空</td>
+<td>x=$y</td>
+</tr>
+<tr>
+<td>x=${y:?新值}</td>
+<td>新值输出到标准错误输出</td>
+<td>新值输出到标准错误输出</td>
+<td>x=$y</td>
+</tr>
+</tbody></table>
+<h1 id="0x13-环境变量配置文件"><a href="#0x13-环境变量配置文件" class="headerlink" title="0x13 环境变量配置文件"></a>0x13 环境变量配置文件</h1><h2 id="0x131-登陆时环境配置文件加载顺序"><a href="#0x131-登陆时环境配置文件加载顺序" class="headerlink" title="0x131 登陆时环境配置文件加载顺序"></a>0x131 登陆时环境配置文件加载顺序</h2><pre><code class="shell">#cource 配置文件
+或
+# .配置文件
+</code></pre>
+<p>环境变量配置文件</p>
+<ol>
+<li><p>登陆时生效的环境变量配置文件(5个)</p>
+<pre><code class="shell">/etc/profile
+/etc/profile.d/*.sh
+/etc/bashrc
+#上面的对所有用户生效 下面的只对当前用户生效
+~/.bash_profile
+~/.bashrc
+</code></pre>
+</li>
+</ol>
+<pre><code>`/etc/profile` ——&gt; `~/.bash_profile` ——&gt; `~/.bashrc` ——&gt; `/etc/bashrc` ——&gt; 命令提示符
+    |
+    |——&gt; `/etc/profile.d/*.sh` ——&gt; `/etc/profile.d/lang.sh` ——&gt; `/etc/locale.conf`
+
+非正常登录（使用 su 命令切换用户，子shell）
+
+`/etc/bashrc` ——&gt; 命令提示符
+    |
+    |——&gt; `/etc/profile.d/*.sh` ——&gt; `/etc/profile.d/lang.sh` ——&gt; `/etc/locale.conf`
+</code></pre>
+<ul>
+<li><p>用户登陆过程先调用<code>/etc/profile</code></p>
+<p> 一些重要的变量就是在这个脚本文件中设置的，含义如下： </p>
+<pre><code class="shell">PATH： 预设可执行文件或命令的搜索路径。
+USER: 用户登录时使用的用户名。
+LOGNAME: 其值为$USER。
+HOSTNAME: 所使用的主机名。
+MAIL： 存放用户电子邮件的邮箱（实际上是一个ASCII码文件）。
+HISTSIZE： 历史记录的行数。
+INPUTRC: 存放的是针对键盘热键的信息（也是一个ASCII码文件）。
+</code></pre>
+</li>
+</ul>
+<h2 id="0x132-注销时生效的环境变量配置文件"><a href="#0x132-注销时生效的环境变量配置文件" class="headerlink" title="0x132 注销时生效的环境变量配置文件"></a>0x132 注销时生效的环境变量配置文件</h2><p>用户再退出时，只会调用一个环境变量配置文件，就是~/.bash_logout。这个文件默认没有写入内容，比如，历史命令，备份某些数据。</p>
+<h2 id="0x133-其他配置文件"><a href="#0x133-其他配置文件" class="headerlink" title="0x133  其他配置文件"></a>0x133  其他配置文件</h2><p>如~/bash_history文件。</p>
+<h3 id="0x134-Shell登陆信息"><a href="#0x134-Shell登陆信息" class="headerlink" title="0x134 Shell登陆信息"></a>0x134 Shell登陆信息</h3><p><code>/etc/issue</code> 本地登陆信息</p>
+<p>我们再登陆tty1-tty6本地终端时，会有几行的欢迎界面。这些信息就在issue中</p>
+<pre><code>#cat /etc/issue
+\S
+Kernel \r on an \m
+</code></pre>
+<pre><code>/l  显示第几个终端机接口 这个常用。
+/m  显示硬件的等级（i386/i686...）
+/n  显示主机的网络名称
+/o  显示 domain name
+/r  显示操作系统的版本/t  显示本地端时间的时间
+/s  显示操作系统的名称
+/v  显示操作系统的版本
+</code></pre>
+<p><code>/etc/issue.net</code> 远程登陆信息</p>
+<p>基本修改同上</p>
+<p>但是</p>
+<ul>
+<li>再/etc/issue中支持转义符，再/etc/issue.net不支持</li>
+<li>其次ssh远程登陆还要由ssh的配置文件决定</li>
+</ul>
+<p>ssh配置文件<code>/etc/ssh/sshd_config</code></p>
+<pre><code class="shell">把Banner打开并输入配置文件目录效果
+Banner /etc/issue.net
+</code></pre>
+<p>这样ssh远程登陆也可以显示欢迎信息，只是不再识别”\d”和”\l”等消息了</p>
+<p><code>/etc/motd</code> 登陆后 提示消息</p>
+<p>如果由要写提示建议写 motd。</p>
+
+</div>
+
+
+    <div class="post-guide">
+        <div class="item left">
+            
+              <a href="/2019/11/26/Linux/11Linux%E4%B9%8Bshell%E9%AB%98%E7%BA%A7/">
+                  <i class="fa fa-angle-left" aria-hidden="true"></i>
+                  11Linux之shell高级
+              </a>
+            
+        </div>
+        <div class="item right">
+            
+              <a href="/2019/11/23/Linux/09Linux%E4%B9%8B%E9%AB%98%E7%BA%A7%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F/">
+                09Linux之高级文件管理系统
+                <i class="fa fa-angle-right" aria-hidden="true"></i>
+              </a>
+            
+        </div>
+    </div>
+
+
+
+
+<script>
+	
+	
+</script>
+	</div>
+	<div id="footer">
+	<p>
+	©2020-<span id="footerYear"></span> 
+	<a href="/">BamB00</a> 
+	
+	
+		|
+		<span id="busuanzi_container_site_pv">
+			pv
+			<span id="busuanzi_value_site_pv"></span>
+		</span>
+		|
+		<span id="busuanzi_container_site_uv"> 
+			uv
+			<span id="busuanzi_value_site_uv"></span>
+		</span>
+	
+	<br>
+	Theme <a href="//github.com/wujun234/hexo-theme-tree" target="_blank">Tree</a>
+	by <a href="//github.com/wujun234" target="_blank">WuJun</a>
+	Powered by <a href="//hexo.io" target="_blank">Hexo</a>
+	</p>
+</div>
+<script type="text/javascript"> 
+	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
+</script>
+	<button id="totop-toggle" class="toggle"><i class="fa fa-angle-double-up" aria-hidden="true"></i></button>
+</body>
+</html>

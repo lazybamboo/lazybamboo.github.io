@@ -1,0 +1,932 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8">
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+	
+	<!-- title -->
+	
+	<title>
+	
+		09Linux高级文件管理系统 | 
+	 
+	竹竿小站
+	</title>
+	
+	<!-- keywords,description -->
+	 
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.jpg">
+	
+
+
+	<!-- search -->
+	<script>
+		var searchEngine = "https://www.baidu.com/s?wd=";
+		if(typeof searchEngine == "undefined" || searchEngine == null || searchEngine == ""){
+			searchEngine = "https://www.google.com/search?q=";
+		}
+		var homeHost = "bamboo.github.io";
+		if(typeof homeHost == "undefined" || homeHost == null || homeHost == ""){
+			homeHost = window.location.host;
+		}
+	</script>
+
+
+	
+<link rel="stylesheet" href="/css/main.css">
+
+	
+<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.min.css">
+
+	
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.17.1/build/styles/darcula.min.css">
+
+	
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+
+
+	
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+
+	
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
+	
+<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.17.1/build/highlight.min.js"></script>
+
+	
+<script src="https://cdn.jsdelivr.net/npm/jquery-pjax@2.0.1/jquery.pjax.min.js"></script>
+
+	
+<script src="/js/main.js"></script>
+
+	
+		
+<script src="https://cdn.jsdelivr.net/npm/leancloud-storage/dist/av-min.js"></script>
+
+		
+<script src="https://cdn.jsdelivr.net/npm/valine@1.3.10/dist/Valine.min.js"></script>
+
+	
+	
+		<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+	
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+	<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?3efe99c287df5a1d6f0d02d187e403c1";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+<header id="header">
+    <a id="title" href="/" class="logo">竹竿小站</a>
+
+	<ul id="menu">
+		<li class="menu-item">
+			<a href="/about" class="menu-item-link">ABOUT</a>
+		</li>
+	
+		<li class="menu-item">
+			<a href="/tags" class="menu-item-link">标签</a>
+		</li>
+	
+
+	
+		<li class="menu-item">
+			<a href="/categories" class="menu-item-link">分类</a>
+		</li>
+	
+
+		<li class="menu-item">
+			<a href="https://github.com/wujun234/uid-generator-spring-boot-starter" class="menu-item-link" target="_blank">
+				UidGenerator
+			</a>
+		</li>
+		<li class="menu-item">
+			<a href="https://github.com/wujun234" class="menu-item-link" target="_blank">
+				<i class="fa fa-github fa-2x"></i>
+			</a>
+		</li>
+	</ul>
+</header>
+
+	
+<div id="sidebar">
+	<button id="sidebar-toggle" class="toggle" ><i class="fa fa-arrow-right " aria-hidden="true"></i></button>
+	
+	<div id="site-toc">
+		<input id="search-input" class="search-input" type="search" placeholder="按回车全站搜索">
+		<div id="tree">
+			
+
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Linux
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/2017/08/08/Linux/01linux-%E5%AE%89%E8%A3%85/">
+										01linux-安装
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/11/08/Linux/02Linux%E5%AD%A6%E5%89%8D%E9%A1%BB%E7%9F%A5/">
+										02Linux学前须知
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/11/08/Linux/03Linuxz%E4%B9%8B%E5%B8%B8%E7%94%A8%E7%9A%84%E5%91%BD%E4%BB%A4/">
+										03Linuxz之常用的命令
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2021/04/12/Linux/04Linux%E4%B9%8BVim/">
+										04Linux之Vim
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/11/14/Linux/05Linux%E4%B9%8B%E8%BD%AF%E4%BB%B6%E5%8C%85/">
+										05Linux之软件包
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/11/18/Linux/06Linux%E4%B9%8B%E7%94%A8%E6%88%B7%E7%AE%A1%E7%90%86/">
+										06Linux之用户管理
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/11/19/Linux/07Linux%E4%B9%8B%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/">
+										07Linux之权限管理
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/11/20/Linux/08Linux%E4%B9%8B%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F%E7%AE%A1%E7%90%86/">
+										08Linux之文件系统管理
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file active">
+									<a href="/2019/11/23/Linux/09Linux%E4%B9%8B%E9%AB%98%E7%BA%A7%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F/">
+										09Linux之高级文件管理系统
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/11/24/Linux/10Linux%E4%B9%8Bshell/">
+										10Linux之shell
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/11/26/Linux/11Linux%E4%B9%8Bshell%E9%AB%98%E7%BA%A7/">
+										11Linux之shell高级
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/12/02/Linux/12Linux%E4%B9%8B%E5%90%AF%E5%8A%A8%E5%BC%95%E5%AF%BC%E4%B8%8E%E4%BF%AE%E5%A4%8D/">
+										12Linux之启动引导与修复
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/12/06/Linux/13Linux%E4%B9%8B%E6%9C%8D%E5%8A%A1%E7%AE%A1%E7%90%86/">
+										13Linux之服务管理
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/12/10/Linux/14Linux%E4%B9%8B%E7%B3%BB%E7%BB%9F%E7%AE%A1%E7%90%86/">
+										14Linux之系统管理
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/12/06/Linux/15Linux%E4%B9%8B%E7%B3%BB%E7%BB%9F%E6%97%A5%E5%BF%97/">
+										15Linux之系统日志
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/12/17/Linux/16Centos6%E5%92%8CCentos7%E5%9F%BA%E6%9C%AC%E5%AF%B9%E6%AF%94/">
+										16Centos6和Centos7基本对比
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/12/17/Linux/17Linux%E4%B9%8B%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/">
+										17Linux之网络基础
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/10/15/Linux/18Linux%E4%B9%8B%E6%9C%8D%E5%8A%A1%E5%9F%BA%E7%A1%80SSH/">
+										18Linux之服务基础SSH
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/12/18/Linux/19Linux%E4%B9%8B%E6%9C%8D%E5%8A%A1%E5%9F%BA%E7%A1%80TCP%20Wrappers/">
+										19Linux之服务基础TCP Wrappers
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/12/18/Linux/20%E7%BD%91%E7%BB%9C%E6%9C%8D%E5%8A%A1%E4%B9%8BDHCP/">
+										20网络服务之DHCP
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/12/20/Linux/21%E7%BD%91%E7%BB%9C%E6%9C%8D%E5%8A%A1%E4%B9%8BDNS/">
+										21网络服务之DNS
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/12/26/Linux/22%E7%BD%91%E7%BB%9C%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B9%8BVSFTP/">
+										22网络服务器之VSFTP
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/10/11/Linux/Bash%E5%BF%AB%E6%8D%B7%E9%94%AE/">
+										Bash快捷键
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/10/10/Linux/LInux-CDN%E7%AE%80%E4%BB%8B/">
+										LInux-CDN简介
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/10/08/Linux/Llinux-DNS-%E8%AF%A6%E8%A7%A3/">
+										Llinux-DNS-详解
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/10/13/Linux/linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">
+										linux常用命令
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2021/04/12/Linux/%E5%8D%8A%E8%99%9A%E6%8B%9F%E5%8C%96%E5%92%8C%E7%A1%AC%E4%BB%B6%E8%99%9A%E6%8B%9F%E5%8C%96%E7%9A%84%E4%B8%BB%E8%A6%81%E5%8C%BA%E5%88%AB/">
+										半虚拟化和硬件虚拟化的主要区别
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										web渗透
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/2020/09/17/web%E6%B8%97%E9%80%8F/01SQL%E6%B3%A8%E5%85%A5/">
+										01SQL注入
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										搭建
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/2018/11/18/%E6%90%AD%E5%BB%BA/NextCloud/">
+										NextCloud
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2018/11/18/%E6%90%AD%E5%BB%BA/Nmap-Sublist3r-Hydra%E5%AE%89%E8%A3%85%EF%BC%88Ubuntu%E7%8E%AF%E5%A2%83%EF%BC%89/">
+										Nmap-Sublist3r-Hydra安装（Ubuntu环境）
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/04/11/%E6%90%AD%E5%BB%BA/hadoop%E5%8D%95%E6%9C%BA%E9%9B%86%E7%BE%A4%E6%90%AD%E5%BB%BA/">
+										hadoop单机集群搭建
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										汇编
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/2018/12/20/%E6%B1%87%E7%BC%96/%E6%B1%87%E7%BC%961/">
+										汇编1
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2018/12/26/%E6%B1%87%E7%BC%96/%E6%B1%87%E7%BC%962/">
+										汇编2
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/01/01/%E6%B1%87%E7%BC%96/%E6%B1%87%E7%BC%963/">
+										汇编3
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/01/05/%E6%B1%87%E7%BC%96/%E6%B1%87%E7%BC%964/">
+										汇编4
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/01/06/%E6%B1%87%E7%BC%96/%E6%B1%87%E7%BC%965/">
+										汇编5
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/01/07/%E6%B1%87%E7%BC%96/%E6%B1%87%E7%BC%966/">
+										汇编6
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2021/04/12/%E6%B1%87%E7%BC%96/%E9%80%9A%E7%94%A8%E5%AF%84%E5%AD%98%E5%99%A8/">
+										通用寄存器
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+		</div>
+	</div>
+</div>
+
+	<!-- 引入正文 -->
+	<div id="content">
+		<h1 id="article-title">
+
+	09Linux之高级文件管理系统
+</h1>
+<div class="article-meta">
+	
+	<span>BamB00</span>
+	<span>2019-11-23 00:00:00</span>
+		<div id="article-categories">
+    
+		<span>Categories：</span>
+            
+    
+
+    
+		<span>Tags：</span>
+            
+                
+                    <span>
+                        <i class="fa fa-tag" aria-hidden="true">
+                        <a href="/tags/Linux/">Linux</a>
+                        </i>
+                    </span>
+                
+            
+    
+		</div>
+
+</div>
+
+<div id="article-content">
+	<h1 id="0x01-磁盘配额"><a href="#0x01-磁盘配额" class="headerlink" title="0x01 磁盘配额"></a>0x01 磁盘配额</h1><p>磁盘配额（Quota）就是 Linux 系统中用来限制特定的普通用户或用户组在指定的分区上占用的磁盘空间或文件个数的。 </p>
+<ol>
+<li> 磁盘配额限制的用户和用户组，只能是普通用户和用户组，也就是说超级用户 root 是不能做磁盘配额的；</li>
+<li> 磁盘配额限制只能针对分区，而不能针对某个目录，换句话说，磁盘配额仅能针对文件系统进行限制，举个例子，如果你的 /dev/sda5 是挂载在 /home 底下，那么，在 /home 下的所有目录都会受到磁盘配额的限制；</li>
+<li> 我们可以限制用户占用的磁盘容量大小（block），当然也能限制用户允许占用的文件个数（inode）。</li>
+</ol>
+<p>磁盘配额在实际生活中其实是很常见的，比如，我们的邮箱不管多大，都是有限制的，而不可能无限制地存储邮件；我们可以上传文件的服务器也是有容量限制的；网页中的个人空间也不可能让我们无限制地使用。</p>
+<ul>
+<li> 我的楼是租给外来用户的（普通用户），可以租给一个人（用户）,也可以租给一家公司（用户 组），但是这栋楼的所有权是我的，所以不能租给我自己（root 用户）；</li>
+<li> 如果要租用，则只能在每层租用一定大小的空间，而不能在一个房间中再划分出子空间来租用（配额只能针对分区，而不能限制某个目录）；</li>
+<li> 租户可以决定在某层租用多大的空间（磁盘容量限制）,也可以在某层租用几个人员名额，这样只有这几个人员才能进入本层（文件个数限制）。</li>
+</ul>
+<h2 id="0x011-磁盘配额的条件"><a href="#0x011-磁盘配额的条件" class="headerlink" title="0x011 磁盘配额的条件"></a>0x011 磁盘配额的条件</h2><ol>
+<li>内核必须支持磁盘配额</li>
+</ol>
+<pre><code class="shell">-&gt; #grep CONFIG_QUOTA /boot/config-3.10.0-1062.4.1.el7.x86_64
+CONFIG_QUOTA=y #这个就是磁盘配额的条件
+CONFIG_QUOTA_NETLINK_INTERFACE=y
+# CONFIG_QUOTA_DEBUG is not set
+CONFIG_QUOTA_TREE=y
+CONFIG_QUOTACTL=y
+CONFIG_QUOTACTL_COMPAT=y
+</code></pre>
+<ol start="2">
+<li> 系统中必须安装了 Quota 工具。我们的 Linux 中默认安装了 Quoted 工具，查看命令如下：</li>
+</ol>
+<pre><code> [root@localhost ~]# rpm -qa | grep quota
+ quota-3.17-16.el6.i686
+</code></pre>
+<pre><code>要支持磁盘配额的分区必须开启磁盘配额功能。这项功能可以手动开启，不再是默认开启的。
+</code></pre>
+<h2 id="0x012-磁盘配额中的常见概念"><a href="#0x012-磁盘配额中的常见概念" class="headerlink" title="0x012 磁盘配额中的常见概念"></a>0x012 磁盘配额中的常见概念</h2><h3 id="0x0121-用户配额和组配额"><a href="#0x0121-用户配额和组配额" class="headerlink" title="0x0121 用户配额和组配额"></a>0x0121 用户配额和组配额</h3><p>用户配额是指针对用户个人的配额，而组配额是指针对整个用户组的配额。如果我们需要限制的用户数量并不多，则可以给每个用户单独指定配额。如果用户比较多，那么单独限制太过麻烦，这时我们可以把用户加入某个用户组，然后给组指定配额，就会简单得多。</p>
+<h4 id="0x0122-磁盘容量限制和文件个数限制"><a href="#0x0122-磁盘容量限制和文件个数限制" class="headerlink" title="0x0122 磁盘容量限制和文件个数限制"></a>0x0122 磁盘容量限制和文件个数限制</h4><p>我们除了可以通过限制用户可用的 block 数量来限制用户可用的磁盘容量，也可以通过限制用户可用的 inode 数量来限制用户可以上传或新建的文件个数。</p>
+<h3 id="0x013-软限制和硬限制"><a href="#0x013-软限制和硬限制" class="headerlink" title="0x013 软限制和硬限制"></a>0x013 软限制和硬限制</h3><p>软限制可理解为警告限制，硬限制就是真正的限制了。比如，规定软限制为 100MB，硬限制为 200MB,那么，当用户使用的磁盘空间为 100~200MB 时，用户还可以继续上传和新建文件，但是每次登录时都会收到一条警告消息，告诉用户磁盘将满。</p>
+<h3 id="0x014-宽限时间"><a href="#0x014-宽限时间" class="headerlink" title="0x014 宽限时间"></a>0x014 宽限时间</h3><p>如果用户的空间占用数处于软限制和硬限制之间，那么系统会在用户登录时警告用户磁盘将满，但是这个警告不会一直进行，而是有时间限制的，这个时间就是宽限时间，默认是 7 天。</p>
+<h1 id="0x02-磁盘配额规划"><a href="#0x02-磁盘配额规划" class="headerlink" title="0x02 磁盘配额规划"></a>0x02 磁盘配额规划</h1><p>配额实验，前先规划我们的实验</p>
+<ol>
+<li>磁盘配额是限制普通用户在分区上使用磁盘空间和文件个数的，所以我们需要指定一个分区。那么我们手工建立一个5G的/dev/sdb1分区，把他挂载在/disk目录中</li>
+<li>我们还需要建立限制用户和用户组。那么假设建立三个用户user1,2,3和test组</li>
+<li>其中test组的磁盘容量限制为500MB,软件限制为450MB,文件个数不限制，user1为了方便先测试，磁盘容量限制为50MB，软限制为40MB，文件硬限制为10个，软限制为8个。user2,3用户容量硬限制250，软限制为200MB，文件个数不做限制。</li>
+<li>其中user1,2,3三个用户次磁盘容量共为550MB超过了test组的磁盘限制。其实test组中的其他软限制都是先到先得，谁先用test的数据，谁就先占，超过则用不了了。</li>
+</ol>
+<pre><code class="shell">分区不管了，用户和用户组创建
+#groupadd test
+#useradd -G test user1
+#useradd -G test user2
+#useradd -G test user3
+#passwd user1
+#passwd user2
+#passwd user3
+</code></pre>
+<p>查看</p>
+<pre><code class="shell">#cat /etc/passwd
+user1:x:1001:1002::/home/user1:/bin/bash
+user2:x:1002:1003::/home/user2:/bin/bash
+user3:x:1003:1004::/home/user3:/bin/bash
+</code></pre>
+<h3 id="0x021-在分区上开启磁盘配额功能"><a href="#0x021-在分区上开启磁盘配额功能" class="headerlink" title="0x021  在分区上开启磁盘配额功能"></a>0x021  在分区上开启磁盘配额功能</h3><p>注意上面是支持。这次是开启</p>
+<pre><code>#mount -o remount,usrquota,grpquota /disk1 #临时启动
+
+
+#永久生效
+#vi /etc/fstab
+/dev/sdb1 /disk  ext4 defaults,usrquota,grpquota 0 0
+#修改配置文件要想生效，必须重启，否是在也需要把分区重新挂载一变
+</code></pre>
+<h3 id="0x022-建立磁盘配额的配置文件"><a href="#0x022-建立磁盘配额的配置文件" class="headerlink" title="0x022 建立磁盘配额的配置文件"></a>0x022 建立磁盘配额的配置文件</h3><pre><code class="shell"># quotacheck [选项] [分区名]
+选项:
+    -a : 扫描/etc/mtab文件中所有启动用磁盘配额的功能分区。如果假如此参数，命令后面就不需要加入分区名了
+    -c : 不管原先的配置文件，重新扫描并建立新的配置文件
+    -u : 建立用户配额的配置文件，就是生成aquota.user文件
+    -g : 建立组配额配置文件，就是生成aquota.group文件
+    -v : 显示扫描过程
+    -m : 强制以读写的方式扫描文件系统，和-M类似。一般扫描根分区时使用
+    -f : 强制扫描文件系统，并写入新的配置文件，一般扫描新添加的硬盘分区时使用。
+</code></pre>
+<pre><code class="shell">#quotacheck -avug
+</code></pre>
+<p>需要关闭SELinux，否则会报错。</p>
+<p>这里简单的关闭SELinux后面再想写这个。</p>
+<pre><code class="shell">#getenforce #获取SElinux状态
+#setenforce 0 #关闭SELinux 同样这个只是临时的办法。
+
+#永久的关闭SELinux 
+#vi /etc/selinux/config  #将enforcing改成disable 需重启
+</code></pre>
+<p>补充: 如果时根分区使用，在建立配额文件要使用m指令因为跟分区是一直在使用的。</p>
+<h3 id="0x023-设置用户和组的配额限制"><a href="#0x023-设置用户和组的配额限制" class="headerlink" title="0x023 设置用户和组的配额限制"></a>0x023 设置用户和组的配额限制</h3><pre><code># edquota [选项] [用户名或组名]
+选项:
+    -u 用户名 : 设定用户配额
+    -g 组名 : 设定组配额
+    -t : 设定宽限时间
+    -p : 复制配额限制。如果已经设置某个用户的配额限制，其他用户的配额限制如果和这个用户相同，那么可以直接赋值配额限制，而不用手工指定。
+</code></pre>
+<pre><code>[root@localhost ~]# edquota -u user1
+Disk quotas for user myquota (uid 710):
+  Filesystem    blocks  soft   hard  inodes  soft  hard
+  /dev/sdb1          0     0      0      10     0     0
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>表头</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>文件系统（filesystem）</td>
+<td>说明该限制值是针对哪个文件系统（或分区）；</td>
+</tr>
+<tr>
+<td>磁盘容量（blocks）</td>
+<td>此列的数值是 quota 自己算出来的，单位为 Kbytes，不要手动修改；</td>
+</tr>
+<tr>
+<td>磁盘容量的软限制（soft）</td>
+<td>当用户使用的磁盘空间超过此限制值，则用户在登陆时会收到警告信息，告知用户磁盘已满，单位为 KB；</td>
+</tr>
+<tr>
+<td>磁盘容量的硬限制（hard）</td>
+<td>要求用户使用的磁盘空间最大不能超过此限制值，单位为 KB；</td>
+</tr>
+<tr>
+<td>文件数量（inodes）</td>
+<td>同 blocks 一样，此项也是 quota自己计算出来的，无需手动修改；</td>
+</tr>
+<tr>
+<td>文件数量的软限制（soft）</td>
+<td>当用户拥有的文件数量超过此值，系统会发出警告信息；</td>
+</tr>
+<tr>
+<td>文件数量的硬限制（hard）</td>
+<td>用户拥有的文件数量不能超过此值。</td>
+</tr>
+</tbody></table>
+<p> 注意，当 soft/hard 为 0 时，表示没有限制。另外，在 Vi（或 Vim）中修改配额值时，填写的数据无法保证同表头对齐，只要保证此行数据分为 7 个栏目即可。</p>
+<h3 id="0x024-启动和关闭配额"><a href="#0x024-启动和关闭配额" class="headerlink" title="0x024 启动和关闭配额"></a>0x024 启动和关闭配额</h3><p>配置的配置完成，接下来只需要启动即可</p>
+<pre><code class="shell">#quotaon [选项] [分区名]
+选项:
+    -a : 依据/etc/mtab文件启动所有的配置分区。如果不加-a，后面一定要指定分区名
+    -u : 启动用户配额
+    -g : 启动组配额
+    -v : 显示启动过程的信息
+    
+#qunotaoff [选项] [分区名]
+选项:
+    -a : 依据/etc/mtab文件关闭所有的配置分区。如果不加-a，后面一定要指定分区名
+    -u : 关闭用户配额
+    -g : 关闭组配额
+</code></pre>
+<pre><code>#quotanon -vug /disk1/
+/dev/sdb1 [/disk1]: user quotas turned on
+</code></pre>
+<h3 id="0x025-查询磁盘配额"><a href="#0x025-查询磁盘配额" class="headerlink" title="0x025 查询磁盘配额"></a>0x025 查询磁盘配额</h3><p>按<strong>用户</strong>或<strong>组</strong>来查</p>
+<pre><code class="shell">#quota [选项] [用户名和组名]
+选项:
+    -u 用户名 : 查询用户配额
+    -g 组名  : 查询组配额
+    -v : 显示详细信息
+    -s : 以习惯单位显示内容大小，如M,G
+</code></pre>
+<pre><code class="shell">#quota -uvs user1
+</code></pre>
+<p>按分区来查</p>
+<pre><code class="shell">#repquota [选项] [分区名]
+选项：
+    -a : 依据/etc/mtab文件配额，如果不加a选项，一定要加分区名
+    -u : 查询用户配额
+    -g : 查询组配额
+    -v : 显示详细信息
+    -s : 已习惯单位显示容易大小
+</code></pre>
+<pre><code>#repquota - augvs
+</code></pre>
+<h3 id="0x026-复制配额"><a href="#0x026-复制配额" class="headerlink" title="0x026 复制配额"></a>0x026 复制配额</h3><p>user2用户的配额值和user1用户完全一样，我们就可以使用user1作为模板进行复制，这样我们如果需要建立大量的配额值时，就会非常方便，不用一个个手工建立了。命令如下</p>
+<pre><code class="shell"># edquota -p user1 -u user2 # -p 源用户 -u 目标用户
+</code></pre>
+<h3 id="0x027-非交互设定用户磁盘配额"><a href="#0x027-非交互设定用户磁盘配额" class="headerlink" title="0x027 非交互设定用户磁盘配额"></a>0x027 非交互设定用户磁盘配额</h3><p>就算有复制配额，但是user1还要手工建立特别的麻烦。这里有指令可以直接设定用户配额</p>
+<pre><code class="shell">#setquota -u 用户名 容量软限制 容量硬限制 个数软限制 个数硬限制  分区名
+</code></pre>
+<p>例子</p>
+<pre><code class="shell">#setquota -u user3 40000 500000 8 40 /disk1/
+</code></pre>
+<h1 id="0x03-LVM逻辑卷管理"><a href="#0x03-LVM逻辑卷管理" class="headerlink" title="0x03 LVM逻辑卷管理"></a>0x03 LVM逻辑卷管理</h1><h2 id="0x031-基本概念"><a href="#0x031-基本概念" class="headerlink" title="0x031 基本概念"></a>0x031 基本概念</h2><p> LVM 是 Logical Volume Manager 的简称，译为中文就是逻辑卷管理。它是 Linux 下对硬盘分区的一种管理机制。 </p>
+<p>LVM 适合于管理大存储设备，并允许用户动态调整文件系统的大小。此外，LVM 的快照功能可以帮助我们快速备份数据。LVM 为我们提供了逻辑概念上的磁盘，使得文件系统不再关心底层物理磁盘的概念。 </p>
+<pre><code>Linux LVM 允许我们在逻辑卷在线的状态下将其复制到另一设备上，此成功被称为快照功能。快照允许我们在复制的同时，保证运行关键任务的 Web 服务器或数据库服务继续工作。
+</code></pre>
+<p> LVM 是在硬盘分区之上建立一个逻辑层，这个逻辑层让多个硬盘或分区看起来像一块逻辑硬盘，然后将这块逻辑硬盘分成逻辑卷之后使用，从而大大提高了分区的灵活性。</p>
+<ul>
+<li>物理卷（Physical Volume，PV）：就是真正的物理硬盘或分区。</li>
+<li>卷组（Volume Group，VG）：将多个物理卷合起来就组成了卷组。组成同一个卷组的物理卷可以是同一块硬盘的不同分区，也可以是不同硬盘上的不同分区。我们可以把卷组想象为一块逻辑硬盘。</li>
+<li>逻辑卷（Logical Volume，LV）：卷组是一块逻辑硬盘，硬盘必须分区之后才能使用，我们把这个分区称作逻辑卷。逻辑卷可以被格式化和写入数据。我们可以把逻辑卷想象为分区。</li>
+<li>物理扩展（Physical Extend，PE）：PE 是用来保存数据的最小单元，我们的数据实际上都是写入 PE 当中的。PE 的大小是可以配置的，默认是 4MB。</li>
+</ul>
+<p><img src="C:\Users\Qusi\Desktop\345.jpg"></p>
+<p>也就是说，我们在建立 LVM 的时候，需要按照以下步骤来进行： </p>
+<ol>
+<li> 把物理硬盘分成分区，当然也可以是整块物理硬盘；</li>
+<li> 把物理分区建立为物理卷（PV），也可以直接把整块硬盘都建立为物理卷。</li>
+<li> 把物理卷整合为卷组（VG）。卷组就已经可以动态地调整大小了，可以把物理分区加入卷组，也可以把物理分区从卷组中删除。</li>
+<li> 把卷组再划分为逻辑卷（LV），当然逻辑卷也是可以直接调整大小的。我们说逻辑卷可以想象为分区，所以也需要格式化和挂载。</li>
+</ol>
+<p>其实，在安装 Linux 系统时，我们采用的图形安装界面就可以直接把硬盘配置成 LVM（RAID  也可以在安装时直接配置），但当时我们只分配了基本分区。那是因为 LVM 最主要的作用是调整分区大小，所以就算在安装时已经安装了  LVM，我们还是需要学习 LVM 的命令</p>
+<h2 id="0x032-命令安装LVM"><a href="#0x032-命令安装LVM" class="headerlink" title="0x032 命令安装LVM"></a>0x032 命令安装LVM</h2><h3 id="0x0321-创建磁盘分区"><a href="#0x0321-创建磁盘分区" class="headerlink" title="0x0321 创建磁盘分区"></a>0x0321 创建磁盘分区</h3><p>创建方式就是fidisk命令，不过需要注意的时时分区的系统ID不再是Linux默认的分区ID号83了，而是要改成LVM的ID号8e</p>
+<h3 id="0x0322-建立物理卷"><a href="#0x0322-建立物理卷" class="headerlink" title="0x0322 建立物理卷"></a>0x0322 建立物理卷</h3><pre><code class="shell">#pvcreate [设备文件名]
+</code></pre>
+<p>建立物理卷时，我们说既可以把整块硬盘都建立成物理卷，也可以把某个分区建立成物理卷。如果要把整块硬盘都建立成物理卷，命令如下</p>
+<pre><code class="shell">#pvcreate /dev/sdb 
+</code></pre>
+<p>在我们的使用中，是要把分区建立成为物理卷，所以执行下面的命令</p>
+<pre><code class="shell">#pvcreate /dev/sdb5
+</code></pre>
+<h3 id="0x0323-查看物理卷"><a href="#0x0323-查看物理卷" class="headerlink" title="0x0323 查看物理卷"></a>0x0323 查看物理卷</h3><pre><code class="shell">#pvscan 
+ PV /dev/sda2   VG centos          lvm2 [&lt;19.00 GiB / 0    free]
+  PV /dev/sdb6                      lvm2 [1.00 GiB]
+  PV /dev/sdb5                      lvm2 [1.00 GiB]
+  PV /dev/sdb7                      lvm2 [&lt;3.00 GiB]
+  Total: 4 [23.99 GiB] / in use: 1 [&lt;19.00 GiB] / in no VG: 3 [&lt;5.00 GiB]
+</code></pre>
+<p>还有一个他能查看物理卷更详细的资料。</p>
+<pre><code class="shell">#pvdisplay
+  --- Physical volume ---
+  PV Name               /dev/sda2
+  VG Name               centos
+  PV Size               &lt;19.00 GiB / not usable 3.00 MiB
+  Allocatable           yes (but full)
+  PE Size               4.00 MiB
+  Total PE              4863
+  Free PE               0
+  Allocated PE          4863
+  PV UUID               FVGExa-kv4w-rVwM-dqf2-SmJs-wywY-tU1Cwf
+   
+  &quot;/dev/sdb6&quot; is a new physical volume of &quot;1.00 GiB&quot;
+  --- NEW Physical volume ---
+  PV Name               /dev/sdb6
+  VG Name               
+  PV Size               1.00 GiB
+  Allocatable           NO
+  PE Size               0   
+  Total PE              0
+  Free PE               0
+  Allocated PE          0
+  PV UUID               BTZNBA-ejUb-qZI7-UdZ2-bRR6-nz64-QQ3Xcq
+   
+  &quot;/dev/sdb5&quot; is a new physical volume of &quot;1.00 GiB&quot;
+  --- NEW Physical volume ---
+  PV Name               /dev/sdb5
+  VG Name               
+  PV Size               1.00 GiB
+  Allocatable           NO
+  PE Size               0   
+  Total PE              0
+  Free PE               0
+  Allocated PE          0
+  PV UUID               cOKRHz-3D8w-CQvG-j9tR-RIJl-e2U6-TsQZFB
+   
+  &quot;/dev/sdb7&quot; is a new physical volume of &quot;&lt;3.00 GiB&quot;
+  --- NEW Physical volume ---
+  PV Name               /dev/sdb7
+  VG Name               
+  PV Size               &lt;3.00 GiB
+  Allocatable           NO
+  PE Size               0   
+  Total PE              0
+  Free PE               0
+  Allocated PE          0
+  PV UUID               odk3sQ-979l-K9QZ-n9pz-g2lE-WI3q-3fe1Ld
+</code></pre>
+<h3 id="0x0324-删除物理卷"><a href="#0x0324-删除物理卷" class="headerlink" title="0x0324 删除物理卷"></a>0x0324 删除物理卷</h3><pre><code class="shell">#pvremove /dev/sdb5
+</code></pre>
+<h2 id="0x033-创建卷组"><a href="#0x033-创建卷组" class="headerlink" title="0x033 创建卷组"></a>0x033 创建卷组</h2><h3 id="0x0331-建立卷组"><a href="#0x0331-建立卷组" class="headerlink" title="0x0331 建立卷组"></a>0x0331 建立卷组</h3><pre><code>#vgcreate [选项] 卷组名 物理卷名
+选项:
+    -s PE大小 : 指定PE的大小，单位可以时MB，GB,TB等。如果不屑默认为4MB
+</code></pre>
+<pre><code class="shell">vgcreate -s 8MB scvg /dev/sdb5 /dev/sdb6 
+  Volume group &quot;scvg&quot; successfully created
+</code></pre>
+<h3 id="0x0332-查看卷组"><a href="#0x0332-查看卷组" class="headerlink" title="0x0332 查看卷组"></a>0x0332 查看卷组</h3><pre><code class="shell">#vgscan
+#vgdisplay 
+同pv一样。
+</code></pre>
+<h3 id="0x0333-增加卷组的容量"><a href="#0x0333-增加卷组的容量" class="headerlink" title="0x0333 增加卷组的容量"></a>0x0333 增加卷组的容量</h3><pre><code>#vgextend scvg /dev/sdb7 #把sdb7加入到scvg中，简单来说就是扩容了。
+</code></pre>
+<p>理论上可以缩减，但缩减会影响存储的数据坚决不要缩减。</p>
+<h3 id="0x0334-删除卷组"><a href="#0x0334-删除卷组" class="headerlink" title="0x0334 删除卷组"></a>0x0334 删除卷组</h3><pre><code class="shell">#vgremove scvg
+</code></pre>
+<h2 id="0x034-逻辑卷的管理"><a href="#0x034-逻辑卷的管理" class="headerlink" title="0x034 逻辑卷的管理"></a>0x034 逻辑卷的管理</h2><h3 id="0x0341-建立逻辑卷"><a href="#0x0341-建立逻辑卷" class="headerlink" title="0x0341 建立逻辑卷"></a>0x0341 建立逻辑卷</h3><pre><code class="shell">#lvcreate [选项] [-n 逻辑卷名] 卷组名
+选项:
+    -L 容量 : 指定逻辑卷大小，单位MB,GB,TB等
+    -l 个数 : 按照PE个数指定逻辑卷大小，这个参数需要换算容量，泰玛珐
+    -n 逻辑卷名 : 指定逻辑卷名
+</code></pre>
+<p>例子</p>
+<pre><code class="shell">#lvcreate -L 1.5G -n userlv scvg
+</code></pre>
+<p>建立完逻辑卷后，还是要格式化和挂载才能正常使用的。格式化和挂载命令和平常的一样。不过需要注意的是逻辑卷的设备文件名时/dev/卷组名/逻辑卷名。如我们的userlv和scvg。正常的格式化和挂载就是</p>
+<pre><code class="shell">#mkfs -t ext4 /dev/scvg/userlv
+#mount /dev/scvg/userlv /disk1
+</code></pre>
+<p>自动挂载一样的。</p>
+<h3 id="0x0342-查看逻辑卷"><a href="#0x0342-查看逻辑卷" class="headerlink" title="0x0342 查看逻辑卷"></a>0x0342 查看逻辑卷</h3><p>同上pv和vg</p>
+<h3 id="0x0343-调整逻辑卷大小"><a href="#0x0343-调整逻辑卷大小" class="headerlink" title="0x0343 调整逻辑卷大小"></a>0x0343 调整逻辑卷大小</h3><pre><code>#lvresize [选项] 逻辑卷设备文件名
+选项:
+    -L 容量 ： 按照大小调整，+是增加 -是减少 单位KB,GB,TB等。如果直接写容量，代表逻辑卷大小直接指定为大小。
+    -l 个数 :  按照PE个数调整逻辑卷大小
+</code></pre>
+<pre><code class="shell">#lversize -L 2.5G /dev/scvg/userlv
+</code></pre>
+<p>注意调整大小后一定要重新刷新挂载，LVM可以不需要重新挂载</p>
+<pre><code class="shell">#resize2fs [选项] [设备文件名] [调整的大小]
+选项:
+    -f : 强制调整
+    设备文件名 : 指定调整哪个分区的大小
+    调整的大小 : 指定分区调整到多大，要加M,G等大小，如果不加大小，会使用整个分区
+</code></pre>
+<pre><code class="shell">#resize2fs /dev/scvg/userlv
+</code></pre>
+
+</div>
+
+
+    <div class="post-guide">
+        <div class="item left">
+            
+              <a href="/2019/11/24/Linux/10Linux%E4%B9%8Bshell/">
+                  <i class="fa fa-angle-left" aria-hidden="true"></i>
+                  10Linux之shell
+              </a>
+            
+        </div>
+        <div class="item right">
+            
+              <a href="/2019/11/20/Linux/08Linux%E4%B9%8B%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F%E7%AE%A1%E7%90%86/">
+                08Linux之文件系统管理
+                <i class="fa fa-angle-right" aria-hidden="true"></i>
+              </a>
+            
+        </div>
+    </div>
+
+
+
+
+<script>
+	
+	
+</script>
+	</div>
+	<div id="footer">
+	<p>
+	©2020-<span id="footerYear"></span> 
+	<a href="/">BamB00</a> 
+	
+	
+		|
+		<span id="busuanzi_container_site_pv">
+			pv
+			<span id="busuanzi_value_site_pv"></span>
+		</span>
+		|
+		<span id="busuanzi_container_site_uv"> 
+			uv
+			<span id="busuanzi_value_site_uv"></span>
+		</span>
+	
+	<br>
+	Theme <a href="//github.com/wujun234/hexo-theme-tree" target="_blank">Tree</a>
+	by <a href="//github.com/wujun234" target="_blank">WuJun</a>
+	Powered by <a href="//hexo.io" target="_blank">Hexo</a>
+	</p>
+</div>
+<script type="text/javascript"> 
+	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
+</script>
+	<button id="totop-toggle" class="toggle"><i class="fa fa-angle-double-up" aria-hidden="true"></i></button>
+</body>
+</html>

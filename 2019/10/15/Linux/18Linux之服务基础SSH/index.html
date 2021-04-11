@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8">
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+	
+	<!-- title -->
+	
+	<title>
+	
+		18Linux之服务基础SSH | 
+	 
+	竹竿小站
+	</title>
+	
+	<!-- keywords,description -->
+	 
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.jpg">
+	
+
+
+	<!-- search -->
+	<script>
+		var searchEngine = "https://www.baidu.com/s?wd=";
+		if(typeof searchEngine == "undefined" || searchEngine == null || searchEngine == ""){
+			searchEngine = "https://www.google.com/search?q=";
+		}
+		var homeHost = "bamboo.github.io";
+		if(typeof homeHost == "undefined" || homeHost == null || homeHost == ""){
+			homeHost = window.location.host;
+		}
+	</script>
+
+
+	
+<link rel="stylesheet" href="/css/main.css">
+
+	
+<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.min.css">
+
+	
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.17.1/build/styles/darcula.min.css">
+
+	
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+
+
+	
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+
+	
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
+	
+<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.17.1/build/highlight.min.js"></script>
+
+	
+<script src="https://cdn.jsdelivr.net/npm/jquery-pjax@2.0.1/jquery.pjax.min.js"></script>
+
+	
+<script src="/js/main.js"></script>
+
+	
+		
+<script src="https://cdn.jsdelivr.net/npm/leancloud-storage/dist/av-min.js"></script>
+
+		
+<script src="https://cdn.jsdelivr.net/npm/valine@1.3.10/dist/Valine.min.js"></script>
+
+	
+	
+		<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+	
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+	<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?3efe99c287df5a1d6f0d02d187e403c1";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+<header id="header">
+    <a id="title" href="/" class="logo">竹竿小站</a>
+
+	<ul id="menu">
+		<li class="menu-item">
+			<a href="/about" class="menu-item-link">ABOUT</a>
+		</li>
+	
+		<li class="menu-item">
+			<a href="/tags" class="menu-item-link">标签</a>
+		</li>
+	
+
+	
+		<li class="menu-item">
+			<a href="/categories" class="menu-item-link">分类</a>
+		</li>
+	
+
+		<li class="menu-item">
+			<a href="https://github.com/wujun234/uid-generator-spring-boot-starter" class="menu-item-link" target="_blank">
+				UidGenerator
+			</a>
+		</li>
+		<li class="menu-item">
+			<a href="https://github.com/wujun234" class="menu-item-link" target="_blank">
+				<i class="fa fa-github fa-2x"></i>
+			</a>
+		</li>
+	</ul>
+</header>
+
+	
+<div id="sidebar">
+	<button id="sidebar-toggle" class="toggle" ><i class="fa fa-arrow-right " aria-hidden="true"></i></button>
+	
+	<div id="site-toc">
+		<input id="search-input" class="search-input" type="search" placeholder="按回车全站搜索">
+		<div id="tree">
+			
+
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Linux
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/2017/08/08/Linux/01linux-%E5%AE%89%E8%A3%85/">
+										01linux-安装
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/11/08/Linux/02Linux%E5%AD%A6%E5%89%8D%E9%A1%BB%E7%9F%A5/">
+										02Linux学前须知
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/11/08/Linux/03Linuxz%E4%B9%8B%E5%B8%B8%E7%94%A8%E7%9A%84%E5%91%BD%E4%BB%A4/">
+										03Linuxz之常用的命令
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2021/04/12/Linux/04Linux%E4%B9%8BVim/">
+										04Linux之Vim
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/11/14/Linux/05Linux%E4%B9%8B%E8%BD%AF%E4%BB%B6%E5%8C%85/">
+										05Linux之软件包
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/11/18/Linux/06Linux%E4%B9%8B%E7%94%A8%E6%88%B7%E7%AE%A1%E7%90%86/">
+										06Linux之用户管理
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/11/19/Linux/07Linux%E4%B9%8B%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/">
+										07Linux之权限管理
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/11/20/Linux/08Linux%E4%B9%8B%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F%E7%AE%A1%E7%90%86/">
+										08Linux之文件系统管理
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/11/23/Linux/09Linux%E4%B9%8B%E9%AB%98%E7%BA%A7%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F/">
+										09Linux之高级文件管理系统
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/11/24/Linux/10Linux%E4%B9%8Bshell/">
+										10Linux之shell
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/11/26/Linux/11Linux%E4%B9%8Bshell%E9%AB%98%E7%BA%A7/">
+										11Linux之shell高级
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/12/02/Linux/12Linux%E4%B9%8B%E5%90%AF%E5%8A%A8%E5%BC%95%E5%AF%BC%E4%B8%8E%E4%BF%AE%E5%A4%8D/">
+										12Linux之启动引导与修复
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/12/06/Linux/13Linux%E4%B9%8B%E6%9C%8D%E5%8A%A1%E7%AE%A1%E7%90%86/">
+										13Linux之服务管理
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/12/10/Linux/14Linux%E4%B9%8B%E7%B3%BB%E7%BB%9F%E7%AE%A1%E7%90%86/">
+										14Linux之系统管理
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/12/06/Linux/15Linux%E4%B9%8B%E7%B3%BB%E7%BB%9F%E6%97%A5%E5%BF%97/">
+										15Linux之系统日志
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/12/17/Linux/16Centos6%E5%92%8CCentos7%E5%9F%BA%E6%9C%AC%E5%AF%B9%E6%AF%94/">
+										16Centos6和Centos7基本对比
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/12/17/Linux/17Linux%E4%B9%8B%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/">
+										17Linux之网络基础
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file active">
+									<a href="/2019/10/15/Linux/18Linux%E4%B9%8B%E6%9C%8D%E5%8A%A1%E5%9F%BA%E7%A1%80SSH/">
+										18Linux之服务基础SSH
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/12/18/Linux/19Linux%E4%B9%8B%E6%9C%8D%E5%8A%A1%E5%9F%BA%E7%A1%80TCP%20Wrappers/">
+										19Linux之服务基础TCP Wrappers
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/12/18/Linux/20%E7%BD%91%E7%BB%9C%E6%9C%8D%E5%8A%A1%E4%B9%8BDHCP/">
+										20网络服务之DHCP
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/12/20/Linux/21%E7%BD%91%E7%BB%9C%E6%9C%8D%E5%8A%A1%E4%B9%8BDNS/">
+										21网络服务之DNS
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/12/26/Linux/22%E7%BD%91%E7%BB%9C%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B9%8BVSFTP/">
+										22网络服务器之VSFTP
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/10/11/Linux/Bash%E5%BF%AB%E6%8D%B7%E9%94%AE/">
+										Bash快捷键
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/10/10/Linux/LInux-CDN%E7%AE%80%E4%BB%8B/">
+										LInux-CDN简介
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/10/08/Linux/Llinux-DNS-%E8%AF%A6%E8%A7%A3/">
+										Llinux-DNS-详解
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/10/13/Linux/linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">
+										linux常用命令
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2021/04/12/Linux/%E5%8D%8A%E8%99%9A%E6%8B%9F%E5%8C%96%E5%92%8C%E7%A1%AC%E4%BB%B6%E8%99%9A%E6%8B%9F%E5%8C%96%E7%9A%84%E4%B8%BB%E8%A6%81%E5%8C%BA%E5%88%AB/">
+										半虚拟化和硬件虚拟化的主要区别
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										web渗透
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/2020/09/17/web%E6%B8%97%E9%80%8F/01SQL%E6%B3%A8%E5%85%A5/">
+										01SQL注入
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										搭建
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/2018/11/18/%E6%90%AD%E5%BB%BA/NextCloud/">
+										NextCloud
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2018/11/18/%E6%90%AD%E5%BB%BA/Nmap-Sublist3r-Hydra%E5%AE%89%E8%A3%85%EF%BC%88Ubuntu%E7%8E%AF%E5%A2%83%EF%BC%89/">
+										Nmap-Sublist3r-Hydra安装（Ubuntu环境）
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/04/11/%E6%90%AD%E5%BB%BA/hadoop%E5%8D%95%E6%9C%BA%E9%9B%86%E7%BE%A4%E6%90%AD%E5%BB%BA/">
+										hadoop单机集群搭建
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										汇编
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/2018/12/20/%E6%B1%87%E7%BC%96/%E6%B1%87%E7%BC%961/">
+										汇编1
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2018/12/26/%E6%B1%87%E7%BC%96/%E6%B1%87%E7%BC%962/">
+										汇编2
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/01/01/%E6%B1%87%E7%BC%96/%E6%B1%87%E7%BC%963/">
+										汇编3
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/01/05/%E6%B1%87%E7%BC%96/%E6%B1%87%E7%BC%964/">
+										汇编4
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/01/06/%E6%B1%87%E7%BC%96/%E6%B1%87%E7%BC%965/">
+										汇编5
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/01/07/%E6%B1%87%E7%BC%96/%E6%B1%87%E7%BC%966/">
+										汇编6
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2021/04/12/%E6%B1%87%E7%BC%96/%E9%80%9A%E7%94%A8%E5%AF%84%E5%AD%98%E5%99%A8/">
+										通用寄存器
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+		</div>
+	</div>
+</div>
+
+	<!-- 引入正文 -->
+	<div id="content">
+		<h1 id="article-title">
+
+	18Linux之服务基础SSH
+</h1>
+<div class="article-meta">
+	
+	<span>BamB00</span>
+	<span>2019-10-15 00:00:00</span>
+		<div id="article-categories">
+    
+		<span>Categories：</span>
+            
+    
+
+    
+		<span>Tags：</span>
+            
+                
+                    <span>
+                        <i class="fa fa-tag" aria-hidden="true">
+                        <a href="/tags/Linux/">Linux</a>
+                        </i>
+                    </span>
+                
+            
+                
+                    <span>
+                        <i class="fa fa-tag" aria-hidden="true">
+                        <a href="/tags/SSH/">SSH</a>
+                        </i>
+                    </span>
+                
+            
+    
+		</div>
+
+</div>
+
+<div id="article-content">
+	<h1 id="0x01-什么是SSH"><a href="#0x01-什么是SSH" class="headerlink" title="0x01 什么是SSH"></a>0x01 什么是SSH</h1><p>SSH就是一种网络协议，用与在网络主机之间进行加密的一种协议。如从我的电脑使用SSH协议登陆了服务器，我们就认为这一登陆时安全的，即使我们的登陆信息在中间被人截获了，我们的密码也不会被泄露。</p>
+<h1 id="0x02-原理解析"><a href="#0x02-原理解析" class="headerlink" title="0x02 原理解析"></a>0x02 原理解析</h1><p>先通过一幅时序图看看SSH密码登陆原理</p>
+<p> <img src="C:\Users\zhugan\Desktop\笔记整理\笔记图片\Linux\SSH\1.png" alt="ssh原理图"> </p>
+<p>从上图可以看出SSH登陆时，主要分为一下几步</p>
+<ol>
+<li>用户使用<code>ssh user@host</code>命令对远程主机发起登陆</li>
+<li>远程登录将自己公钥返回给请求主机</li>
+<li>请求主机使用公钥对用户输入的密码进行加密</li>
+<li>请求主机将加密后的密码发送给远程主机</li>
+<li>远程主机使用私钥对密码进行解密</li>
+<li>最后，远程主机判断解密后的密码是否与用户密码一致，一致就登陆，否则反之。</li>
+</ol>
+<p>这个过程看上去没有问题，但时存在风险的漏洞。由于SSH不想https协议那样，SSH协议的公钥时没有证书中心(CA)公证的，也就是说，都是自己签发的。这就导致了如果有人截获登陆请求，然后冒充远程主机，将伪造的公钥发给用户，那么用户很难辨别真伪，用户再通过伪造的公钥加密密码，再发送给冒充主机，此时冒充的主机就可以获取用户的登陆密码，那么SSH的安全机制就荡然无存了，也就是我们常说的中间人攻击。</p>
+<p>既然存在这种问题，SSH就想了一个办法来绕开这个问题，也就是下面的known_hosts文件作用。</p>
+<h1 id="0x03-known-hosts的作用"><a href="#0x03-known-hosts的作用" class="headerlink" title="0x03 known_hosts的作用"></a>0x03 known_hosts的作用</h1><p>ssh远程登陆的时候我们会看到这样的提示</p>
+<pre><code class="shell">The authenticity of host &#39;192.168.1.4 (192.168.1.4)&#39; can&#39;t be established.
+ECDSA key fingerprint is SHA256:YMLLk0vyfeoY4rbRTnkMSxY11arS2S4qgVgvnwWpBFw.
+ECDSA key fingerprint is MD5:82:75:be:8e:e7:26:ea:18:73:aa:fc:10:44:c8:4f:c3.
+Are you sure you want to continue connecting (yes/no)? 
+</code></pre>
+<p>上面这段话的意思是，无法确认192.168.1.4主机的真实性，只知道它的公钥指纹，问你还想继续连接吗？这样我们就可以看到，SSH是将这个问题抛给了SSH使用者，让SSH使用者自己来确定是否相信远程主机。但是这样对于用户来说，就存在一个难题，用户怎么知道远程主机的公钥指纹是多少；这的确是一个问题，此时就需要远程主机必须公开自己的公钥指纹，以便用户自行核对。</p>
+<p>在经过用户的风险衡量以后，用户只需要输入<code>yes</code>来决定接受这个远程主机的公钥。紧接着，系统会出现以下这样的一句提示，表示远程主机已经得到认可：</p>
+<pre><code class="shell">Warning: Permanently added &#39;192.168.1.4&#39; (ECDSA) to the list of known hosts.
+</code></pre>
+<p>接下来，用户输入远程主机密码即可完成整个登陆。那这个和我这里要总结的known_hosts文件有什么关系呢？请听我慢慢道来。</p>
+<p>当远程主机的公钥被接受以后，它就会被保存在文件<code>~/.ssh/known_hosts</code>之中。下次再连接这台主机，系统就会认出它的公钥已经保存在本地了，从而跳过警告部分，直接提示输入密码。</p>
+<p> 但是由于<code>known_hosts</code>这个机制的存在，也会引起一些问题，比如远程主机的重新装操作系统了，远程主机就会重新生成公钥，如果我们再登陆远程主机时，由于我们本地的<code>known_hosts</code>文件中记录了原来的公钥，此时就会提示指纹认证失败的错误，这个时候我们只需要删除本地的<code>known_hosts</code>文件即可。又比如，我们经常会写一些自动化的脚本，会自动的登陆到远程主机上去，但是这个<code>known_hosts</code>机制却必须要我们手动输入<code>yes</code>才能完成远程登陆，这样整个自动化登陆就无法完成了，但是我们可以通过修改<code>/etc/ssh/ssh_config</code>配置文件，跳过这个<code>known_hosts</code>的询问机制，将<code># StrictHostKeyChecking ask</code>修改为<code>StrictHostKeyChecking no</code>即可。 </p>
+<h1 id="0x04-公钥免密登陆"><a href="#0x04-公钥免密登陆" class="headerlink" title="0x04 公钥免密登陆"></a>0x04 公钥免密登陆</h1><p>SSH免密登陆的时序图</p>
+<p> <img src="C:\Users\zhugan\Desktop\笔记整理\笔记图片\Linux\SSH\2.png" alt="ssh免密登陆原理图"> </p>
+<p> 上图就是SSh免密登陆原理图，从上图可以看出，SSH免密登陆的前提是使用<code>ssh-keygen -t RSA</code>生成公私秘钥对，然后通过<code>ssh-copy-id -i ~/.ssh/id_rsa.pub user@host</code>命令将公钥分发至远程主机。接下来的每次免密登陆步骤如下： </p>
+<ol>
+<li>用户使用<code>ssh user@host </code> 命令对远程主机发起登录</li>
+<li>远程主机对用户返回一个随机串</li>
+<li>用户所在主机使用私钥对这个随机串加密，并将加密的随机串返回至远程主机</li>
+<li>远程主机使用分发过来的公钥对加密随机串进行解密</li>
+<li>如果解密成功，就证明用户登录信息是正确的，则允许登录</li>
+</ol>
+<p> 通过<code>ssh-copy-id -i ~/.ssh/id_rsa.pub user@host</code>命令分发的公钥都会被保存至远程主机的<code>~/.ssh/authorized_keys</code>文件中。 </p>
+<p>他总共提供</p>
+<ul>
+<li>RSA</li>
+<li>RSA1</li>
+<li>DSA</li>
+<li>ECDSA</li>
+<li>ED25519</li>
+</ul>
+<p>加密方式</p>
+<h2 id="0x041-完整的链接文字描述"><a href="#0x041-完整的链接文字描述" class="headerlink" title="0x041 完整的链接文字描述"></a>0x041 完整的链接文字描述</h2><p><img src="C:\Users\zhugan\Desktop\笔记整理\笔记图片\Linux\SSH\3.png"></p>
+<h2 id="0x042-密钥验证登录过程"><a href="#0x042-密钥验证登录过程" class="headerlink" title="0x042 密钥验证登录过程"></a>0x042 密钥验证登录过程</h2><ol>
+<li><p>客户端生成密钥对文件</p>
+<pre><code class="shell">#ssh-keygen -t rsa -b 2048
+    -t 指定加密类型(rsa/dsa等)
+    -b 指定密钥对加密长度
+    #建议加密长度&gt;=256 124密码已经能被快速爆破出来了
+</code></pre>
+<pre><code>[root@centos7 ~]# ssh-keygen -t rsa -b 1024
+Generating public/private rsa key pair.
+Enter file in which to save the key (/root/.ssh/id_rsa): 
+</code></pre>
+<p>问题一: 是否指定安放密钥路径</p>
+<p>​        一般默认保存在当前用户家目录下的<code>.ssh/</code>下</p>
+<p>问题二: 是否钥对密钥文件进行加密</p>
+<ul>
+<li>加密: 若加密，则在调用密钥文件时需要先验证密钥的秘密，密码正确才能是否使用密码</li>
+<li>不加密: 若不加密，则密钥文件可以直接被调用，整个登录验证过程无需输入任何密码，即免密登录</li>
+</ul>
+</li>
+<li><p>将公钥文件上传到服务器</p>
+<p>ssh-copy-id 用户名@IP</p>
+</li>
+<li><p>客户端尝试登录服务器</p>
+<p>ssh 用户名@IP</p>
+<p>#密钥对验证优先级大于账户密码验证</p>
+</li>
+</ol>
+<h2 id="0x043-设置服务器禁止密码登录"><a href="#0x043-设置服务器禁止密码登录" class="headerlink" title="0x043 设置服务器禁止密码登录"></a>0x043 设置服务器禁止密码登录</h2><p>将<code>/etc/ssh/sshd_config</code>里面</p>
+<pre><code class="shell"># To disable tunneled clear text passwords, change to no here!
+#PasswordAuthentication yes
+#PermitEmptyPasswords no
+PasswordAuthentication yes
+#唯一生效的密码验证改为no即可
+</code></pre>
+<h2 id="0x044-禁止使用root远程登录"><a href="#0x044-禁止使用root远程登录" class="headerlink" title="0x044 禁止使用root远程登录"></a>0x044 禁止使用root远程登录</h2><p>​    在运维管理中尽量不要允许root远程登录，在需要root权限的时候再使用普通用户切换即可</p>
+<p>​    将<code>/etc/ssh/sshd_config</code>里面</p>
+<pre><code class="shell">#PermitRootLogin yes 
+将开启并且改为No 即
+PermitRootLogin no
+</code></pre>
+<h2 id="0x045-修改默认端口，限制ssh监听IP"><a href="#0x045-修改默认端口，限制ssh监听IP" class="headerlink" title="0x045 修改默认端口，限制ssh监听IP"></a>0x045 修改默认端口，限制ssh监听IP</h2><p>修改默认端口: ssh作为一个来远程管理服务器的工具，需要特别的安全，默认情况下使用TCP的22端口，若不进行修改很容易进行遭受到，所以我们一般都会修改端口，尽量使用一个高位端口(端口范围1-65535)</p>
+<p>​    将<code>/etc/ssh/sshd_config</code>里面</p>
+<pre><code class="shell">#Port 22
+Port 33333
+登录方法:
+ssh -p 端口号 用户名@IP
+</code></pre>
+<p><strong>限制ssh监听IP</strong>:  只监听某一个IP的传输。有些服务则安全级别更高一些，不允许使用外网直接登录， 只有通过局域网才能登录，我们可以在机房里设置其中一台能够被外网远程连接，其他主机都通过这个主机远程来接到外网即可 </p>
+<p>同样是配置文件</p>
+<pre><code class="shell">ListenAddress 192.168.205.130
+</code></pre>
+<h1 id="0x05-SSH-端口转发"><a href="#0x05-SSH-端口转发" class="headerlink" title="0x05 SSH 端口转发"></a>0x05 SSH 端口转发</h1><p>SSH 再渗透中有时候作为一个端口转发工具也是一个不错的选择</p>
+<h2 id="0x051-本地端口转发"><a href="#0x051-本地端口转发" class="headerlink" title="0x051 本地端口转发"></a>0x051 本地端口转发</h2><p> 本地端口转发指的是在本机上发起请求，由 ssh client 转发到远程的机器上。它的命令如下： </p>
+<pre><code class="shell">ssh -L &lt;port_a&gt;:&lt;remote host&gt;:&lt;port_b&gt; user_b@ip_b
+</code></pre>
+<p>下图中，远程的机器上起了一个服务 <code>python3 -m http.server</code>，它监听端口 <code>8000</code>，现在我们想在本机访问这个服务，但由于防火墙的存在，<code>8000</code> 端口无法直接访问，于是我们使用 ssh 端口转发。 </p>
+<p> <img src="https://lotabout.me/2019/SSH-Port-Forwarding/local-port-forwarding-single.svg" alt="img"> </p>
+<p>首先在 A 上执行 <code>ssh -L 1234:localhost:8000 user_b@ip_b</code> 建立 ssh 隧道，它表示：所有对 <code>A:1234</code> 端口的请求，相当于在 <code>B</code> 机器上对 <code>localhost:8000</code> 的请求。因此在 A 上执行 <code>curl localhost:1234</code> 就相当于访问 B 机器上的 python 服务。 </p>
+<p> 上面的情况是服务部署在 ssh server 所在的机器（B）上，那么如果服务部署在其它的机器上呢？  <img src="https://lotabout.me/2019/SSH-Port-Forwarding/local-port-forwarding-two.svg" alt="img"> </p>
+<p> 可以看到我们只是把上例中的 <code>localhost</code> 换成了 C 机器的 hostname/IP 就可以了。此时，发送到 <code>A:1234</code> 的请求相当于从 B 机器上对 <code>remote:8000</code> 的请求，图中在 <code>/etc/hosts</code> 中设置了 hostname 和 IP 的对应关系，直接用机器 C 的 IP 也是可以的。可以看到，机器 A 由于防火墙无法访问内网的服务，但是由于 </p>
+<ul>
+<li>机器 A 可以 ssh 到内网机器 B</li>
+<li>且 B 有权限访问内网的其它服务</li>
+</ul>
+<p>通过本地端口转发可以实现从 A 访问内网的服务。</p>
+<h2 id="0x052-远程端口转发"><a href="#0x052-远程端口转发" class="headerlink" title="0x052 远程端口转发"></a>0x052 远程端口转发</h2><p>上节中，本地机器 A 可以 ssh 到内网机器 B，但如果防火墙不允许呢（或者 B 没有公网的 IP）？如果机器 A 有公网的 IP，且机器 B 允许联网，则可以通过远程端口转发完成。远程端口转发的命令如下： </p>
+<pre><code class="shell">ssh -R &lt;port_a&gt;:&lt;remote host&gt;:&lt;port_a&gt; user_a@ip_a
+</code></pre>
+<p> 与之前不同，此时 ssh server 是运行在本地机器 A 上，在内网机器 B 上执行上述命令。 </p>
+<p> <img src="https://lotabout.me/2019/SSH-Port-Forwarding/remote-port-forwarding.svg" alt="img"> </p>
+<p>为什么称作“远程转发”呢？把最终请求的发起方（机器 A）为“本地”，服务所在的机器 B/C 为“远程”，在本地机器上执行 <code>ssh</code> 命令就称为“本地转发”，在远程机器上执行命令就称为“远程转发”。 </p>
+<h2 id="0x053-路由转发"><a href="#0x053-路由转发" class="headerlink" title="0x053 路由转发"></a>0x053 路由转发</h2><p>上面的例子中，机器 A 配置好本地转发后，<code>A:1234</code> 只能被机器 A 访问，如果本地还有其它机器想访问这个服务怎么办？可以使用 <code>-g</code> 开启路由模式，命令如下： </p>
+<pre><code class="shell">ssh -g -L &lt;port_a&gt;:&lt;remote host&gt;:&lt;port_b&gt; user_b@ip_b
+</code></pre>
+<p> 但要注意的是本地机器间的连接（下图中 <code>X-&gt;A</code>、<code>B-&gt;C</code>）不是安全连接，所以要谨慎使用 </p>
+<p> <img src="https://lotabout.me/2019/SSH-Port-Forwarding/local-port-forwarding-gateway.svg" alt="img"> </p>
+<p> 要注意的是上述方法只对“本地转发”有效，如果想要在远程转发上使用路由功能，需要在“本地”机器 A 中的 <code>/etc/sshd_config</code> 中加入 <code>GatewayPorts yes</code> 并重启 sshd 服务： </p>
+<p> <img src="https://lotabout.me/2019/SSH-Port-Forwarding/remote-port-forwarding-gateway.svg" alt="img"> </p>
+<h2 id="0x054-动态转发"><a href="#0x054-动态转发" class="headerlink" title="0x054 动态转发"></a>0x054 动态转发</h2><p>上面的所有方法都只针对一个端口，想要转发所有端口怎么做？ </p>
+<pre><code class="shell">ssh -D &lt;port&gt; user@remote_ip
+</code></pre>
+<p> 这个模式对本地和远程转发都有效，它的工作模式和 Shadow Socks 很像，会在本地创建一个 Socks5 代理服务，监听端口 ``，并将所有请求转发到远程机器上。如下图： </p>
+<p> <img src="https://lotabout.me/2019/SSH-Port-Forwarding/dynamic-port-forwarding.svg" alt="img"> </p>
+<p> 图中我们通过 <code>curl -x socks5h://...</code> 来指定使用 Socks5 代理，在机器 A 上请求 <code>ip_c:8000</code> 时，相当于在 B 机器上发起对 <code>ip_c:8000</code> 的请求。 </p>
+<h1 id="0x06-SSH服务相关命令"><a href="#0x06-SSH服务相关命令" class="headerlink" title="0x06 SSH服务相关命令"></a>0x06 SSH服务相关命令</h1><h2 id="0x061-scp：-安全的远程文件复制命令"><a href="#0x061-scp：-安全的远程文件复制命令" class="headerlink" title="0x061 scp： 安全的远程文件复制命令"></a>0x061 scp： 安全的远程文件复制命令</h2><p>scp时secure copy的简写，用于在Linux下进行远程拷贝的命令，类似的命令有cp,scp传输是加密的，所以回影响一点速度。另外,scp还非常不占资源，不会提高多少系统负荷</p>
+<pre><code class="shell">#scp [选项] 本地文件 用户名@IP
+选项:
+    -P 端口
+</code></pre>
+<h2 id="0x062-stfp-安全的文件传输"><a href="#0x062-stfp-安全的文件传输" class="headerlink" title="0x062 stfp: 安全的文件传输"></a>0x062 stfp: 安全的文件传输</h2><p>sftp是Secure File Transfer Protocol的缩写，安全文件传输协议。sftp与ftp有着几乎一样的语法和功能。由于这中传输方式使用了加密/解密计算，所以sftp比ftp更安全一些，但传输小于回低很多。 </p>
+<pre><code>#sftp [选项] 用户名@服务器
+选项:
+ -oPort=端口
+交互命令:
+ help:
+ pwd/lpwd: pwd是查看服务器所在路径: lpwd是查看客户端所在路径
+ ls/lls: ls是查看服务器当前目录下的文件列表： lls是查看客户端当前目录下的文件列表
+ put: 将客户端中的指定文件上传到服务器端
+ get: 将服务器端的指定文件下载到客户端当前目录
+ rm: 删除掉服务端的指定目录
+ quit： 退出交互模式且断开连接
+</code></pre>
+
+</div>
+
+
+    <div class="post-guide">
+        <div class="item left">
+            
+              <a href="/2019/11/08/Linux/03Linuxz%E4%B9%8B%E5%B8%B8%E7%94%A8%E7%9A%84%E5%91%BD%E4%BB%A4/">
+                  <i class="fa fa-angle-left" aria-hidden="true"></i>
+                  03Linuxz之常用的命令
+              </a>
+            
+        </div>
+        <div class="item right">
+            
+              <a href="/2019/10/13/Linux/linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">
+                linux常用命令
+                <i class="fa fa-angle-right" aria-hidden="true"></i>
+              </a>
+            
+        </div>
+    </div>
+
+
+
+
+<script>
+	
+	
+</script>
+	</div>
+	<div id="footer">
+	<p>
+	©2020-<span id="footerYear"></span> 
+	<a href="/">BamB00</a> 
+	
+	
+		|
+		<span id="busuanzi_container_site_pv">
+			pv
+			<span id="busuanzi_value_site_pv"></span>
+		</span>
+		|
+		<span id="busuanzi_container_site_uv"> 
+			uv
+			<span id="busuanzi_value_site_uv"></span>
+		</span>
+	
+	<br>
+	Theme <a href="//github.com/wujun234/hexo-theme-tree" target="_blank">Tree</a>
+	by <a href="//github.com/wujun234" target="_blank">WuJun</a>
+	Powered by <a href="//hexo.io" target="_blank">Hexo</a>
+	</p>
+</div>
+<script type="text/javascript"> 
+	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
+</script>
+	<button id="totop-toggle" class="toggle"><i class="fa fa-angle-double-up" aria-hidden="true"></i></button>
+</body>
+</html>

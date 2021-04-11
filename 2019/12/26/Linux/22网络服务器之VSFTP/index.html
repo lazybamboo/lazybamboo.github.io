@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8">
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+	
+	<!-- title -->
+	
+	<title>
+	
+		网络服务之VSFTP | 
+	 
+	竹竿小站
+	</title>
+	
+	<!-- keywords,description -->
+	 
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.jpg">
+	
+
+
+	<!-- search -->
+	<script>
+		var searchEngine = "https://www.baidu.com/s?wd=";
+		if(typeof searchEngine == "undefined" || searchEngine == null || searchEngine == ""){
+			searchEngine = "https://www.google.com/search?q=";
+		}
+		var homeHost = "bamboo.github.io";
+		if(typeof homeHost == "undefined" || homeHost == null || homeHost == ""){
+			homeHost = window.location.host;
+		}
+	</script>
+
+
+	
+<link rel="stylesheet" href="/css/main.css">
+
+	
+<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.min.css">
+
+	
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.17.1/build/styles/darcula.min.css">
+
+	
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+
+
+	
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+
+	
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
+	
+<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.17.1/build/highlight.min.js"></script>
+
+	
+<script src="https://cdn.jsdelivr.net/npm/jquery-pjax@2.0.1/jquery.pjax.min.js"></script>
+
+	
+<script src="/js/main.js"></script>
+
+	
+		
+<script src="https://cdn.jsdelivr.net/npm/leancloud-storage/dist/av-min.js"></script>
+
+		
+<script src="https://cdn.jsdelivr.net/npm/valine@1.3.10/dist/Valine.min.js"></script>
+
+	
+	
+		<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+	
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+	<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?3efe99c287df5a1d6f0d02d187e403c1";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+<header id="header">
+    <a id="title" href="/" class="logo">竹竿小站</a>
+
+	<ul id="menu">
+		<li class="menu-item">
+			<a href="/about" class="menu-item-link">ABOUT</a>
+		</li>
+	
+		<li class="menu-item">
+			<a href="/tags" class="menu-item-link">标签</a>
+		</li>
+	
+
+	
+		<li class="menu-item">
+			<a href="/categories" class="menu-item-link">分类</a>
+		</li>
+	
+
+		<li class="menu-item">
+			<a href="https://github.com/wujun234/uid-generator-spring-boot-starter" class="menu-item-link" target="_blank">
+				UidGenerator
+			</a>
+		</li>
+		<li class="menu-item">
+			<a href="https://github.com/wujun234" class="menu-item-link" target="_blank">
+				<i class="fa fa-github fa-2x"></i>
+			</a>
+		</li>
+	</ul>
+</header>
+
+	
+<div id="sidebar">
+	<button id="sidebar-toggle" class="toggle" ><i class="fa fa-arrow-right " aria-hidden="true"></i></button>
+	
+	<div id="site-toc">
+		<input id="search-input" class="search-input" type="search" placeholder="按回车全站搜索">
+		<div id="tree">
+			
+
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Linux
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/2017/08/08/Linux/01linux-%E5%AE%89%E8%A3%85/">
+										01linux-安装
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/11/08/Linux/02Linux%E5%AD%A6%E5%89%8D%E9%A1%BB%E7%9F%A5/">
+										02Linux学前须知
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/11/08/Linux/03Linuxz%E4%B9%8B%E5%B8%B8%E7%94%A8%E7%9A%84%E5%91%BD%E4%BB%A4/">
+										03Linuxz之常用的命令
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2021/04/12/Linux/04Linux%E4%B9%8BVim/">
+										04Linux之Vim
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/11/14/Linux/05Linux%E4%B9%8B%E8%BD%AF%E4%BB%B6%E5%8C%85/">
+										05Linux之软件包
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/11/18/Linux/06Linux%E4%B9%8B%E7%94%A8%E6%88%B7%E7%AE%A1%E7%90%86/">
+										06Linux之用户管理
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/11/19/Linux/07Linux%E4%B9%8B%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/">
+										07Linux之权限管理
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/11/20/Linux/08Linux%E4%B9%8B%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F%E7%AE%A1%E7%90%86/">
+										08Linux之文件系统管理
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/11/23/Linux/09Linux%E4%B9%8B%E9%AB%98%E7%BA%A7%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F/">
+										09Linux之高级文件管理系统
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/11/24/Linux/10Linux%E4%B9%8Bshell/">
+										10Linux之shell
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/11/26/Linux/11Linux%E4%B9%8Bshell%E9%AB%98%E7%BA%A7/">
+										11Linux之shell高级
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/12/02/Linux/12Linux%E4%B9%8B%E5%90%AF%E5%8A%A8%E5%BC%95%E5%AF%BC%E4%B8%8E%E4%BF%AE%E5%A4%8D/">
+										12Linux之启动引导与修复
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/12/06/Linux/13Linux%E4%B9%8B%E6%9C%8D%E5%8A%A1%E7%AE%A1%E7%90%86/">
+										13Linux之服务管理
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/12/10/Linux/14Linux%E4%B9%8B%E7%B3%BB%E7%BB%9F%E7%AE%A1%E7%90%86/">
+										14Linux之系统管理
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/12/06/Linux/15Linux%E4%B9%8B%E7%B3%BB%E7%BB%9F%E6%97%A5%E5%BF%97/">
+										15Linux之系统日志
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/12/17/Linux/16Centos6%E5%92%8CCentos7%E5%9F%BA%E6%9C%AC%E5%AF%B9%E6%AF%94/">
+										16Centos6和Centos7基本对比
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/12/17/Linux/17Linux%E4%B9%8B%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/">
+										17Linux之网络基础
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/10/15/Linux/18Linux%E4%B9%8B%E6%9C%8D%E5%8A%A1%E5%9F%BA%E7%A1%80SSH/">
+										18Linux之服务基础SSH
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/12/18/Linux/19Linux%E4%B9%8B%E6%9C%8D%E5%8A%A1%E5%9F%BA%E7%A1%80TCP%20Wrappers/">
+										19Linux之服务基础TCP Wrappers
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/12/18/Linux/20%E7%BD%91%E7%BB%9C%E6%9C%8D%E5%8A%A1%E4%B9%8BDHCP/">
+										20网络服务之DHCP
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/12/20/Linux/21%E7%BD%91%E7%BB%9C%E6%9C%8D%E5%8A%A1%E4%B9%8BDNS/">
+										21网络服务之DNS
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file active">
+									<a href="/2019/12/26/Linux/22%E7%BD%91%E7%BB%9C%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B9%8BVSFTP/">
+										22网络服务器之VSFTP
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/10/11/Linux/Bash%E5%BF%AB%E6%8D%B7%E9%94%AE/">
+										Bash快捷键
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/10/10/Linux/LInux-CDN%E7%AE%80%E4%BB%8B/">
+										LInux-CDN简介
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/10/08/Linux/Llinux-DNS-%E8%AF%A6%E8%A7%A3/">
+										Llinux-DNS-详解
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/10/13/Linux/linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">
+										linux常用命令
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2021/04/12/Linux/%E5%8D%8A%E8%99%9A%E6%8B%9F%E5%8C%96%E5%92%8C%E7%A1%AC%E4%BB%B6%E8%99%9A%E6%8B%9F%E5%8C%96%E7%9A%84%E4%B8%BB%E8%A6%81%E5%8C%BA%E5%88%AB/">
+										半虚拟化和硬件虚拟化的主要区别
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										web渗透
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/2020/09/17/web%E6%B8%97%E9%80%8F/01SQL%E6%B3%A8%E5%85%A5/">
+										01SQL注入
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										搭建
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/2018/11/18/%E6%90%AD%E5%BB%BA/NextCloud/">
+										NextCloud
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2018/11/18/%E6%90%AD%E5%BB%BA/Nmap-Sublist3r-Hydra%E5%AE%89%E8%A3%85%EF%BC%88Ubuntu%E7%8E%AF%E5%A2%83%EF%BC%89/">
+										Nmap-Sublist3r-Hydra安装（Ubuntu环境）
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/04/11/%E6%90%AD%E5%BB%BA/hadoop%E5%8D%95%E6%9C%BA%E9%9B%86%E7%BE%A4%E6%90%AD%E5%BB%BA/">
+										hadoop单机集群搭建
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										汇编
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/2018/12/20/%E6%B1%87%E7%BC%96/%E6%B1%87%E7%BC%961/">
+										汇编1
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2018/12/26/%E6%B1%87%E7%BC%96/%E6%B1%87%E7%BC%962/">
+										汇编2
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/01/01/%E6%B1%87%E7%BC%96/%E6%B1%87%E7%BC%963/">
+										汇编3
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/01/05/%E6%B1%87%E7%BC%96/%E6%B1%87%E7%BC%964/">
+										汇编4
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/01/06/%E6%B1%87%E7%BC%96/%E6%B1%87%E7%BC%965/">
+										汇编5
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/01/07/%E6%B1%87%E7%BC%96/%E6%B1%87%E7%BC%966/">
+										汇编6
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2021/04/12/%E6%B1%87%E7%BC%96/%E9%80%9A%E7%94%A8%E5%AF%84%E5%AD%98%E5%99%A8/">
+										通用寄存器
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+		</div>
+	</div>
+</div>
+
+	<!-- 引入正文 -->
+	<div id="content">
+		<h1 id="article-title">
+
+	22网络服务器之VSFTP
+</h1>
+<div class="article-meta">
+	
+	<span>BamB00</span>
+	<span>2019-12-26 00:00:00</span>
+		<div id="article-categories">
+    
+		<span>Categories：</span>
+            
+    
+
+    
+		<span>Tags：</span>
+            
+                
+                    <span>
+                        <i class="fa fa-tag" aria-hidden="true">
+                        <a href="/tags/网络服务/">网络服务</a>
+                        </i>
+                    </span>
+                
+            
+    
+		</div>
+
+</div>
+
+<div id="article-content">
+	<h1 id="0x01-VSFTP概述"><a href="#0x01-VSFTP概述" class="headerlink" title="0x01 VSFTP概述"></a>0x01 VSFTP概述</h1><p>​    FTP是file transfer protaocol （文件传输协议)的英文简称，用户Internet上的双向传输。使用FTPl来传输时，是具有一定程度的危险性，因为是明文传输。</p>
+<p>​    VSFTP是一个基于GPL发布的类Unix系统上使用FTP服务器软件，全称Very Secure FTP.</p>
+<h2 id="0x011-特性"><a href="#0x011-特性" class="headerlink" title="0x011 特性"></a>0x011 特性</h2><ol>
+<li>Vsftp程序是额运行者一般是普通用户，降低了相对应进程的权限，提高了安全性</li>
+<li>任何需要执行较高权限的指令都需要上层程序许可</li>
+<li>ftp所需要用的绝大多数命令都被整合到vsftp中，基本不需要系统额外提供命令</li>
+<li>拥有chroot功能，可以改变用户的根目录，限制用户只能再自己的home目录。</li>
+</ol>
+<h1 id="0x02-VSFTP连接类型"><a href="#0x02-VSFTP连接类型" class="headerlink" title="0x02 VSFTP连接类型"></a>0x02 VSFTP连接类型</h1><pre><code class="mermaid">graph LR
+    A[控制连接 持续连接]
+    B[TCP21 命令通道]
+    C[收发FTP命令]
+    A --&gt; B --&gt; C
+    D[数据连接 按需连接]
+    E[TCP20 数据通道]
+    F[用于上传下载数据]
+    D --&gt; E --&gt; F
+</code></pre>
+<p>一般就算搭建VSFTP运行后，20端口是查不到的。因为是只有用户在21端口操作下载和上传时VSFTP才会启用20端口。</p>
+<h1 id="0x03-VSFTP工作模式"><a href="#0x03-VSFTP工作模式" class="headerlink" title="0x03 VSFTP工作模式"></a>0x03 VSFTP工作模式</h1><p><strong>VSFTP有两种工作模式</strong></p>
+<h2 id="0x031-port-模式-默认"><a href="#0x031-port-模式-默认" class="headerlink" title="0x031 port 模式 (默认)"></a>0x031 port 模式 (默认)</h2><p><img src="C:\Users\zhugan\Desktop\笔记整理\笔记图片\Linux\VSFTPS\01.png"></p>
+<p>主动模式也称Port模式</p>
+<ol>
+<li>FTP客户端首先和服务器的TCP21端口建立连接，用来发送命令</li>
+<li>客户端需要接收数据的时候在这个端口上发送PORT命令</li>
+<li>PORT命令包含了客户端用什么端口接收数据。在传送数据的时候，服务器端通过自己的TCP20端口连接客户端指定端口发送数据。</li>
+<li>FTP Server 必须和客户端建立一个新的连接用来传送数据。</li>
+</ol>
+<h2 id="0x032-Passive-模式"><a href="#0x032-Passive-模式" class="headerlink" title="0x032 Passive 模式"></a>0x032 Passive 模式</h2><p><img src="C:\Users\zhugan\Desktop\笔记整理\笔记图片\Linux\VSFTPS\02.png"></p>
+<p>被动模式也称Passive模式</p>
+<ol>
+<li>FTP客户端首先和服务器的TCP21端口建立连接，用来发送命令</li>
+<li>但是建立连接后客户端发送Pasv命令。服务器收到Pasv，打开一个临时端口(端口大于1023小于65535)并且通知客户端在这个端口上传送数据的请求</li>
+<li>客户端连接FTP服务器的连接端口，然后FTP服务器将通过这个端口传输数据。</li>
+</ol>
+<h1 id="0x04-VSFTP传输模式"><a href="#0x04-VSFTP传输模式" class="headerlink" title="0x04 VSFTP传输模式"></a>0x04 VSFTP传输模式</h1><p><strong>Binary模式:</strong> 不对数据进行任何处理，适合进行可执行文件，压缩文件，图片等</p>
+<p><strong>ASCII模式:</strong> 在文件传输时，自动适应目标操作系统的结束符，如回车等。</p>
+<p>Redhat 默认采用Binary模式，这样能尽量的保证大多数文件传输后能正常使用。</p>
+<p><strong>切换方式：</strong>在FTP&gt;提示符下输入ascii即切换成ASCII模式，输入bin即binary</p>
+<h1 id="0x05-VSFTP软件信息"><a href="#0x05-VSFTP软件信息" class="headerlink" title="0x05 VSFTP软件信息"></a>0x05 VSFTP软件信息</h1><p>服务端软件名: vsftpd</p>
+<p>客户端软件名: ftp</p>
+<p>服务名: vsftpd</p>
+<p>端口号: 20,21,指定范围内随机端口</p>
+<p>配置文件: <code>/etc/vsftpd/vsftpd.conf</code></p>
+<h1 id="0x06-登录验证方式"><a href="#0x06-登录验证方式" class="headerlink" title="0x06 登录验证方式"></a>0x06 登录验证方式</h1><h2 id="0x061-匿名用户验证"><a href="#0x061-匿名用户验证" class="headerlink" title="0x061 匿名用户验证:"></a>0x061 匿名用户验证:</h2><p>用户账号名称: ftp或anonymous</p>
+<p>用户账号密码: 无密码</p>
+<p>工作目录: <code>/var/ftp</code></p>
+<p>默认权限: 默认可下载不可上传，上传权限由两部分组成(主配置文件和文件系统)</p>
+<h2 id="0x062-本地用户验证"><a href="#0x062-本地用户验证" class="headerlink" title="0x062 本地用户验证"></a>0x062 本地用户验证</h2><p>用户账号名称: 本地用户 <code>/etc/passwd</code></p>
+<p>用户账号密码: 用户密码 <code>/etc/shadow</code></p>
+<p>工作目录: 登录用户的Home目录</p>
+<p>权限: 最大权限( drwx——)</p>
+<h2 id="0x063-虚拟-virtual-用户验证"><a href="#0x063-虚拟-virtual-用户验证" class="headerlink" title="0x063 虚拟(virtual) 用户验证"></a>0x063 虚拟(virtual) 用户验证</h2><ol>
+<li>创建虚拟用户来代替本地用户，减少本地用户曝光率</li>
+<li>使用本地用户作为虚拟用户的映射用户，为虚拟用户提供工作目录和权限控制</li>
+<li>能够设置严格权限(为每一个用户生成单独的配置文件)</li>
+</ol>
+<pre><code class="mermaid">graph LR
+A1[客户端]
+A2[匿名帐户:ftp,anonymous,/var/ftp]
+A1 --&gt; 匿名账户 --&gt; A2
+</code></pre>
+<h1 id="0x07-实验部署"><a href="#0x07-实验部署" class="headerlink" title="0x07 实验部署"></a>0x07 实验部署</h1><p><strong>匿名权限控制选项:</strong></p>
+<pre><code>anonymous_enable=YES：  #启用匿名访问
+anon_umask=022：        #匿名用户所上传文件的权限掩码
+anon_root=/var/ftp：    #匿名用户的FTP根目录
+anon_upload_enable=YES：#允许上传文件
+anon_mkdir_write_enable=YES：#允许创建目录
+anon_other_write_enable=YES：#开放其他写入权
+anon_max_rate=0：            #限制最大传输速率，单位为字节
+</code></pre>
+<p><strong>本地用户权限控制选项:</strong></p>
+<pre><code class="shell">listen=YES：#是否以独立运行的方式监听服务
+listen_address=192.168.4.1：#设置监听的IP地址
+listen_port=21：#设置监听FTP服务的端口号
+write_enable=YES：#是否启用写入权限
+download_enable＝YES：#是否允许下载文件
+userlist_enable=YES：#是否允许user_list中的中户登录
+userlist_deny=YES：#是否禁用user_list中的用户
+max_clients=0：#限制并发客户端连接数
+max_per_ip=0：#限制同一IP地址的并发连接数
+chroot_local_user=YES #是否将用户禁锢在主目录
+chroot_list_enable=YES #允许/etc/vsftpd/chroot_list里的目录用户随意切换目录
+配置文件: ftpusers 
+#禁止/etc/vsftpd/ftpusers 文件中出现的用户登录FTP，权限比user_list更高，即使生效
+
+#修改被动模式数据传输的端口
+pasv_enable=YES
+pasv_min_post=30000
+pasv_max_post=50000
+传输端口就会在30000~50000中随机一个
+</code></pre>
+<p><img src="C:\Users\zhugan\AppData\Roaming\Typora\typora-user-images\image-20200103094119955.png" alt="image-20200103094119955"></p>
+<p>注意:虚拟账户使用的时匿名用户的权限，需要在在主文件上取消anon权限。在单独配置文件的时候可以写对应的权限。</p>
+<h1 id="0x08-Openssl-vsftpd加密验证"><a href="#0x08-Openssl-vsftpd加密验证" class="headerlink" title="0x08 Openssl+vsftpd加密验证"></a>0x08 Openssl+vsftpd加密验证</h1><p>FTP传输的过程是明文传输的。</p>
+<p>扩展:</p>
+<p>tcpdump 这个可以拿来做Linux的指定端口抓包工具</p>
+<pre><code class="shell">tcpdump [选项] [端口号]
+选项:
+    -i : interface指定Tcpdump需要监听的端口
+    -n : 对地址以数字的方式显示，否则显示为主机名
+    -nn : 除了——n的作用外，还会把端口显示为数值，否则显示端口为服务名
+    -X ：输出包的头部数据，会以16进制和ASCII码两种方式同时输出
+    -vv : 产生更详细的输出
+</code></pre>
+<h2 id="0x081-Openssl"><a href="#0x081-Openssl" class="headerlink" title="0x081 Openssl"></a>0x081 Openssl</h2><p><strong>1. 检查是否安装了Openssl</strong></p>
+<pre><code class="shell">rpm -q openssl
+</code></pre>
+<p><strong>2. 查看vsftpd 是否支持openssl</strong></p>
+<pre><code class="shell">ldd /usr/sbin/vsftpd | grep libssl
+</code></pre>
+<p><strong>3. 生产加密信息的密钥和证书文件</strong></p>
+<p>默认位置在 : <code>/etc/ssl/certs/</code></p>
+<p>​    生成步骤:</p>
+<ol>
+<li><p><code>openssl genrsa -out vsftpd.key 1024</code>   #建立服务器私钥</p>
+</li>
+<li><p><code>openssl req -new -key vsftpd.key -out vsftpd.csr</code> #通过密钥生成对应的证书文件</p>
+<p>需要依次输入国家，地区，组织，组织单位，邮箱等信息。最重要的是有一个common name，可以写你的名字或者域名。如果为了https申请，这个必须和域名吻合，否则游览器会报错。生成的csr文件交给CA签名后形成服务端自己的证书 </p>
+</li>
+<li><p><code>openssl x509 -req -days 365 -sha256 -in vsftpd.csr -sinkey vsftpd.key -out vsftpd.csr</code></p>
+<p>#使用CA服务器签发证书，设置证书的有效期等信息</p>
+</li>
+</ol>
+<p>注意1: 生成完密钥和证书之后，将本目录<code>/etc/ssl/certs/</code>的权限修改为500.</p>
+<p>注意2:在实验环境中可以用命令生成测试，在生产环境中必须要在https证书厂商主从(否则游览器不识别)</p>
+<p><strong>4. 修改vsftp主配置文件</strong>    </p>
+<pre><code># vi /etc/vsftpd/vsftpd.conf
+ssl_enable=YES #启动认证
+ssl_tlsv1=YES
+ssl_tlsv2=YES
+ssl_tlsv3=YES
+#开启tlsv1,2,3
+allow_anon_ssl=YES
+#允许匿名用户和虚拟用户
+force_anon_logins_ssl=YES
+force_anon_data_ssl=YES
+#匿名登陆和传输时强制使用SSL加密
+force_local_logins_ssl=YES
+force_local_data_ssl=YES
+#本地用户登录和传输时强制使用SSL加密
+rsa_cert_file=/etc/ssl/certs/vsftpd.crt
+#指定rsa证书位置
+rsa_private_key=/etc/ssl/certs/vsftpd.key
+#指定rsa密钥位置
+</code></pre>
+
+</div>
+
+
+    <div class="post-guide">
+        <div class="item left">
+            
+              <a href="/2020/09/17/web%E6%B8%97%E9%80%8F/01SQL%E6%B3%A8%E5%85%A5/">
+                  <i class="fa fa-angle-left" aria-hidden="true"></i>
+                  01SQL注入
+              </a>
+            
+        </div>
+        <div class="item right">
+            
+              <a href="/2019/12/20/Linux/21%E7%BD%91%E7%BB%9C%E6%9C%8D%E5%8A%A1%E4%B9%8BDNS/">
+                21网络服务之DNS
+                <i class="fa fa-angle-right" aria-hidden="true"></i>
+              </a>
+            
+        </div>
+    </div>
+
+
+
+
+<script>
+	
+	
+</script>
+	</div>
+	<div id="footer">
+	<p>
+	©2020-<span id="footerYear"></span> 
+	<a href="/">BamB00</a> 
+	
+	
+		|
+		<span id="busuanzi_container_site_pv">
+			pv
+			<span id="busuanzi_value_site_pv"></span>
+		</span>
+		|
+		<span id="busuanzi_container_site_uv"> 
+			uv
+			<span id="busuanzi_value_site_uv"></span>
+		</span>
+	
+	<br>
+	Theme <a href="//github.com/wujun234/hexo-theme-tree" target="_blank">Tree</a>
+	by <a href="//github.com/wujun234" target="_blank">WuJun</a>
+	Powered by <a href="//hexo.io" target="_blank">Hexo</a>
+	</p>
+</div>
+<script type="text/javascript"> 
+	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
+</script>
+	<button id="totop-toggle" class="toggle"><i class="fa fa-angle-double-up" aria-hidden="true"></i></button>
+</body>
+</html>

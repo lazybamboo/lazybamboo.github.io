@@ -1,0 +1,1228 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8">
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+	
+	<!-- title -->
+	
+	<title>
+	
+		15Linux之系统日志 | 
+	 
+	竹竿小站
+	</title>
+	
+	<!-- keywords,description -->
+	 
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.jpg">
+	
+
+
+	<!-- search -->
+	<script>
+		var searchEngine = "https://www.baidu.com/s?wd=";
+		if(typeof searchEngine == "undefined" || searchEngine == null || searchEngine == ""){
+			searchEngine = "https://www.google.com/search?q=";
+		}
+		var homeHost = "bamboo.github.io";
+		if(typeof homeHost == "undefined" || homeHost == null || homeHost == ""){
+			homeHost = window.location.host;
+		}
+	</script>
+
+
+	
+<link rel="stylesheet" href="/css/main.css">
+
+	
+<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.min.css">
+
+	
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.17.1/build/styles/darcula.min.css">
+
+	
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+
+
+	
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+
+	
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
+	
+<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.17.1/build/highlight.min.js"></script>
+
+	
+<script src="https://cdn.jsdelivr.net/npm/jquery-pjax@2.0.1/jquery.pjax.min.js"></script>
+
+	
+<script src="/js/main.js"></script>
+
+	
+		
+<script src="https://cdn.jsdelivr.net/npm/leancloud-storage/dist/av-min.js"></script>
+
+		
+<script src="https://cdn.jsdelivr.net/npm/valine@1.3.10/dist/Valine.min.js"></script>
+
+	
+	
+		<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+	
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+	<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?3efe99c287df5a1d6f0d02d187e403c1";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+<header id="header">
+    <a id="title" href="/" class="logo">竹竿小站</a>
+
+	<ul id="menu">
+		<li class="menu-item">
+			<a href="/about" class="menu-item-link">ABOUT</a>
+		</li>
+	
+		<li class="menu-item">
+			<a href="/tags" class="menu-item-link">标签</a>
+		</li>
+	
+
+	
+		<li class="menu-item">
+			<a href="/categories" class="menu-item-link">分类</a>
+		</li>
+	
+
+		<li class="menu-item">
+			<a href="https://github.com/wujun234/uid-generator-spring-boot-starter" class="menu-item-link" target="_blank">
+				UidGenerator
+			</a>
+		</li>
+		<li class="menu-item">
+			<a href="https://github.com/wujun234" class="menu-item-link" target="_blank">
+				<i class="fa fa-github fa-2x"></i>
+			</a>
+		</li>
+	</ul>
+</header>
+
+	
+<div id="sidebar">
+	<button id="sidebar-toggle" class="toggle" ><i class="fa fa-arrow-right " aria-hidden="true"></i></button>
+	
+	<div id="site-toc">
+		<input id="search-input" class="search-input" type="search" placeholder="按回车全站搜索">
+		<div id="tree">
+			
+
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Linux
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/2017/08/08/Linux/01linux-%E5%AE%89%E8%A3%85/">
+										01linux-安装
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/11/08/Linux/02Linux%E5%AD%A6%E5%89%8D%E9%A1%BB%E7%9F%A5/">
+										02Linux学前须知
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/11/08/Linux/03Linuxz%E4%B9%8B%E5%B8%B8%E7%94%A8%E7%9A%84%E5%91%BD%E4%BB%A4/">
+										03Linuxz之常用的命令
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2021/04/12/Linux/04Linux%E4%B9%8BVim/">
+										04Linux之Vim
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/11/14/Linux/05Linux%E4%B9%8B%E8%BD%AF%E4%BB%B6%E5%8C%85/">
+										05Linux之软件包
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/11/18/Linux/06Linux%E4%B9%8B%E7%94%A8%E6%88%B7%E7%AE%A1%E7%90%86/">
+										06Linux之用户管理
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/11/19/Linux/07Linux%E4%B9%8B%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/">
+										07Linux之权限管理
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/11/20/Linux/08Linux%E4%B9%8B%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F%E7%AE%A1%E7%90%86/">
+										08Linux之文件系统管理
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/11/23/Linux/09Linux%E4%B9%8B%E9%AB%98%E7%BA%A7%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F/">
+										09Linux之高级文件管理系统
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/11/24/Linux/10Linux%E4%B9%8Bshell/">
+										10Linux之shell
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/11/26/Linux/11Linux%E4%B9%8Bshell%E9%AB%98%E7%BA%A7/">
+										11Linux之shell高级
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/12/02/Linux/12Linux%E4%B9%8B%E5%90%AF%E5%8A%A8%E5%BC%95%E5%AF%BC%E4%B8%8E%E4%BF%AE%E5%A4%8D/">
+										12Linux之启动引导与修复
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/12/06/Linux/13Linux%E4%B9%8B%E6%9C%8D%E5%8A%A1%E7%AE%A1%E7%90%86/">
+										13Linux之服务管理
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/12/10/Linux/14Linux%E4%B9%8B%E7%B3%BB%E7%BB%9F%E7%AE%A1%E7%90%86/">
+										14Linux之系统管理
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file active">
+									<a href="/2019/12/06/Linux/15Linux%E4%B9%8B%E7%B3%BB%E7%BB%9F%E6%97%A5%E5%BF%97/">
+										15Linux之系统日志
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/12/17/Linux/16Centos6%E5%92%8CCentos7%E5%9F%BA%E6%9C%AC%E5%AF%B9%E6%AF%94/">
+										16Centos6和Centos7基本对比
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/12/17/Linux/17Linux%E4%B9%8B%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/">
+										17Linux之网络基础
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/10/15/Linux/18Linux%E4%B9%8B%E6%9C%8D%E5%8A%A1%E5%9F%BA%E7%A1%80SSH/">
+										18Linux之服务基础SSH
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/12/18/Linux/19Linux%E4%B9%8B%E6%9C%8D%E5%8A%A1%E5%9F%BA%E7%A1%80TCP%20Wrappers/">
+										19Linux之服务基础TCP Wrappers
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/12/18/Linux/20%E7%BD%91%E7%BB%9C%E6%9C%8D%E5%8A%A1%E4%B9%8BDHCP/">
+										20网络服务之DHCP
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/12/20/Linux/21%E7%BD%91%E7%BB%9C%E6%9C%8D%E5%8A%A1%E4%B9%8BDNS/">
+										21网络服务之DNS
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/12/26/Linux/22%E7%BD%91%E7%BB%9C%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B9%8BVSFTP/">
+										22网络服务器之VSFTP
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/10/11/Linux/Bash%E5%BF%AB%E6%8D%B7%E9%94%AE/">
+										Bash快捷键
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/10/10/Linux/LInux-CDN%E7%AE%80%E4%BB%8B/">
+										LInux-CDN简介
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/10/08/Linux/Llinux-DNS-%E8%AF%A6%E8%A7%A3/">
+										Llinux-DNS-详解
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/10/13/Linux/linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">
+										linux常用命令
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2021/04/12/Linux/%E5%8D%8A%E8%99%9A%E6%8B%9F%E5%8C%96%E5%92%8C%E7%A1%AC%E4%BB%B6%E8%99%9A%E6%8B%9F%E5%8C%96%E7%9A%84%E4%B8%BB%E8%A6%81%E5%8C%BA%E5%88%AB/">
+										半虚拟化和硬件虚拟化的主要区别
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										web渗透
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/2020/09/17/web%E6%B8%97%E9%80%8F/01SQL%E6%B3%A8%E5%85%A5/">
+										01SQL注入
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										搭建
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/2018/11/18/%E6%90%AD%E5%BB%BA/NextCloud/">
+										NextCloud
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2018/11/18/%E6%90%AD%E5%BB%BA/Nmap-Sublist3r-Hydra%E5%AE%89%E8%A3%85%EF%BC%88Ubuntu%E7%8E%AF%E5%A2%83%EF%BC%89/">
+										Nmap-Sublist3r-Hydra安装（Ubuntu环境）
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/04/11/%E6%90%AD%E5%BB%BA/hadoop%E5%8D%95%E6%9C%BA%E9%9B%86%E7%BE%A4%E6%90%AD%E5%BB%BA/">
+										hadoop单机集群搭建
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										汇编
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/2018/12/20/%E6%B1%87%E7%BC%96/%E6%B1%87%E7%BC%961/">
+										汇编1
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2018/12/26/%E6%B1%87%E7%BC%96/%E6%B1%87%E7%BC%962/">
+										汇编2
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/01/01/%E6%B1%87%E7%BC%96/%E6%B1%87%E7%BC%963/">
+										汇编3
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/01/05/%E6%B1%87%E7%BC%96/%E6%B1%87%E7%BC%964/">
+										汇编4
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/01/06/%E6%B1%87%E7%BC%96/%E6%B1%87%E7%BC%965/">
+										汇编5
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/01/07/%E6%B1%87%E7%BC%96/%E6%B1%87%E7%BC%966/">
+										汇编6
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2021/04/12/%E6%B1%87%E7%BC%96/%E9%80%9A%E7%94%A8%E5%AF%84%E5%AD%98%E5%99%A8/">
+										通用寄存器
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+		</div>
+	</div>
+</div>
+
+	<!-- 引入正文 -->
+	<div id="content">
+		<h1 id="article-title">
+
+	15Linux之系统日志
+</h1>
+<div class="article-meta">
+	
+	<span>BamB00</span>
+	<span>2019-12-06 00:00:00</span>
+		<div id="article-categories">
+    
+		<span>Categories：</span>
+            
+    
+
+    
+		<span>Tags：</span>
+            
+                
+                    <span>
+                        <i class="fa fa-tag" aria-hidden="true">
+                        <a href="/tags/Linux/">Linux</a>
+                        </i>
+                    </span>
+                
+            
+                
+                    <span>
+                        <i class="fa fa-tag" aria-hidden="true">
+                        <a href="/tags/log/">log</a>
+                        </i>
+                    </span>
+                
+            
+    
+		</div>
+
+</div>
+
+<div id="article-content">
+	<h1 id="0x01-日志简介"><a href="#0x01-日志简介" class="headerlink" title="0x01 日志简介"></a>0x01 日志简介</h1><h2 id="0x011-日志相关服务"><a href="#0x011-日志相关服务" class="headerlink" title="0x011 日志相关服务"></a>0x011 日志相关服务</h2><p>在Centos 6.x日志服务已经由rsyslogd取代了原先的syslogd服务。Redhat认为syslogd已经不能满足在工作中的需求，rsyslogd相比syslogd具有一些新的特点：</p>
+<ul>
+<li>基于TCP网络协议传输日志信息</li>
+<li>更安全的网络传输方式</li>
+<li>有日志消息的及时分析框架ELK</li>
+<li>后台数据库</li>
+<li>配置文件中可以写简单的逻辑判断</li>
+<li>与syslog配置文件相兼容</li>
+</ul>
+<h2 id="0x012-系统中常见的日志文件"><a href="#0x012-系统中常见的日志文件" class="headerlink" title="0x012 系统中常见的日志文件"></a>0x012 系统中常见的日志文件</h2><table>
+<thead>
+<tr>
+<th>日志文件</th>
+<th>说 明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>/var/log/cron</td>
+<td>记录与系统定时任务相关的曰志</td>
+</tr>
+<tr>
+<td>/var/log/cups/</td>
+<td>记录打印信息的曰志</td>
+</tr>
+<tr>
+<td>/var/log/dmesg</td>
+<td>记录了系统在开机时内核自检的信总。也可以使用dmesg命令直接查看内核自检信息</td>
+</tr>
+<tr>
+<td>/var/log/btmp</td>
+<td>记录错误登陆的日志。这个文件是二进制文件，不能直接用Vi查看，而要使用lastb命令查看。命令如下：  [root@localhost log]#lastb  root tty1 Tue Jun 4 22:38 - 22:38 (00:00)  #有人在6月4 日 22:38便用root用户在本地终端 1 登陆错误</td>
+</tr>
+<tr>
+<td>/var/log/lasllog</td>
+<td>记录系统中所有用户最后一次的登录时间的曰志。这个文件也是二进制文件.不能直接用Vi 查看。而要使用lastlog命令查看</td>
+</tr>
+<tr>
+<td>/var/Iog/mailog</td>
+<td>记录邮件信息的曰志</td>
+</tr>
+<tr>
+<td>/var/log/message</td>
+<td>记录系统里要佶息的日志.这个日志文件中会记录Linux系统的绝大多数重要信息。如果系统出现问题，首先要检查的应该就是这个日志文件</td>
+</tr>
+<tr>
+<td>/var/log/secure</td>
+<td>记录验证和授权方面的倍息，只要涉及账户和密码的程序都会记录，比如系统的登录、ssh的登录、su切换用户，sudo授权，甚至添加用户和修改用户密码都会记录在这个日志文件中</td>
+</tr>
+<tr>
+<td>/var/log/wtmp</td>
+<td>永久记录所有用户的登陆、注销信息，同时记录系统的后动、重启、关机事件。同样，这个文件也是二进制文件.不能直接用Vi查看，而要使用last命令查看</td>
+</tr>
+<tr>
+<td>/var/tun/ulmp</td>
+<td>记录当前已经登录的用户的信息。这个文件会随着用户的登录和注销而不断变化，只记录当前登录用户的信息。同样，这个文件不能直接用Vi查看，而要使用w、who、users等命令查看</td>
+</tr>
+</tbody></table>
+<p><strong>只有RPM包才会在LOG下如下面</strong></p>
+<table>
+<thead>
+<tr>
+<th align="center">日志文件</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">/var/log/httpd/</td>
+<td>RPM包安装的apache取务的默认日志目录</td>
+</tr>
+<tr>
+<td align="center">/var/log/mail/</td>
+<td>RPM包安装的邮件服务的额外日志因录</td>
+</tr>
+<tr>
+<td align="center">/var/log/samba/</td>
+<td>RPM色安装的Samba服务的日志目录</td>
+</tr>
+<tr>
+<td align="center">/var/log/sssd/</td>
+<td>守护进程安全服务目录</td>
+</tr>
+</tbody></table>
+<p>如果是源码包安装那么源码包日志都在安装目录下的logs文件目录下</p>
+<h1 id="0x02-rsyslogd-日志服务"><a href="#0x02-rsyslogd-日志服务" class="headerlink" title="0x02 rsyslogd 日志服务"></a>0x02 rsyslogd 日志服务</h1><h2 id="0x021-日志文件格式"><a href="#0x021-日志文件格式" class="headerlink" title="0x021 日志文件格式"></a>0x021 日志文件格式</h2><p>只要是由日志服务rsyslogd记录的日志文件，他们的格式是一样的。基本日志格式包含一下四列</p>
+<ol>
+<li>时间产生的时间</li>
+<li>发生时间的服务器的主机名</li>
+<li>产生时间的服务名或程序名</li>
+<li>时间的具体信息</li>
+</ol>
+<h2 id="0x022-rsyslogd-服务的配置文件"><a href="#0x022-rsyslogd-服务的配置文件" class="headerlink" title="0x022 rsyslogd 服务的配置文件"></a>0x022 rsyslogd 服务的配置文件</h2><h3 id="0x0221-etc-rsyslog-conf-配置文件格式"><a href="#0x0221-etc-rsyslog-conf-配置文件格式" class="headerlink" title="0x0221 /etc/rsyslog.conf 配置文件格式"></a>0x0221 /etc/rsyslog.conf 配置文件格式</h3><p>该配置文件的基本格式如下所示：</p>
+<pre><code class="shell">authpriv.* /var/log/secure
+ \#服务名称[连接符号]日志等级 日志记录位置
+ \#认证相关服务.所有日志等级 记录在/var/log/secure日志中
+</code></pre>
+<h4 id="服务名称"><a href="#服务名称" class="headerlink" title="服务名称"></a><strong>服务名称</strong></h4><p>我们首先需要确定 rsyslogd 服务可以识别哪些服务的日志，也可以理解为以下这些服务委托 rsyslogd 服务来代为管理日志。这些服务如表 1 所示。</p>
+<table>
+<thead>
+<tr>
+<th>服务名称</th>
+<th>说 明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>auth(LOG AUTH)</td>
+<td>安全和认证相关消息 (不推荐使用authpriv替代）</td>
+</tr>
+<tr>
+<td>authpriv(LOG_AUTHPRIV)</td>
+<td>安全和认证相关消息（私有的）</td>
+</tr>
+<tr>
+<td>cron (LOG_CRON)</td>
+<td>系统定时任务cront和at产生的日志</td>
+</tr>
+<tr>
+<td>daemon (LOG_DAEMON)</td>
+<td>与各个守护进程相关的曰志</td>
+</tr>
+<tr>
+<td>ftp (LOG_FTP)</td>
+<td>ftp守护进程产生的曰志</td>
+</tr>
+<tr>
+<td>kern(LOG_KERN)</td>
+<td>内核产生的曰志（不是用户进程产生的）</td>
+</tr>
+<tr>
+<td>Iocal0-local7 (LOG_LOCAL0-7)</td>
+<td>为本地使用预留的服务</td>
+</tr>
+<tr>
+<td>lpr (LOG_LPR)</td>
+<td>打印产生的日志</td>
+</tr>
+<tr>
+<td>mail (LOG_MAIL)</td>
+<td>邮件收发信息</td>
+</tr>
+<tr>
+<td>news (LOG_NEWS)</td>
+<td>与新闻服务器相关的日志</td>
+</tr>
+<tr>
+<td>syslog (LOG_SYSLOG)</td>
+<td>存syslogd服务产生的曰志信息（虽然服务名称己经改为reyslogd，但是很多配罝依然沿用了 syslogd服务的，所以这里并没有修改服务名称）</td>
+</tr>
+<tr>
+<td>user (LOG_USER)</td>
+<td>用户等级类别的日志信息</td>
+</tr>
+<tr>
+<td>uucp (LOG_UUCP&gt;</td>
+<td>uucp子系统的日志信息，uucp是早期<a target="_blank" rel="noopener" href="http://c.biancheng.net/linux_tutorial/">Linux</a>系统进行数据传递的协议，后来 也常用在新闻组服务中</td>
+</tr>
+</tbody></table>
+<p>这些日志服务名称是rsyslogd服务自己定义的，并不是实际的Linux的服务。当有服务需要由rsyslogd服务来帮助管理日志时，只需要调用这些服务名称就可以实现日志的委托管理。</p>
+<p> 这些日志服务名称大家可以使用命令“man 3 syslog”来查看。虽然我们的日志管理服务已经更新到rsyslogd，但是很多配置依然沿用了syslogd服务，在帮助文档中仍然查看syslog服务的帮助信息。</p>
+<h4 id="连接符号"><a href="#连接符号" class="headerlink" title="连接符号"></a><strong>连接符号</strong></h4><p>日志服务连接日志等级的格式如下：</p>
+<p>日志服务[连接符号]日志等级 日志记录位置</p>
+<p>在这里，连接符号可以被识别为以下三种。</p>
+<ol>
+<li>“.”代表只要比后面的等级高的（包含该等级）日志都记录。比如，“cron.info”代表cron服务产生的日志，只要日志等级大于等于info级别，就记录。</li>
+<li>“.=”代表只记录所需等级的日志，其他等级的日志都不记录。比如，“*.=emerg”代表人和日志服务产生的日志，只要等级是emerg等级，就记录。这种用法极少见，了解就好。</li>
+<li>“.！”代表不等于，也就是除该等级的日志外，其他等级的日志都记录。</li>
+</ol>
+<h4 id="日志等级"><a href="#日志等级" class="headerlink" title="日志等级"></a>日志等级</h4><p>每个日志的重要性都是有差别的，比如，有些日志只是系统的一个日常提醒，看不看根本不会对系统的运行产生影响；但是有些日志就是系统和服务的警告甚至报错信息，这些日志如果不处理，就会威胁系统的稳定或安全。如果把这些日志全部写入一个文件，那么很有可能因为管理员的大意而忽略重要信息。</p>
+<p> 比如，我们在工作中需要处理大量的邮件，笔者每天可能会接收到200多封邮件。而这些邮件中的绝大多数是不需要处理的普通信息邮件，甚至是垃圾邮件。所以笔者每天都要先把这些大量的非重要邮件删除之后，才能找到真正需要处理的邮件。但是每封邮件的标题都差不多，有时会误删除需要处理的邮件。这时笔者就非常怀念Linux的日志等级，如果邮件也能标识重要等级，就不会误删除或漏处理重要邮件了。</p>
+<p> 邮件的等级信息也可以使用“man 3 syslog”命令来查看。日志等级如表 2 所示，我们按照严重等级从低到高排列。</p>
+<table>
+<thead>
+<tr>
+<th>等级名称</th>
+<th>说 明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>debug (LOG_DEBUG)</td>
+<td>一般的调试信息说明</td>
+</tr>
+<tr>
+<td>info (LOG_INFO)</td>
+<td>基本的通知信息</td>
+</tr>
+<tr>
+<td>nolice (LOG_NOTICE)</td>
+<td>普通信息，但是有一定的重要性</td>
+</tr>
+<tr>
+<td>warning(LOG_WARNING)</td>
+<td>警吿信息，但是还不会影响到服务或系统的运行</td>
+</tr>
+<tr>
+<td>err(LOG_ERR)</td>
+<td>错误信息, 一般达到err等级的信息已经可以影响到服务成系统的运行了</td>
+</tr>
+<tr>
+<td>crit (LOG_CRIT)</td>
+<td>临界状况信思，比err等级还要严®</td>
+</tr>
+<tr>
+<td>alert (LOG_ALERT)</td>
+<td>状态信息，比crit等级还要严重，必须立即采取行动</td>
+</tr>
+<tr>
+<td>emerg (LOG_EMERG)</td>
+<td>疼痛等级信息，系统已经无法使用了</td>
+</tr>
+<tr>
+<td>*</td>
+<td>代表所有日志等级。比如，“authpriv.*”代表amhpriv认证信息服务产生的日志，所有的日志等级都记录</td>
+</tr>
+</tbody></table>
+<p>日志等级还可以被识别为“none”。如果日志等级是none，就说明忽略这个日志服务，该服务的所有日志都不再记录。</p>
+<h4 id="日志记录位置"><a href="#日志记录位置" class="headerlink" title="日志记录位置"></a>日志记录位置</h4><p>日志记录位置就是当前日志输出到哪个日志文件中保存，当然也可以把日志输出到打印机打印，或者输出到远程日志服务器上（当然，远程日志服务器要允许接收才行）。日志的记录位置也是固定的：</p>
+<ul>
+<li>日志文件的绝对路径。这是最常见的日志保存方法，如“/var/log/secure”就是用来保存系统验证和授权信息日志的。</li>
+<li>系统设备文件。如“/dev/lp0”代表第一台打印机，如果日志保存位置是打印机设备，当有日志时就会在打印机上打印。</li>
+<li>转发给远程主机。因为可以选择使用 TCP 和 UDP  协议传输日志信息，所以有两种发送格式：如果使用“@192.168.0.210：514”，就会把日志内容使用 UDP  协议发送到192.168.0.210 的 UDP 514 端口上；如果使用“@@192.168.0.210：514”，就会把日志内容使用 TCP 协议发送到 192.168.0.210 的 TCP 514 端口上，其中 514 是日志服务默认端口。当然，只要 192.168.0.210  同意接收此日志，就可以把日志内容保存在日志服务器上。</li>
+<li>用户名。如果是“root”，就会把日志发送给 root 用户，当然 root  要在线，否则就收不到日志信息了。发送日志给用户时，可以使用“*”代表发送给所有在线用户，如“mail.**”就会把 mail  服务产生的所有级别的日志发送给所有在线用户。如果需要把日志发送给多个在线用户，则用户名之间用“，”分隔。</li>
+<li>忽略或丢弃日志。如果接收日志的对象是“~”，则代表这个日志不会被记录，而被直接丢弃。如“local3.* ~”代表忽略 local3 服务类型所有的日志都不记录。</li>
+<li>忽略或丢弃日志。如果接收日志的对象是“~”，则代表这个日志不会被记录，而被直接丢弃。如“local3.* ~”代表忽略 local3 服务类型所有的日志都不记录。</li>
+</ul>
+<p><strong>定义自己的日志</strong></p>
+<pre><code># vi /etc/rstskif,conf
+//写入下面
+*.crit           /var/log/alert.log
+//把所有服务的&quot;临界点&quot;以上的错误都保存在/var/log/alert.log日志中
+
+# service  rsyslog restart
+</code></pre>
+<h3 id="0x0222-etc-rsyslog-conf-配置文件的内容"><a href="#0x0222-etc-rsyslog-conf-配置文件的内容" class="headerlink" title="0x0222  /etc/rsyslog.conf 配置文件的内容"></a>0x0222  /etc/rsyslog.conf 配置文件的内容</h3><p>我们知道了/etc/rsyslog.conf 配置文件中日志的格式，接下来就看看这个配置文件的具体内容。</p>
+<pre><code class="shell">[root@localhost ~]# vi /etc/rsyslog.conf
+#查看配置文件的内容
+#rsyslog v5 configuration file
+# For more information see /usr/share/doc/rsyslog-*/rsyslog_conf.html
+# If you experience problems, see http://www.rsyslog.com/doc/troubleshoot.html
+*### MODULES ###
+#加载棋块
+$ModLoad imuxsock # provides support for local system logging (e.g. via logger command)
+#加载imixsock模块，为本地系统登录提供支持
+$ModLoad imklog # provides kernel logging support (previously done by rklogd)
+#加载imklog模块，为内核登录提供支持
+#$ModLoad immark # provides --MARK-- message capability
+#加载immark模块，提供标记信息的能力
+# Provides UDP syslog reception
+#$ModLoad imudp
+#SUDPServerRun 514
+#加载UPD模块，允许使用UDP的514端口接收采用UDP协议转发的日志
+# Provides TCP syslog reception
+#$ModLoad imtcp
+#$InputTCPServerRun 514
+#加栽TCP摸块,允许使用TCP的514编口接收采用TCP协议转发的日志
+#### GLOBAL DIRECTIVES ####
+#定义全局设置
+#Use default timestamp format
+#ActionFileDefaultTemplate RSYSLOG_TraditionalFileFormat #定义曰志的时间使用默认的时间戳格式
+#File syncing capability is disabled by default. This feature is usually not required,
+#not useful and an extreme performance hit
+#$ActionFileEnableSync on
+#文件同步功能。默认没有开启,是注释的
+#Include all config files in /etc/rsyslog.d/
+$IncludeConfig /etc/rsyslog.d/*.conf
+#包含/etx/tsyslog.d/目录中所有的&quot;.conf&quot;子配置文件。也就是说，这个目录中的所有子配置文件也同时生效
+#### RULES ####
+#日志文件保存规则
+#Log all kernel messages to the console.
+#Logging much else clutters up the screen.
+#kern.* /dev/console
+#kern服务.所有曰志级别 保存在/dev/console
+#这个日志默认没有开启,如果需要，则取消注释
+#Log anything (except mail) of level info or higher.
+#Don&#39;t log private authentication messages!
+*.info;mail.none;authpriv.none;cron.none /var/log/messages
+#所有服务.info以上级到的日志保存在/var/log/messages日志文件中
+#mail, authpriv^ cron的B志不记录在/var/log/messages曰志文件中，因为它们部有自己的曰志文件
+#所以/var/log/messages日志是最重要的系统日志文件，需要经常查看
+#The authpriv file has restricted access.
+authpriv.* /var/log/secure
+#用户认证服务所有级别的日志保存在/vai/1og/secure日志文件中
+#Log all the mail messages in one place.
+mail.* -/var/log/maillog
+#mail服务的所有级别的日志保存在/var/log/maillog 日志文件中
+#&quot;-&quot;的含义是日志先在内存中保存.当曰志足够多之后.再向文件中保存
+# Log cron stuff
+cron.* /var/log/cron
+#计対任务的所有日志保存在/var/log/cron日志文件中
+# Everybody gets emergency messages
+#所有日志服务的疼痛等级日志对所有在线用户广播
+#Save news errors of level crit and higher in a special file. uucp,news.crit /var/log/spooler
+#uucp和news曰志服务的crit以上级别的日志保存在/var/log/sppoler曰志文件中
+#Save boot messages also to boot.log
+local7.* /var/log/boot.log
+#loacl7 日志服务的所有日志写入/var/log/boot.log 日志文件中 #会把开机时的检测信息在显示到屏幕的同时写入/var/log/boot.log 日志文件中
+# ### begin forwarding rule ###
+#定义转发规到
+#The statement between the begin ... end define a SINGLE forwarding
+#rule. They belong together, do NOT split them. If you create multiple
+# forwarding rules, duplicate the whole block!
+# Remote Logging (we use TCP for reliable delivery)
+#
+# An on-disk queue is created for this action. If the remote host is
+# down, messages are spooled to disk and sent when it is up again. #SWorkDirectory /var/lib/rsyslog # where to place spool files #$ActionQueueFileName fwdRulel # unique name prefix for spool files
+#$ActionQueueMaxDiskSpace 1g # 1gb space limit (use as much as possible)
+#$ActionQueueSaveOnShutdown on # save messages to disk on shutdown
+#$ActionQueueType LinkedList t run asynchronously
+#$ActionResumeRetryCount -1 # infinite retries if host is down
+# remote host is: name/ip:port, e.g. 192.168.0.1:514, port optional #*•* @6remote-host:514
+# ### end of the forwarding rule ##
+</code></pre>
+<p>其实系统已经非常完善地定义了这个配置文件的内容，系统中重要的日志也已经记录得非常完备。如果是外来的服务，如 apache、Samba 等服务，那么这些服务的配置文件中也详细定义了日志的记录格式和记录方法。所以，日志的配置文件基本上不需要我们修改，我们要做的仅仅是查看和分析系统记录好的日志而已。</p>
+<h3 id="0x0223-配置日志服务器"><a href="#0x0223-配置日志服务器" class="headerlink" title="0x0223 配置日志服务器"></a>0x0223 配置日志服务器</h3><p>我们知道，使用“@IP：端口”或“@@IP：端口”的格式可以把日志发送到远程主机上，那么这么做有什么意义吗？</p>
+<p> 假设我需要管理几十台服务器，那么我每天的重要工作就是查看这些服务器的日志，可是每台服务器单独登录，并且查看日志非常烦琐，我可以把几十台服务器的日志集中到一台日志服务器上吗？这样我每天只要登录这台日志服务器，就可以查看所有服务器的日志，要方便得多。</p>
+<p> 如何实现日志服务器的功能呢？其实并不难，不过我们首先需要分清服务器端和客户端。假设服务器端的服务器 IP 地址是  192.168.0.210，主机名是 localhost.localdomain；客户端的服务器 IP 地址是  192.168.0.211，主机名是 www1。我们现在要做的是把 192.168.0.211 的日志保存在 192.168.0.210  这台服务器上。实验过程如下：</p>
+<pre><code class="shell">\#服务器端设定（192.168.0.210）：
+ [root@localhost ~]# vi /etc/rsyslog.conf
+ …省略部分输出…
+ \# Provides TCP syslog reception
+ $ModLoad imtcp
+ $InputTCPServerRun 514
+ \#取消这两句话的注释，允许服务器使用TCP 514端口接收日志
+ …省略部分输出…
+ [root@localhost ~]# service rsyslog restart
+ \#重启rsyslog日志服务
+ [root@localhost ~]# netstat -tlun | grep 514
+ tcp 0 0 0.0.0.0：514 0.0.0.0：* LISTEN
+ \#查看514端口已经打开
+ \#客户端设置（192.168.0.211）：
+ [root@www1 ~]# vi /etc/rsyslog.conf
+ \#修改日志服务配置文件
+ *.* @@192.168.0.210：514
+ \#把所有日志采用TCP协议发送到192.168.0.210的514端口上
+ [root@www1 ~]# service rsyslog restart
+ \#重启日志服务
+
+这样日志服务器和客户端就搭建完成了，以后 192.168.0.211 这台客户机上所产生的所有日志都会记录到 192.168.0.210 上。比如：
+
+\#在客户机上(192.168.0.211)
+ [root@wwwl ~]# useradd zhangsan
+ \#添加zhansan用户提示符的主机名是www1)
+ \#在限务器(192.168.0.210)上
+ [root@localhost ~]# vi /var/log/secure
+ \#査看服务器的secure日志(注意:主机名是localhost)
+ Aug 8 23:00:57 wwwl sshd【1408]: Server listening on 0.0.0.0 port 22.
+ Aug 8 23:00:57 wwwl sshd[1408]: Server listening on :: port 22.
+ Aug 8 23:01:58 wwwl sshd[1630]: Accepted password for root from 192.168.0.101 port 7036 ssh2
+ Aug 8 23:01:58 wwwl sshd[1630]: pam_unix(sshd:session): session opened for user root by (uid=0)
+ Aug 8 23:03:03 wwwl useradd[1654]: new group: name=zhangsan, GID-505
+ Aug 8 23:03:03 wwwl useradd[1654]: new user: name=zhangsan, UXD=505, GID=505,
+ home=/home/zhangsan, shell=/bin/bash
+ Aug 8 23:03:09 wwwl passwd: pam_unix(passwd:chauthtok): password changed for zhangsan
+ \#注意：查看到的日志内容的主机名是www1，说明我们虽然查看的是服务器的日志文件，但是在其中可以看到客户机的日志内容
+</code></pre>
+<p>需要注意的是，日志服务是通过主机名来区别不同的服务器的。所以，如果我们配置了日志服务，则需要给所有的服务器分配不同的主机名。</p>
+<h1 id="0x03-日志轮替"><a href="#0x03-日志轮替" class="headerlink" title="0x03 日志轮替"></a>0x03 日志轮替</h1><p>日志是重要的系统文件，记录和保存了系统中所有的重要事件。但是日志文件也需要进行定期的维护，因为日志文件是不断增长的，如果完全不进行日志维护，而任由其随意递增，那么用不了多久，我们的硬盘就会被写满。</p>
+<p> <strong>日志维护的最主要的工作就是把旧的日志文件删除，从而腾出空间保存新的日志文件。</strong>这项工作如果靠管理员手工来完成，那其实是非常烦琐的，而且也容易忘记。那么Linux系统是否可以自动完成日志的轮替工作呢？</p>
+<p> logrotate 就是用来进行日志轮替（也叫日志转储）的，也就是把旧的日志文件移动并改名，同时创建一个新的空日志文件用来记录新日志，当旧日志文件超出保存的范围时就删除。</p>
+<h2 id="0x031-日志文件的命名规则"><a href="#0x031-日志文件的命名规则" class="headerlink" title="0x031  日志文件的命名规则"></a>0x031  日志文件的命名规则</h2><p>日志轮替最主要的作用就是把旧的日志文件移动并改名，同时建立新的空日志文件，当旧日志文件超出保存的范围时就删除。那么，旧的日志文件改名之后，如何命名呢？主要依靠 /etc/logrotate.conf 配置文件中的“dateext”参数。</p>
+<p> 如果配置文件中有“dateext”参数，那么日志会用日期来作为日志文件的后缀，如“secure-20130605”。这样日志文件名不会重叠，也就不需要对日志文件进行改名，只需要保存指定的日志个数，删除多余的日志文件即可。</p>
+<p> 如果配置文件中没有“dateext”参数，那么日志文件就需要进行改名了。当第一次进行日志轮替时，当前的“secure”日志会自动改名为“secure.1”，然后新建“secure”日志，用来保存新的日志；当第二次进行日志轮替时，“secure.1”会自动改名为“secure.2”，当前的“secure”日志会自动改名为“secure.1”，然后也会新建“secure”日志，用来保存新的日志；以此类推。</p>
+<h2 id="0x032-logrotate配置文件"><a href="#0x032-logrotate配置文件" class="headerlink" title="0x032 logrotate配置文件"></a>0x032 logrotate配置文件</h2><p>我们来查看一下 logrotate 的配置文件 /etc/logrotate.conf 的默认内容。</p>
+<pre><code class="shell">[root@localhost ~]# vi /etc/logrotate.conf
+#see &quot;man logrotate&quot; for details
+#rotate log files weekly
+weekly
+#每周对日志文件进行一次轮替
+#keep 4 weeks worth of backlogs 
+rotate 4
+#保存4个日志文件,也就是说,如果进行了5次日志轮替，就会删除第一个备份曰志
+#create new (empty) log files after rotating old ones 
+create
+#在日志轮替时,自动创建新的日志文件
+#use date as a suffix of the rotated file 
+dateext
+#使用日期作为日志轮替文件的后缀
+#uncomment this if you want your log files compressed 
+#compress
+#日志文件是否压缩。如果取消注释,则日志会在转储的同时进行压缩
+#以上日志配置为默认配置,如果需要轮替的日志没有设定独立的参数,那么都会遵循以上参数
+#如果轮替曰志配置了独立参数,那么独立参数的优先级更高
+#RPM packages drop log rotation information into this directory include 
+/etc/logrotate.d
+#包含/etc/logrotate.d/目录中所有的子配置文件。也就是说,会把这个目录中所有的子配置文件读取进来，进行日志轮替
+#no packages own wtmp and btmp -- we&#39;11 rotate them here
+#以下两个轮替曰志有自己的独立参数，如果和默认的参数冲突，则独立参数生效
+/var/log/wtmp &#123;
+#以下参数仅对此目录有效
+monthly
+#每月对日志文件进行一次轮替
+create 0664 root utmp
+#建立的新日志文件,权限是0664,所有者是root,所属组是utmp组
+minsize 1M
+#日志文件最小轮替大小是1MB。也就是日志一定要超过1MB才会轮替，否则就算时间达到一个月，也不进行曰志轮替
+rotate 1
+#仅保留一个曰志备份。也就是只保留wtmp和wtmp.1曰志)
+/var/log/btmp &#123;
+#以下参数只对/var/log/btmp生效
+missingok
+#如果日志不存在,则忽略该日志的警告信患
+monthly
+create 0600 root utmp
+rotate 1
+&#125;
+# system-specific logs may be also be configured here.
+</code></pre>
+<p>在这个配置文件中，主要分为三部分：</p>
+<ul>
+<li>第一部分是默认设置，如果需要转储的日志文件没有特殊配置，则遵循默认设置的参数；</li>
+<li>第二部分是读取 /etc/logrotate.d/ 目录中的日志轮替的子配置文件，也就是说，在 /etc/logrotate.d/ 目录中的所有符合语法规则的子配置文件也会进行日志轮替；</li>
+<li>第三部分是对 wtmp 和 btmp 日志文件的轮替进行设定，如果此设定和默认参数冲突，则当前设定生效（如 wtmp 的当前参数设定的轮替时间是每月，而默认参数的轮替时间是每周，则对 wtmp 这个日志文件来说，轮替时间是每月，当前的设定参数生效）。</li>
+</ul>
+<p> logrotate 配置文件的主要参数如表 1 所示。</p>
+<table>
+<thead>
+<tr>
+<th>参 致</th>
+<th>参数说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>daily</td>
+<td>日志的轮替周期是毎天</td>
+</tr>
+<tr>
+<td>weekly</td>
+<td>日志的轮替周期是每周</td>
+</tr>
+<tr>
+<td>monthly</td>
+<td>日志的轮控周期是每月</td>
+</tr>
+<tr>
+<td>rotate数宇</td>
+<td>保留的日志文件的个数。0指没有备份</td>
+</tr>
+<tr>
+<td>compress</td>
+<td>当进行日志轮替时，对旧的日志进行压缩</td>
+</tr>
+<tr>
+<td>create mode owner group</td>
+<td>建立新日志，同时指定新日志的权限与所有者和所属组.如create 0600 root utmp</td>
+</tr>
+<tr>
+<td>mail address</td>
+<td>当进行日志轮替时.输出内存通过邮件发送到指定的邮件地址</td>
+</tr>
+<tr>
+<td>missingok</td>
+<td>如果日志不存在，则忽略该日志的警告信息</td>
+</tr>
+<tr>
+<td>nolifempty</td>
+<td>如果曰志为空文件，則不进行日志轮替</td>
+</tr>
+<tr>
+<td>minsize 大小</td>
+<td>日志轮替的最小值。也就是日志一定要达到这个最小值才会进行轮持，否则就算时间达到也不进行轮替</td>
+</tr>
+<tr>
+<td>size大小</td>
+<td>日志只有大于指定大小才进行日志轮替，而不是按照时间轮替，如size 100k</td>
+</tr>
+<tr>
+<td>dateext</td>
+<td>使用日期作为日志轮替文件的后缀，如secure-20130605</td>
+</tr>
+<tr>
+<td>sharedscripts</td>
+<td>在此关键宇之后的脚本只执行一次</td>
+</tr>
+<tr>
+<td>prerotate/cndscript</td>
+<td>在曰志轮替之前执行脚本命令。endscript标识prerotate脚本结束</td>
+</tr>
+<tr>
+<td>postrolaie/endscripl</td>
+<td>在日志轮替之后执行脚本命令。endscripi标识postrotate脚本结束</td>
+</tr>
+</tbody></table>
+<p>这些参数中较为难理解的应该是 prerotate/endscript 和 postrotate/endscript，我们利用“man logrotate”中的例子来解释一下这两个参数。例如：</p>
+<pre><code>&quot;/var/log/httpd/access.log&quot; /var/log/httpd/error.log &#123;
+#日志轮替的是/var/log/httpd/中RPM包默认安装的apache正确访问日志和错误日志
+    rotate 5
+    #轮替5次
+    mail www@my.org
+    #把信息发送到指定邮箱
+    size 100k
+    #日志大于100KB时才进行日志轮替,不再按照时间轮替
+    sharedscripts
+    #以下脚本只执行一次
+    postrotate
+    #在日志轮替结束之后,执行以下脚本
+    /usr/bin/killall -HUP httpd
+    #重启apache 服务
+endscript
+#脚本结束
+&#125;
+</code></pre>
+<p>prerotate 和 postrotate  主要用于在日志轮替的同时执行指定的脚本，一般用于日志轮替之后重启服务。这里强调一下，如果你的日志是写入 rsyslog  服务的配置文件的，那么把新日志加入 logrotate 后，一定要重启 rsyslog  服务，否则你会发现，虽然新日志建立了，但数据还是写入了旧的日志当中。那是因为虽然 logrotate 知道日志轮替了，但是 rsyslog  服务并不知道。</p>
+<p> 同理，如果采用源码包安装了 apache、Nginx 等服务，则需要重启 apache 或 Nginx 服务，同时还要重启 rsyslog 服务，否则日志也不能正常轮替。</p>
+<p> 不过，这里有一个典型应用就是给予特定的日志加入 chattr 的 a 属性。如果系统文件加入了 a 属性，那么这个文件就只能增加数据，而不能删除和修改已有的数据，root 用户也不例外。</p>
+<p> 因此，我们会给重要的日志文件加入 a 属性，这样就可以保护日志文件不被恶意修改。不过，一旦加入了 a  属性，那么在进行日志轮替时，这个日志文件是不能被改名的，当然也就不能进行日志轮替了。我们可以利用 prerotate 和 postrotate  参数来修改日志文件的 chattr 的 a 属性。</p>
+<h2 id="0x033-把自己的日志加入日志轮替"><a href="#0x033-把自己的日志加入日志轮替" class="headerlink" title="0x033 把自己的日志加入日志轮替"></a>0x033 把自己的日志加入日志轮替</h2><p>如果有些日志默认没有加入日志轮替（比如源码包安装的服务的日志，或者自己添加的日志），那么这些日志默认是不会进行日志轮替的，这样当然不符合我们对日志的管理要求。如果需要把这些日志也加入日志轮替，那该如何操作呢？</p>
+<p> 这里有两种方法：</p>
+<ul>
+<li>第一种方法是直接在 /etc/logrotate.conf 配置文件中写入该日志的轮替策略，从而把日志加入轮替；</li>
+<li>第二种方法是在 /etc/logrotate.d/ 目录中新建立该日志的轮替文件，在该轮替文件中写入正确的轮替策略，因为该目录中的文件都会被包含到主配置文件中，所以也可以把日志加入轮替。</li>
+</ul>
+<p> 我们推荐第二种方法，因为系统中需要轮替的日志非常多，如果全部直接写入 /etc/logrotate.conf 配置文件，那么这个文件的可管理性就会非常差，不利于此文件的维护。</p>
+<p> 说起来很复杂，我们举个例子。还记得我们自己生成的 /var/log/alert.log 日志吗？这个日志不是系统默认日志，而是我们通过  /etc/rsyslog.conf  配置文件自己生成的日志，所以默认这个日志是不会进行轮替的。如果我们需要把这个日志加入日志轮替策略，那该怎么实现呢？我们采用第二种方法，也就是在  /etc/logrotate.d/ 目录中建立此日志的轮替文件。</p>
+<p> 具体步骤如下：</p>
+<pre><code class="shell">[root@localhost ~]# chattr +a /var/log/alert.log #先给日志文件赋予chattr的a属性，保证日志的安全
+[root@localhost ~]# vi /etc/logrotate.d/alter
+#创建alter轮替文件,把/var/log/alert.log加入轮替
+/var/log/alert.log &#123;
+    weekly
+    #每周轮替一次
+    rotate 6
+    #保留6个轮替曰志
+    sharedscripts
+    #以下命令只执行一次
+    prerotate
+    #在日志轮替之前执行
+        /usr/bin/chattr -a /var/log/alert.log
+        #在日志轮替之前取消a属性,以便让日志可以轮替
+    endscript
+    #脚本结朿
+    sharedscripts
+    postrotate
+    #在日志轮替之后执行
+        /usr/bin/chattr +a /var/log/alert.log
+        #在日志轮替之后,重新加入a属性
+    endscript
+    sharedscripts
+    postrotate
+    /bin/kill -HUP $(/bin/cat /var/run/syslogd.pid 2&gt;/dev/null) fi&gt;/dev/null
+    endscript
+    #重启rsyslog服务，保证日志轮替正常进行
+&#125;
+</code></pre>
+<p>这样我们自己生成的日志 /var/log/alert.log 也就可以进行日志轮替了，当然这些配置信息也是可以直接写入 /etc/logrotate.conf 这个配置文件的。</p>
+<h2 id="0x034-logrotate命令用法详解"><a href="#0x034-logrotate命令用法详解" class="headerlink" title="0x034 logrotate命令用法详解"></a>0x034 logrotate命令用法详解</h2><p>日志轮替之所以可以在指定的时间备份日志，是因为其依赖系统定时任务。如果大家还记得 /etc/cron.daily/ 目录，就会发现这个目录中是有 logrotate 文件的，查看一下这个文件，命令如下：</p>
+<pre><code class="shell">[root@localhost ~]# vi /etc/cron.daily/logrotate
+#！/bin/sh
+/usr/sbin/logrotate /etc/logrotate.conf &gt;/dev/null 2&gt;&amp;1
+#最主要的就是执行了logrotate命令
+EXITVALUE=$?
+if [ $EXITVALUE！= 0 ]; then
+/usr/bin/logger -t logrotate &quot;ALERT exited abnormally with [$EXITVALUE]&quot;
+fi
+exit 0
+</code></pre>
+<p>也就是说，系统每天都会执行 /etc/cron.daily/logrotate  文件，运行这个文件中的“/usr/sbin/logrotate/etc/logrotate.conf&gt;/dev/null  2&gt;&amp;1”命令。logrotate 命令会依据 /etc/logrotate.conf  配置文件的配置，来判断配置文件中的日志是否符合日志轮替的条件（比如，日志备份时间已经满一周），如果符合，日志就会进行轮替。所以说，日志轮替还是由 crond 服务发起的。</p>
+<p> logrotate 命令的格式是什么样的呢？我们来学习一下。</p>
+<pre><code class="shell">[root@localhost ~]# logrotate [选项] 配置文件名
+选项：
+    如果此命令没有选项，则会按照配置文件中的条件进行日志轮替
+    v ：显示日志轮替过程。加入了-v选项，会显示日志的轮替过程
+    f ： 强制进行日志轮替。不管日志轮替的条件是否符合，强制配置文件中所有的日志进行轮替 我们执行 logrotate 命令，并查看一下执行过程。
+</code></pre>
+<pre><code class="shell">[root@localhost ~]# logrotate -v /etc/logrotate.conf
+#查看日志轮替的流程
+…省略部分输出…
+rotating pattern：/var/log/alert.log weekly (6 rotations)
+#这就是我们自己加入轮替的alert.log日志
+empty log files are rotated， old logs are removed
+considering log /var/log/alert.log
+log does not need rotating
+#时间不够一周，所以不进行日志轮替
+…省略部分输出…
+</code></pre>
+<p>我们发现，/var/log/alert.log 加入了日志轮替，已经被 logrotate 识别并调用了，只是时间没有达到轮替的标准，所以没有进行轮替。那我们强制进行一次日志轮替，看看会有什么结果。</p>
+<pre><code class="shell">[root@localhost ~]# logrotate -vf /etc/logrotate.conf
+#强制进行日志轮替，不管是否符合轮替条件
+…省略部分输出…
+rotating pattern：/var/log/alert.log forced from command line (6 rotations)
+empty log files are rotated， old logs are removed
+considering log /var/log/alert.log
+log needs rotating
+#日志需要轮替
+rotating log /var/log/alert.log，log-&gt;rotateCount is 6
+dateext suffix &#39;-20130607&#39;
+#提取日期参数
+glob pattern &#39;-[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]&#39;
+glob finding old rotated logs failed
+running prerotate script
+fscreate context set to unconfined_u：object_r：var_log_t：s0
+renaming /var/log/alert.log to /var/log/alert.log-20130607
+#旧的日志被重命名
+creating new /var/log/alert.log mode = 0600 uid = 0 gid = 0
+#创建新日志文件，同时指定权限、所有者和属组
+running postrotate script
+…省略部分输出…
+</code></pre>
+<p>我们发现，alert.log 日志已经完成了日志轮替。查看一下新生成的日志和旧日志，如下：</p>
+<pre><code class="shell">[root@localhost ~]# ll /var/log/alert.log*
+-rw-------.1 root root 0 6月 7 10：07 /var/log/alert.log
+-rw-------.1 root root 237 6月 7 09：58 /var/log/alert.log-20130607
+#旧的日志文件已经轮替
+[root@localhost ~]# lsattr /var/log/alert.log
+-----a-------e- /var/log/alert.log
+#新的日志文件被自动加入了chattr的a属性
+</code></pre>
+<p>logrotate 命令在使用“-f”选项之后，就会不管日志是否符合轮替条件，而强制把所有的日志都进行轮替。</p>
+
+</div>
+
+
+    <div class="post-guide">
+        <div class="item left">
+            
+              <a href="/2019/12/06/Linux/13Linux%E4%B9%8B%E6%9C%8D%E5%8A%A1%E7%AE%A1%E7%90%86/">
+                  <i class="fa fa-angle-left" aria-hidden="true"></i>
+                  13Linux之服务管理
+              </a>
+            
+        </div>
+        <div class="item right">
+            
+              <a href="/2019/12/02/Linux/12Linux%E4%B9%8B%E5%90%AF%E5%8A%A8%E5%BC%95%E5%AF%BC%E4%B8%8E%E4%BF%AE%E5%A4%8D/">
+                12Linux之启动引导与修复
+                <i class="fa fa-angle-right" aria-hidden="true"></i>
+              </a>
+            
+        </div>
+    </div>
+
+
+
+
+<script>
+	
+	
+</script>
+	</div>
+	<div id="footer">
+	<p>
+	©2020-<span id="footerYear"></span> 
+	<a href="/">BamB00</a> 
+	
+	
+		|
+		<span id="busuanzi_container_site_pv">
+			pv
+			<span id="busuanzi_value_site_pv"></span>
+		</span>
+		|
+		<span id="busuanzi_container_site_uv"> 
+			uv
+			<span id="busuanzi_value_site_uv"></span>
+		</span>
+	
+	<br>
+	Theme <a href="//github.com/wujun234/hexo-theme-tree" target="_blank">Tree</a>
+	by <a href="//github.com/wujun234" target="_blank">WuJun</a>
+	Powered by <a href="//hexo.io" target="_blank">Hexo</a>
+	</p>
+</div>
+<script type="text/javascript"> 
+	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
+</script>
+	<button id="totop-toggle" class="toggle"><i class="fa fa-angle-double-up" aria-hidden="true"></i></button>
+</body>
+</html>

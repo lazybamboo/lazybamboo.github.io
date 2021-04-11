@@ -1,0 +1,1503 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8">
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+	
+	<!-- title -->
+	
+	<title>
+	
+		11Linux之shell高级 | 
+	 
+	竹竿小站
+	</title>
+	
+	<!-- keywords,description -->
+	 
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.jpg">
+	
+
+
+	<!-- search -->
+	<script>
+		var searchEngine = "https://www.baidu.com/s?wd=";
+		if(typeof searchEngine == "undefined" || searchEngine == null || searchEngine == ""){
+			searchEngine = "https://www.google.com/search?q=";
+		}
+		var homeHost = "bamboo.github.io";
+		if(typeof homeHost == "undefined" || homeHost == null || homeHost == ""){
+			homeHost = window.location.host;
+		}
+	</script>
+
+
+	
+<link rel="stylesheet" href="/css/main.css">
+
+	
+<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.min.css">
+
+	
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.17.1/build/styles/darcula.min.css">
+
+	
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+
+
+	
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+
+	
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
+	
+<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.17.1/build/highlight.min.js"></script>
+
+	
+<script src="https://cdn.jsdelivr.net/npm/jquery-pjax@2.0.1/jquery.pjax.min.js"></script>
+
+	
+<script src="/js/main.js"></script>
+
+	
+		
+<script src="https://cdn.jsdelivr.net/npm/leancloud-storage/dist/av-min.js"></script>
+
+		
+<script src="https://cdn.jsdelivr.net/npm/valine@1.3.10/dist/Valine.min.js"></script>
+
+	
+	
+		<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+	
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+	<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?3efe99c287df5a1d6f0d02d187e403c1";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+<header id="header">
+    <a id="title" href="/" class="logo">竹竿小站</a>
+
+	<ul id="menu">
+		<li class="menu-item">
+			<a href="/about" class="menu-item-link">ABOUT</a>
+		</li>
+	
+		<li class="menu-item">
+			<a href="/tags" class="menu-item-link">标签</a>
+		</li>
+	
+
+	
+		<li class="menu-item">
+			<a href="/categories" class="menu-item-link">分类</a>
+		</li>
+	
+
+		<li class="menu-item">
+			<a href="https://github.com/wujun234/uid-generator-spring-boot-starter" class="menu-item-link" target="_blank">
+				UidGenerator
+			</a>
+		</li>
+		<li class="menu-item">
+			<a href="https://github.com/wujun234" class="menu-item-link" target="_blank">
+				<i class="fa fa-github fa-2x"></i>
+			</a>
+		</li>
+	</ul>
+</header>
+
+	
+<div id="sidebar">
+	<button id="sidebar-toggle" class="toggle" ><i class="fa fa-arrow-right " aria-hidden="true"></i></button>
+	
+	<div id="site-toc">
+		<input id="search-input" class="search-input" type="search" placeholder="按回车全站搜索">
+		<div id="tree">
+			
+
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Linux
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/2017/08/08/Linux/01linux-%E5%AE%89%E8%A3%85/">
+										01linux-安装
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/11/08/Linux/02Linux%E5%AD%A6%E5%89%8D%E9%A1%BB%E7%9F%A5/">
+										02Linux学前须知
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/11/08/Linux/03Linuxz%E4%B9%8B%E5%B8%B8%E7%94%A8%E7%9A%84%E5%91%BD%E4%BB%A4/">
+										03Linuxz之常用的命令
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2021/04/12/Linux/04Linux%E4%B9%8BVim/">
+										04Linux之Vim
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/11/14/Linux/05Linux%E4%B9%8B%E8%BD%AF%E4%BB%B6%E5%8C%85/">
+										05Linux之软件包
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/11/18/Linux/06Linux%E4%B9%8B%E7%94%A8%E6%88%B7%E7%AE%A1%E7%90%86/">
+										06Linux之用户管理
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/11/19/Linux/07Linux%E4%B9%8B%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/">
+										07Linux之权限管理
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/11/20/Linux/08Linux%E4%B9%8B%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F%E7%AE%A1%E7%90%86/">
+										08Linux之文件系统管理
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/11/23/Linux/09Linux%E4%B9%8B%E9%AB%98%E7%BA%A7%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F/">
+										09Linux之高级文件管理系统
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/11/24/Linux/10Linux%E4%B9%8Bshell/">
+										10Linux之shell
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file active">
+									<a href="/2019/11/26/Linux/11Linux%E4%B9%8Bshell%E9%AB%98%E7%BA%A7/">
+										11Linux之shell高级
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/12/02/Linux/12Linux%E4%B9%8B%E5%90%AF%E5%8A%A8%E5%BC%95%E5%AF%BC%E4%B8%8E%E4%BF%AE%E5%A4%8D/">
+										12Linux之启动引导与修复
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/12/06/Linux/13Linux%E4%B9%8B%E6%9C%8D%E5%8A%A1%E7%AE%A1%E7%90%86/">
+										13Linux之服务管理
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/12/10/Linux/14Linux%E4%B9%8B%E7%B3%BB%E7%BB%9F%E7%AE%A1%E7%90%86/">
+										14Linux之系统管理
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/12/06/Linux/15Linux%E4%B9%8B%E7%B3%BB%E7%BB%9F%E6%97%A5%E5%BF%97/">
+										15Linux之系统日志
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/12/17/Linux/16Centos6%E5%92%8CCentos7%E5%9F%BA%E6%9C%AC%E5%AF%B9%E6%AF%94/">
+										16Centos6和Centos7基本对比
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/12/17/Linux/17Linux%E4%B9%8B%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/">
+										17Linux之网络基础
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/10/15/Linux/18Linux%E4%B9%8B%E6%9C%8D%E5%8A%A1%E5%9F%BA%E7%A1%80SSH/">
+										18Linux之服务基础SSH
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/12/18/Linux/19Linux%E4%B9%8B%E6%9C%8D%E5%8A%A1%E5%9F%BA%E7%A1%80TCP%20Wrappers/">
+										19Linux之服务基础TCP Wrappers
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/12/18/Linux/20%E7%BD%91%E7%BB%9C%E6%9C%8D%E5%8A%A1%E4%B9%8BDHCP/">
+										20网络服务之DHCP
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/12/20/Linux/21%E7%BD%91%E7%BB%9C%E6%9C%8D%E5%8A%A1%E4%B9%8BDNS/">
+										21网络服务之DNS
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/12/26/Linux/22%E7%BD%91%E7%BB%9C%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B9%8BVSFTP/">
+										22网络服务器之VSFTP
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/10/11/Linux/Bash%E5%BF%AB%E6%8D%B7%E9%94%AE/">
+										Bash快捷键
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/10/10/Linux/LInux-CDN%E7%AE%80%E4%BB%8B/">
+										LInux-CDN简介
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/10/08/Linux/Llinux-DNS-%E8%AF%A6%E8%A7%A3/">
+										Llinux-DNS-详解
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/10/13/Linux/linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">
+										linux常用命令
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2021/04/12/Linux/%E5%8D%8A%E8%99%9A%E6%8B%9F%E5%8C%96%E5%92%8C%E7%A1%AC%E4%BB%B6%E8%99%9A%E6%8B%9F%E5%8C%96%E7%9A%84%E4%B8%BB%E8%A6%81%E5%8C%BA%E5%88%AB/">
+										半虚拟化和硬件虚拟化的主要区别
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										web渗透
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/2020/09/17/web%E6%B8%97%E9%80%8F/01SQL%E6%B3%A8%E5%85%A5/">
+										01SQL注入
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										搭建
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/2018/11/18/%E6%90%AD%E5%BB%BA/NextCloud/">
+										NextCloud
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2018/11/18/%E6%90%AD%E5%BB%BA/Nmap-Sublist3r-Hydra%E5%AE%89%E8%A3%85%EF%BC%88Ubuntu%E7%8E%AF%E5%A2%83%EF%BC%89/">
+										Nmap-Sublist3r-Hydra安装（Ubuntu环境）
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/04/11/%E6%90%AD%E5%BB%BA/hadoop%E5%8D%95%E6%9C%BA%E9%9B%86%E7%BE%A4%E6%90%AD%E5%BB%BA/">
+										hadoop单机集群搭建
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										汇编
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/2018/12/20/%E6%B1%87%E7%BC%96/%E6%B1%87%E7%BC%961/">
+										汇编1
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2018/12/26/%E6%B1%87%E7%BC%96/%E6%B1%87%E7%BC%962/">
+										汇编2
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/01/01/%E6%B1%87%E7%BC%96/%E6%B1%87%E7%BC%963/">
+										汇编3
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/01/05/%E6%B1%87%E7%BC%96/%E6%B1%87%E7%BC%964/">
+										汇编4
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/01/06/%E6%B1%87%E7%BC%96/%E6%B1%87%E7%BC%965/">
+										汇编5
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/01/07/%E6%B1%87%E7%BC%96/%E6%B1%87%E7%BC%966/">
+										汇编6
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2021/04/12/%E6%B1%87%E7%BC%96/%E9%80%9A%E7%94%A8%E5%AF%84%E5%AD%98%E5%99%A8/">
+										通用寄存器
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+		</div>
+	</div>
+</div>
+
+	<!-- 引入正文 -->
+	<div id="content">
+		<h1 id="article-title">
+
+	11Linux之shell高级
+</h1>
+<div class="article-meta">
+	
+	<span>BamB00</span>
+	<span>2019-11-26 00:00:00</span>
+		<div id="article-categories">
+    
+		<span>Categories：</span>
+            
+    
+
+    
+		<span>Tags：</span>
+            
+                
+                    <span>
+                        <i class="fa fa-tag" aria-hidden="true">
+                        <a href="/tags/Linux-Shell/">-Linux -Shell</a>
+                        </i>
+                    </span>
+                
+            
+    
+		</div>
+
+</div>
+
+<div id="article-content">
+	<h1 id="0x01-正则概述"><a href="#0x01-正则概述" class="headerlink" title="0x01 正则概述"></a>0x01 正则概述</h1><p>正则是用来再文件中匹配符合条件的字符串。</p>
+<p>通配符用来匹配符合条件的文件名。</p>
+<h2 id="正则表达式的分类"><a href="#正则表达式的分类" class="headerlink" title="正则表达式的分类"></a>正则表达式的分类</h2><ol>
+<li>基本的正则表达式（Basic Regular Expression 又叫Basic RegEx  简称BREs）</li>
+<li>扩展的正则表达式（Extended Regular Expression 又叫Extended RegEx 简称EREs）</li>
+<li>Perl的正则表达式（Perl Regular Expression 又叫Perl RegEx 简称PREs） </li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>支持选项</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>grep,aws,sed</td>
+<td>正则表达式</td>
+</tr>
+<tr>
+<td>ls,find,cp</td>
+<td>通配符</td>
+</tr>
+</tbody></table>
+<h1 id="0x02-基础正则表达式"><a href="#0x02-基础正则表达式" class="headerlink" title="0x02 基础正则表达式"></a>0x02 基础正则表达式</h1><p> 基本正则表达式（BRE）和扩展正则表达式（ERE） </p>
+<table>
+<thead>
+<tr>
+<th>正则表达式</th>
+<th>描述</th>
+<th>示例</th>
+<th>Basic RegEx</th>
+<th>Extended RegEx</th>
+<th>Python RegEx</th>
+<th>Perl regEx</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>\</td>
+<td>转义符，将特殊字符进行转义，忽略其特殊意义</td>
+<td>a.b匹配a.b，但不能匹配ajb，.被转义为特殊意义</td>
+<td>\</td>
+<td>\</td>
+<td>\</td>
+<td>\</td>
+</tr>
+<tr>
+<td>^</td>
+<td>匹配行首，awk中，^则是匹配字符串的开始</td>
+<td>^tux匹配以tux开头的行</td>
+<td>^</td>
+<td>^</td>
+<td>^</td>
+<td>^</td>
+</tr>
+<tr>
+<td>$</td>
+<td>匹配行尾，awk中，$则是匹配字符串的结尾</td>
+<td>tux$匹配以tux结尾的行</td>
+<td>$</td>
+<td>$</td>
+<td>$</td>
+<td>$</td>
+</tr>
+<tr>
+<td>.</td>
+<td>匹配除换行符\n之外的任意单个字符，awk则中可以</td>
+<td>ab.匹配abc或bad，不可匹配abcd或abde，只能匹配单字符 .</td>
+<td>.</td>
+<td>.</td>
+<td>.</td>
+<td>.</td>
+</tr>
+<tr>
+<td>[]</td>
+<td>匹配包含在[字符]之中的任意一个字符</td>
+<td>coo[kl]可以匹配cook或cool</td>
+<td>[]</td>
+<td>[]</td>
+<td>[]</td>
+<td>[]</td>
+</tr>
+<tr>
+<td>[^]</td>
+<td>匹配[^字符]之外的任意一个字符</td>
+<td>123[^45]不可以匹配1234或1235，1236、1237都可以</td>
+<td>[^]</td>
+<td>[^]</td>
+<td>[^]</td>
+<td>[^]</td>
+</tr>
+<tr>
+<td>[-]</td>
+<td>匹配[]中指定范围内的任意一个字符，要写成递增</td>
+<td>[0-9]可以匹配1、2或3等其中任意一个数字</td>
+<td>[-]</td>
+<td>[-]</td>
+<td>[-]</td>
+<td>[-]</td>
+</tr>
+<tr>
+<td>?</td>
+<td>匹配之前的项1次或者0次</td>
+<td>colou?r可以匹配color或者colour，不能匹配colouur</td>
+<td>不支持</td>
+<td>?</td>
+<td>?</td>
+<td>?</td>
+</tr>
+</tbody></table>
+<ul>
+<li>| 匹配之前的项1次或者多次 | sa-6+匹配sa-6、sa-666，不能匹配sa- | 不支持 | + | + | +</li>
+</ul>
+<ul>
+<li>| 匹配之前的项0次或者多次 | co*l匹配cl、col、cool、coool等 | * | * | * | *<br>() | 匹配表达式，创建一个用于匹配的子串 | ma(tri)?匹配max或maxtrix | 不支持 | () | () | ()<br>{n} | 匹配之前的项n次，n是可以为0的正整数 | [0-9]{3}匹配任意一个三位数，可以扩展为[0-9] | 不支持 | {n} | {n} | {n}<br>{n,} | 之前的项至少需要匹配n次 | [0-9]{2,}匹配任意一个两位数或更多位数 | 不支持 | {n,} | {n,} | {n,}<br>{n,m} | 指定之前的项至少匹配n次，最多匹配m次，n&lt;=m | [0-9]{2,5}匹配从两位数到五位数之间的任意一个数字 | 不支持 | {n,m} | {n,m} | {n,m}<br>| | 交替匹配 | 两边的任意一项 ab(c|d)匹配abc或abd | 不支持 | | | | | | </li>
+</ul>
+<p><strong>注意事项:</strong></p>
+<ol>
+<li>任何符号+*匹配所有内容例如 :<code>grep &quot;a*&quot; text.txt</code> 因为*包含0此，所以不管有没有a都包含。 正确的内匹配所有内容应该是<code>grep &quot;.*&quot; test.txt</code></li>
+<li>匹配空白行 <code>^$</code></li>
+<li>{}要使用转义符如<code>\&#123;n\&#125;</code></li>
+</ol>
+<h1 id="0x03-字符串截取和替换命令"><a href="#0x03-字符串截取和替换命令" class="headerlink" title="0x03 字符串截取和替换命令"></a>0x03 字符串截取和替换命令</h1><h2 id="0x031-cut列提取命令"><a href="#0x031-cut列提取命令" class="headerlink" title="0x031 cut列提取命令"></a>0x031 cut列提取命令</h2><pre><code class="shell">#cut [选项] 文件名
+选项:
+    -f 列号 : 提取第几列
+    -d 分隔符 : 按照指定分隔符分割列
+    -c 字符串范围 : 不依赖分隔符来风恶劣，。而是通过字符范围(行首为0)来进行提取。&quot;n-&quot;表示从第n个字符到行尾:&quot;n-m&quot;从第n个字符到第m个字符: &quot;-m&quot; 表示从第1个字符到第m个字符
+</code></pre>
+<p>例子</p>
+<pre><code class="shell">#cut -f 2,3 test.txt
+#cut -d &quot;:&quot; test.txt
+</code></pre>
+<h2 id="0x032-printf-格式化输出"><a href="#0x032-printf-格式化输出" class="headerlink" title="0x032 printf 格式化输出"></a>0x032 printf 格式化输出</h2><pre><code>printf [format] [文本1] [文本2] ..
+</code></pre>
+<pre><code class="shell">#printf &#39;%s&#39; $(cat test.txt)
+</code></pre>
+<ol>
+<li><p>其与print命令的最大不同是，printf需要指定format；</p>
+</li>
+<li><p>format用于指定后面的每个item的输出格式；</p>
+</li>
+<li><p>printf语句不会自动打印换行符；\n</p>
+</li>
+</ol>
+<pre><code class="shell">#printf &#39;%s\t %s\t \n&#39; $(cat test.txt) 
+</code></pre>
+<p><strong>常用格式替换符</strong></p>
+<table>
+<thead>
+<tr>
+<th>代码</th>
+<th>格式化意义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>%s</td>
+<td>字符串</td>
+</tr>
+<tr>
+<td>%f</td>
+<td>浮点格式</td>
+</tr>
+<tr>
+<td>%c</td>
+<td>ASCII字符，即显示对应参数的第一个字符</td>
+</tr>
+<tr>
+<td>%d,%i</td>
+<td>十进制整数</td>
+</tr>
+<tr>
+<td>%o</td>
+<td>八进制值</td>
+</tr>
+<tr>
+<td>%u</td>
+<td>不带正负号的十进制值</td>
+</tr>
+<tr>
+<td>%x</td>
+<td>十六进制值（a-f）</td>
+</tr>
+<tr>
+<td>%X</td>
+<td>十六进制值（A-F）</td>
+</tr>
+<tr>
+<td>%%</td>
+<td>表示%本身</td>
+</tr>
+</tbody></table>
+<p><strong>常用转义字符</strong></p>
+<table>
+<thead>
+<tr>
+<th>代码</th>
+<th>格式化意义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>\a</td>
+<td>警告字符，通常为ASCII的BEL字符</td>
+</tr>
+<tr>
+<td>\b</td>
+<td>后退</td>
+</tr>
+<tr>
+<td>\f</td>
+<td>换页</td>
+</tr>
+<tr>
+<td>\n</td>
+<td>换行</td>
+</tr>
+<tr>
+<td>\r</td>
+<td>回车</td>
+</tr>
+<tr>
+<td>\t</td>
+<td>水平制表符</td>
+</tr>
+<tr>
+<td>\v</td>
+<td>垂直制表符</td>
+</tr>
+<tr>
+<td>\</td>
+<td>表示\本身</td>
+</tr>
+</tbody></table>
+<p><strong>不常用的转化</strong></p>
+<p> <img src="C:\Users\zhugan\Desktop\笔记整理\笔记图片\Linux\基础\10.png" alt="awk用法详解"> </p>
+<h2 id="0x032-awk编程"><a href="#0x032-awk编程" class="headerlink" title="0x032 awk编程"></a>0x032 awk编程</h2><p>awk拥有完整的编程语言</p>
+<p>这里只写基本使用</p>
+<pre><code class="shell">#awk &#39;条件1&#123;动作&#125; 条件2&#123;动作&#125;.....&#39; 文件名
+条件(Pattern):
+    一般使用关系表达式作为条件。这些关系表达式非常多，具体参考表12-3所示，例如:
+    x&gt;10 判断变量 x是否大于10
+    x==y 判断变量x是否等于变量y
+    a ~ b 判断字符串a中是否包含b表达式的子字符串
+    a !~ b 判断字符串a中是否不包含b表达式的子字符串d
+动作(Action):
+    格式化输出
+    流程语句控制
+</code></pre>
+<p><strong>awk的条件</strong> </p>
+<table>
+<thead>
+<tr>
+<th>运算符</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>= += -= *= /= %= ^= **=</td>
+<td>赋值</td>
+</tr>
+<tr>
+<td>?:</td>
+<td>C条件表达式</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>&amp;&amp;</td>
+<td>逻辑与</td>
+</tr>
+<tr>
+<td>~ ~!</td>
+<td>匹 配正则表达式和不匹配正则表达式</td>
+</tr>
+<tr>
+<td>&lt; &lt;= &gt; &gt;= != ==</td>
+<td>关 系运算符</td>
+</tr>
+<tr>
+<td>空格</td>
+<td>连接</td>
+</tr>
+</tbody></table>
+<ul>
+<li><ul>
+<li>| 加，减</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>/ &amp; | 乘，除与求余</li>
+</ul>
+<ul>
+<li><ul>
+<li>! | 一元加，减和逻辑非<br>^ *** | 求幂</li>
+</ul>
+</li>
+<li><ul>
+<li>– | 增加或减少，作为前缀或后缀<br>$ | 字 段引用<br>in | 数组成员 </li>
+</ul>
+</li>
+</ul>
+<p><strong>awk内置变量</strong></p>
+<table>
+<thead>
+<tr>
+<th>变 量</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>$n</td>
+<td>当前记录的第n个字段，字段间由 FS分隔。</td>
+</tr>
+<tr>
+<td>$0</td>
+<td>完整的输入记录。</td>
+</tr>
+<tr>
+<td>ARGC</td>
+<td>命 令行参数的数目。</td>
+</tr>
+<tr>
+<td>ARGIND</td>
+<td>命令行中当前文件的位置(从0开始算)。</td>
+</tr>
+<tr>
+<td>ARGV</td>
+<td>包 含命令行参数的数组。</td>
+</tr>
+<tr>
+<td>CONVFMT</td>
+<td>数字转换格式(默认值为%.6g)</td>
+</tr>
+<tr>
+<td>ENVIRON</td>
+<td>环 境变量关联数组。</td>
+</tr>
+<tr>
+<td>ERRNO</td>
+<td>最后一个系统错误的描述。</td>
+</tr>
+<tr>
+<td>FIELDWIDTHS</td>
+<td>字 段宽度列表(用空格键分隔)。</td>
+</tr>
+<tr>
+<td>FILENAME</td>
+<td>当前文件名。</td>
+</tr>
+<tr>
+<td>FNR</td>
+<td>同 NR，但相对于当前文件。</td>
+</tr>
+<tr>
+<td>FS</td>
+<td>字段分隔符(默认是任何空格)。</td>
+</tr>
+<tr>
+<td>IGNORECASE</td>
+<td>如 果为真，则进行忽略大小写的匹配。</td>
+</tr>
+<tr>
+<td>NF</td>
+<td>当前记录中的字段数。</td>
+</tr>
+<tr>
+<td>NR</td>
+<td>当 前记录数。</td>
+</tr>
+<tr>
+<td>OFMT</td>
+<td>数字的输出格式(默认值是%.6g)。</td>
+</tr>
+<tr>
+<td>OFS</td>
+<td>输 出字段分隔符(默认值是一个空格)。</td>
+</tr>
+<tr>
+<td>ORS</td>
+<td>输出记录分隔符(默认值是一个换行符)。</td>
+</tr>
+<tr>
+<td>RLENGTH</td>
+<td>由 match函数所匹配的字符串的长度。</td>
+</tr>
+<tr>
+<td>RS</td>
+<td>记录分隔符(默认是一个换行符)。</td>
+</tr>
+<tr>
+<td>RSTART</td>
+<td>由 match函数所匹配的字符串的第一个位置。</td>
+</tr>
+<tr>
+<td>SUBSEP</td>
+<td>数组下标分隔符(默认值是\034)。</td>
+</tr>
+</tbody></table>
+<p>一般内置变量只常用<code>$0,$n,NF,NR,FS</code></p>
+<h2 id="0x033-sed-命令"><a href="#0x033-sed-命令" class="headerlink" title="0x033 sed 命令"></a>0x033 sed 命令</h2><p>在程序中要修改数据只能用sed</p>
+<pre><code>#sed 选项  &#39;动作&#39; 文件名
+选项:
+    -n ：一般sed命令会把所有数据都输出到屏幕，如果加入此选项，会把经过sed命令处理的行输出到屏幕
+    -e : 允许输入数据应用多条sed命令编辑
+    -f 脚本名文件名 : 从sed脚本中读入sed操作。和awk命令的-f非常类似
+    -r : 在sed中支持扩展正则表达式
+    -i : 用sed的修改结果直接修改读取数据的文件，而不是由屏幕输出
+动作:
+    a \ : 追加。在当前行后添加一行或多行，除最后一行外，每行末尾需要用&quot;\&quot;代表数据未完结
+    c \ : 行替换，用c后面的字符串替换源数据行，替换多行时，除最后一行外，每行末尾需要用&quot;\&quot;代表数据未完
+    i \ : 插入，在当期行前插入一行或多行。插入多行时，除最后一行外，每行末尾需要用&quot;\&quot;代表数据未完
+    d : 删除，删除指定的行
+    p : 打印，输出指定的行
+    s : 字串替换，用一个字符串替换另一个字符串。格式为 &quot;行方位 s/就字符串/新字符串/g&quot;
+</code></pre>
+<p>例如</p>
+<pre><code class="shell">#set  &#39;2a 1111111111111111111&#39; test.txt        a在后面i在前面
+#set -e &#39;3d ; 4d&#39; text.txt  #执行删除第三第四行数据
+#set &#39;s/new/old/g&#39; txest.txt #全文替换
+</code></pre>
+<h2 id="0x034-sort"><a href="#0x034-sort" class="headerlink" title="0x034 sort"></a>0x034 sort</h2><p>sort:排序</p>
+<pre><code>#sort [选项] 文件名
+选项:
+    -f : 忽略大小写
+    -b : 忽略每行前面的空白部分
+    -n : 以数值型进行排序，默认使用字符串型排序
+    -r : 反向排序
+    -u : 删除重复行.就是Uniq命令
+    -t : 指定分隔符，默认是分隔符是制表符
+</code></pre>
+<p>例如</p>
+<pre><code class="shell"># sort -r -t &#39;:&#39; -n -k &#39;3,3&#39; /etc/passwd
+</code></pre>
+<h2 id="0x035-uniq"><a href="#0x035-uniq" class="headerlink" title="0x035 uniq"></a>0x035 uniq</h2><p>用来取消重复的行命令，其实和”sour -u”一样。命令格式如下：</p>
+<pre><code class="shell"># uniq [选项] 文件名
+选项:
+    -i : 忽略大小写
+</code></pre>
+<h2 id="0x036-wc"><a href="#0x036-wc" class="headerlink" title="0x036 wc"></a>0x036 wc</h2><p>用来统计的</p>
+<pre><code># wc [选项] 文件名
+选项:
+    -l : 只统计行数
+    -w : 只统计单词数
+    -m : 只统计字符数
+</code></pre>
+<h1 id="0x04-条件判断"><a href="#0x04-条件判断" class="headerlink" title="0x04 条件判断"></a>0x04 条件判断</h1><h2 id="0x041-按照文件类型进行判断"><a href="#0x041-按照文件类型进行判断" class="headerlink" title="0x041 按照文件类型进行判断"></a>0x041 按照文件类型进行判断</h2><table>
+<thead>
+<tr>
+<th>测试选项</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>-b 文件</td>
+<td>判断该文件是否存在，并且是否为块设备文件</td>
+</tr>
+<tr>
+<td>-c 文件</td>
+<td>判断该文件是否存在，并且是否为字符设备文件</td>
+</tr>
+<tr>
+<td>-d 文件</td>
+<td>判断该文件是否存在，并且是否为目录文件</td>
+</tr>
+<tr>
+<td>-e 文件</td>
+<td>判断该文件是否存在</td>
+</tr>
+<tr>
+<td>-f 文件</td>
+<td>判断该文件是否存在，并且是否为普通文件</td>
+</tr>
+<tr>
+<td>-L 文件</td>
+<td>判断该文件是否存在，并且是否为符号链接文件</td>
+</tr>
+<tr>
+<td>-p 文件</td>
+<td>判断该文件是否存在，并且是否为管道文件</td>
+</tr>
+<tr>
+<td>-s 文件</td>
+<td>判断该文件是否存在，并且是否为空</td>
+</tr>
+<tr>
+<td>-S 文件</td>
+<td>判断该文件是否存在，并且是否为套接字文件</td>
+</tr>
+</tbody></table>
+<p>常用的<code>-d,-e -f -L -s</code></p>
+<p>使用方法有两种</p>
+<pre><code class="shell"># test -e ip.txt #方法一 
+# [ -e ip.txt ] #方法二 常用    
+</code></pre>
+<p>例子</p>
+<pre><code class="shell">[ -d ip.txt ] &amp;&amp; echo yes || echo no
+</code></pre>
+<h2 id="0x042-按照文件权限进行判断"><a href="#0x042-按照文件权限进行判断" class="headerlink" title="0x042 按照文件权限进行判断"></a>0x042 按照文件权限进行判断</h2><table>
+<thead>
+<tr>
+<th>测试选项</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>-r 文件</td>
+<td>判断该文件是否存在，并且是否该文件拥有读权限</td>
+</tr>
+<tr>
+<td>-w 文件</td>
+<td>判断该文件是否存在，并且是否该文件拥有写权限</td>
+</tr>
+<tr>
+<td>-x 文件</td>
+<td>判断该文件是否存在，并且是否该文件拥有执行权限</td>
+</tr>
+<tr>
+<td>-u 文件</td>
+<td>判断该文件是否存在，并且是否该文件拥有SUID权限</td>
+</tr>
+<tr>
+<td>-g 文件</td>
+<td>判断该文件是否存在，并且是否该文件拥有SGID权限</td>
+</tr>
+<tr>
+<td>-k 文件</td>
+<td>判断该文件是否存在，并且是否该文件拥有SBit权限</td>
+</tr>
+</tbody></table>
+<p>使用方法同上，注意这个办法不能区分所属组所属者陌生人。所以只要任意一个用户拥有权限即可。如要细分写脚本单独提取相对应的权限。</p>
+<h2 id="0x043-两个文件之间进行比较"><a href="#0x043-两个文件之间进行比较" class="headerlink" title="0x043 两个文件之间进行比较"></a>0x043 两个文件之间进行比较</h2><table>
+<thead>
+<tr>
+<th>测试选项</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>文件1 -nt 文件2</td>
+<td>判断文件1d的修改时间是否比文件2的新</td>
+</tr>
+<tr>
+<td>文件1 -ot 文件2</td>
+<td>判断文件1d的修改时间是否比文件2的旧</td>
+</tr>
+<tr>
+<td>文件1 -ef 文件2</td>
+<td>判断文件1是否和文件2的Inode号一致，可以裂解为两个文件是否为同一个文件。这个判断硬链接是个很好的办法。</td>
+</tr>
+</tbody></table>
+<h2 id="0x044-两个整数之间比较"><a href="#0x044-两个整数之间比较" class="headerlink" title="0x044 两个整数之间比较"></a>0x044 两个整数之间比较</h2><table>
+<thead>
+<tr>
+<th>测试选项</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>整数1 -eq 整数2</td>
+<td>判断整数1是否和整数2相等</td>
+</tr>
+<tr>
+<td>整数1 -ne 整数2</td>
+<td>判断整数1是否和整数2不相等</td>
+</tr>
+<tr>
+<td>整数1 -gt 整数2</td>
+<td>判断整数1是否大于整数2</td>
+</tr>
+<tr>
+<td>整数1 -lt 整数2</td>
+<td>判断整数1是否小于整数2</td>
+</tr>
+<tr>
+<td>整数1 -ge 整数2</td>
+<td>判断整数1是否大于等于整数2</td>
+</tr>
+<tr>
+<td>整数1 -le 整数2</td>
+<td>判断整数1是否小于等于整数2</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>背诵方法  Equal 相等 greater大于 less小于</p>
+</blockquote>
+<h2 id="0x045-字符判断"><a href="#0x045-字符判断" class="headerlink" title="0x045 字符判断"></a>0x045 字符判断</h2><table>
+<thead>
+<tr>
+<th>测试选项</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>-z 字符串</td>
+<td>判断字符串是否为空</td>
+</tr>
+<tr>
+<td>-n 字符串</td>
+<td>判断字符串是否为非空</td>
+</tr>
+<tr>
+<td>字符串1 == 字符串2</td>
+<td>判断字符串1是否和字符串2相等</td>
+</tr>
+<tr>
+<td>字符串1 !=  字符串2</td>
+<td>判断字符串1是否不等于字符串2</td>
+</tr>
+</tbody></table>
+<p>这里==和!=可以用于判断数值是否相等因为数值的二进制码也是一样的。但是判断不了大小</p>
+<h2 id="0x046-条件判断"><a href="#0x046-条件判断" class="headerlink" title="0x046 条件判断"></a>0x046 条件判断</h2><table>
+<thead>
+<tr>
+<th>测试选项</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>判断1 -a 判断2</td>
+<td>逻辑与，判断1和判断2都成立，则真 a=and</td>
+</tr>
+<tr>
+<td>判断1 -o 判断2</td>
+<td>逻辑或,，判断1和判断一只有一个成立，则真 o=or</td>
+</tr>
+<tr>
+<td>!判断</td>
+<td>逻辑非，结果取反 !=not</td>
+</tr>
+</tbody></table>
+<p>例子</p>
+<pre><code class="shell">aa=40
+[ -n &quot;$aa&quot; -a &quot;$aa&quot; -gt &quot;30&quot; ] &amp;&amp; echo yes || echo no
+</code></pre>
+<h1 id="0x05-流程控制"><a href="#0x05-流程控制" class="headerlink" title="0x05 流程控制"></a>0x05 流程控制</h1><h2 id="0x051-if条件语句"><a href="#0x051-if条件语句" class="headerlink" title="0x051 if条件语句"></a>0x051 if条件语句</h2><p>语法如下</p>
+<pre><code>if [条件判断式]
+    then
+        程序
+fi
+</code></pre>
+<p>例子 <code>tset.sh</code></p>
+<pre><code class="shell">#判断分区使用率是否大于80%
+#!/bin/bash
+aa=$(df -h | grep /dev/mapper/centos-root | awk &#39;&#123;print $5&#125;&#39; | cut -d &quot;%&quot; -f 1)
+
+if [ &quot;$aa&quot; -ge 5 ]
+         then
+                 echo &quot;大于百分之5&quot;
+fi
+</code></pre>
+<h2 id="0x052-双分支if条件"><a href="#0x052-双分支if条件" class="headerlink" title="0x052 双分支if条件"></a>0x052 双分支if条件</h2><p>语法如下</p>
+<pre><code class="shell">if [条件判断式]
+    then 
+        程序1
+    else
+        程序2
+fi
+</code></pre>
+<p>例子</p>
+<p>服务器有时候会宕机。如果我们对服务器监控不好，就会造成服务宕机，而管理员却不知道的情况，这时我们写一个脚本来监听本机的服务，如果服务器宕机就重启。例如Apache服务</p>
+<pre><code class="shell">#!/bin/bash
+#找出端口号
+port=$( nmap 192.168.205.128 | grep &quot;tcp&quot; | awk &#39;$2==&quot;open&quot; &amp;&amp; $3==&quot;ssh&quot;&#39; )
+
+if [ &quot;$port&quot; == &quot;&quot; ]
+        then
+                echo &quot;httpd is down , must restart&quot;
+                service httpd restart &gt;&gt; /dev/null
+         else
+                echo &quot;httpd is ok&quot;
+fi
+</code></pre>
+<h2 id="0x053-多分枝"><a href="#0x053-多分枝" class="headerlink" title="0x053 多分枝"></a>0x053 多分枝</h2><pre><code class="shell">if [条件1]
+    then
+        程序
+elif [条件2]
+    then
+        程序
+.....
+else 
+    当所有条件不满足时执行程序
+fi
+</code></pre>
+<p>例子<code>test3.sh</code>判断用户输入的是什么文件。</p>
+<pre><code class="shell">#!/bin/bash
+
+#接收键盘输入，并赋予变量file
+read -p &quot;Please input a filename: &quot; file
+
+#判断是否为空
+if [ -z $fiel ]
+        then
+                echo &quot;Error emply input&quot;
+                exit 1
+#判断是否文件
+elif [ ! -e $file&quot;]
+        then
+                echo &quot;Error input date not file&quot;
+                exit 1
+elif [ -f $file ]
+        then
+                echo &quot;$file is a regulare file!&quot;
+elif [ -d $file ]
+        then
+                echo &quot;$file is a directory!&quot;
+else
+        echo &quot;&quot;$file is an other file!&quot;
+fi
+</code></pre>
+<h2 id="0x054-多分支case条件语句"><a href="#0x054-多分支case条件语句" class="headerlink" title="0x054 多分支case条件语句"></a>0x054 多分支case条件语句</h2><pre><code class="shell">case $变量名 in
+    &quot;值1&quot;)
+        程序1
+    &quot;值2&quot;)
+        程序2
+        ;;
+    .....
+    *)
+        不满足条件执行程序
+        ;;
+esac
+</code></pre>
+<h2 id="0x055-for循环"><a href="#0x055-for循环" class="headerlink" title="0x055 for循环"></a>0x055 for循环</h2><p>第一种写法</p>
+<pre><code class="shell">for 变量 in 值1 值2 值3.....
+    do
+        程序
+    done
+</code></pre>
+<p>第二种写法</p>
+<pre><code>for(( i=1;i&lt;=100;i=i+1))
+    do
+        s=$(( $s+%i))
+    done
+echo &quot;1+2+。。。100 : $s&quot;
+</code></pre>
+<h2 id="0x056-while循环"><a href="#0x056-while循环" class="headerlink" title="0x056 while循环"></a>0x056 while循环</h2><pre><code class="shell">while [ 条件判断式 ]
+    do
+        程序
+        条件改动
+    done
+</code></pre>
+<p>注意while的判断不会自增和自减。所以要条件改动</p>
+<h2 id="0x057-until循环"><a href="#0x057-until循环" class="headerlink" title="0x057  until循环"></a>0x057  until循环</h2><p>until循环和while循环相反，until是条件不满足循环</p>
+<pre><code class="shell">until [ 条件判断式 ]
+    do
+        程序
+    done
+</code></pre>
+<h1 id="0x06-特殊流程控制语句"><a href="#0x06-特殊流程控制语句" class="headerlink" title="0x06 特殊流程控制语句"></a>0x06 特殊流程控制语句</h1><h2 id="0x061-exit"><a href="#0x061-exit" class="headerlink" title="0x061 exit"></a>0x061 exit</h2><pre><code class="shell">exit [返回值]
+</code></pre>
+<p>exit常用的表示值</p>
+<table>
+<thead>
+<tr>
+<th>值</th>
+<th>意义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>0</td>
+<td>正常执行</td>
+</tr>
+<tr>
+<td>1</td>
+<td>报错</td>
+</tr>
+</tbody></table>
+<p>这个值可以自定义设置这样在写庞大的脚本时快速找到错误点</p>
+<h2 id="0x062-break和continue"><a href="#0x062-break和continue" class="headerlink" title="0x062 break和continue"></a>0x062 break和continue</h2><p>break和continue普通编程一样。</p>
+<h1 id="0x07-加减乘除完整版"><a href="#0x07-加减乘除完整版" class="headerlink" title="0x07 加减乘除完整版"></a>0x07 加减乘除完整版</h1><pre><code class="shell">#!/bin/bash
+
+#赋予两个变量和输入计算符号
+read -t 30 -p &quot;Please input num1: &quot; num1
+read -t 30 -p &quot;Please input num2: &quot; num2
+read -t 30 -p &quot;Please input operater: &quot; ope
+
+
+#判断num1,num2以及ope是否为空
+if [ -n &quot;$num1&quot; -a -n &quot;$num2&quot; -a -n &quot;$ope&quot; ]
+        then
+                #把test1中数字替换为空。如果完后test1为空证明num1为纯数字数字
+                test1=$( echo $num1 | sed &#39;/[0-9]//g&#39; )
+                test2=$( echo $num2 | sed &#39;/[0-9]//g&#39; )
+        #判断test1和test2为空则输入为纯数字
+        if [ -z &quot;$test1&quot; -a -z &quot;$test2&quot; ]
+                then
+                        case &quot;$ope&quot; in                               
+                         &quot;+&quot;)
+                                        value=$(( $num1 + $num2 ))
+                                        ;;
+                        &quot;-&quot;)
+                                        value=$(( $num1 - $num2 ))
+                                        ;;
+                           &quot;*&quot;)
+                                        value=$(( $num1 * $num2 ))
+                                        ;;
+                        &quot;/&quot;)
+                                        value=$(( $num1 / $num2 ))
+                                        ;;
+                        *)
+                                echo &quot;Error, Please enter a valid symbol&quot;
+                                ;;
+                        esac
+        else
+                echo &quot;Please enter a valid value&quot;
+                exit 11
+        fi
+fi
+
+echo &quot; $num1 $ope $num2 : $value&quot;
+</code></pre>
+<h1 id="0x08-判断合法IP地址"><a href="#0x08-判断合法IP地址" class="headerlink" title="0x08 判断合法IP地址"></a>0x08 判断合法IP地址</h1><pre><code class="shell">#!/bin/bash
+
+#正则提取范围在 0-999.0-999.0-999.0-999范围的IP地址
+grep &quot;^[0-9]\&#123;1,3\&#125;\.[0-9]\&#123;1,3\&#125;\.[0-9]\&#123;1,3\&#125;&quot; /root/sh/ip.txt &gt; /root/sh/ip_test1.txt
+
+#统计test1中有几行IP地址
+line=$(wc -l /root/sh/ip_tset1.txt | awk &#39;&#123;print $1&#125;&#39;)
+#清除数据
+echo &quot; &quot;&gt; /root/sh/ip_test.txt
+
+for((i=1;i&lt;=$line;i=i+1))
+    do
+        cat /root/sh/ip_test1.txt | awk&#39;NR==&#39;$i&#39;&#123;print&#125;&#39; &gt; /root/sh/ip-test2.txt
+        a=$(cat /root/sh/ip_test2.txt | cut -d &#39;.&#39; -f1 )
+        b=$(cat /root/sh/ip_test2.txt | cut -d &#39;.&#39; -f2 )
+        c=$(cat /root/sh/ip_test2.txt | cut -d &#39;.&#39; -f3 )
+        d=$(cat /root/sh/ip_test2.txt | cut -d &#39;.&#39; -f4 )
+        如果IP值小于1或大于255退出
+        if [&quot;$a&quot; -lt 1 -o &quot;$a&quot; -gt 255]
+            then 
+                continue
+        fi
+        
+        if [&quot;$b&quot; -lt 0 -o &quot;$a&quot; -gt 255]
+            then 
+                continue
+        fi
+        
+        if [&quot;$c&quot; -lt 1 -o &quot;$a&quot; -gt 255]
+            then 
+                continue
+        fi
+        
+        if [&quot;$d&quot; -lt 1 -o &quot;$a&quot; -gt 255]
+            then 
+                continue
+        fi
+        #判断玩写入文件
+        cat/root/sh/ip_test2.txt &gt;&gt; /root/sh/ip_test.txt
+    done
+#清理临时文件
+rm -rf /root/sh/ip_test1.txt
+rm -rf /root/sh/ip_test2.txt
+</code></pre>
+<h1 id="0x09-批量添加指定数量的用户"><a href="#0x09-批量添加指定数量的用户" class="headerlink" title="0x09 批量添加指定数量的用户"></a>0x09 批量添加指定数量的用户</h1><pre><code class="shell">#!/bin/bash
+
+read -p &quot;Please input user name: &quot; -t 30 name
+read -p &quot;Please input number of users&quot; -t 30 num
+read -p &quot;Please input password of users&quot; -t 30 pass
+#判断三个变量都为非空
+if [ !z &quot;$name&quot; -a ! -z &quot;$num&quot; -a -z &quot;$pass&quot;]
+    then
+        #判断Num为数字
+        y=$(echo $num | sed &#39;s/[0-9]//g&#39;)
+        if [-z &quot;$y&quot;]
+            then
+                for((i=i;i&lt;=$num;i=i+1))
+                    do
+                        #添加用户
+                        /usr/sbin/useradd $name$i &amp;&gt;/dev/null
+                        #设定密码
+                        echo $pass | /usr/bin/passwd --stdin $name$i &amp;&gt;/dev/null
+                        #强制用户登录后修改密码
+                        chage -d 0 $name$i &amp;&gt;/dev/null
+                    done
+                    
+        fi
+fi                        
+</code></pre>
+<h1 id="0x10-批量删除用户"><a href="#0x10-批量删除用户" class="headerlink" title="0x10 批量删除用户"></a>0x10 批量删除用户</h1><pre><code class="shell">#!/bin/bash
+
+user=$( cat /etc/passwd | grep &quot;/bin/bash&quot; | grep -v &quot;root&quot; | cut -d &quot;:&quot; f1 )
+for i in $user
+    do
+        userdel -r $i
+    done
+</code></pre>
+
+</div>
+
+
+    <div class="post-guide">
+        <div class="item left">
+            
+              <a href="/2019/12/02/Linux/12Linux%E4%B9%8B%E5%90%AF%E5%8A%A8%E5%BC%95%E5%AF%BC%E4%B8%8E%E4%BF%AE%E5%A4%8D/">
+                  <i class="fa fa-angle-left" aria-hidden="true"></i>
+                  12Linux之启动引导与修复
+              </a>
+            
+        </div>
+        <div class="item right">
+            
+              <a href="/2019/11/24/Linux/10Linux%E4%B9%8Bshell/">
+                10Linux之shell
+                <i class="fa fa-angle-right" aria-hidden="true"></i>
+              </a>
+            
+        </div>
+    </div>
+
+
+
+
+<script>
+	
+	
+</script>
+	</div>
+	<div id="footer">
+	<p>
+	©2020-<span id="footerYear"></span> 
+	<a href="/">BamB00</a> 
+	
+	
+		|
+		<span id="busuanzi_container_site_pv">
+			pv
+			<span id="busuanzi_value_site_pv"></span>
+		</span>
+		|
+		<span id="busuanzi_container_site_uv"> 
+			uv
+			<span id="busuanzi_value_site_uv"></span>
+		</span>
+	
+	<br>
+	Theme <a href="//github.com/wujun234/hexo-theme-tree" target="_blank">Tree</a>
+	by <a href="//github.com/wujun234" target="_blank">WuJun</a>
+	Powered by <a href="//hexo.io" target="_blank">Hexo</a>
+	</p>
+</div>
+<script type="text/javascript"> 
+	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
+</script>
+	<button id="totop-toggle" class="toggle"><i class="fa fa-angle-double-up" aria-hidden="true"></i></button>
+</body>
+</html>

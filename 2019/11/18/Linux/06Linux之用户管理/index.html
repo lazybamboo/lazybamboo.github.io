@@ -1,0 +1,976 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8">
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+	
+	<!-- title -->
+	
+	<title>
+	
+		06Linux用户管理 | 
+	 
+	竹竿小站
+	</title>
+	
+	<!-- keywords,description -->
+	 
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.jpg">
+	
+
+
+	<!-- search -->
+	<script>
+		var searchEngine = "https://www.baidu.com/s?wd=";
+		if(typeof searchEngine == "undefined" || searchEngine == null || searchEngine == ""){
+			searchEngine = "https://www.google.com/search?q=";
+		}
+		var homeHost = "bamboo.github.io";
+		if(typeof homeHost == "undefined" || homeHost == null || homeHost == ""){
+			homeHost = window.location.host;
+		}
+	</script>
+
+
+	
+<link rel="stylesheet" href="/css/main.css">
+
+	
+<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.min.css">
+
+	
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.17.1/build/styles/darcula.min.css">
+
+	
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+
+
+	
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+
+	
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
+	
+<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.17.1/build/highlight.min.js"></script>
+
+	
+<script src="https://cdn.jsdelivr.net/npm/jquery-pjax@2.0.1/jquery.pjax.min.js"></script>
+
+	
+<script src="/js/main.js"></script>
+
+	
+		
+<script src="https://cdn.jsdelivr.net/npm/leancloud-storage/dist/av-min.js"></script>
+
+		
+<script src="https://cdn.jsdelivr.net/npm/valine@1.3.10/dist/Valine.min.js"></script>
+
+	
+	
+		<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+	
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+	<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?3efe99c287df5a1d6f0d02d187e403c1";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+<header id="header">
+    <a id="title" href="/" class="logo">竹竿小站</a>
+
+	<ul id="menu">
+		<li class="menu-item">
+			<a href="/about" class="menu-item-link">ABOUT</a>
+		</li>
+	
+		<li class="menu-item">
+			<a href="/tags" class="menu-item-link">标签</a>
+		</li>
+	
+
+	
+		<li class="menu-item">
+			<a href="/categories" class="menu-item-link">分类</a>
+		</li>
+	
+
+		<li class="menu-item">
+			<a href="https://github.com/wujun234/uid-generator-spring-boot-starter" class="menu-item-link" target="_blank">
+				UidGenerator
+			</a>
+		</li>
+		<li class="menu-item">
+			<a href="https://github.com/wujun234" class="menu-item-link" target="_blank">
+				<i class="fa fa-github fa-2x"></i>
+			</a>
+		</li>
+	</ul>
+</header>
+
+	
+<div id="sidebar">
+	<button id="sidebar-toggle" class="toggle" ><i class="fa fa-arrow-right " aria-hidden="true"></i></button>
+	
+	<div id="site-toc">
+		<input id="search-input" class="search-input" type="search" placeholder="按回车全站搜索">
+		<div id="tree">
+			
+
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Linux
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/2017/08/08/Linux/01linux-%E5%AE%89%E8%A3%85/">
+										01linux-安装
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/11/08/Linux/02Linux%E5%AD%A6%E5%89%8D%E9%A1%BB%E7%9F%A5/">
+										02Linux学前须知
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/11/08/Linux/03Linuxz%E4%B9%8B%E5%B8%B8%E7%94%A8%E7%9A%84%E5%91%BD%E4%BB%A4/">
+										03Linuxz之常用的命令
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2021/04/12/Linux/04Linux%E4%B9%8BVim/">
+										04Linux之Vim
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/11/14/Linux/05Linux%E4%B9%8B%E8%BD%AF%E4%BB%B6%E5%8C%85/">
+										05Linux之软件包
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file active">
+									<a href="/2019/11/18/Linux/06Linux%E4%B9%8B%E7%94%A8%E6%88%B7%E7%AE%A1%E7%90%86/">
+										06Linux之用户管理
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/11/19/Linux/07Linux%E4%B9%8B%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/">
+										07Linux之权限管理
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/11/20/Linux/08Linux%E4%B9%8B%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F%E7%AE%A1%E7%90%86/">
+										08Linux之文件系统管理
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/11/23/Linux/09Linux%E4%B9%8B%E9%AB%98%E7%BA%A7%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F/">
+										09Linux之高级文件管理系统
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/11/24/Linux/10Linux%E4%B9%8Bshell/">
+										10Linux之shell
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/11/26/Linux/11Linux%E4%B9%8Bshell%E9%AB%98%E7%BA%A7/">
+										11Linux之shell高级
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/12/02/Linux/12Linux%E4%B9%8B%E5%90%AF%E5%8A%A8%E5%BC%95%E5%AF%BC%E4%B8%8E%E4%BF%AE%E5%A4%8D/">
+										12Linux之启动引导与修复
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/12/06/Linux/13Linux%E4%B9%8B%E6%9C%8D%E5%8A%A1%E7%AE%A1%E7%90%86/">
+										13Linux之服务管理
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/12/10/Linux/14Linux%E4%B9%8B%E7%B3%BB%E7%BB%9F%E7%AE%A1%E7%90%86/">
+										14Linux之系统管理
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/12/06/Linux/15Linux%E4%B9%8B%E7%B3%BB%E7%BB%9F%E6%97%A5%E5%BF%97/">
+										15Linux之系统日志
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/12/17/Linux/16Centos6%E5%92%8CCentos7%E5%9F%BA%E6%9C%AC%E5%AF%B9%E6%AF%94/">
+										16Centos6和Centos7基本对比
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/12/17/Linux/17Linux%E4%B9%8B%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/">
+										17Linux之网络基础
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/10/15/Linux/18Linux%E4%B9%8B%E6%9C%8D%E5%8A%A1%E5%9F%BA%E7%A1%80SSH/">
+										18Linux之服务基础SSH
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/12/18/Linux/19Linux%E4%B9%8B%E6%9C%8D%E5%8A%A1%E5%9F%BA%E7%A1%80TCP%20Wrappers/">
+										19Linux之服务基础TCP Wrappers
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/12/18/Linux/20%E7%BD%91%E7%BB%9C%E6%9C%8D%E5%8A%A1%E4%B9%8BDHCP/">
+										20网络服务之DHCP
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/12/20/Linux/21%E7%BD%91%E7%BB%9C%E6%9C%8D%E5%8A%A1%E4%B9%8BDNS/">
+										21网络服务之DNS
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/12/26/Linux/22%E7%BD%91%E7%BB%9C%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B9%8BVSFTP/">
+										22网络服务器之VSFTP
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/10/11/Linux/Bash%E5%BF%AB%E6%8D%B7%E9%94%AE/">
+										Bash快捷键
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/10/10/Linux/LInux-CDN%E7%AE%80%E4%BB%8B/">
+										LInux-CDN简介
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/10/08/Linux/Llinux-DNS-%E8%AF%A6%E8%A7%A3/">
+										Llinux-DNS-详解
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/10/13/Linux/linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">
+										linux常用命令
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2021/04/12/Linux/%E5%8D%8A%E8%99%9A%E6%8B%9F%E5%8C%96%E5%92%8C%E7%A1%AC%E4%BB%B6%E8%99%9A%E6%8B%9F%E5%8C%96%E7%9A%84%E4%B8%BB%E8%A6%81%E5%8C%BA%E5%88%AB/">
+										半虚拟化和硬件虚拟化的主要区别
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										web渗透
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/2020/09/17/web%E6%B8%97%E9%80%8F/01SQL%E6%B3%A8%E5%85%A5/">
+										01SQL注入
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										搭建
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/2018/11/18/%E6%90%AD%E5%BB%BA/NextCloud/">
+										NextCloud
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2018/11/18/%E6%90%AD%E5%BB%BA/Nmap-Sublist3r-Hydra%E5%AE%89%E8%A3%85%EF%BC%88Ubuntu%E7%8E%AF%E5%A2%83%EF%BC%89/">
+										Nmap-Sublist3r-Hydra安装（Ubuntu环境）
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/04/11/%E6%90%AD%E5%BB%BA/hadoop%E5%8D%95%E6%9C%BA%E9%9B%86%E7%BE%A4%E6%90%AD%E5%BB%BA/">
+										hadoop单机集群搭建
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										汇编
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/2018/12/20/%E6%B1%87%E7%BC%96/%E6%B1%87%E7%BC%961/">
+										汇编1
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2018/12/26/%E6%B1%87%E7%BC%96/%E6%B1%87%E7%BC%962/">
+										汇编2
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/01/01/%E6%B1%87%E7%BC%96/%E6%B1%87%E7%BC%963/">
+										汇编3
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/01/05/%E6%B1%87%E7%BC%96/%E6%B1%87%E7%BC%964/">
+										汇编4
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/01/06/%E6%B1%87%E7%BC%96/%E6%B1%87%E7%BC%965/">
+										汇编5
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/01/07/%E6%B1%87%E7%BC%96/%E6%B1%87%E7%BC%966/">
+										汇编6
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2021/04/12/%E6%B1%87%E7%BC%96/%E9%80%9A%E7%94%A8%E5%AF%84%E5%AD%98%E5%99%A8/">
+										通用寄存器
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+		</div>
+	</div>
+</div>
+
+	<!-- 引入正文 -->
+	<div id="content">
+		<h1 id="article-title">
+
+	06Linux之用户管理
+</h1>
+<div class="article-meta">
+	
+	<span>BamB00</span>
+	<span>2019-11-18 00:00:00</span>
+		<div id="article-categories">
+    
+		<span>Categories：</span>
+            
+    
+
+    
+		<span>Tags：</span>
+            
+                
+                    <span>
+                        <i class="fa fa-tag" aria-hidden="true">
+                        <a href="/tags/Linux/">Linux</a>
+                        </i>
+                    </span>
+                
+            
+    
+		</div>
+
+</div>
+
+<div id="article-content">
+	<h1 id="0x01-用户相关文件"><a href="#0x01-用户相关文件" class="headerlink" title="0x01 用户相关文件"></a>0x01 用户相关文件</h1><h2 id="0x011-etc-passwd"><a href="#0x011-etc-passwd" class="headerlink" title="0x011 /etc/passwd"></a>0x011 /etc/passwd</h2><pre><code>1 root:x:0:0:root:/root:/bin/zsh
+2 bin:x:1:1:bin:/bin:/sbin/nologin
+3 daemon:x:2:2:daemon:/sbin:/sbin/nologin
+4 adm:x:3:4:adm:/var/adm:/sbin/nologin
+5 lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+6 sync:x:5:0:sync:/sbin:/bin/sync
+7 shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
+8 halt:x:7:0:halt:/sbin:/sbin/halt
+9 mail:x:8:12:mail:/var/spool/mail:/sbin/nologin
+10 operator:x:11:0:operator:/root:/sbin/nologin
+11 games:x:12:100:games:/usr/games:/sbin/nologin
+12 ftp:x:14:50:FTP User:/var/ftp:/sbin/nologin
+13 nobody:x:99:99:Nobody:/:/sbin/nologin
+14 systemd-network:x:192:192:systemd Network Management:/:/sbin/nologin
+15 dbus:x:81:81:System message bus:/:/sbin/nologin
+16 polkitd:x:999:998:User for polkitd:/:/sbin/nologin
+17 sshd:x:74:74:Privilege-separated SSH:/var/empty/sshd:/sbin/nologin
+18 postfix:x:89:89::/var/spool/postfix:/sbin/nologin
+19 chrony:x:998:996::/var/lib/chrony:/sbin/nologin
+</code></pre>
+<p>每一行都是一个用户，上列除了，第一行其他都是系统用户。它们是用来启动相对应的文件和程序的。</p>
+<p> <img src="C:\Users\zhugan\Desktop\笔记整理\笔记图片\Linux\基础\04.jpeg" alt="img"> </p>
+<p>这个密码x只是一个标识位，真正的密码放在<code>/etc/shadow</code>下，x代表它有密码</p>
+<ul>
+<li>UID= User ID  0 表示超级管理员账户</li>
+<li>1-499 系统用户UID 。这些UID账户是给系统保留给系统用户的UID</li>
+<li>500-65536 普通用户UID，2.6.x内核以后的Linux用户UID支持数量更多</li>
+</ul>
+<p>用户组的标识在这里只是标识一个标志位，一样不表示作用，作用的是在<code>/etc/group</code>下</p>
+<p>UID是做位一个真正的权限位。修改UID及修改权限。</p>
+<h2 id="0x012-etc-shadow"><a href="#0x012-etc-shadow" class="headerlink" title="0x012 /etc/shadow"></a>0x012 /etc/shadow</h2><pre><code>1 root:$6$M2/RDS52$c1gQRzDJeclDsK5H2Q5.VFXayZxpjX755jrfeDcRrMAz5LgNsmXI3fVkBAkLw2        7GqZ8er3NwCXC9YqCq4F2Az0:18204:0:99999:7:::
+2 bin:*:17834:0:99999:7:::
+3 daemon:*:17834:0:99999:7:::
+4 adm:*:17834:0:99999:7:::
+5 lp:*:17834:0:99999:7:::
+6 sync:*:17834:0:99999:7:::
+7 shutdown:*:17834:0:99999:7:::
+8 halt:*:17834:0:99999:7:::
+9 mail:*:17834:0:99999:7:::
+10 operator:*:17834:0:99999:7:::
+11 games:*:17834:0:99999:7:::
+12 ftp:*:17834:0:99999:7:::
+13 nobody:*:17834:0:99999:7:::
+14 systemd-network:!!:18204::::::
+15 dbus:!!:18204::::::
+16 polkitd:!!:18204::::::
+17 sshd:!!:18204::::::
+18 postfix:!!:18204::::::
+19 chrony:!!:18204::::::
+</code></pre>
+<p>现在的的密码加密是<code>sha512</code> 上列用户中，有很多要么是*要么是两个!!这些都是系统用户一般表示没有密码和无法登录。</p>
+<table>
+<thead>
+<tr>
+<th>列</th>
+<th>意思</th>
+<th>详解</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>用户名</td>
+<td>同 /etc/passwd 文件的用户名有相同的含义。</td>
+</tr>
+<tr>
+<td>2</td>
+<td>加密密码</td>
+<td>这里保存的是真正加密的密码。目前 Linux 的密码采用的是 SHA512 散列加密算法，原来采用的是 MD5 或 DES 加密算法。SHA512 散列加密算法的加密等级更高，也更加安全。 所有伪用户的密码都是 “!!” 或 “*”，代表没有密码是不能登录的。当然，新创建的用户如果不设定密码，那么它的密码项也是 “!!”，代表这个用户没有密码，不能登录。</td>
+</tr>
+<tr>
+<td>3</td>
+<td>最后一次修改时间</td>
+<td>这是因为，Linux 计算日期的时间是以 1970 年 1 月 1 日作为 1 不断累加得到的时间，到 1971 年 1 月 1 日，则为  366 天。这里显示 15775 天，也就是说，此 root 账号在 1970 年 1 月 1 日之后的第 15775 天修改的 root  用户密码。</td>
+</tr>
+<tr>
+<td>4</td>
+<td>最小修改时间间隔</td>
+<td>最小修改间隔时间，也就是说，该字段规定了从第 3 字段（最后一次修改密码的日期）起，多长时间之内不能修改密码。如果是 0，则密码可以随时修改；如果是 10，则代表密码修改后 10 天之内不能再次修改密码。 <br></br>此字段是为了针对某些人频繁更改账户密码而设计的。</td>
+</tr>
+<tr>
+<td>5</td>
+<td>密码有效期</td>
+<td>经常变更密码是个好习惯，为了强制要求用户变更密码，这个字段可以指定距离第 3 字段（最后一次更改密码）多长时间内需要再次变更密码，否则该账户密码进行过期阶段。 该字段的默认值为 99999，也就是 273 年，可认为是永久生效。如果改为 90，则表示密码被修改 90 天之后必须再次修改，否则该用户即将过期。管理服务器时，通过这个字段强制用户定期修改密码。</td>
+</tr>
+<tr>
+<td>6</td>
+<td>密码需要变更前的警告天数</td>
+<td>与第 5 字段相比较，当账户密码有效期快到时，系统会发出警告信息给此账户，提醒用户 “再过 n 天你的密码就要过期了，请尽快重新设置你的密码！”。<br></br> 该字段的默认值是 7，也就是说，距离密码有效期的第 7 天开始，每次登录系统都会向该账户发出 “修改密码” 的警告信息。</td>
+</tr>
+<tr>
+<td>7</td>
+<td>密码过期后的宽限天数</td>
+<td>也称为“口令失效日”，简单理解就是，在密码过期后，用户如果还是没有修改密码，则在此字段规定的宽限天数内，用户还是可以登录系统的；如果过了宽限天数，系统将不再让此账户登陆，也不会提示账户过期，是完全禁用。<br/> <br/> 比如说，此字段规定的宽限天数是 10，则代表密码过期 10 天后失效；如果是 0，则代表密码过期后立即失效；如果是 -1，则代表密码永远不会失效</td>
+</tr>
+<tr>
+<td>8</td>
+<td>账号失效时间</td>
+<td>同第 3 个字段一样，使用自 1970 年 1 月 1 日以来的总天数作为账户的失效时间。该字段表示，账号在此字段规定的时间之外，不论你的密码是否过期，都将无法使用！<br/> <br/> 该字段通常被使用在具有收费服务的系统中。</td>
+</tr>
+<tr>
+<td>9</td>
+<td>保留</td>
+<td>这个字段目前没有使用，等待新功能的加入。</td>
+</tr>
+</tbody></table>
+<pre><code>注意，这串密码产生的乱码不能手工修改，如果手工修改，系统将无法识别密码，导致密码失效。很多软件透过这个功能，在密码串前加上 &quot;!&quot;、&quot;*&quot; 或 &quot;x&quot; 使密码暂时失效。
+</code></pre>
+<p>时间的换算</p>
+<pre><code class="shell"># date -d &quot;1970-01-01 15775 days&quot;
+2013年03月11日 星期一 00:00:00 CST
+</code></pre>
+<h2 id="0x013-etc-group"><a href="#0x013-etc-group" class="headerlink" title="0x013 /etc/group"></a>0x013 /etc/group</h2><pre><code class="shell">  1 root:x:0:
+  2 bin:x:1:
+  3 daemon:x:2:
+  4 sys:x:3:
+  5 adm:x:4:
+  6 tty:x:5:
+  7 disk:x:6:
+  8 lp:x:7:
+  9 mem:x:8:
+  10 kmem:x:9:
+  11 wheel:x:10:
+  12 cdrom:x:11:
+  13 mail:x:12:postfix
+  14 man:x:15:
+  15 dialout:x:18:
+  16 floppy:x:19:
+  17 games:x:20:
+  18 tape:x:33:
+  19 video:x:39:
+  20 ftp:x:50:
+  21 lock:x:54:
+  22 audio:x:63:
+  23 nobody:x:99:
+  24 users:x:100:
+  25 utmp:x:22:
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>列</th>
+<th>意思</th>
+<th>详解</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>组名</td>
+<td>也就是是用户组的名称，有字母或数字构成。同 /etc/passwd 中的用户名一样，组名也不能重复。</td>
+</tr>
+<tr>
+<td>2</td>
+<td>组密码</td>
+<td>和 /etc/passwd 文件一样，这里的 “x” 仅仅是密码标识，真正加密后的组密码默认保存在 /etc/gshadow 文件中。<br/> <br/> 不过，用户设置密码是为了验证用户的身份，那用户组设置密码是用来做什么的呢？用户组密码主要是用来指定组管理员的，由于系统中的账号可能会非常多，root 用户可能没有时间进行用户的组调整，这时可以给用户组指定组管理员，如果有用户需要加入或退出某用户组，可以由该组的组管理员替代 root  进行管理。但是这项功能目前很少使用，我们也很少设置组密码。如果需要赋予某用户调整某个用户组的权限，则可以使用 sudo 命令代替。</td>
+</tr>
+<tr>
+<td>3</td>
+<td>组ID（GID）</td>
+<td>就是群组的 ID 号，<a target="_blank" rel="noopener" href="http://c.biancheng.net/linux_tutorial/">Linux</a> 系统就是通过 GID 来区分用户组的，同用户名一样，组名也只是为了便于管理员记忆。<br/> <br/> 这里的组 GID 与 /etc/passwd 文件中第 4 个字段的 GID 相对应，实际上，/etc/passwd 文件中使用 GID 对应的群组名，就是通过此文件对应得到的。</td>
+</tr>
+<tr>
+<td>4</td>
+<td>组中的用户</td>
+<td>此字段列出每个群组包含的所有用户。需要注意的是，如果该用户组是这个用户的初始组，则该用户不会写入这个字段，可以这么理解，该字段显示的用户都是这个用户组的附加用户。</td>
+</tr>
+</tbody></table>
+<ul>
+<li><p><strong>初始组:  每个用户初始组只能由一个，一般都是和用户名相同的组作为初始组</strong></p>
+</li>
+<li><p><strong>附加组: 每个用户可以属于多个附加组。只要把用户加入组，都是加入附加组。</strong></p>
+</li>
+</ul>
+<p> <strong>每个用户都可以加入多个附加组，但是只能属于一个初始组</strong>。所以我们在实际工作中，如果需要把用户加入其他组，则需要以附加组的形式添加。例如，我们想让 lamp 也加入 root 这个群组，那么只需要在第一行的最后一个字段加入 lamp，即 <code>root:x:0:lamp</code> 就可以了。 </p>
+<p> 一般情况下，用户的初始组就是在建立用户的同时建立的和用户名相同的组。 </p>
+<p><code>/etc/gshadow</code>和<code>/etc/shadow</code>类似就不做过多的详解</p>
+<p>还有其他比较重要的目录</p>
+<h2 id="0x014-home-mail-etc-skel"><a href="#0x014-home-mail-etc-skel" class="headerlink" title="0x014 home,mail,/etc/skel"></a>0x014 home,mail,/etc/skel</h2><p>home不做过多解释，</p>
+<p>邮箱在/var/spool/mail目录当中，例如lamp用户的邮箱就是/var/spool/mail/lamp文件</p>
+<p>/etc/skel里面 创建一个用户 默认的文件 都在这个文件目录下 这个目录可以当作模板目录，只要创建用户就会有这个目录模板文件。</p>
+<h1 id="0x02-用户管理命令"><a href="#0x02-用户管理命令" class="headerlink" title="0x02 用户管理命令"></a>0x02 用户管理命令</h1><h2 id="0x021-useradd-添加用户"><a href="#0x021-useradd-添加用户" class="headerlink" title="0x021 useradd 添加用户"></a>0x021 useradd 添加用户</h2><p>手工删除用户：手工删除用户实验: 手工删除，如果可以正常建立用户，证明用户删除干净。</p>
+<pre><code>/etc/passwd
+/etc/shadow
+/etc/group
+/etc/gshadow
+/home/user
+/var/spool/mail/user
+</code></pre>
+<pre><code class="shell"># useradd 选项 用户名
+选项
+    -u 500 ：指定UID
+    -g 组名 ：指定初始组，不要手工指定
+    -G 组名 ：指定附加组，把用户加入某个组
+    -c 说明 ：添加说明
+    -d 目录 ：手工指定home目录，目录不需要事先创建
+    -s shell ： /bin/bash
+</code></pre>
+<h3 id="useradd默认值"><a href="#useradd默认值" class="headerlink" title="useradd默认值"></a>useradd默认值</h3><p>useradd 添加用户时参考的默认值文件主要有两个，分别时<code>/etc/default/useradd</code>和<code>/etc/login.defs</code></p>
+<p>/etc/default/useradd</p>
+<pre><code># useradd defaults file
+GR0UP=100
+HOME=/home
+INACTIVE=-1
+EXPIRE=
+SHELL=/bin/bash
+SKEL=/etc/skel
+CREATE_MAIL_SPOOL=yes
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>GR0UP=100</td>
+<td>这个选项用于建立用户的默认组，也就是说，在添加每个用户时，用户的初始组就是 GID 为 100 的这个用户组。但 CentOS 并不是这样的，而是在添加用户时会自动建立和用户名相同的组作为此用户的初始组。也就是说这个选项并不会生效。    Linux 中默认用户组有两种机制：一种是私有用户组机制，系统会创建一个和用户名相同的用户组作为用户的初始组；另一种是公共用户组机制，系统用 GID 是 100 的用户组作为所有新建用户的初始组。目前我们采用的是私有用户组机制。</td>
+</tr>
+<tr>
+<td>HOME=/home</td>
+<td>指的是用户主目录的默认位置，所有新建用户的主目录默认都在 /home/下，刚刚新建的 lamp1 用户的主目录就为 /home/lamp1/。</td>
+</tr>
+<tr>
+<td>INACTIVE=-1</td>
+<td>指的是密码过期后的宽限天数，也就是 /etc/shadow 文件的第七个字段。这里默认值是 -1，代表所有新建立的用户密码永远不会失效。</td>
+</tr>
+<tr>
+<td>EXPIRE=</td>
+<td>表示密码失效时间，也就是 /etc/shadow 文件的第八个字段。默认值是空，代表所有新建用户没有失效时间，永久有效。</td>
+</tr>
+<tr>
+<td>SHELL=/bin/bash</td>
+<td>表示所有新建立的用户默认 Shell 都是 /bin/bash。</td>
+</tr>
+<tr>
+<td>SKEL=/etc/skel</td>
+<td>在创建一个新用户后，你会发现，该用户主目录并不是空目录，而是有 .bash_profile、.bashrc 等文件，这些文件都是从  /etc/skel 目录中自动复制过来的。因此，更改 /etc/skel 目录下的内容就可以改变新建用户默认主目录中的配置文件信息。</td>
+</tr>
+<tr>
+<td>CREATE_MAIL_SPOOL=yes</td>
+<td>指的是给新建用户建立邮箱，默认是创建。也就是说，对于所有的新建用户，系统都会新建一个邮箱，放在 /var/spool/mail/ 目录下，和用户名相同。例如，lamp1 的邮箱位于 /var/spool/mail/lamp1。</td>
+</tr>
+</tbody></table>
+<p> /etc/login.defs </p>
+<p>文件用于在创建用户时，对用户的一些基本属性做默认设置，例如指定用户 UID 和 GID 的范围，用户的过期时间，密码的最大长度，等等。 </p>
+<p> 需要注意的是，该文件的用户默认配置对 root 用户无效。并且，当此文件中的配置与 /etc/passwd 和 /etc/shadow 文件中的用户信息有冲突时，系统会以/etc/passwd 和 /etc/shadow 为准。 </p>
+<table>
+<thead>
+<tr>
+<th>设置项</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>MAIL_DIR /var/spool/mail</td>
+<td>创建用户时，系统会在目录 /var/spool/mail 中创建一个用户邮箱，比如 lamp 用户的邮箱是 /var/spool/mail/lamp。</td>
+</tr>
+<tr>
+<td>PASS_MAX_DAYS 99999</td>
+<td>密码有效期，99999 是自 1970 年 1 月 1 日起密码有效的天数，相当于 273 年，可理解为密码始终有效。</td>
+</tr>
+<tr>
+<td>PASS_MIN_DAYS 0</td>
+<td>表示自上次修改密码以来，最少隔多少天后用户才能再次修改密码，默认值是 0。</td>
+</tr>
+<tr>
+<td>PASS_MIN_LEN 5</td>
+<td>指定密码的最小长度，默认不小于 5 位，但是现在用户登录时验证已经被 PAM 模块取代，所以这个选项并不生效。</td>
+</tr>
+<tr>
+<td>PASS_WARN_AGE 7</td>
+<td>指定在密码到期前多少天，系统就开始通过用户密码即将到期，默认为 7 天。</td>
+</tr>
+<tr>
+<td>UID_MIN 500</td>
+<td>指定最小 UID 为 500，也就是说，添加用户时，默认 UID 从 500 开始。注意，如果手工指定了一个用户的 UID 是 550，那么下一个创建的用户的 UID 就会从 551 开始，哪怕 500~549 之间的 UID 没有使用。</td>
+</tr>
+<tr>
+<td>UID_MAX 60000</td>
+<td>指定用户最大的 UID 为 60000。</td>
+</tr>
+<tr>
+<td>GID_MIN 500</td>
+<td>指定最小 GID 为 500，也就是在添加组时，组的 GID 从 500 开始。</td>
+</tr>
+<tr>
+<td>GID_MAX 60000</td>
+<td>用户 GID 最大为 60000。</td>
+</tr>
+<tr>
+<td>CREATE_HOME yes</td>
+<td>指定在创建用户时，是否同时创建用户主目录，yes 表示创建，no 则不创建，默认是 yes。</td>
+</tr>
+<tr>
+<td>UMASK 077</td>
+<td>用户主目录的权限默认设置为 077。</td>
+</tr>
+<tr>
+<td>USERGROUPS_ENAB yes</td>
+<td>指定删除用户的时候是否同时删除用户组，准备地说，这里指的是删除用户的初始组，此项的默认值为 yes。</td>
+</tr>
+<tr>
+<td>ENCRYPT_METHOD SHA512</td>
+<td>指定用户密码采用的加密规则，默认采用 SHA512，这是新的密码加密模式，原先的 <a target="_blank" rel="noopener" href="http://c.biancheng.net/linux_tutorial/">Linux</a> 只能用 DES 或 MD5 加密。</td>
+</tr>
+</tbody></table>
+<h2 id="0x022-passwd-修改密码"><a href="#0x022-passwd-修改密码" class="headerlink" title="0x022 passwd 修改密码"></a>0x022 passwd 修改密码</h2><p>先提一点 普通用户只能修改自己的密码。只有root才能更改其他账号的密码</p>
+<pre><code># passwd [选项] 用户名
+选项
+    -l : lock暂时锁定用户，仅root用户可用
+    -u : unlock解锁同上
+    --stdin: 可用将通过管道符输出的数据作为用户的密码。主要在批量添加用户时使用。
+</code></pre>
+<p><strong>补充</strong></p>
+<p>如果把要把用户设置成下次登陆后，先更改密码。可把修改密码的时间更更改为0</p>
+<p>也可以用指令修改</p>
+<pre><code class="shell"># chage -d 0 user
+</code></pre>
+<p>这个命令用的很少。</p>
+<h2 id="0x023-用户信息修改"><a href="#0x023-用户信息修改" class="headerlink" title="0x023 用户信息修改"></a>0x023 用户信息修改</h2><pre><code># usermod [选项] 用户名
+选项:
+    -u UID ： 修改UID
+    -d home目录 : 修改home目录，必须写绝对路径
+    -c 用户说明  : 修改用户说明 也就是/etc/passwd文件的自第五个字段
+    -g 组名     : 修改用户的初始组
+    -G 组名     ：修改用户的附加组，也就是把用户加入其他用户组
+    -s shell   : 修改用户的登陆shell
+    -e 日期     : 修改用户的失效日期,也就是/etc/shadow/的第八个字段
+</code></pre>
+<p>这个一般只 修改 -G其他的用的很少</p>
+<h3 id="0x024-删除用户"><a href="#0x024-删除用户" class="headerlink" title="0x024 删除用户"></a>0x024 删除用户</h3><pre><code># userdel [-r] 用户名
+    -r  ： 删除用户的同时删除Home目录
+</code></pre>
+<h3 id="0x025-切换用户"><a href="#0x025-切换用户" class="headerlink" title="0x025 切换用户"></a>0x025 切换用户</h3><pre><code class="shell"># su [选项] 用户
+选项:
+    - : 连带环境变量一起更换成其他用户
+    -c 命令 : 仅执行命令不用切换用户
+</code></pre>
+<p>注意： “-“仅仅时切换身份， 用户的环境变量并没有改变，如果要改变必须添加”-“</p>
+<h1 id="0x03-组管理命令"><a href="#0x03-组管理命令" class="headerlink" title="0x03 组管理命令"></a>0x03 组管理命令</h1><h2 id="0x031-groupadd"><a href="#0x031-groupadd" class="headerlink" title="0x031 groupadd"></a>0x031 groupadd</h2><pre><code class="shell"># groupadd [选项] 组名
+选项: 
+    -g GID : 指定组ID
+</code></pre>
+<h2 id="0x032-groupdel"><a href="#0x032-groupdel" class="headerlink" title="0x032 groupdel"></a>0x032 groupdel</h2><pre><code>#groupdel 组名
+</code></pre>
+<p>不过要注意:</p>
+<p>要删除的组不能是其他用户的初始组。也就是说这个组中没有初始用户才可以删除。如果组中有附加用户，则删除组时不受影响。</p>
+<p>也就是<strong>如果要删除组就必须先删除用户</strong></p>
+<h2 id="0x033-gpasswd"><a href="#0x033-gpasswd" class="headerlink" title="0x033 gpasswd"></a>0x033 gpasswd</h2><p>gpasswd其实是用来设定组密码和指定组管理元的。但是很少用所以不介绍,只写把成员加入组和从组中删除成员</p>
+<pre><code>#gpasswd [选项] 组名
+选项: 
+    -a 用户名 : 把用户加入用户组
+    -d 用户名 ： 把用户从组中删除
+</code></pre>
+<p>这里注意:</p>
+<p>usermod也可以把用户加入到某个组 <code>usermod -G grouptest user</code>把用户参数放在后面</p>
+<p>而gpasswd时</p>
+<p><code>gpasswd -a user grouptest</code> 把用户参数放在前面</p>
+<h2 id="0x034-newgrp-改变有效组"><a href="#0x034-newgrp-改变有效组" class="headerlink" title="0x034 newgrp 改变有效组"></a>0x034 newgrp 改变有效组</h2><p>当一个用户在两个用户组里 有时候想在user1组里工作有时候在user2组里工作要切换这个文件组就可以用 这个指令</p>
+<pre><code class="shell"># newgrp 组名 #切换当前组
+</code></pre>
+
+</div>
+
+
+    <div class="post-guide">
+        <div class="item left">
+            
+              <a href="/2019/11/19/Linux/07Linux%E4%B9%8B%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/">
+                  <i class="fa fa-angle-left" aria-hidden="true"></i>
+                  07Linux之权限管理
+              </a>
+            
+        </div>
+        <div class="item right">
+            
+              <a href="/2019/11/14/Linux/05Linux%E4%B9%8B%E8%BD%AF%E4%BB%B6%E5%8C%85/">
+                05Linux之软件包
+                <i class="fa fa-angle-right" aria-hidden="true"></i>
+              </a>
+            
+        </div>
+    </div>
+
+
+
+
+<script>
+	
+	
+</script>
+	</div>
+	<div id="footer">
+	<p>
+	©2020-<span id="footerYear"></span> 
+	<a href="/">BamB00</a> 
+	
+	
+		|
+		<span id="busuanzi_container_site_pv">
+			pv
+			<span id="busuanzi_value_site_pv"></span>
+		</span>
+		|
+		<span id="busuanzi_container_site_uv"> 
+			uv
+			<span id="busuanzi_value_site_uv"></span>
+		</span>
+	
+	<br>
+	Theme <a href="//github.com/wujun234/hexo-theme-tree" target="_blank">Tree</a>
+	by <a href="//github.com/wujun234" target="_blank">WuJun</a>
+	Powered by <a href="//hexo.io" target="_blank">Hexo</a>
+	</p>
+</div>
+<script type="text/javascript"> 
+	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
+</script>
+	<button id="totop-toggle" class="toggle"><i class="fa fa-angle-double-up" aria-hidden="true"></i></button>
+</body>
+</html>

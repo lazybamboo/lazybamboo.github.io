@@ -1,0 +1,980 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8">
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+	
+	<!-- title -->
+	
+	<title>
+	
+		05Linux软件包 | 
+	 
+	竹竿小站
+	</title>
+	
+	<!-- keywords,description -->
+	 
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.jpg">
+	
+
+
+	<!-- search -->
+	<script>
+		var searchEngine = "https://www.baidu.com/s?wd=";
+		if(typeof searchEngine == "undefined" || searchEngine == null || searchEngine == ""){
+			searchEngine = "https://www.google.com/search?q=";
+		}
+		var homeHost = "bamboo.github.io";
+		if(typeof homeHost == "undefined" || homeHost == null || homeHost == ""){
+			homeHost = window.location.host;
+		}
+	</script>
+
+
+	
+<link rel="stylesheet" href="/css/main.css">
+
+	
+<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.min.css">
+
+	
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.17.1/build/styles/darcula.min.css">
+
+	
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+
+
+	
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+
+	
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
+	
+<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.17.1/build/highlight.min.js"></script>
+
+	
+<script src="https://cdn.jsdelivr.net/npm/jquery-pjax@2.0.1/jquery.pjax.min.js"></script>
+
+	
+<script src="/js/main.js"></script>
+
+	
+		
+<script src="https://cdn.jsdelivr.net/npm/leancloud-storage/dist/av-min.js"></script>
+
+		
+<script src="https://cdn.jsdelivr.net/npm/valine@1.3.10/dist/Valine.min.js"></script>
+
+	
+	
+		<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+	
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+	<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?3efe99c287df5a1d6f0d02d187e403c1";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+<header id="header">
+    <a id="title" href="/" class="logo">竹竿小站</a>
+
+	<ul id="menu">
+		<li class="menu-item">
+			<a href="/about" class="menu-item-link">ABOUT</a>
+		</li>
+	
+		<li class="menu-item">
+			<a href="/tags" class="menu-item-link">标签</a>
+		</li>
+	
+
+	
+		<li class="menu-item">
+			<a href="/categories" class="menu-item-link">分类</a>
+		</li>
+	
+
+		<li class="menu-item">
+			<a href="https://github.com/wujun234/uid-generator-spring-boot-starter" class="menu-item-link" target="_blank">
+				UidGenerator
+			</a>
+		</li>
+		<li class="menu-item">
+			<a href="https://github.com/wujun234" class="menu-item-link" target="_blank">
+				<i class="fa fa-github fa-2x"></i>
+			</a>
+		</li>
+	</ul>
+</header>
+
+	
+<div id="sidebar">
+	<button id="sidebar-toggle" class="toggle" ><i class="fa fa-arrow-right " aria-hidden="true"></i></button>
+	
+	<div id="site-toc">
+		<input id="search-input" class="search-input" type="search" placeholder="按回车全站搜索">
+		<div id="tree">
+			
+
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Linux
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/2017/08/08/Linux/01linux-%E5%AE%89%E8%A3%85/">
+										01linux-安装
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/11/08/Linux/02Linux%E5%AD%A6%E5%89%8D%E9%A1%BB%E7%9F%A5/">
+										02Linux学前须知
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/11/08/Linux/03Linuxz%E4%B9%8B%E5%B8%B8%E7%94%A8%E7%9A%84%E5%91%BD%E4%BB%A4/">
+										03Linuxz之常用的命令
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2021/04/12/Linux/04Linux%E4%B9%8BVim/">
+										04Linux之Vim
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file active">
+									<a href="/2019/11/14/Linux/05Linux%E4%B9%8B%E8%BD%AF%E4%BB%B6%E5%8C%85/">
+										05Linux之软件包
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/11/18/Linux/06Linux%E4%B9%8B%E7%94%A8%E6%88%B7%E7%AE%A1%E7%90%86/">
+										06Linux之用户管理
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/11/19/Linux/07Linux%E4%B9%8B%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/">
+										07Linux之权限管理
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/11/20/Linux/08Linux%E4%B9%8B%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F%E7%AE%A1%E7%90%86/">
+										08Linux之文件系统管理
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/11/23/Linux/09Linux%E4%B9%8B%E9%AB%98%E7%BA%A7%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F/">
+										09Linux之高级文件管理系统
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/11/24/Linux/10Linux%E4%B9%8Bshell/">
+										10Linux之shell
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/11/26/Linux/11Linux%E4%B9%8Bshell%E9%AB%98%E7%BA%A7/">
+										11Linux之shell高级
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/12/02/Linux/12Linux%E4%B9%8B%E5%90%AF%E5%8A%A8%E5%BC%95%E5%AF%BC%E4%B8%8E%E4%BF%AE%E5%A4%8D/">
+										12Linux之启动引导与修复
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/12/06/Linux/13Linux%E4%B9%8B%E6%9C%8D%E5%8A%A1%E7%AE%A1%E7%90%86/">
+										13Linux之服务管理
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/12/10/Linux/14Linux%E4%B9%8B%E7%B3%BB%E7%BB%9F%E7%AE%A1%E7%90%86/">
+										14Linux之系统管理
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/12/06/Linux/15Linux%E4%B9%8B%E7%B3%BB%E7%BB%9F%E6%97%A5%E5%BF%97/">
+										15Linux之系统日志
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/12/17/Linux/16Centos6%E5%92%8CCentos7%E5%9F%BA%E6%9C%AC%E5%AF%B9%E6%AF%94/">
+										16Centos6和Centos7基本对比
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/12/17/Linux/17Linux%E4%B9%8B%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/">
+										17Linux之网络基础
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/10/15/Linux/18Linux%E4%B9%8B%E6%9C%8D%E5%8A%A1%E5%9F%BA%E7%A1%80SSH/">
+										18Linux之服务基础SSH
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/12/18/Linux/19Linux%E4%B9%8B%E6%9C%8D%E5%8A%A1%E5%9F%BA%E7%A1%80TCP%20Wrappers/">
+										19Linux之服务基础TCP Wrappers
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/12/18/Linux/20%E7%BD%91%E7%BB%9C%E6%9C%8D%E5%8A%A1%E4%B9%8BDHCP/">
+										20网络服务之DHCP
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/12/20/Linux/21%E7%BD%91%E7%BB%9C%E6%9C%8D%E5%8A%A1%E4%B9%8BDNS/">
+										21网络服务之DNS
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/12/26/Linux/22%E7%BD%91%E7%BB%9C%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B9%8BVSFTP/">
+										22网络服务器之VSFTP
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/10/11/Linux/Bash%E5%BF%AB%E6%8D%B7%E9%94%AE/">
+										Bash快捷键
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/10/10/Linux/LInux-CDN%E7%AE%80%E4%BB%8B/">
+										LInux-CDN简介
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/10/08/Linux/Llinux-DNS-%E8%AF%A6%E8%A7%A3/">
+										Llinux-DNS-详解
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/10/13/Linux/linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">
+										linux常用命令
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2021/04/12/Linux/%E5%8D%8A%E8%99%9A%E6%8B%9F%E5%8C%96%E5%92%8C%E7%A1%AC%E4%BB%B6%E8%99%9A%E6%8B%9F%E5%8C%96%E7%9A%84%E4%B8%BB%E8%A6%81%E5%8C%BA%E5%88%AB/">
+										半虚拟化和硬件虚拟化的主要区别
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										web渗透
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/2020/09/17/web%E6%B8%97%E9%80%8F/01SQL%E6%B3%A8%E5%85%A5/">
+										01SQL注入
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										搭建
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/2018/11/18/%E6%90%AD%E5%BB%BA/NextCloud/">
+										NextCloud
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2018/11/18/%E6%90%AD%E5%BB%BA/Nmap-Sublist3r-Hydra%E5%AE%89%E8%A3%85%EF%BC%88Ubuntu%E7%8E%AF%E5%A2%83%EF%BC%89/">
+										Nmap-Sublist3r-Hydra安装（Ubuntu环境）
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/04/11/%E6%90%AD%E5%BB%BA/hadoop%E5%8D%95%E6%9C%BA%E9%9B%86%E7%BE%A4%E6%90%AD%E5%BB%BA/">
+										hadoop单机集群搭建
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										汇编
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/2018/12/20/%E6%B1%87%E7%BC%96/%E6%B1%87%E7%BC%961/">
+										汇编1
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2018/12/26/%E6%B1%87%E7%BC%96/%E6%B1%87%E7%BC%962/">
+										汇编2
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/01/01/%E6%B1%87%E7%BC%96/%E6%B1%87%E7%BC%963/">
+										汇编3
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/01/05/%E6%B1%87%E7%BC%96/%E6%B1%87%E7%BC%964/">
+										汇编4
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/01/06/%E6%B1%87%E7%BC%96/%E6%B1%87%E7%BC%965/">
+										汇编5
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2019/01/07/%E6%B1%87%E7%BC%96/%E6%B1%87%E7%BC%966/">
+										汇编6
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2021/04/12/%E6%B1%87%E7%BC%96/%E9%80%9A%E7%94%A8%E5%AF%84%E5%AD%98%E5%99%A8/">
+										通用寄存器
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+		</div>
+	</div>
+</div>
+
+	<!-- 引入正文 -->
+	<div id="content">
+		<h1 id="article-title">
+
+	05Linux之软件包
+</h1>
+<div class="article-meta">
+	
+	<span>BamB00</span>
+	<span>2019-11-14 00:00:00</span>
+		<div id="article-categories">
+    
+		<span>Categories：</span>
+            
+    
+
+    
+		<span>Tags：</span>
+            
+                
+                    <span>
+                        <i class="fa fa-tag" aria-hidden="true">
+                        <a href="/tags/Linux/">-Linux</a>
+                        </i>
+                    </span>
+                
+            
+    
+		</div>
+
+</div>
+
+<div id="article-content">
+	<h1 id="0x01-软件包分类"><a href="#0x01-软件包分类" class="headerlink" title="0x01 软件包分类"></a>0x01 软件包分类</h1><ul>
+<li><p>源码包 </p>
+<p>开放的源程序，程序就是源码。</p>
+<ul>
+<li>优点: <ol>
+<li>开源，可以直接看大佬的源码直接学习，自己有能力也可以修改</li>
+<li>可以自由的选择所需的功能</li>
+<li>软件是编译安装，所以更加适合自己的系统，更加稳定，效率也更高</li>
+<li>卸载方便</li>
+</ol>
+</li>
+<li>缺点:<ol>
+<li>安装步骤较多，尤其是安装较大的软件集合时(如LAMP环境搭建),容易拼写错误</li>
+<li>编译时间过长，安装比二进制安装较长</li>
+<li>因为是编译安装，安装过程一旦报错新手就很难解决</li>
+</ol>
+</li>
+</ul>
+</li>
+<li><p>二进制包</p>
+<ul>
+<li><p>Windows的EXE和Linux的rpm就是二进制包。</p>
+</li>
+<li><p>二进制包还要细分为</p>
+<ul>
+<li>DPKG包：dpkg主要再debian和ubuntu</li>
+<li>RPM包 : 主要用于 Fedora ,Centos,SuSE等</li>
+</ul>
+</li>
+<li><p>优点:</p>
+<ol>
+<li>包管理系统简单，指通过几个命令就可以实现包的安装，升级，查询，和卸载</li>
+<li>安装速度比源码安装快很多</li>
+</ol>
+</li>
+<li><p>缺点:</p>
+<ol>
+<li>经过编译，不再可以看到源代码</li>
+<li>功能选择不如源码包灵活</li>
+<li>依赖性: 有时候我们安装A包时需要先安装B和C环境包同时B又需要D和E环境包。<ul>
+<li>RPM依赖包有时候 没有<code>*.os.2</code>环境，而且这个包本机没有得手动安装。这个可以再<a target="_blank" rel="noopener" href="http://www.rpmfind.net/%E6%89%BE%E5%88%B0%E7%9B%B8%E5%AF%B9%E5%BA%94%E7%9A%84%E5%8C%85%E7%8E%AF%E5%A2%83">http://www.rpmfind.net/找到相对应的包环境</a></li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
+<p>补充(yum并不是软件包，只是一种在线安装工具。不属于安装包)</p>
+</li>
+</ul>
+<h1 id="0x02-rpm-安装"><a href="#0x02-rpm-安装" class="headerlink" title="0x02 rpm 安装"></a>0x02 rpm 安装</h1><h2 id="0x021-rpm包命名规则"><a href="#0x021-rpm包命名规则" class="headerlink" title="0x021 rpm包命名规则"></a>0x021 rpm包命名规则</h2><pre><code>openssl-devel-1.0.2k-16.el7_6.1.x86_64.rpm
+</code></pre>
+<ul>
+<li>软件包名 : openssl-devel</li>
+<li>版本 : 1.0.2k</li>
+<li>发布次数 : 16</li>
+<li>软件发行商: e17 是 适合再RHEL 7.x/CentOS 7.x 使用</li>
+<li>适合硬件环境 : x86_64 注意如果这里是noarch则是全平台通用</li>
+<li>扩展名: rpm</li>
+</ul>
+<p>操作包命和全名:</p>
+<p>​    只有安装的时候才使用包全名而且需要绝对路径</p>
+<p>​    如果操作的是已经安装的软件包，使用包命即可，系统产生的RPM包数据库在（/var/lib/rpm）</p>
+<h2 id="0x022-rpm包手工命令安装"><a href="#0x022-rpm包手工命令安装" class="headerlink" title="0x022 rpm包手工命令安装"></a>0x022 rpm包手工命令安装</h2><h3 id="0x0221-RPM包默认安装路径"><a href="#0x0221-RPM包默认安装路径" class="headerlink" title="0x0221 RPM包默认安装路径"></a>0x0221 RPM包默认安装路径</h3><table>
+<thead>
+<tr>
+<th>路径</th>
+<th>类型</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>/etc/</td>
+<td>配置文件安装目录</td>
+</tr>
+<tr>
+<td>/usr/bin</td>
+<td>可执行的命令安装目录</td>
+</tr>
+<tr>
+<td>/usr/lib</td>
+<td>程序所使用的函数库保存位置</td>
+</tr>
+<tr>
+<td>/usr/share/doc/</td>
+<td>基本的软件使用手册保存位置</td>
+</tr>
+<tr>
+<td>/usr/share/man</td>
+<td>帮助文件保存位置</td>
+</tr>
+</tbody></table>
+<h3 id="0x0222-安装命令"><a href="#0x0222-安装命令" class="headerlink" title="0x0222 安装命令"></a>0x0222 安装命令</h3><pre><code>rpm -ivh 包全名
+#注意 一是包全名。 如果跟包全名的命令要注意路径
+ -i : install 安装
+ -v : verbose 显示详细信息
+ -h : hash 显示安装进度
+ -U ：upgrade升级安装，系统中没有就会安装，系统中有低版本就会升级
+ -F : freshen升级安装，只有有低版本才会升级
+ -e : 卸载
+ ##查询
+ -q 包命 : 查询软件是否安装
+ -qa : 查询系统中所有rpm包
+ -qi : 查询安装的软件信息
+ -qip : 查询没有安装的软件包 package(p)
+ -ql : 查询已经安装的软件包中的文件列表和完整的安装目录 list(l)
+ -qlp : 查询未安装的软件包和打算安装的目录
+ -qf 系统文件名 ： 查询系统属于哪个文件包(file)
+ -V 已安装的包命 : 校验本机已经安装的软件包 
+ -Vf 系统文件名 : 校验某个系统文件是否被修改 #这个会显示修改参数
+</code></pre>
+<ul>
+<li>–prefix 指定安装路径。为安装软件指定安装路径，而不是使用默认安装路径。注意:如果指定了安装路径，软件没有安装到系统中的默认路径的画，系统会找不到这些安装软件，需要进行手工配置才能被识别。所以我们使用rpm安装都会使用默认路径。<strong>RPM卸载的时候如果不是默认路径RPM卸载会找不到文件路径</strong></li>
+<li>–nodeps 不检测依赖性安装。软件时会检测依赖性，确定所需的环境软件是否安装。如果没有安装就会报错。如果不管依赖性可以使用这个选项。注意:大部分软件没有环境包是跑不起来的，所以不建议使用</li>
+<li>–replacefiles 替换文件安装。。如果安装软件包，可是包中的部分文件已存在，那么正常安装时候，会报错，“某个文件已经存在”从而导致无法安装这个指令可以忽略报错，而覆盖安装</li>
+<li>–replacepkgs 替换安装包，如果软件已经安装过了，可以重新再装一次</li>
+<li>–force 强制安装，不管有没有安装软件包，都需要重新安装。就是–replacefiles和–replacepkgs的综合</li>
+<li>–test 测试安装。不会实际安装，只是检测一下依赖性</li>
+</ul>
+<h3 id="0x0223-RPM安装Apache"><a href="#0x0223-RPM安装Apache" class="headerlink" title="0x0223 RPM安装Apache"></a>0x0223 RPM安装Apache</h3><p>安装HTTPD就是apache</p>
+<ul>
+<li>启动:<ol>
+<li>service httpd restart </li>
+<li>/etc/rc.d/init.d/httpd start/restart/stop  //标准是这个</li>
+</ol>
+</li>
+<li>网页位置<ul>
+<li>/var/www/html</li>
+</ul>
+</li>
+<li>配置文件<ul>
+<li>/etc/httpd/conf/httpd.conf</li>
+</ul>
+</li>
+</ul>
+<h3 id="0x0224-RPM校验"><a href="#0x0224-RPM校验" class="headerlink" title="0x0224 RPM校验"></a>0x0224 RPM校验</h3><pre><code>[root@localhost Packages]# rpm -V 已安装的包名
+#选项：
+#    -V    校验指定RPM包中的文件（verify）
+[root@localhost Packages]# vim /etc/httpd/conf/httpd.conf    ---&gt; 对包的配置文件进行修改
+[root@localhost Packages]# rpm -V httpd        ---&gt; 对修改后的包再次进行校验（无变化，无提示）
+S.5....T. c /etc/httpd/conf/httpd.conf 
+</code></pre>
+<p>最后一行有提示代表着有修改</p>
+<table>
+<thead>
+<tr>
+<th>提示代码</th>
+<th>代码信息</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>S</td>
+<td>文件大小改变</td>
+</tr>
+<tr>
+<td>M</td>
+<td>文件的类型或文件的权限是否改变(rwx是否改变)</td>
+</tr>
+<tr>
+<td>5</td>
+<td>文件的MD5是否改变 （可以堪称内容是否改变</td>
+</tr>
+<tr>
+<td>D</td>
+<td>装置的主/次代码已经改变</td>
+</tr>
+<tr>
+<td>L</td>
+<td>Link路径已被改变</td>
+</tr>
+<tr>
+<td>U</td>
+<td>文件的所属人已被改变</td>
+</tr>
+<tr>
+<td>G</td>
+<td>文件的所属群组已被改变</td>
+</tr>
+<tr>
+<td>T</td>
+<td>文件的创建时间已被改变</td>
+</tr>
+</tbody></table>
+<p>最后一个小写字母含义</p>
+<table>
+<thead>
+<tr>
+<th>提示代码</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>c</td>
+<td>配置文件(config file)</td>
+</tr>
+<tr>
+<td>d</td>
+<td>普通文件(documentation)</td>
+</tr>
+<tr>
+<td>g</td>
+<td>“鬼文件”(ghost file)</td>
+</tr>
+<tr>
+<td>l</td>
+<td>授权文件(license file)</td>
+</tr>
+<tr>
+<td>r</td>
+<td>描述文件(read file)</td>
+</tr>
+</tbody></table>
+<h3 id="0x0225-数字证书"><a href="#0x0225-数字证书" class="headerlink" title="0x0225 数字证书"></a>0x0225 数字证书</h3><p>数字证书的特点:</p>
+<ul>
+<li>首先必须找到原厂的公钥文件，然后进行安装</li>
+<li>再安装RPM包是，回去提取RPM包中的证书信息，然后和本机安装的原厂证书进行严重</li>
+<li>如果通过验证，运行安装，不通过验证，不允许安装并警告。</li>
+</ul>
+<p>数字证书位置:</p>
+<ol>
+<li>光盘里</li>
+<li>系统的 <code>/etc/pki/rpm-gpg/</code>里</li>
+</ol>
+<pre><code>rpm --import xxxx证书
+rpm导入证书
+</code></pre>
+<h3 id="0x0226-RPM-包文件提取"><a href="#0x0226-RPM-包文件提取" class="headerlink" title="0x0226 RPM 包文件提取"></a>0x0226 RPM 包文件提取</h3><p>如果配置文件被删除 但还有RPM包可以从包里面提取</p>
+<pre><code>rpm2cpio 包全名 | cpio -idv 文件的绝对路径
+#这里一定要加文件的绝对路径不然会直接解压到默认安装目录，甚至覆盖已经安装的文件
+</code></pre>
+<h2 id="0x023-rpm在线安装-yum安装"><a href="#0x023-rpm在线安装-yum安装" class="headerlink" title="0x023 rpm在线安装(yum安装)"></a>0x023 rpm在线安装(yum安装)</h2><p>yum源配置文件保存在/etc/yum.repos.d/目录中，文件的扩展名一定是”<em>.repo”也就是说yum源配置文件只要扩展名是”</em>.repo”就会生效</p>
+<p><strong>系统中没有Yum包仅仅只是rpm包的在线安装</strong></p>
+<p>因为常常有5个yum，这里只写Base网络容器，其他容器类似</p>
+<ul>
+<li>[base]: 容器名称，一定要放在[]中</li>
+<li>name: 容器说明，可以随便写</li>
+<li>mirrorlist: 镜像站点，这个可以注释掉</li>
+<li>baseurl: 我们的yum源服务器的地址。默认是Centos官方的yum源服务器，是可以使用的。如果觉得慢，可以改成你喜欢的yum源地址 #注意 如果不用的一定要注释掉不然会报错</li>
+<li>enabled: 此容器是否生效，如过不写或者写成<code>enabled=1</code>则表示此容器生效，写成<code>enabled=0</code>不生效</li>
+<li>gpgcheck： 如果为1则表示RPM的数字证书生效: 如果为0则表示RPM的数字证书不生效。</li>
+<li>gpgkey： 数字证书的公钥文件保存位置。不用修改</li>
+</ul>
+<h2 id="0x024-yum命令"><a href="#0x024-yum命令" class="headerlink" title="0x024 yum命令"></a>0x024 yum命令</h2><ol>
+<li><p>查询</p>
+<ul>
+<li>查询yum源服务器上所有可安装的软件包列表</li>
+</ul>
+<pre><code># yum list #查询所有可用软件包列表
+Installed Package #已经安装的软件包
+GeoIP.x86_64                                1.5.0-14.el7               @base    
+NetworkManager.x86_64                       1:1.18.0-5.el7_7.1         @updates 
+NetworkManager-libnm.x86_64                 1:1.18.0-5.el7_7.1         @updates 
+NetworkManager-team.x86_64                  1:1.18.0-5.el7_7.1         @updates 
+NetworkManager-tui.x86_64                   1:1.18.0-5.el7_7.1         @updates 
+NetworkManager-wifi.x86_64                  1:1.18.0-5.el7_7.1         @updates 
+acl.x86_64                                  2.2.51-14.el7              @anaconda
+aic94xx-firmware.noarch                     30-6.el7                   @anaconda
+alsa-firmware.noarch                        1.0.28-2.el7               @anaconda
+alsa-lib.x86_64                             1.1.8-1.el7                @base    
+alsa-tools-firmware.x86_64                  1.1.0-1.el7                @anaconda
+Available Package #还可以安装的软件包
+389-ds-base.x86_64                          1.3.9.1-10.el7             base     
+389-ds-base-devel.x86_64                    1.3.9.1-10.el7             base     
+389-ds-base-libs.x86_64                     1.3.9.1-10.el7             base     
+389-ds-base-snmp.x86_64                     1.3.9.1-10.el7             base     
+#包命                                           #版本                        #所在位置(yum源)
+</code></pre>
+</li>
+<li><p>搜索yum源服务器上所有和关键字相关的软件包</p>
+<pre><code># yum search 关键字 #只要是相关的都可以找到
+# yum search 命令/文件 #这样可用找到命令所在的包
+</code></pre>
+</li>
+<li><p>安装</p>
+<pre><code>#yum -y install 包名   #会自动安装依赖环境
+    # install ： 安装
+    # -y : 只要有疑问就yes
+</code></pre>
+</li>
+<li><p>升级</p>
+<pre><code># yum -y update 包命 #不写包命会把所有包升级建议只在第一次装机升级，安装服务后别升级，如果是安全服务器有问题，单独升级某个包。
+</code></pre>
+</li>
+<li><p>卸载</p>
+<p>除非缺点卸载的软件的依赖包不会对系统产生影响，否则不要执行yum的卸载，因为也有可能很多软件在使用这个依赖包，导致系统崩溃</p>
+<pre><code class="shell"># yum remove 包名
+</code></pre>
+</li>
+<li><p>查看可以安装的软件安装包组</p>
+<pre><code class="shell"># yum grouplist 列出所有可用的软件组列表
+</code></pre>
+</li>
+<li><p>查询软件组内包含的软件</p>
+<pre><code class="shell"># yum gourpinfo 软件组名
+例如： yum groupinfo &quot;Web Server&quot;
+</code></pre>
+</li>
+</ol>
+<h1 id="0x03-源码包安装"><a href="#0x03-源码包安装" class="headerlink" title="0x03 源码包安装"></a>0x03 源码包安装</h1><h2 id="0x031-注意事项"><a href="#0x031-注意事项" class="headerlink" title="0x031 注意事项"></a>0x031 注意事项</h2><ol>
+<li><p>选择那种软件包</p>
+<ul>
+<li>源码包 : 如果服务是给大量客户端提供的，建议使用源码包,源码包效率更高(LAMP)</li>
+<li>RPM包 : 如果程序是给少量用户访问，或者本地使用的，建议RPM包，因为管理RPM包方便</li>
+</ul>
+</li>
+<li><p>源码包从哪里来</p>
+<ul>
+<li>RPM包是光盘中包含的。</li>
+<li>源码包是官网提供的，需要手工下载。</li>
+</ul>
+</li>
+<li><p>是否可用在系统中使用RPM在线安装Apache后，又安装源码包的Apache</p>
+<p>可以,因为两个安装方法的Apache，安装位置不一样</p>
+<pre><code>RPM包： 默认安装目录
+    /etc/httpd/conf/httpd.conf  #默认配置文件
+    /var/www/html/                #默认网站位置
+    /var/log/httpd/                #默认日志位置
+启动方法 service httpd restart
+源码包： 必须制定安装位置（这个是习惯安装的位置）
+    /usr/local/apache2/conf/httpd.conf
+    /usr/local/apache2/htdocs/
+    /usr/local/apache2/logs/
+    /usr/local/apache2/bin/apachectl start 
+</code></pre>
+</li>
+<li><p>生产服务器上，是否同时安装两种Apache?</p>
+<p>不会，因为系统中只有一个80端口，所以只能启动一个，装多个是浪费资源，建议源码包安装Apache.</p>
+</li>
+</ol>
+<h2 id="0x32-安装过程"><a href="#0x32-安装过程" class="headerlink" title="0x32 安装过程"></a>0x32 安装过程</h2><p>下载解压进入目录掠过</p>
+<p>安装包内</p>
+<ul>
+<li><p>./configure 编译前准备</p>
+<p>这一步主要有三个作用:</p>
+<ol>
+<li>在安装前检测系统环境是否符合安装要求</li>
+<li>定义需要的功能选项。”./configure”支持的功能选项较多，可以执行<code>./configure --help</code>命令查询支持的功能。一般都会通过<code>./configure --prefix=安装路径</code>来指定安装路径</li>
+<li>把系统环境的检测结果和定义好的功能选项写入Makefile文件，后续的编译和安装需要依赖这个文件内容</li>
+</ol>
+<p>需要注意的是: <code>configure</code>不是系统命令，而是源码包软件自带的一个脚本程序，所以必须采用<code>./configure</code>方式执行</p>
+</li>
+<li><p>make 编译</p>
+<p>make会调用gcc编译器，并读取Makefile文件中的信息进行系统软件编译。编译的目的就是把源码程序转变为能被Linux识别的可执行文件，这些可执行文件保存在当前目录下。编译过程较为耗时间，需要有足够的耐心。</p>
+</li>
+<li><p>make clean: 清空编译内容(非必须步骤)</p>
+<p>在<code>make or ./configure</code>编译中报错一定要执行make clean命令，他会清空Makefile文件或编译产生的”.o”头文件</p>
+</li>
+<li><p>make install 编译安装</p>
+<p>这才是真正的安装过程，一般会写清楚程序的安装位置，如果忘记指定安装目录，则可以把这个命令的执行过程保存下来，以备使用。</p>
+</li>
+</ul>
+<h2 id="0x33-删除"><a href="#0x33-删除" class="headerlink" title="0x33 删除"></a>0x33 删除</h2><p>源码包没有删除命令，如果需要删除，直接安装目录即可。</p>
+<h1 id="0x04-打补丁"><a href="#0x04-打补丁" class="headerlink" title="0x04 打补丁"></a>0x04 打补丁</h1><h2 id="0x041-补丁的生成"><a href="#0x041-补丁的生成" class="headerlink" title="0x041 补丁的生成"></a>0x041 补丁的生成</h2><pre><code class="shell">diff 选项 old new #比较old和new文件的不同  Old和new要写绝对路径
+选项: 
+    -a 将任何文档当作文本文档处理
+    -b 忽略空格造成的不同
+    -B 忽略空白行造成的不同
+    -I 忽略大小写造成的不同
+    -N 当比较两个目录是，如果某一个文件只有一边又，则另一个目录将视为空文件
+    -r 比较目录时，递归比较子目录
+    -U 使用同一输出格式
+</code></pre>
+<pre><code class="shell"># patch -pn &lt; 补丁文件 #安装补丁文件进行更新
+选项
+    -pn n为数字，代表按照补丁文件中的路径，指定更新文件的位置
+</code></pre>
+<p>“-pn”不好理解，按照厂商手册去操作即可。</p>
+
+</div>
+
+
+    <div class="post-guide">
+        <div class="item left">
+            
+              <a href="/2019/11/18/Linux/06Linux%E4%B9%8B%E7%94%A8%E6%88%B7%E7%AE%A1%E7%90%86/">
+                  <i class="fa fa-angle-left" aria-hidden="true"></i>
+                  06Linux之用户管理
+              </a>
+            
+        </div>
+        <div class="item right">
+            
+              <a href="/2019/11/08/Linux/02Linux%E5%AD%A6%E5%89%8D%E9%A1%BB%E7%9F%A5/">
+                02Linux学前须知
+                <i class="fa fa-angle-right" aria-hidden="true"></i>
+              </a>
+            
+        </div>
+    </div>
+
+
+
+
+<script>
+	
+	
+</script>
+	</div>
+	<div id="footer">
+	<p>
+	©2020-<span id="footerYear"></span> 
+	<a href="/">BamB00</a> 
+	
+	
+		|
+		<span id="busuanzi_container_site_pv">
+			pv
+			<span id="busuanzi_value_site_pv"></span>
+		</span>
+		|
+		<span id="busuanzi_container_site_uv"> 
+			uv
+			<span id="busuanzi_value_site_uv"></span>
+		</span>
+	
+	<br>
+	Theme <a href="//github.com/wujun234/hexo-theme-tree" target="_blank">Tree</a>
+	by <a href="//github.com/wujun234" target="_blank">WuJun</a>
+	Powered by <a href="//hexo.io" target="_blank">Hexo</a>
+	</p>
+</div>
+<script type="text/javascript"> 
+	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
+</script>
+	<button id="totop-toggle" class="toggle"><i class="fa fa-angle-double-up" aria-hidden="true"></i></button>
+</body>
+</html>
